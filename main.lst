@@ -10,91 +10,77 @@
   18               	main:
   19               	.LFB6:
   20               	.LM1:
-  21               	/* prologue: function */
-  22               	/* frame size = 0 */
-  23               	.LM2:
-  24 0000 549A      		sbi 42-32,4
-  25               	.LM3:
-  26 0002 5C98      		cbi 43-32,4
-  27               	.LBB18:
-  28               	.LBB19:
-  29               	.LBB20:
-  30               	.LBB21:
-  31               	.LM4:
-  32 0004 40E3      		ldi r20,lo8(30000)
-  33 0006 55E7      		ldi r21,hi8(30000)
-  34               	.LBE21:
-  35               	.LBE20:
-  36               	.LBE19:
-  37               	.LBE18:
-  38               	.LBB25:
-  39               	.LBB26:
-  40               	.LBB27:
-  41               	.LBB28:
-  42 0008 2CE2      		ldi r18,lo8(300)
-  43 000a 31E0      		ldi r19,hi8(300)
-  44               	.LVL0:
-  45               	.L3:
-  46               	.LBE28:
-  47               	.LBE27:
-  48               	.LBE26:
-  49               	.LBE25:
-  50               	.LM5:
-  51 000c 5C9A      		sbi 43-32,4
-  52               	.LBB32:
-  53               	.LBB24:
-  54               	.LBB23:
-  55               	.LBB22:
-  56               	.LM6:
-  57 000e CA01      		movw r24,r20
-  58               	.LVL1:
-  59               	/* #APP */
-  60               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
-  61 0010 0197      		1: sbiw r24,1
-  62 0012 01F4      		brne 1b
-  63               	 ;  0 "" 2
-  64               	/* #NOAPP */
-  65               	.LBE22:
-  66               	.LBE23:
-  67               	.LBE24:
-  68               	.LBE32:
-  69               	.LM7:
-  70 0014 5C98      		cbi 43-32,4
-  71 0016 88E8      		ldi r24,lo8(5000)
-  72 0018 93E1      		ldi r25,hi8(5000)
-  73               	.LVL2:
-  74               	.L2:
-  75               	.LBB33:
-  76               	.LBB31:
-  77               	.LBB30:
-  78               	.LBB29:
-  79               	.LM8:
-  80 001a F901      		movw r30,r18
-  81               	/* #APP */
-  82               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
-  83 001c 3197      		1: sbiw r30,1
-  84 001e 01F4      		brne 1b
-  85               	 ;  0 "" 2
-  86               	/* #NOAPP */
-  87               	.LBE29:
-  88               	.LBE30:
-  89               	.LM9:
-  90 0020 0197      		sbiw r24,1
-  91               	.LM10:
-  92 0022 01F4      		brne .L2
-  93 0024 00C0      		rjmp .L3
-  94               	.LBE31:
-  95               	.LBE33:
-  96               	.LFE6:
- 122               	.Letext0:
+  21 0000 CF93      		push r28
+  22 0002 DF93      		push r29
+  23               	/* prologue: function */
+  24               	/* frame size = 0 */
+  25               	.LM2:
+  26 0004 549A      		sbi 42-32,4
+  27               	.LM3:
+  28 0006 5C98      		cbi 43-32,4
+  29               	.LM4:
+  30 0008 0E94 0000 		call I2C_GPIO_Init
+  31               	.LBB12:
+  32               	.LBB13:
+  33               	.LBB14:
+  34               	.LBB15:
+  35               	.LM5:
+  36 000c CCE2      		ldi r28,lo8(300)
+  37 000e D1E0      		ldi r29,hi8(300)
+  38               	.LVL0:
+  39               	.L3:
+  40               	.LBE15:
+  41               	.LBE14:
+  42               	.LBE13:
+  43               	.LBE12:
+  44               	.LM6:
+  45 0010 0E94 0000 		call I2C_Start
+  46               	.LVL1:
+  47               	.LM7:
+  48 0014 83E6      		ldi r24,lo8(99)
+  49 0016 0E94 0000 		call I2C_Data
+  50               	.LM8:
+  51 001a 0E94 0000 		call I2C_Stop
+  52 001e 88E8      		ldi r24,lo8(5000)
+  53 0020 93E1      		ldi r25,hi8(5000)
+  54               	.LVL2:
+  55               	.L2:
+  56               	.LBB19:
+  57               	.LBB18:
+  58               	.LBB17:
+  59               	.LBB16:
+  60               	.LM9:
+  61 0022 FE01      		movw r30,r28
+  62               	.LVL3:
+  63               	/* #APP */
+  64               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  65 0024 3197      		1: sbiw r30,1
+  66 0026 01F4      		brne 1b
+  67               	 ;  0 "" 2
+  68               	/* #NOAPP */
+  69               	.LBE16:
+  70               	.LBE17:
+  71               	.LM10:
+  72 0028 0197      		sbiw r24,1
+  73               	.LM11:
+  74 002a 01F4      		brne .L2
+  75 002c 00C0      		rjmp .L3
+  76               	.LBE18:
+  77               	.LBE19:
+  78               	.LFE6:
+ 104               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\farid\AppData\Local\Temp/ccctduHd.s:2      *ABS*:0000003f __SREG__
-C:\Users\farid\AppData\Local\Temp/ccctduHd.s:3      *ABS*:0000003e __SP_H__
-C:\Users\farid\AppData\Local\Temp/ccctduHd.s:4      *ABS*:0000003d __SP_L__
-C:\Users\farid\AppData\Local\Temp/ccctduHd.s:5      *ABS*:00000034 __CCP__
-C:\Users\farid\AppData\Local\Temp/ccctduHd.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\farid\AppData\Local\Temp/ccctduHd.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\farid\AppData\Local\Temp/ccctduHd.s:18     .text:00000000 main
+C:\Users\farid\AppData\Local\Temp/cc5jyw8Z.s:2      *ABS*:0000003f __SREG__
+C:\Users\farid\AppData\Local\Temp/cc5jyw8Z.s:3      *ABS*:0000003e __SP_H__
+C:\Users\farid\AppData\Local\Temp/cc5jyw8Z.s:4      *ABS*:0000003d __SP_L__
+C:\Users\farid\AppData\Local\Temp/cc5jyw8Z.s:5      *ABS*:00000034 __CCP__
+C:\Users\farid\AppData\Local\Temp/cc5jyw8Z.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\farid\AppData\Local\Temp/cc5jyw8Z.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\farid\AppData\Local\Temp/cc5jyw8Z.s:18     .text:00000000 main
 
-NO UNDEFINED SYMBOLS
+UNDEFINED SYMBOLS
+I2C_GPIO_Init
+I2C_Start
+I2C_Data
+I2C_Stop

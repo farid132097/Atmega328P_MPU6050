@@ -19,6 +19,7 @@ Linker script and memory map
 Address of section .data set to 0x800100
 LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 LOAD main.o
+LOAD i2c.o
 LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a
 LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a
@@ -114,7 +115,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000       0xaa
+.text           0x00000000      0x1ea
  *(.vectors)
  .vectors       0x00000000       0x68 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
                 0x00000000                __vectors
@@ -192,17 +193,33 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x0000007c                __vector_16
                 0x0000007c                __vector_18
                 0x0000007c                __vector_20
- .text          0x00000080       0x26 main.o
+ .text          0x00000080       0x2e main.o
                 0x00000080                main
- .text          0x000000a6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x000000a6                . = ALIGN (0x2)
+ .text          0x000000ae      0x138 i2c.o
+                0x0000012c                I2C_SDA_Reset_State
+                0x000000b8                I2C_Bit_Delay
+                0x00000104                I2C_SDA_Set_Output
+                0x000000ce                I2C_SCL_Set_Output
+                0x000001a4                I2C_Data
+                0x00000126                I2C_SCL_Reset_State
+                0x00000114                I2C_SDA_Get_State
+                0x000000f8                I2C_SDA_Set_Output_LL
+                0x000000da                I2C_SCL_Get_State
+                0x000000ec                I2C_SDA_Set_DD
+                0x000000c2                I2C_SCL_Set_DD
+                0x00000136                I2C_GPIO_Init
+                0x00000144                I2C_Start
+                0x000000ae                I2C_Half_Bit_Delay
+                0x00000174                I2C_Stop
+ .text          0x000001e6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x000001e6                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x000000a6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x000000a6                . = ALIGN (0x2)
+ .text.libgcc   0x000001e6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x000001e6                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000000a6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x000000a6                exit
-                0x000000a6                _exit
+ .fini9         0x000001e6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x000001e6                exit
+                0x000001e6                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -221,15 +238,16 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000000a6        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x000001e6        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000000aa                _etext = .
+                0x000001ea                _etext = .
 
-.data           0x00800100        0x0 load address 0x000000aa
+.data           0x00800100        0x0 load address 0x000001ea
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
  .data          0x00800100        0x0 main.o
+ .data          0x00800100        0x0 i2c.o
  .data          0x00800100        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.data*)
  *(.rodata)
@@ -244,12 +262,13 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.bss)
  .bss           0x00800100        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
  .bss           0x00800100        0x0 main.o
+ .bss           0x00800100        0x0 i2c.o
  .bss           0x00800100        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.bss*)
  *(COMMON)
                 0x00800100                PROVIDE (__bss_end, .)
-                0x000000aa                __data_load_start = LOADADDR (.data)
-                0x000000aa                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000001ea                __data_load_start = LOADADDR (.data)
+                0x000001ea                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800100        0x0
                 0x00800100                PROVIDE (__noinit_start, .)
@@ -307,54 +326,85 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000       0x20
+.debug_aranges  0x00000000       0x40
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x20 main.o
+ .debug_aranges
+                0x00000020       0x20 i2c.o
 
 .debug_pubnames
-                0x00000000       0x1b
+                0x00000000      0x15a
  *(.debug_pubnames)
  .debug_pubnames
                 0x00000000       0x1b main.o
+ .debug_pubnames
+                0x0000001b      0x13f i2c.o
 
-.debug_info     0x00000000      0x13b
+.debug_info     0x00000000      0x970
  *(.debug_info)
- .debug_info    0x00000000      0x13b main.o
+ .debug_info    0x00000000      0x10d main.o
+ .debug_info    0x0000010d      0x863 i2c.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev   0x00000000       0xca
+.debug_abbrev   0x00000000      0x223
  *(.debug_abbrev)
- .debug_abbrev  0x00000000       0xca main.o
+ .debug_abbrev  0x00000000       0xb2 main.o
+ .debug_abbrev  0x000000b2      0x171 i2c.o
 
-.debug_line     0x00000000      0x13b
+.debug_line     0x00000000      0x4dd
  *(.debug_line)
- .debug_line    0x00000000      0x13b main.o
+ .debug_line    0x00000000      0x13c main.o
+ .debug_line    0x0000013c      0x3a1 i2c.o
 
-.debug_frame    0x00000000       0x20
+.debug_frame    0x00000000      0x120
  *(.debug_frame)
  .debug_frame   0x00000000       0x20 main.o
+ .debug_frame   0x00000020      0x100 i2c.o
 
-.debug_str      0x00000000       0xcc
+.debug_str      0x00000000      0x1f3
  *(.debug_str)
  .debug_str     0x00000000       0xcc main.o
                                 0x100 (size before relaxing)
+ .debug_str     0x000000cc      0x127 i2c.o
+                                0x21b (size before relaxing)
 
-.debug_loc      0x00000000       0x40
+.debug_loc      0x00000000      0x131
  *(.debug_loc)
- .debug_loc     0x00000000       0x40 main.o
+ .debug_loc     0x00000000       0x50 main.o
+ .debug_loc     0x00000050       0xe1 i2c.o
 
 .debug_macinfo
  *(.debug_macinfo)
 OUTPUT(main.elf elf32-avr)
 LOAD linker stubs
 
-.debug_ranges   0x00000000       0x90
- .debug_ranges  0x00000000       0x90 main.o
+.debug_ranges   0x00000000       0xd8
+ .debug_ranges  0x00000000       0x48 main.o
+ .debug_ranges  0x00000048       0x90 i2c.o
 
 Cross Reference Table
 
 Symbol                                            File
+I2C_Bit_Delay                                     i2c.o
+I2C_Data                                          i2c.o
+                                                  main.o
+I2C_GPIO_Init                                     i2c.o
+                                                  main.o
+I2C_Half_Bit_Delay                                i2c.o
+I2C_SCL_Get_State                                 i2c.o
+I2C_SCL_Reset_State                               i2c.o
+I2C_SCL_Set_DD                                    i2c.o
+I2C_SCL_Set_Output                                i2c.o
+I2C_SDA_Get_State                                 i2c.o
+I2C_SDA_Reset_State                               i2c.o
+I2C_SDA_Set_DD                                    i2c.o
+I2C_SDA_Set_Output                                i2c.o
+I2C_SDA_Set_Output_LL                             i2c.o
+I2C_Start                                         i2c.o
+                                                  main.o
+I2C_Stop                                          i2c.o
+                                                  main.o
 __bad_interrupt                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __heap_end                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __init                                            c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o

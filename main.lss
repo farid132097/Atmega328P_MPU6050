@@ -3,25 +3,25 @@ main.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000000aa  00000000  00000000  00000054  2**1
+  0 .text         000001ea  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .debug_aranges 00000020  00000000  00000000  000000fe  2**0
+  1 .debug_aranges 00000040  00000000  00000000  0000023e  2**0
                   CONTENTS, READONLY, DEBUGGING
-  2 .debug_pubnames 0000001b  00000000  00000000  0000011e  2**0
+  2 .debug_pubnames 0000015a  00000000  00000000  0000027e  2**0
                   CONTENTS, READONLY, DEBUGGING
-  3 .debug_info   0000013b  00000000  00000000  00000139  2**0
+  3 .debug_info   00000970  00000000  00000000  000003d8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_abbrev 000000ca  00000000  00000000  00000274  2**0
+  4 .debug_abbrev 00000223  00000000  00000000  00000d48  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_line   0000013b  00000000  00000000  0000033e  2**0
+  5 .debug_line   000004dd  00000000  00000000  00000f6b  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_frame  00000020  00000000  00000000  0000047c  2**2
+  6 .debug_frame  00000120  00000000  00000000  00001448  2**2
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_str    000000cc  00000000  00000000  0000049c  2**0
+  7 .debug_str    000001f3  00000000  00000000  00001568  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_loc    00000040  00000000  00000000  00000568  2**0
+  8 .debug_loc    00000131  00000000  00000000  0000175b  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_ranges 00000090  00000000  00000000  000005a8  2**0
+  9 .debug_ranges 000000d8  00000000  00000000  0000188c  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -62,66 +62,476 @@ Disassembly of section .text:
   70:	de bf       	out	0x3e, r29	; 62
   72:	cd bf       	out	0x3d, r28	; 61
   74:	0e 94 40 00 	call	0x80	; 0x80 <main>
-  78:	0c 94 53 00 	jmp	0xa6	; 0xa6 <_exit>
+  78:	0c 94 f3 00 	jmp	0x1e6	; 0x1e6 <_exit>
 
 0000007c <__bad_interrupt>:
   7c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 00000080 <main>:
+#include <avr/io.h>
 #include <util/delay.h>
-
+#include "i2c.h"
 
 int main(void){
+  80:	cf 93       	push	r28
+  82:	df 93       	push	r29
 
   DDRD  |= (1<<4);
-  80:	54 9a       	sbi	0x0a, 4	; 10
+  84:	54 9a       	sbi	0x0a, 4	; 10
   PORTD &=~(1<<4);
-  82:	5c 98       	cbi	0x0b, 4	; 11
+  86:	5c 98       	cbi	0x0b, 4	; 11
+  
+  I2C_GPIO_Init();
+  88:	0e 94 9b 00 	call	0x136	; 0x136 <I2C_GPIO_Init>
     milliseconds can be achieved.
  */
 void
 _delay_loop_2(uint16_t __count)
 {
 	__asm__ volatile (
-  84:	40 e3       	ldi	r20, 0x30	; 48
-  86:	55 e7       	ldi	r21, 0x75	; 117
-  
-  
+  8c:	cc e2       	ldi	r28, 0x2C	; 44
+  8e:	d1 e0       	ldi	r29, 0x01	; 1
   
   while(1){
-    PORTD |= (1<<4);
-  88:	2c e2       	ldi	r18, 0x2C	; 44
-  8a:	31 e0       	ldi	r19, 0x01	; 1
-  8c:	5c 9a       	sbi	0x0b, 4	; 11
-  8e:	ca 01       	movw	r24, r20
-  90:	01 97       	sbiw	r24, 0x01	; 1
-  92:	f1 f7       	brne	.-4      	; 0x90 <main+0x10>
-	_delay_ms(10);
-	PORTD &=~(1<<4);
-  94:	5c 98       	cbi	0x0b, 4	; 11
-  96:	88 e8       	ldi	r24, 0x88	; 136
-  98:	93 e1       	ldi	r25, 0x13	; 19
-  9a:	f9 01       	movw	r30, r18
-  9c:	31 97       	sbiw	r30, 0x01	; 1
-  9e:	f1 f7       	brne	.-4      	; 0x9c <main+0x1c>
+    I2C_Start();
+  90:	0e 94 a2 00 	call	0x144	; 0x144 <I2C_Start>
+	I2C_Data(0x63);
+  94:	83 e6       	ldi	r24, 0x63	; 99
+  96:	0e 94 d2 00 	call	0x1a4	; 0x1a4 <I2C_Data>
+	I2C_Stop();
+  9a:	0e 94 ba 00 	call	0x174	; 0x174 <I2C_Stop>
+  9e:	88 e8       	ldi	r24, 0x88	; 136
+  a0:	93 e1       	ldi	r25, 0x13	; 19
+  a2:	fe 01       	movw	r30, r28
+  a4:	31 97       	sbiw	r30, 0x01	; 1
+  a6:	f1 f7       	brne	.-4      	; 0xa4 <main+0x24>
 		__ticks = (uint16_t) (__ms * 10.0);
 		while(__ticks)
 		{
 			// wait 1/10 ms
 			_delay_loop_2(((F_CPU) / 4e3) / 10);
 			__ticks --;
-  a0:	01 97       	sbiw	r24, 0x01	; 1
+  a8:	01 97       	sbiw	r24, 0x01	; 1
 		__ticks = 1;
 	else if (__tmp > 65535)
 	{
 		//	__ticks = requested delay in 1/10 ms
 		__ticks = (uint16_t) (__ms * 10.0);
 		while(__ticks)
-  a2:	d9 f7       	brne	.-10     	; 0x9a <main+0x1a>
-  a4:	f3 cf       	rjmp	.-26     	; 0x8c <main+0xc>
+  aa:	d9 f7       	brne	.-10     	; 0xa2 <main+0x22>
+  ac:	f1 cf       	rjmp	.-30     	; 0x90 <main+0x10>
 
-000000a6 <_exit>:
-  a6:	f8 94       	cli
+000000ae <I2C_Half_Bit_Delay>:
+  ae:	8e ee       	ldi	r24, 0xEE	; 238
+  b0:	92 e0       	ldi	r25, 0x02	; 2
+  b2:	01 97       	sbiw	r24, 0x01	; 1
+  b4:	f1 f7       	brne	.-4      	; 0xb2 <I2C_Half_Bit_Delay+0x4>
+#include <util/delay.h>
+#include "i2c.h"
 
-000000a8 <__stop_program>:
-  a8:	ff cf       	rjmp	.-2      	; 0xa8 <__stop_program>
+void I2C_Half_Bit_Delay(void){
+  _delay_us(250);
+}
+  b6:	08 95       	ret
+
+000000b8 <I2C_Bit_Delay>:
+  b8:	8c ed       	ldi	r24, 0xDC	; 220
+  ba:	95 e0       	ldi	r25, 0x05	; 5
+  bc:	01 97       	sbiw	r24, 0x01	; 1
+  be:	f1 f7       	brne	.-4      	; 0xbc <I2C_Bit_Delay+0x4>
+
+void I2C_Bit_Delay(void){
+  _delay_us(500);
+}
+  c0:	08 95       	ret
+
+000000c2 <I2C_SCL_Set_DD>:
+
+void I2C_SCL_Set_DD(uint8_t state){
+  if(state==1){
+  c2:	81 30       	cpi	r24, 0x01	; 1
+  c4:	11 f4       	brne	.+4      	; 0xca <I2C_SCL_Set_DD+0x8>
+    I2C_SCL_DDR |=  (1<<I2C_SCL_bp);
+  c6:	25 9a       	sbi	0x04, 5	; 4
+  c8:	08 95       	ret
+  }else{
+    I2C_SCL_DDR &=~ (1<<I2C_SCL_bp);
+  ca:	25 98       	cbi	0x04, 5	; 4
+  cc:	08 95       	ret
+
+000000ce <I2C_SCL_Set_Output>:
+  }
+}
+
+void I2C_SCL_Set_Output(uint8_t state){
+  if(state==1){
+  ce:	81 30       	cpi	r24, 0x01	; 1
+  d0:	11 f4       	brne	.+4      	; 0xd6 <I2C_SCL_Set_Output+0x8>
+    I2C_SCL_PORT |=  (1<<I2C_SCL_bp);
+  d2:	2d 9a       	sbi	0x05, 5	; 5
+  d4:	08 95       	ret
+  }else{
+    I2C_SCL_PORT &=~ (1<<I2C_SCL_bp);
+  d6:	2d 98       	cbi	0x05, 5	; 5
+  d8:	08 95       	ret
+
+000000da <I2C_SCL_Get_State>:
+  }
+}
+
+uint8_t I2C_SCL_Get_State(void){
+  if(I2C_SCL_PIN & (1<<I2C_SCL_bp)){
+  da:	83 b1       	in	r24, 0x03	; 3
+  dc:	90 e0       	ldi	r25, 0x00	; 0
+  de:	25 e0       	ldi	r18, 0x05	; 5
+  e0:	96 95       	lsr	r25
+  e2:	87 95       	ror	r24
+  e4:	2a 95       	dec	r18
+  e6:	e1 f7       	brne	.-8      	; 0xe0 <I2C_SCL_Get_State+0x6>
+    return 1;
+  }else{
+    return 0;
+  }
+}
+  e8:	81 70       	andi	r24, 0x01	; 1
+  ea:	08 95       	ret
+
+000000ec <I2C_SDA_Set_DD>:
+
+void I2C_SDA_Set_DD(uint8_t state){
+  if(state==1){
+  ec:	81 30       	cpi	r24, 0x01	; 1
+  ee:	11 f4       	brne	.+4      	; 0xf4 <I2C_SDA_Set_DD+0x8>
+    I2C_SDA_DDR |=  (1<<I2C_SDA_bp);
+  f0:	23 9a       	sbi	0x04, 3	; 4
+  f2:	08 95       	ret
+  }else{
+    I2C_SDA_DDR &=~ (1<<I2C_SDA_bp);
+  f4:	23 98       	cbi	0x04, 3	; 4
+  f6:	08 95       	ret
+
+000000f8 <I2C_SDA_Set_Output_LL>:
+  }
+}
+
+void I2C_SDA_Set_Output_LL(uint8_t state){
+  if(state==1){
+  f8:	81 30       	cpi	r24, 0x01	; 1
+  fa:	11 f4       	brne	.+4      	; 0x100 <I2C_SDA_Set_Output_LL+0x8>
+    I2C_SDA_PORT |=  (1<<I2C_SDA_bp);
+  fc:	2b 9a       	sbi	0x05, 3	; 5
+  fe:	08 95       	ret
+  }else{
+    I2C_SDA_PORT &=~ (1<<I2C_SDA_bp);
+ 100:	2b 98       	cbi	0x05, 3	; 5
+ 102:	08 95       	ret
+
+00000104 <I2C_SDA_Set_Output>:
+  }
+}
+
+void I2C_SDA_Set_Output(uint8_t state){
+  if(state==1){
+ 104:	81 30       	cpi	r24, 0x01	; 1
+ 106:	19 f4       	brne	.+6      	; 0x10e <I2C_SDA_Set_Output+0xa>
+  }
+}
+
+void I2C_SDA_Set_Output_LL(uint8_t state){
+  if(state==1){
+    I2C_SDA_PORT |=  (1<<I2C_SDA_bp);
+ 108:	2b 9a       	sbi	0x05, 3	; 5
+
+void I2C_SDA_Set_DD(uint8_t state){
+  if(state==1){
+    I2C_SDA_DDR |=  (1<<I2C_SDA_bp);
+  }else{
+    I2C_SDA_DDR &=~ (1<<I2C_SDA_bp);
+ 10a:	23 98       	cbi	0x04, 3	; 4
+ 10c:	08 95       	ret
+
+void I2C_SDA_Set_Output_LL(uint8_t state){
+  if(state==1){
+    I2C_SDA_PORT |=  (1<<I2C_SDA_bp);
+  }else{
+    I2C_SDA_PORT &=~ (1<<I2C_SDA_bp);
+ 10e:	2b 98       	cbi	0x05, 3	; 5
+  }
+}
+
+void I2C_SDA_Set_DD(uint8_t state){
+  if(state==1){
+    I2C_SDA_DDR |=  (1<<I2C_SDA_bp);
+ 110:	23 9a       	sbi	0x04, 3	; 4
+ 112:	08 95       	ret
+
+00000114 <I2C_SDA_Get_State>:
+	I2C_SDA_Set_DD(1);
+  }
+}
+
+uint8_t I2C_SDA_Get_State(void){
+  if(I2C_SDA_PIN & (1<<I2C_SDA_bp)){
+ 114:	83 b1       	in	r24, 0x03	; 3
+ 116:	90 e0       	ldi	r25, 0x00	; 0
+ 118:	33 e0       	ldi	r19, 0x03	; 3
+ 11a:	96 95       	lsr	r25
+ 11c:	87 95       	ror	r24
+ 11e:	3a 95       	dec	r19
+ 120:	e1 f7       	brne	.-8      	; 0x11a <I2C_SDA_Get_State+0x6>
+    return 1;
+  }else{
+    return 0;
+  }
+}
+ 122:	81 70       	andi	r24, 0x01	; 1
+ 124:	08 95       	ret
+
+00000126 <I2C_SCL_Reset_State>:
+
+void I2C_SCL_Set_DD(uint8_t state){
+  if(state==1){
+    I2C_SCL_DDR |=  (1<<I2C_SCL_bp);
+  }else{
+    I2C_SCL_DDR &=~ (1<<I2C_SCL_bp);
+ 126:	25 98       	cbi	0x04, 5	; 4
+
+void I2C_SCL_Set_Output(uint8_t state){
+  if(state==1){
+    I2C_SCL_PORT |=  (1<<I2C_SCL_bp);
+  }else{
+    I2C_SCL_PORT &=~ (1<<I2C_SCL_bp);
+ 128:	2d 98       	cbi	0x05, 5	; 5
+}
+
+void I2C_SCL_Reset_State(void){
+  I2C_SCL_Set_DD(0);
+  I2C_SCL_Set_Output(0);
+}
+ 12a:	08 95       	ret
+
+0000012c <I2C_SDA_Reset_State>:
+
+void I2C_SDA_Set_DD(uint8_t state){
+  if(state==1){
+    I2C_SDA_DDR |=  (1<<I2C_SDA_bp);
+  }else{
+    I2C_SDA_DDR &=~ (1<<I2C_SDA_bp);
+ 12c:	23 98       	cbi	0x04, 3	; 4
+  I2C_SCL_Set_Output(0);
+}
+
+void I2C_SDA_Reset_State(void){
+  I2C_SDA_Set_DD(0);
+  I2C_SDA_Set_Output(0);
+ 12e:	80 e0       	ldi	r24, 0x00	; 0
+ 130:	0e 94 82 00 	call	0x104	; 0x104 <I2C_SDA_Set_Output>
+}
+ 134:	08 95       	ret
+
+00000136 <I2C_GPIO_Init>:
+  _delay_us(500);
+}
+
+void I2C_SCL_Set_DD(uint8_t state){
+  if(state==1){
+    I2C_SCL_DDR |=  (1<<I2C_SCL_bp);
+ 136:	25 9a       	sbi	0x04, 5	; 4
+
+void I2C_SDA_Set_DD(uint8_t state){
+  if(state==1){
+    I2C_SDA_DDR |=  (1<<I2C_SDA_bp);
+  }else{
+    I2C_SDA_DDR &=~ (1<<I2C_SDA_bp);
+ 138:	23 98       	cbi	0x04, 3	; 4
+  }
+}
+
+void I2C_SCL_Set_Output(uint8_t state){
+  if(state==1){
+    I2C_SCL_PORT |=  (1<<I2C_SCL_bp);
+ 13a:	2d 9a       	sbi	0x05, 5	; 5
+
+void I2C_GPIO_Init(void){
+  I2C_SCL_Set_DD(1);
+  I2C_SDA_Set_DD(0);
+  I2C_SCL_Set_Output(1);
+  I2C_SDA_Set_Output(1);
+ 13c:	81 e0       	ldi	r24, 0x01	; 1
+ 13e:	0e 94 82 00 	call	0x104	; 0x104 <I2C_SDA_Set_Output>
+}
+ 142:	08 95       	ret
+
+00000144 <I2C_Start>:
+
+void I2C_Start(void){
+ 144:	0f 93       	push	r16
+ 146:	1f 93       	push	r17
+  }
+}
+
+void I2C_SCL_Set_Output(uint8_t state){
+  if(state==1){
+    I2C_SCL_PORT |=  (1<<I2C_SCL_bp);
+ 148:	2d 9a       	sbi	0x05, 5	; 5
+  I2C_SDA_Set_Output(1);
+}
+
+void I2C_Start(void){
+  I2C_SCL_Set_Output(1);
+  I2C_SDA_Set_Output(1);
+ 14a:	81 e0       	ldi	r24, 0x01	; 1
+ 14c:	0e 94 82 00 	call	0x104	; 0x104 <I2C_SDA_Set_Output>
+ 150:	0e ee       	ldi	r16, 0xEE	; 238
+ 152:	12 e0       	ldi	r17, 0x02	; 2
+ 154:	c8 01       	movw	r24, r16
+ 156:	01 97       	sbiw	r24, 0x01	; 1
+ 158:	f1 f7       	brne	.-4      	; 0x156 <I2C_Start+0x12>
+  I2C_Half_Bit_Delay();
+  
+  I2C_SDA_Set_Output(0);
+ 15a:	80 e0       	ldi	r24, 0x00	; 0
+ 15c:	0e 94 82 00 	call	0x104	; 0x104 <I2C_SDA_Set_Output>
+ 160:	c8 01       	movw	r24, r16
+ 162:	01 97       	sbiw	r24, 0x01	; 1
+ 164:	f1 f7       	brne	.-4      	; 0x162 <I2C_Start+0x1e>
+
+void I2C_SCL_Set_Output(uint8_t state){
+  if(state==1){
+    I2C_SCL_PORT |=  (1<<I2C_SCL_bp);
+  }else{
+    I2C_SCL_PORT &=~ (1<<I2C_SCL_bp);
+ 166:	2d 98       	cbi	0x05, 5	; 5
+ 168:	c8 01       	movw	r24, r16
+ 16a:	01 97       	sbiw	r24, 0x01	; 1
+ 16c:	f1 f7       	brne	.-4      	; 0x16a <I2C_Start+0x26>
+  I2C_SDA_Set_Output(0);
+  I2C_Half_Bit_Delay();
+  
+  I2C_SCL_Set_Output(0);
+  I2C_Half_Bit_Delay();
+}
+ 16e:	1f 91       	pop	r17
+ 170:	0f 91       	pop	r16
+ 172:	08 95       	ret
+
+00000174 <I2C_Stop>:
+
+void I2C_Stop(void){
+ 174:	0f 93       	push	r16
+ 176:	1f 93       	push	r17
+
+void I2C_SCL_Set_Output(uint8_t state){
+  if(state==1){
+    I2C_SCL_PORT |=  (1<<I2C_SCL_bp);
+  }else{
+    I2C_SCL_PORT &=~ (1<<I2C_SCL_bp);
+ 178:	2d 98       	cbi	0x05, 5	; 5
+  I2C_Half_Bit_Delay();
+}
+
+void I2C_Stop(void){
+  I2C_SCL_Set_Output(0);
+  I2C_SDA_Set_Output(0);
+ 17a:	80 e0       	ldi	r24, 0x00	; 0
+ 17c:	0e 94 82 00 	call	0x104	; 0x104 <I2C_SDA_Set_Output>
+ 180:	0e ee       	ldi	r16, 0xEE	; 238
+ 182:	12 e0       	ldi	r17, 0x02	; 2
+ 184:	c8 01       	movw	r24, r16
+ 186:	01 97       	sbiw	r24, 0x01	; 1
+ 188:	f1 f7       	brne	.-4      	; 0x186 <I2C_Stop+0x12>
+  }
+}
+
+void I2C_SCL_Set_Output(uint8_t state){
+  if(state==1){
+    I2C_SCL_PORT |=  (1<<I2C_SCL_bp);
+ 18a:	2d 9a       	sbi	0x05, 5	; 5
+ 18c:	c8 01       	movw	r24, r16
+ 18e:	01 97       	sbiw	r24, 0x01	; 1
+ 190:	f1 f7       	brne	.-4      	; 0x18e <I2C_Stop+0x1a>
+  I2C_Half_Bit_Delay();
+  
+  I2C_SCL_Set_Output(1);
+  I2C_Half_Bit_Delay();
+  
+  I2C_SDA_Set_Output(1);
+ 192:	81 e0       	ldi	r24, 0x01	; 1
+ 194:	0e 94 82 00 	call	0x104	; 0x104 <I2C_SDA_Set_Output>
+ 198:	c8 01       	movw	r24, r16
+ 19a:	01 97       	sbiw	r24, 0x01	; 1
+ 19c:	f1 f7       	brne	.-4      	; 0x19a <I2C_Stop+0x26>
+  I2C_Half_Bit_Delay();
+}
+ 19e:	1f 91       	pop	r17
+ 1a0:	0f 91       	pop	r16
+ 1a2:	08 95       	ret
+
+000001a4 <I2C_Data>:
+
+void I2C_Data(uint8_t data){
+ 1a4:	0f 93       	push	r16
+ 1a6:	1f 93       	push	r17
+ 1a8:	cf 93       	push	r28
+ 1aa:	df 93       	push	r29
+ 1ac:	08 2f       	mov	r16, r24
+ 1ae:	10 e0       	ldi	r17, 0x00	; 0
+ 1b0:	ce ee       	ldi	r28, 0xEE	; 238
+ 1b2:	d2 e0       	ldi	r29, 0x02	; 2
+  for(uint8_t i=0;i<8;i++){
+    if( data & 0x80){
+ 1b4:	07 ff       	sbrs	r16, 7
+ 1b6:	02 c0       	rjmp	.+4      	; 0x1bc <I2C_Data+0x18>
+	  I2C_SDA_Set_Output(1);
+ 1b8:	81 e0       	ldi	r24, 0x01	; 1
+ 1ba:	01 c0       	rjmp	.+2      	; 0x1be <I2C_Data+0x1a>
+	}else{
+	  I2C_SDA_Set_Output(0);
+ 1bc:	80 e0       	ldi	r24, 0x00	; 0
+ 1be:	0e 94 82 00 	call	0x104	; 0x104 <I2C_SDA_Set_Output>
+ 1c2:	ce 01       	movw	r24, r28
+ 1c4:	01 97       	sbiw	r24, 0x01	; 1
+ 1c6:	f1 f7       	brne	.-4      	; 0x1c4 <I2C_Data+0x20>
+  }
+}
+
+void I2C_SCL_Set_Output(uint8_t state){
+  if(state==1){
+    I2C_SCL_PORT |=  (1<<I2C_SCL_bp);
+ 1c8:	2d 9a       	sbi	0x05, 5	; 5
+ 1ca:	ce 01       	movw	r24, r28
+ 1cc:	01 97       	sbiw	r24, 0x01	; 1
+ 1ce:	f1 f7       	brne	.-4      	; 0x1cc <I2C_Data+0x28>
+  }else{
+    I2C_SCL_PORT &=~ (1<<I2C_SCL_bp);
+ 1d0:	2d 98       	cbi	0x05, 5	; 5
+  I2C_SDA_Set_Output(1);
+  I2C_Half_Bit_Delay();
+}
+
+void I2C_Data(uint8_t data){
+  for(uint8_t i=0;i<8;i++){
+ 1d2:	1f 5f       	subi	r17, 0xFF	; 255
+ 1d4:	18 30       	cpi	r17, 0x08	; 8
+ 1d6:	11 f0       	breq	.+4      	; 0x1dc <I2C_Data+0x38>
+	}
+	I2C_Half_Bit_Delay();
+	I2C_SCL_Set_Output(1);
+	I2C_Half_Bit_Delay();
+	I2C_SCL_Set_Output(0);
+	data<<=1;
+ 1d8:	00 0f       	add	r16, r16
+ 1da:	ec cf       	rjmp	.-40     	; 0x1b4 <I2C_Data+0x10>
+  }
+}
+ 1dc:	df 91       	pop	r29
+ 1de:	cf 91       	pop	r28
+ 1e0:	1f 91       	pop	r17
+ 1e2:	0f 91       	pop	r16
+ 1e4:	08 95       	ret
+
+000001e6 <_exit>:
+ 1e6:	f8 94       	cli
+
+000001e8 <__stop_program>:
+ 1e8:	ff cf       	rjmp	.-2      	; 0x1e8 <__stop_program>
