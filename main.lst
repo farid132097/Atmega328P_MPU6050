@@ -6,81 +6,92 @@
    6               	__tmp_reg__ = 0
    7               	__zero_reg__ = 1
   15               	.Ltext0:
-  16               	.global	main
-  18               	main:
-  19               	.LFB6:
-  20               	.LM1:
-  21 0000 CF93      		push r28
-  22 0002 DF93      		push r29
-  23               	/* prologue: function */
-  24               	/* frame size = 0 */
-  25               	.LM2:
-  26 0004 549A      		sbi 42-32,4
-  27               	.LM3:
-  28 0006 5C98      		cbi 43-32,4
-  29               	.LM4:
-  30 0008 0E94 0000 		call I2C_GPIO_Init
-  31               	.LBB12:
-  32               	.LBB13:
-  33               	.LBB14:
-  34               	.LBB15:
+  16               		.data
+  17               	.LC0:
+  18 0000 4465 6275 		.string	"Debug Started"
+  18      6720 5374 
+  18      6172 7465 
+  18      6400 
+  19               		.text
+  20               	.global	main
+  22               	main:
+  23               	.LFB6:
+  24               	.LM1:
+  25 0000 CF93      		push r28
+  26 0002 DF93      		push r29
+  27               	/* prologue: function */
+  28               	/* frame size = 0 */
+  29               	.LM2:
+  30 0004 549A      		sbi 42-32,4
+  31               	.LM3:
+  32 0006 5C98      		cbi 43-32,4
+  33               	.LM4:
+  34 0008 0E94 0000 		call I2C_Init
   35               	.LM5:
-  36 000c CCE2      		ldi r28,lo8(300)
-  37 000e D1E0      		ldi r29,hi8(300)
-  38               	.LVL0:
-  39               	.L3:
-  40               	.LBE15:
-  41               	.LBE14:
-  42               	.LBE13:
-  43               	.LBE12:
-  44               	.LM6:
-  45 0010 0E94 0000 		call I2C_Start
-  46               	.LVL1:
-  47               	.LM7:
-  48 0014 83E6      		ldi r24,lo8(99)
-  49 0016 0E94 0000 		call I2C_Data
-  50               	.LM8:
-  51 001a 0E94 0000 		call I2C_Stop
-  52 001e 88E8      		ldi r24,lo8(5000)
-  53 0020 93E1      		ldi r25,hi8(5000)
-  54               	.LVL2:
-  55               	.L2:
-  56               	.LBB19:
-  57               	.LBB18:
-  58               	.LBB17:
-  59               	.LBB16:
-  60               	.LM9:
-  61 0022 FE01      		movw r30,r28
-  62               	.LVL3:
-  63               	/* #APP */
-  64               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
-  65 0024 3197      		1: sbiw r30,1
-  66 0026 01F4      		brne 1b
-  67               	 ;  0 "" 2
-  68               	/* #NOAPP */
-  69               	.LBE16:
-  70               	.LBE17:
-  71               	.LM10:
-  72 0028 0197      		sbiw r24,1
-  73               	.LM11:
-  74 002a 01F4      		brne .L2
-  75 002c 00C0      		rjmp .L3
-  76               	.LBE18:
-  77               	.LBE19:
-  78               	.LFE6:
- 104               	.Letext0:
+  36 000c 0E94 0000 		call debug_init
+  37               	.LM6:
+  38 0010 80E0      		ldi r24,lo8(.LC0)
+  39 0012 90E0      		ldi r25,hi8(.LC0)
+  40 0014 0E94 0000 		call debug_tx_text_nl
+  41               	.LBB12:
+  42               	.LBB13:
+  43               	.LBB14:
+  44               	.LBB15:
+  45               	.LM7:
+  46 0018 CCE2      		ldi r28,lo8(300)
+  47 001a D1E0      		ldi r29,hi8(300)
+  48               	.LVL0:
+  49               	.L3:
+  50               	.LBE15:
+  51               	.LBE14:
+  52               	.LBE13:
+  53               	.LBE12:
+  54               	.LM8:
+  55 001c 8BE6      		ldi r24,lo8(107)
+  56               	.LVL1:
+  57 001e 0E94 0000 		call I2C_Read_Register
+  58               	.LVL2:
+  59 0022 88E8      		ldi r24,lo8(5000)
+  60 0024 93E1      		ldi r25,hi8(5000)
+  61               	.LVL3:
+  62               	.L2:
+  63               	.LBB19:
+  64               	.LBB18:
+  65               	.LBB17:
+  66               	.LBB16:
+  67               	.LM9:
+  68 0026 FE01      		movw r30,r28
+  69               	.LVL4:
+  70               	/* #APP */
+  71               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  72 0028 3197      		1: sbiw r30,1
+  73 002a 01F4      		brne 1b
+  74               	 ;  0 "" 2
+  75               	/* #NOAPP */
+  76               	.LBE16:
+  77               	.LBE17:
+  78               	.LM10:
+  79 002c 0197      		sbiw r24,1
+  80               	.LM11:
+  81 002e 01F4      		brne .L2
+  82 0030 00C0      		rjmp .L3
+  83               	.LBE18:
+  84               	.LBE19:
+  85               	.LFE6:
+ 111               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\farid\AppData\Local\Temp/cc5jyw8Z.s:2      *ABS*:0000003f __SREG__
-C:\Users\farid\AppData\Local\Temp/cc5jyw8Z.s:3      *ABS*:0000003e __SP_H__
-C:\Users\farid\AppData\Local\Temp/cc5jyw8Z.s:4      *ABS*:0000003d __SP_L__
-C:\Users\farid\AppData\Local\Temp/cc5jyw8Z.s:5      *ABS*:00000034 __CCP__
-C:\Users\farid\AppData\Local\Temp/cc5jyw8Z.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\farid\AppData\Local\Temp/cc5jyw8Z.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\farid\AppData\Local\Temp/cc5jyw8Z.s:18     .text:00000000 main
+C:\Users\FARIDU~1\AppData\Local\Temp/cc2K8S0d.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc2K8S0d.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc2K8S0d.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc2K8S0d.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc2K8S0d.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc2K8S0d.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc2K8S0d.s:22     .text:00000000 main
 
 UNDEFINED SYMBOLS
-I2C_GPIO_Init
-I2C_Start
-I2C_Data
-I2C_Stop
+I2C_Init
+debug_init
+debug_tx_text_nl
+I2C_Read_Register
+__do_copy_data

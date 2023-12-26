@@ -1,7 +1,19 @@
 Archive member included because of file (symbol)
 
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                              debug.o (__udivmodsi4)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
                               c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o (exit)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                              main.o (__do_copy_data)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                              i2c.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+debug               0x2d              debug.o
+I2C                 0x2               i2c.o
 
 Memory Configuration
 
@@ -20,6 +32,7 @@ Address of section .data set to 0x800100
 LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 LOAD main.o
 LOAD i2c.o
+LOAD debug.o
 LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a
 LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a
@@ -115,7 +128,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x1ea
+.text           0x00000000      0xae0
  *(.vectors)
  .vectors       0x00000000       0x68 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
                 0x00000000                __vectors
@@ -153,6 +166,10 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.init3)
  *(.init3)
  *(.init4)
+ .init4         0x00000074       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                0x00000074                __do_copy_data
+ .init4         0x0000008a       0x10 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x0000008a                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -163,63 +180,130 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x00000074        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+ .init9         0x0000009a        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
  *(.init9)
  *(.text)
- .text          0x0000007c        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
-                0x0000007c                __vector_22
-                0x0000007c                __vector_1
-                0x0000007c                __vector_24
-                0x0000007c                __vector_12
-                0x0000007c                __bad_interrupt
-                0x0000007c                __vector_6
-                0x0000007c                __vector_3
-                0x0000007c                __vector_23
-                0x0000007c                __vector_25
-                0x0000007c                __vector_11
-                0x0000007c                __vector_13
-                0x0000007c                __vector_17
-                0x0000007c                __vector_19
-                0x0000007c                __vector_7
-                0x0000007c                __vector_5
-                0x0000007c                __vector_4
-                0x0000007c                __vector_9
-                0x0000007c                __vector_2
-                0x0000007c                __vector_21
-                0x0000007c                __vector_15
-                0x0000007c                __vector_8
-                0x0000007c                __vector_14
-                0x0000007c                __vector_10
-                0x0000007c                __vector_16
-                0x0000007c                __vector_18
-                0x0000007c                __vector_20
- .text          0x00000080       0x2e main.o
-                0x00000080                main
- .text          0x000000ae      0x138 i2c.o
-                0x0000012c                I2C_SDA_Reset_State
-                0x000000b8                I2C_Bit_Delay
-                0x00000104                I2C_SDA_Set_Output
-                0x000000ce                I2C_SCL_Set_Output
-                0x000001a4                I2C_Data
-                0x00000126                I2C_SCL_Reset_State
-                0x00000114                I2C_SDA_Get_State
-                0x000000f8                I2C_SDA_Set_Output_LL
-                0x000000da                I2C_SCL_Get_State
-                0x000000ec                I2C_SDA_Set_DD
-                0x000000c2                I2C_SCL_Set_DD
-                0x00000136                I2C_GPIO_Init
-                0x00000144                I2C_Start
-                0x000000ae                I2C_Half_Bit_Delay
-                0x00000174                I2C_Stop
- .text          0x000001e6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x000001e6                . = ALIGN (0x2)
+ .text          0x000000a2        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+                0x000000a2                __vector_22
+                0x000000a2                __vector_1
+                0x000000a2                __vector_24
+                0x000000a2                __vector_12
+                0x000000a2                __bad_interrupt
+                0x000000a2                __vector_6
+                0x000000a2                __vector_3
+                0x000000a2                __vector_23
+                0x000000a2                __vector_25
+                0x000000a2                __vector_11
+                0x000000a2                __vector_13
+                0x000000a2                __vector_17
+                0x000000a2                __vector_19
+                0x000000a2                __vector_7
+                0x000000a2                __vector_5
+                0x000000a2                __vector_9
+                0x000000a2                __vector_2
+                0x000000a2                __vector_21
+                0x000000a2                __vector_15
+                0x000000a2                __vector_8
+                0x000000a2                __vector_14
+                0x000000a2                __vector_10
+                0x000000a2                __vector_18
+                0x000000a2                __vector_20
+ .text          0x000000a6       0x32 main.o
+                0x000000a6                main
+ .text          0x000000d8      0x2e2 i2c.o
+                0x00000172                I2C_SDA_Reset_State
+                0x000000ea                I2C_Bit_Delay
+                0x00000100                I2C_SCL_Set_Output_LL
+                0x00000146                I2C_SDA_Set_Output
+                0x0000031e                I2C_Get_Device_Address
+                0x0000010c                I2C_SCL_Set_Output
+                0x000002ca                I2C_Get_Ack
+                0x000002a6                I2C_Set_Nack
+                0x000000d8                I2C_Struct_Init
+                0x0000039e                I2C_Init
+                0x00000168                I2C_SCL_Reset_State
+                0x00000282                I2C_Set_Ack
+                0x00000156                I2C_SDA_Get_State
+                0x0000013a                I2C_SDA_Set_Output_LL
+                0x0000011c                I2C_SCL_Get_State
+                0x00000300                I2C_Send_Device_Address
+                0x0000012e                I2C_SDA_Set_DD
+                0x000000f4                I2C_SCL_Set_DD
+                0x0000017c                I2C_GPIO_Init
+                0x0000018e                I2C_Start
+                0x000000e2                I2C_Half_Bit_Delay
+                0x0000033a                I2C_Read_Register
+                0x000001be                I2C_Stop
+                0x000001ee                I2C_Data_Send
+                0x00000234                I2C_Data_Receive
+ .text          0x000003ba      0x6de debug.o
+                0x00000498                debug_delay_index_1
+                0x00000880                debug_tx_number_cm
+                0x00000786                debug_tx_text_cm
+                0x00000790                debug_determine_digit_numbers
+                0x000003ba                debug_struct_init
+                0x00000432                debug_timer_stop
+                0x000009e6                debug_available_bytes_rx_buf
+                0x0000088e                debug_tx_number_hex_nl
+                0x00000994                debug_buf_get
+                0x00000564                debug_rx_byte
+                0x000009a6                debug_flush_buf
+                0x000009a0                debug_buf_index_get
+                0x000008a2                debug_tx_number_hex_cm
+                0x000008b0                debug_tx_parameter_nl
+                0x00000876                debug_tx_number_sp
+                0x00000772                debug_tx_text_nl
+                0x0000044e                debug_tx_set
+                0x0000096e                Debug_tx_parameter_hex_cm
+                0x0000074c                debug_tx_text
+                0x0000044a                debug_tx_low
+                0x00000418                debug_timer_start
+                0x000008fc                debug_tx_parameter_cm
+                0x000005c2                debug_rx_byte_clear
+                0x0000048a                debug_delay_index_0
+                0x00000830                debug_tx_number
+                0x000005c8                debug_rx_byte_set
+                0x00000682                debug_tx_bin
+                0x0000046c                debug_delay
+                0x000009fa                __vector_4
+                0x000004a6                debug_delay_index_2
+                0x0000073c                debug_tx_sp
+                0x000009ec                debug_init
+                0x0000043c                debug_gpio_init
+                0x0000077c                debug_tx_text_sp
+                0x0000072e                debug_tx_nl
+                0x00000446                debug_tx_high
+                0x0000086c                debug_tx_number_nl
+                0x000008d6                debug_tx_parameter_sp
+                0x00000948                debug_tx_parameter_hex_sp
+                0x000004b4                debug_tx_byte
+                0x00000898                debug_tx_number_hex_sp
+                0x00000744                debug_tx_cm
+                0x000009c0                debug_databsy_get
+                0x00000922                debug_tx_parameter_hex_nl
+                0x000005ce                debug_tx_hex
+                0x000009c6                debug_data_available_rx_buf
+                0x000005bc                debug_rx_byte_get
+                0x000003f2                debug_timings_init
+                0x00000a78                __vector_16
+                0x0000080e                debug_tx_number_digits
+                0x0000045a                debug_rx_get
+ .text          0x00000a98        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .text          0x00000a98        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text          0x00000a98        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text          0x00000a98        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00000a98                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x000001e6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x000001e6                . = ALIGN (0x2)
+ .text.libgcc   0x00000a98       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x00000a98                __udivmodsi4
+ .text.libgcc   0x00000adc        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000adc        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000adc        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00000adc                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000001e6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x000001e6                exit
-                0x000001e6                _exit
+ .fini9         0x00000adc        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00000adc                exit
+                0x00000adc                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -238,44 +322,59 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000001e6        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000adc        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000001ea                _etext = .
+                0x00000ae0                _etext = .
 
-.data           0x00800100        0x0 load address 0x000001ea
+.data           0x00800100       0x22 load address 0x00000ae0
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
- .data          0x00800100        0x0 main.o
- .data          0x00800100        0x0 i2c.o
- .data          0x00800100        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x00800100        0xe main.o
+ .data          0x0080010e        0x0 i2c.o
+ .data          0x0080010e       0x14 debug.o
+                0x00800110                TIM0_BAUD_9600
+                0x00800116                TIM0_BAUD_19200
+                0x0080011c                TIM0_BAUD_38400
+ .data          0x00800122        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .data          0x00800122        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x00800122        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .data          0x00800122        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
  *(.data*)
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x00800100                . = ALIGN (0x2)
-                0x00800100                _edata = .
-                0x00800100                PROVIDE (__data_end, .)
+                0x00800122                . = ALIGN (0x2)
+                0x00800122                _edata = .
+                0x00800122                PROVIDE (__data_end, .)
 
-.bss            0x00800100        0x0
-                0x00800100                PROVIDE (__bss_start, .)
+.bss            0x00800122       0x2f
+                0x00800122                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x00800100        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
- .bss           0x00800100        0x0 main.o
- .bss           0x00800100        0x0 i2c.o
- .bss           0x00800100        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x00800122        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+ .bss           0x00800122        0x0 main.o
+ .bss           0x00800122        0x0 i2c.o
+ .bss           0x00800122        0x0 debug.o
+ .bss           0x00800122        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .bss           0x00800122        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x00800122        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00800122        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
  *(.bss*)
  *(COMMON)
-                0x00800100                PROVIDE (__bss_end, .)
-                0x000001ea                __data_load_start = LOADADDR (.data)
-                0x000001ea                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00800122        0x2 i2c.o
+                0x00800122                I2C
+ COMMON         0x00800124       0x2d debug.o
+                0x00800124                debug
+                0x00800151                PROVIDE (__bss_end, .)
+                0x00000ae0                __data_load_start = LOADADDR (.data)
+                0x00000b02                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800100        0x0
-                0x00800100                PROVIDE (__noinit_start, .)
+.noinit         0x00800151        0x0
+                0x00800151                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800100                PROVIDE (__noinit_end, .)
-                0x00800100                _end = .
-                0x00800100                PROVIDE (__heap_start, .)
+                0x00800151                PROVIDE (__noinit_end, .)
+                0x00800151                _end = .
+                0x00800151                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -326,89 +425,127 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000       0x40
+.debug_aranges  0x00000000       0x60
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x20 main.o
  .debug_aranges
                 0x00000020       0x20 i2c.o
+ .debug_aranges
+                0x00000040       0x20 debug.o
 
 .debug_pubnames
-                0x00000000      0x15a
+                0x00000000      0x6f2
  *(.debug_pubnames)
  .debug_pubnames
                 0x00000000       0x1b main.o
  .debug_pubnames
-                0x0000001b      0x13f i2c.o
+                0x0000001b      0x21a i2c.o
+ .debug_pubnames
+                0x00000235      0x4bd debug.o
 
-.debug_info     0x00000000      0x970
+.debug_info     0x00000000     0x17dd
  *(.debug_info)
  .debug_info    0x00000000      0x10d main.o
- .debug_info    0x0000010d      0x863 i2c.o
+ .debug_info    0x0000010d      0xba8 i2c.o
+ .debug_info    0x00000cb5      0xb28 debug.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev   0x00000000      0x223
+.debug_abbrev   0x00000000      0x554
  *(.debug_abbrev)
  .debug_abbrev  0x00000000       0xb2 main.o
- .debug_abbrev  0x000000b2      0x171 i2c.o
+ .debug_abbrev  0x000000b2      0x21a i2c.o
+ .debug_abbrev  0x000002cc      0x288 debug.o
 
-.debug_line     0x00000000      0x4dd
+.debug_line     0x00000000     0x1176
  *(.debug_line)
  .debug_line    0x00000000      0x13c main.o
- .debug_line    0x0000013c      0x3a1 i2c.o
+ .debug_line    0x0000013c      0x679 i2c.o
+ .debug_line    0x000007b5      0x9c1 debug.o
 
-.debug_frame    0x00000000      0x120
+.debug_frame    0x00000000      0x500
  *(.debug_frame)
  .debug_frame   0x00000000       0x20 main.o
- .debug_frame   0x00000020      0x100 i2c.o
+ .debug_frame   0x00000020      0x1a0 i2c.o
+ .debug_frame   0x000001c0      0x340 debug.o
 
-.debug_str      0x00000000      0x1f3
+.debug_str      0x00000000      0x705
  *(.debug_str)
- .debug_str     0x00000000       0xcc main.o
-                                0x100 (size before relaxing)
- .debug_str     0x000000cc      0x127 i2c.o
-                                0x21b (size before relaxing)
+ .debug_str     0x00000000       0xcb main.o
+                                 0xff (size before relaxing)
+ .debug_str     0x000000cb      0x1ed i2c.o
+                                0x2e6 (size before relaxing)
+ .debug_str     0x000002b8      0x44d debug.o
+                                0x528 (size before relaxing)
 
-.debug_loc      0x00000000      0x131
+.debug_loc      0x00000000      0x8b9
  *(.debug_loc)
  .debug_loc     0x00000000       0x50 main.o
- .debug_loc     0x00000050       0xe1 i2c.o
+ .debug_loc     0x00000050      0x240 i2c.o
+ .debug_loc     0x00000290      0x629 debug.o
 
 .debug_macinfo
  *(.debug_macinfo)
 OUTPUT(main.elf elf32-avr)
 LOAD linker stubs
 
-.debug_ranges   0x00000000       0xd8
+.debug_ranges   0x00000000      0x120
  .debug_ranges  0x00000000       0x48 main.o
- .debug_ranges  0x00000048       0x90 i2c.o
+ .debug_ranges  0x00000048       0xc0 i2c.o
+ .debug_ranges  0x00000108       0x18 debug.o
 
 Cross Reference Table
 
 Symbol                                            File
+Debug_tx_parameter_hex_cm                         debug.o
+I2C                                               i2c.o
 I2C_Bit_Delay                                     i2c.o
-I2C_Data                                          i2c.o
-                                                  main.o
+I2C_Data_Receive                                  i2c.o
+I2C_Data_Send                                     i2c.o
 I2C_GPIO_Init                                     i2c.o
-                                                  main.o
+I2C_Get_Ack                                       i2c.o
+I2C_Get_Device_Address                            i2c.o
 I2C_Half_Bit_Delay                                i2c.o
+I2C_Init                                          i2c.o
+                                                  main.o
+I2C_Read_Register                                 i2c.o
+                                                  main.o
 I2C_SCL_Get_State                                 i2c.o
 I2C_SCL_Reset_State                               i2c.o
 I2C_SCL_Set_DD                                    i2c.o
 I2C_SCL_Set_Output                                i2c.o
+I2C_SCL_Set_Output_LL                             i2c.o
 I2C_SDA_Get_State                                 i2c.o
 I2C_SDA_Reset_State                               i2c.o
 I2C_SDA_Set_DD                                    i2c.o
 I2C_SDA_Set_Output                                i2c.o
 I2C_SDA_Set_Output_LL                             i2c.o
+I2C_Send_Device_Address                           i2c.o
+I2C_Set_Ack                                       i2c.o
+I2C_Set_Nack                                      i2c.o
 I2C_Start                                         i2c.o
-                                                  main.o
 I2C_Stop                                          i2c.o
-                                                  main.o
+I2C_Struct_Init                                   i2c.o
+TIM0_BAUD_19200                                   debug.o
+TIM0_BAUD_38400                                   debug.o
+TIM0_BAUD_9600                                    debug.o
 __bad_interrupt                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__bss_end                                         c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+__bss_start                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+__data_end                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+__data_load_start                                 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+__data_start                                      c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+__do_clear_bss                                    c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                                                  debug.o
+                                                  i2c.o
+__do_copy_data                                    c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                                                  debug.o
+                                                  main.o
 __heap_end                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __init                                            c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __stack                                           c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__udivmodsi4                                      c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                                                  debug.o
 __vector_1                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __vector_10                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __vector_11                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
@@ -416,7 +553,8 @@ __vector_12                                       c:/winavr-20100110/bin/../lib/
 __vector_13                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __vector_14                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __vector_15                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
-__vector_16                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_16                                       debug.o
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __vector_17                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __vector_18                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __vector_19                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
@@ -428,7 +566,8 @@ __vector_23                                       c:/winavr-20100110/bin/../lib/
 __vector_24                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __vector_25                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __vector_3                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
-__vector_4                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_4                                        debug.o
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __vector_5                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __vector_6                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __vector_7                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
@@ -437,6 +576,57 @@ __vector_9                                        c:/winavr-20100110/bin/../lib/
 __vector_default                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __vectors                                         c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 _exit                                             c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+debug                                             debug.o
+debug_available_bytes_rx_buf                      debug.o
+debug_buf_get                                     debug.o
+debug_buf_index_get                               debug.o
+debug_data_available_rx_buf                       debug.o
+debug_databsy_get                                 debug.o
+debug_delay                                       debug.o
+debug_delay_index_0                               debug.o
+debug_delay_index_1                               debug.o
+debug_delay_index_2                               debug.o
+debug_determine_digit_numbers                     debug.o
+debug_flush_buf                                   debug.o
+debug_gpio_init                                   debug.o
+debug_init                                        debug.o
+                                                  main.o
+debug_rx_byte                                     debug.o
+debug_rx_byte_clear                               debug.o
+debug_rx_byte_get                                 debug.o
+debug_rx_byte_set                                 debug.o
+debug_rx_get                                      debug.o
+debug_struct_init                                 debug.o
+debug_timer_start                                 debug.o
+debug_timer_stop                                  debug.o
+debug_timings_init                                debug.o
+debug_tx_bin                                      debug.o
+debug_tx_byte                                     debug.o
+debug_tx_cm                                       debug.o
+debug_tx_hex                                      debug.o
+debug_tx_high                                     debug.o
+debug_tx_low                                      debug.o
+debug_tx_nl                                       debug.o
+debug_tx_number                                   debug.o
+debug_tx_number_cm                                debug.o
+debug_tx_number_digits                            debug.o
+debug_tx_number_hex_cm                            debug.o
+debug_tx_number_hex_nl                            debug.o
+debug_tx_number_hex_sp                            debug.o
+debug_tx_number_nl                                debug.o
+debug_tx_number_sp                                debug.o
+debug_tx_parameter_cm                             debug.o
+debug_tx_parameter_hex_nl                         debug.o
+debug_tx_parameter_hex_sp                         debug.o
+debug_tx_parameter_nl                             debug.o
+debug_tx_parameter_sp                             debug.o
+debug_tx_set                                      debug.o
+debug_tx_sp                                       debug.o
+debug_tx_text                                     debug.o
+debug_tx_text_cm                                  debug.o
+debug_tx_text_nl                                  debug.o
+                                                  main.o
+debug_tx_text_sp                                  debug.o
 exit                                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
                                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 main                                              main.o
