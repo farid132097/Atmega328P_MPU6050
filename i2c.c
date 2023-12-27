@@ -1,8 +1,10 @@
 
 #include <avr/io.h>
 #include <util/delay.h>
+#include "lpf.h"
 #include "i2c.h"
 
+#define  LPF_EN 10
 
 typedef struct i2c_t{
   uint8_t  WriteAddr;
@@ -17,15 +19,15 @@ void I2C_Struct_Init(void){
 }
 
 void I2C_Half_Bit_Delay(void){
-  _delay_us(50);
+  _delay_us(20);
 }
 
 void I2C_Bit_Delay(void){
-  _delay_us(100);
+  _delay_us(40);
 }
 
 void I2C_Guard_Delay(void){
-  _delay_us(1);
+  _delay_us(2);
 }
 
 void I2C_SCL_Set_DD(uint8_t state){
@@ -195,6 +197,7 @@ uint8_t I2C_Get_Ack(void){
   ack=I2C_SDA_Get_State();
   I2C_Half_Bit_Delay();
   I2C_SCL_Set_Output(0);
+  I2C_Guard_Delay();
   if(ack==0){
     return 1;
   }else{
@@ -245,9 +248,121 @@ uint8_t I2C_Read_Register(uint8_t reg){
   return sts;
 }
 
+void I2C_Write_Register(uint8_t reg, uint8_t val){
+  uint8_t sts=0,data=0;
+  I2C_Start();
+  I2C_Data_Send(I2C.WriteAddr);
+  sts |= I2C_Get_Ack()<<0;
+  I2C_Data_Send(reg);
+  sts |= I2C_Get_Ack()<<1;
+
+  I2C_Data_Send(val);
+  sts |= I2C_Get_Ack()<<2;
+  I2C_Stop();
+  if(sts == 0x07){
+    sts = data;
+  }else{
+    sts = 0xFF;
+  }
+}
+ 
 void I2C_Init(void){
   I2C_Struct_Init();
   I2C_GPIO_Init();
   I2C.WriteAddr = I2C_Get_Device_Address();
   I2C.ReadAddr = I2C.WriteAddr+1;
+  #ifdef LPF_EN
+	LPF_Init();
+	LPF_Set_Alpha(0,LPF_EN);
+	LPF_Set_Alpha(1,LPF_EN);
+	LPF_Set_Alpha(2,LPF_EN);
+	LPF_Set_Alpha(3,LPF_EN);
+	LPF_Set_Alpha(4,LPF_EN);
+	LPF_Set_Alpha(5,LPF_EN);
+  #endif
 }
+
+void I2C_Set_Mode_Sleep(void){
+  I2C_Write_Register(0x6B, 0x40);
+}
+
+void I2C_Set_Mode_Active(void){
+  I2C_Write_Register(0x6B, 0x00);
+}
+
+int16_t I2C_Read_Acc_X(void){
+  int16_t data = 0;
+  data = I2C_Read_Register(0x3B);
+  data <<= 8;
+  data |= I2C_Read_Register(0x3C);
+  #ifdef LPF_EN
+    data = LPF_Get_Filtered_Value(0, data);
+  #endif
+  return (int16_t)data;
+}
+
+int16_t I2C_Read_Acc_Y(void){
+  int16_t data = 0;
+  data = I2C_Read_Register(0x3D);
+  data <<= 8;
+  data |= I2C_Read_Register(0x3E);
+  #ifdef LPF_EN
+    data = LPF_Get_Filtered_Value(1, data);
+  #endif
+  return (int16_t)data;
+}
+
+int16_t I2C_Read_Acc_Z(void){
+  int16_t data = 0;
+  data = I2C_Read_Register(0x3F);
+  data <<= 8;
+  data |= I2C_Read_Register(0x40);
+  #ifdef LPF_EN
+    data = LPF_Get_Filtered_Value(2, data);
+  #endif
+  return (int16_t)data;
+}
+
+int16_t I2C_Read_Gyro_X(void){
+  int16_t data = 0;
+  data = I2C_Read_Register(0x43);
+  data <<= 8;
+  data |= I2C_Read_Register(0x44);
+  #ifdef LPF_EN
+    data = LPF_Get_Filtered_Value(3, data);
+  #endif
+  return (int16_t)data;
+}
+
+int16_t I2C_Read_Gyro_Y(void){
+  int16_t data = 0;
+  data = I2C_Read_Register(0x45);
+  data <<= 8;
+  data |= I2C_Read_Register(0x46);
+  #ifdef LPF_EN
+    data = LPF_Get_Filtered_Value(4, data);
+  #endif
+  return (int16_t)data;
+}
+
+int16_t I2C_Read_Gyro_Z(void){
+  int16_t data = 0;
+  data = I2C_Read_Register(0x47);
+  data <<= 8;
+  data |= I2C_Read_Register(0x48);
+  #ifdef LPF_EN
+    data = LPF_Get_Filtered_Value(5, data);
+  #endif
+  return (int16_t)data;
+}
+
+int16_t I2C_Read_Temp(void){
+  int16_t data = 0;
+  data = I2C_Read_Register(0x41);
+  data <<= 8;
+  data |= I2C_Read_Register(0x42);
+  data /=340;
+  data +=36;
+  return data;
+}
+

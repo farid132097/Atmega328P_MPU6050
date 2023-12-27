@@ -26,12 +26,12 @@
   36               	.LM5:
   37               	/* prologue: function */
   38               	/* frame size = 0 */
-  39               	.LBB256:
-  40               	.LBB257:
-  41               	.LBB258:
-  42               	.LBB259:
+  39               	.LBB266:
+  40               	.LBB267:
+  41               	.LBB268:
+  42               	.LBB269:
   43               	.LM6:
-  44 000a 88EC      		ldi r24,lo8(-56)
+  44 000a 80E5      		ldi r24,lo8(80)
   45               	.LVL0:
   46               	/* #APP */
   47               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
@@ -40,10 +40,10 @@
   50               	 ;  0 "" 2
   51               	/* epilogue start */
   52               	/* #NOAPP */
-  53               	.LBE259:
-  54               	.LBE258:
-  55               	.LBE257:
-  56               	.LBE256:
+  53               	.LBE269:
+  54               	.LBE268:
+  55               	.LBE267:
+  56               	.LBE266:
   57               	.LM7:
   58 0010 0895      		ret
   59               	.LFE7:
@@ -53,1191 +53,1623 @@
   65               	.LM8:
   66               	/* prologue: function */
   67               	/* frame size = 0 */
-  68               	.LBB260:
-  69               	.LBB261:
-  70               	.LBB262:
-  71               	.LBB263:
-  72               	.LBB264:
-  73               	.LBB265:
-  74               	.LM9:
-  75 0012 8CE2      		ldi r24,lo8(300)
-  76 0014 91E0      		ldi r25,hi8(300)
-  77               	.LVL1:
-  78               	/* #APP */
-  79               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
-  80 0016 0197      		1: sbiw r24,1
-  81 0018 01F4      		brne 1b
-  82               	 ;  0 "" 2
-  83               	/* epilogue start */
-  84               	/* #NOAPP */
-  85               	.LBE265:
-  86               	.LBE264:
-  87               	.LBE263:
-  88               	.LBE262:
-  89               	.LBE261:
-  90               	.LBE260:
-  91               	.LM10:
-  92 001a 0895      		ret
-  93               	.LFE8:
-  95               	.global	I2C_Guard_Delay
-  97               	I2C_Guard_Delay:
-  98               	.LFB9:
-  99               	.LM11:
- 100               	/* prologue: function */
- 101               	/* frame size = 0 */
- 102               	.LBB266:
- 103               	.LBB267:
- 104               	.LBB268:
- 105               	.LBB269:
- 106               	.LM12:
- 107 001c 84E0      		ldi r24,lo8(4)
- 108               	.LVL2:
- 109               	/* #APP */
- 110               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 111 001e 8A95      		1: dec r24
- 112 0020 01F4      		brne 1b
- 113               	 ;  0 "" 2
- 114               	/* epilogue start */
- 115               	/* #NOAPP */
- 116               	.LBE269:
- 117               	.LBE268:
- 118               	.LBE267:
- 119               	.LBE266:
- 120               	.LM13:
- 121 0022 0895      		ret
- 122               	.LFE9:
- 124               	.global	I2C_SCL_Set_DD
- 126               	I2C_SCL_Set_DD:
- 127               	.LFB10:
- 128               	.LM14:
- 129               	.LVL3:
- 130               	/* prologue: function */
- 131               	/* frame size = 0 */
- 132               	.LM15:
- 133 0024 8130      		cpi r24,lo8(1)
- 134 0026 01F4      		brne .L10
- 135               	.LM16:
- 136 0028 3C9A      		sbi 39-32,4
- 137 002a 0895      		ret
- 138               	.L10:
- 139               	.LM17:
- 140 002c 3C98      		cbi 39-32,4
- 141 002e 0895      		ret
- 142               	.LFE10:
- 144               	.global	I2C_SCL_Set_Output_LL
- 146               	I2C_SCL_Set_Output_LL:
- 147               	.LFB11:
- 148               	.LM18:
- 149               	.LVL4:
- 150               	/* prologue: function */
- 151               	/* frame size = 0 */
- 152               	.LM19:
- 153 0030 8130      		cpi r24,lo8(1)
- 154 0032 01F4      		brne .L14
- 155               	.LM20:
- 156 0034 449A      		sbi 40-32,4
- 157 0036 0895      		ret
- 158               	.L14:
- 159               	.LM21:
- 160 0038 4498      		cbi 40-32,4
- 161 003a 0895      		ret
- 162               	.LFE11:
- 164               	.global	I2C_SCL_Set_Output
- 166               	I2C_SCL_Set_Output:
- 167               	.LFB12:
- 168               	.LM22:
- 169               	.LVL5:
- 170               	/* prologue: function */
- 171               	/* frame size = 0 */
- 172               	.LM23:
- 173 003c 8130      		cpi r24,lo8(1)
- 174 003e 01F4      		brne .L18
- 175               	.LBB270:
- 176               	.LBB271:
- 177               	.LM24:
- 178 0040 449A      		sbi 40-32,4
- 179               	.LBE271:
- 180               	.LBE270:
- 181               	.LBB272:
- 182               	.LBB273:
- 183               	.LM25:
- 184 0042 3C98      		cbi 39-32,4
- 185 0044 0895      		ret
- 186               	.L18:
- 187               	.LBE273:
- 188               	.LBE272:
- 189               	.LBB274:
- 190               	.LBB275:
- 191               	.LM26:
- 192 0046 4498      		cbi 40-32,4
- 193               	.LBE275:
- 194               	.LBE274:
- 195               	.LBB276:
- 196               	.LBB277:
- 197               	.LM27:
- 198 0048 3C9A      		sbi 39-32,4
- 199 004a 0895      		ret
- 200               	.LBE277:
- 201               	.LBE276:
- 202               	.LFE12:
- 204               	.global	I2C_SCL_Get_State
- 206               	I2C_SCL_Get_State:
- 207               	.LFB13:
- 208               	.LM28:
- 209               	/* prologue: function */
- 210               	/* frame size = 0 */
- 211               	.LM29:
- 212 004c 86B1      		in r24,38-32
- 213 004e 90E0      		ldi r25,lo8(0)
- 214 0050 24E0      		ldi r18,4
- 215 0052 9695      	1:	lsr r25
- 216 0054 8795      		ror r24
- 217 0056 2A95      		dec r18
- 218 0058 01F4      		brne 1b
- 219               	.LM30:
- 220 005a 8170      		andi r24,lo8(1)
- 221               	/* epilogue start */
- 222 005c 0895      		ret
- 223               	.LFE13:
- 225               	.global	I2C_SDA_Set_DD
- 227               	I2C_SDA_Set_DD:
- 228               	.LFB14:
- 229               	.LM31:
- 230               	.LVL6:
- 231               	/* prologue: function */
- 232               	/* frame size = 0 */
- 233               	.LM32:
- 234 005e 8130      		cpi r24,lo8(1)
- 235 0060 01F4      		brne .L24
- 236               	.LM33:
- 237 0062 3D9A      		sbi 39-32,5
- 238 0064 0895      		ret
- 239               	.L24:
- 240               	.LM34:
- 241 0066 3D98      		cbi 39-32,5
- 242 0068 0895      		ret
- 243               	.LFE14:
- 245               	.global	I2C_SDA_Set_Output_LL
- 247               	I2C_SDA_Set_Output_LL:
- 248               	.LFB15:
- 249               	.LM35:
- 250               	.LVL7:
- 251               	/* prologue: function */
- 252               	/* frame size = 0 */
- 253               	.LM36:
- 254 006a 8130      		cpi r24,lo8(1)
- 255 006c 01F4      		brne .L28
- 256               	.LM37:
- 257 006e 459A      		sbi 40-32,5
- 258 0070 0895      		ret
- 259               	.L28:
- 260               	.LM38:
- 261 0072 4598      		cbi 40-32,5
- 262 0074 0895      		ret
- 263               	.LFE15:
- 265               	.global	I2C_SDA_Set_Output
- 267               	I2C_SDA_Set_Output:
- 268               	.LFB16:
- 269               	.LM39:
- 270               	.LVL8:
- 271               	/* prologue: function */
- 272               	/* frame size = 0 */
- 273               	.LM40:
- 274 0076 8130      		cpi r24,lo8(1)
- 275 0078 01F4      		brne .L32
- 276               	.LBB278:
- 277               	.LBB279:
- 278               	.LM41:
- 279 007a 459A      		sbi 40-32,5
- 280               	.LBE279:
- 281               	.LBE278:
- 282               	.LBB280:
- 283               	.LBB281:
- 284               	.LM42:
- 285 007c 3D98      		cbi 39-32,5
- 286 007e 0895      		ret
- 287               	.L32:
- 288               	.LBE281:
- 289               	.LBE280:
- 290               	.LBB282:
- 291               	.LBB283:
- 292               	.LM43:
- 293 0080 4598      		cbi 40-32,5
- 294               	.LBE283:
- 295               	.LBE282:
- 296               	.LBB284:
- 297               	.LBB285:
- 298               	.LM44:
- 299 0082 3D9A      		sbi 39-32,5
- 300 0084 0895      		ret
- 301               	.LBE285:
- 302               	.LBE284:
- 303               	.LFE16:
- 305               	.global	I2C_SDA_Get_State
- 307               	I2C_SDA_Get_State:
- 308               	.LFB17:
- 309               	.LM45:
- 310               	/* prologue: function */
- 311               	/* frame size = 0 */
- 312               	.LM46:
- 313 0086 86B1      		in r24,38-32
- 314 0088 90E0      		ldi r25,lo8(0)
- 315 008a 35E0      		ldi r19,5
- 316 008c 9695      	1:	lsr r25
- 317 008e 8795      		ror r24
- 318 0090 3A95      		dec r19
- 319 0092 01F4      		brne 1b
- 320               	.LM47:
- 321 0094 8170      		andi r24,lo8(1)
- 322               	/* epilogue start */
- 323 0096 0895      		ret
- 324               	.LFE17:
- 326               	.global	I2C_SCL_Reset_State
- 328               	I2C_SCL_Reset_State:
- 329               	.LFB18:
- 330               	.LM48:
- 331               	/* prologue: function */
- 332               	/* frame size = 0 */
- 333               	.LBB286:
- 334               	.LBB287:
- 335               	.LM49:
- 336 0098 3C98      		cbi 39-32,4
- 337               	.LBE287:
- 338               	.LBE286:
- 339               	.LM50:
- 340 009a 80E0      		ldi r24,lo8(0)
- 341 009c 0E94 0000 		call I2C_SCL_Set_Output
- 342               	/* epilogue start */
- 343               	.LM51:
- 344 00a0 0895      		ret
- 345               	.LFE18:
- 347               	.global	I2C_SDA_Reset_State
- 349               	I2C_SDA_Reset_State:
- 350               	.LFB19:
- 351               	.LM52:
- 352               	/* prologue: function */
- 353               	/* frame size = 0 */
- 354               	.LBB288:
- 355               	.LBB289:
- 356               	.LM53:
- 357 00a2 3D98      		cbi 39-32,5
- 358               	.LBE289:
- 359               	.LBE288:
- 360               	.LM54:
- 361 00a4 80E0      		ldi r24,lo8(0)
- 362 00a6 0E94 0000 		call I2C_SDA_Set_Output
- 363               	/* epilogue start */
- 364               	.LM55:
- 365 00aa 0895      		ret
- 366               	.LFE19:
- 368               	.global	I2C_GPIO_Init
- 370               	I2C_GPIO_Init:
- 371               	.LFB20:
- 372               	.LM56:
- 373               	/* prologue: function */
- 374               	/* frame size = 0 */
- 375               	.LBB290:
- 376               	.LBB291:
- 377               	.LM57:
- 378 00ac 3C9A      		sbi 39-32,4
- 379               	.LBE291:
- 380               	.LBE290:
- 381               	.LBB292:
- 382               	.LBB293:
- 383               	.LM58:
- 384 00ae 3D98      		cbi 39-32,5
- 385               	.LBE293:
- 386               	.LBE292:
- 387               	.LM59:
- 388 00b0 81E0      		ldi r24,lo8(1)
- 389 00b2 0E94 0000 		call I2C_SCL_Set_Output
- 390               	.LM60:
- 391 00b6 81E0      		ldi r24,lo8(1)
- 392 00b8 0E94 0000 		call I2C_SDA_Set_Output
- 393               	/* epilogue start */
- 394               	.LM61:
- 395 00bc 0895      		ret
- 396               	.LFE20:
- 398               	.global	I2C_Start
- 400               	I2C_Start:
- 401               	.LFB21:
- 402               	.LM62:
- 403 00be 1F93      		push r17
- 404               	/* prologue: function */
- 405               	/* frame size = 0 */
- 406               	.LM63:
- 407 00c0 81E0      		ldi r24,lo8(1)
- 408 00c2 0E94 0000 		call I2C_SCL_Set_Output
- 409               	.LM64:
- 410 00c6 81E0      		ldi r24,lo8(1)
- 411 00c8 0E94 0000 		call I2C_SDA_Set_Output
- 412               	.LBB294:
- 413               	.LBB295:
- 414               	.LBB296:
- 415               	.LBB297:
- 416               	.LBB298:
- 417               	.LBB299:
- 418               	.LM65:
- 419 00cc 18EC      		ldi r17,lo8(-56)
- 420 00ce 812F      		mov r24,r17
- 421               	.LVL9:
- 422               	/* #APP */
- 423               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 424 00d0 8A95      		1: dec r24
- 425 00d2 01F4      		brne 1b
- 426               	 ;  0 "" 2
- 427               	/* #NOAPP */
- 428               	.LBE299:
- 429               	.LBE298:
- 430               	.LBE297:
- 431               	.LBE296:
- 432               	.LBE295:
- 433               	.LBE294:
- 434               	.LM66:
- 435 00d4 80E0      		ldi r24,lo8(0)
- 436               	.LVL10:
- 437 00d6 0E94 0000 		call I2C_SDA_Set_Output
- 438               	.LBB300:
- 439               	.LBB301:
- 440               	.LBB302:
- 441               	.LBB303:
- 442               	.LBB304:
- 443               	.LBB305:
- 444               	.LM67:
- 445 00da 812F      		mov r24,r17
- 446               	.LVL11:
- 447               	/* #APP */
- 448               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 449 00dc 8A95      		1: dec r24
- 450 00de 01F4      		brne 1b
- 451               	 ;  0 "" 2
- 452               	/* #NOAPP */
- 453               	.LBE305:
- 454               	.LBE304:
- 455               	.LBE303:
- 456               	.LBE302:
- 457               	.LBE301:
- 458               	.LBE300:
- 459               	.LM68:
- 460 00e0 80E0      		ldi r24,lo8(0)
- 461               	.LVL12:
- 462 00e2 0E94 0000 		call I2C_SCL_Set_Output
- 463               	.LBB306:
- 464               	.LBB307:
- 465               	.LBB308:
- 466               	.LBB309:
- 467               	.LBB310:
- 468               	.LBB311:
- 469               	.LM69:
- 470               	/* #APP */
- 471               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 472 00e6 1A95      		1: dec r17
- 473 00e8 01F4      		brne 1b
- 474               	 ;  0 "" 2
- 475               	.LVL13:
- 476               	/* epilogue start */
- 477               	/* #NOAPP */
- 478               	.LBE311:
- 479               	.LBE310:
- 480               	.LBE309:
- 481               	.LBE308:
- 482               	.LBE307:
- 483               	.LBE306:
- 484               	.LM70:
- 485 00ea 1F91      		pop r17
- 486               	.LVL14:
- 487 00ec 0895      		ret
- 488               	.LFE21:
- 490               	.global	I2C_Stop
- 492               	I2C_Stop:
- 493               	.LFB22:
- 494               	.LM71:
- 495 00ee 1F93      		push r17
- 496               	/* prologue: function */
- 497               	/* frame size = 0 */
- 498               	.LM72:
- 499 00f0 80E0      		ldi r24,lo8(0)
- 500 00f2 0E94 0000 		call I2C_SCL_Set_Output
- 501               	.LM73:
- 502 00f6 80E0      		ldi r24,lo8(0)
- 503 00f8 0E94 0000 		call I2C_SDA_Set_Output
- 504               	.LBB312:
- 505               	.LBB313:
- 506               	.LBB314:
- 507               	.LBB315:
- 508               	.LBB316:
- 509               	.LBB317:
- 510               	.LM74:
- 511 00fc 18EC      		ldi r17,lo8(-56)
- 512 00fe 812F      		mov r24,r17
- 513               	.LVL15:
- 514               	/* #APP */
- 515               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 516 0100 8A95      		1: dec r24
- 517 0102 01F4      		brne 1b
- 518               	 ;  0 "" 2
- 519               	/* #NOAPP */
- 520               	.LBE317:
- 521               	.LBE316:
- 522               	.LBE315:
- 523               	.LBE314:
- 524               	.LBE313:
- 525               	.LBE312:
- 526               	.LM75:
- 527 0104 81E0      		ldi r24,lo8(1)
- 528               	.LVL16:
- 529 0106 0E94 0000 		call I2C_SCL_Set_Output
- 530               	.LBB318:
- 531               	.LBB319:
- 532               	.LBB320:
- 533               	.LBB321:
- 534               	.LBB322:
- 535               	.LBB323:
- 536               	.LM76:
- 537 010a 812F      		mov r24,r17
- 538               	.LVL17:
- 539               	/* #APP */
- 540               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 541 010c 8A95      		1: dec r24
- 542 010e 01F4      		brne 1b
- 543               	 ;  0 "" 2
- 544               	/* #NOAPP */
- 545               	.LBE323:
- 546               	.LBE322:
- 547               	.LBE321:
- 548               	.LBE320:
- 549               	.LBE319:
- 550               	.LBE318:
- 551               	.LM77:
- 552 0110 81E0      		ldi r24,lo8(1)
- 553               	.LVL18:
- 554 0112 0E94 0000 		call I2C_SDA_Set_Output
- 555               	.LBB324:
- 556               	.LBB325:
- 557               	.LBB326:
- 558               	.LBB327:
- 559               	.LBB328:
- 560               	.LBB329:
- 561               	.LM78:
- 562               	/* #APP */
- 563               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 564 0116 1A95      		1: dec r17
- 565 0118 01F4      		brne 1b
- 566               	 ;  0 "" 2
- 567               	.LVL19:
- 568               	/* epilogue start */
- 569               	/* #NOAPP */
- 570               	.LBE329:
- 571               	.LBE328:
- 572               	.LBE327:
- 573               	.LBE326:
- 574               	.LBE325:
- 575               	.LBE324:
- 576               	.LM79:
- 577 011a 1F91      		pop r17
- 578               	.LVL20:
- 579 011c 0895      		ret
- 580               	.LFE22:
- 582               	.global	I2C_Data_Send
- 584               	I2C_Data_Send:
- 585               	.LFB23:
- 586               	.LM80:
- 587               	.LVL21:
- 588 011e EF92      		push r14
- 589 0120 FF92      		push r15
- 590 0122 0F93      		push r16
- 591 0124 1F93      		push r17
- 592               	/* prologue: function */
- 593               	/* frame size = 0 */
- 594 0126 082F      		mov r16,r24
- 595               	.LM81:
- 596 0128 10E0      		ldi r17,lo8(0)
- 597               	.LVL22:
- 598               	.LBB330:
- 599               	.LBB331:
- 600               	.LBB332:
- 601               	.LBB333:
- 602               	.LBB334:
- 603               	.LBB335:
- 604               	.LBB336:
- 605               	.LM82:
- 606 012a 58EC      		ldi r21,lo8(-56)
- 607 012c F52E      		mov r15,r21
- 608               	.LBE336:
- 609               	.LBE335:
- 610               	.LBE334:
- 611               	.LBE333:
- 612               	.LBE332:
- 613               	.LBE331:
- 614               	.LBB342:
- 615               	.LBB343:
- 616               	.LBB344:
- 617               	.LBB345:
- 618               	.LBB346:
- 619               	.LBB347:
- 620 012e 44E0      		ldi r20,lo8(4)
- 621 0130 E42E      		mov r14,r20
- 622               	.LVL23:
- 623               	.L51:
- 624               	.LBE347:
- 625               	.LBE346:
- 626               	.LBE345:
- 627               	.LBE344:
- 628               	.LBE343:
- 629               	.LBE342:
- 630               	.LM83:
- 631 0132 07FF      		sbrs r16,7
- 632 0134 00C0      		rjmp .L48
- 633               	.LM84:
- 634 0136 81E0      		ldi r24,lo8(1)
- 635               	.LVL24:
- 636 0138 00C0      		rjmp .L53
- 637               	.LVL25:
- 638               	.L48:
- 639               	.LM85:
- 640 013a 80E0      		ldi r24,lo8(0)
- 641               	.LVL26:
- 642               	.L53:
- 643 013c 0E94 0000 		call I2C_SDA_Set_Output
- 644               	.LBB353:
- 645               	.LBB341:
- 646               	.LBB340:
- 647               	.LBB339:
- 648               	.LBB338:
- 649               	.LBB337:
- 650               	.LM86:
- 651 0140 8F2D      		mov r24,r15
- 652               	.LVL27:
- 653               	/* #APP */
- 654               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 655 0142 8A95      		1: dec r24
- 656 0144 01F4      		brne 1b
- 657               	 ;  0 "" 2
- 658               	/* #NOAPP */
- 659               	.LBE337:
- 660               	.LBE338:
- 661               	.LBE339:
- 662               	.LBE340:
- 663               	.LBE341:
- 664               	.LBE353:
- 665               	.LM87:
- 666 0146 81E0      		ldi r24,lo8(1)
- 667               	.LVL28:
- 668 0148 0E94 0000 		call I2C_SCL_Set_Output
- 669               	.LBB354:
- 670               	.LBB355:
- 671               	.LBB356:
- 672               	.LBB357:
- 673               	.LBB358:
- 674               	.LBB359:
- 675               	.LM88:
- 676 014c 8F2D      		mov r24,r15
- 677               	.LVL29:
- 678               	/* #APP */
- 679               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 680 014e 8A95      		1: dec r24
- 681 0150 01F4      		brne 1b
- 682               	 ;  0 "" 2
- 683               	/* #NOAPP */
- 684               	.LBE359:
- 685               	.LBE358:
- 686               	.LBE357:
- 687               	.LBE356:
- 688               	.LBE355:
- 689               	.LBE354:
- 690               	.LM89:
- 691 0152 80E0      		ldi r24,lo8(0)
- 692               	.LVL30:
- 693 0154 0E94 0000 		call I2C_SCL_Set_Output
- 694               	.LBB360:
- 695               	.LBB352:
- 696               	.LBB351:
- 697               	.LBB350:
- 698               	.LBB349:
- 699               	.LBB348:
- 700               	.LM90:
- 701 0158 8E2D      		mov r24,r14
- 702               	.LVL31:
- 703               	/* #APP */
- 704               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 705 015a 8A95      		1: dec r24
- 706 015c 01F4      		brne 1b
- 707               	 ;  0 "" 2
- 708               	/* #NOAPP */
- 709               	.LBE348:
- 710               	.LBE349:
- 711               	.LBE350:
- 712               	.LBE351:
- 713               	.LBE352:
- 714               	.LBE360:
- 715               	.LM91:
- 716 015e 1F5F      		subi r17,lo8(-(1))
- 717 0160 1830      		cpi r17,lo8(8)
- 718 0162 01F0      		breq .L52
- 719               	.LM92:
- 720 0164 000F      		lsl r16
- 721 0166 00C0      		rjmp .L51
- 722               	.L52:
- 723               	/* epilogue start */
- 724               	.LBE330:
- 725               	.LM93:
- 726 0168 1F91      		pop r17
- 727               	.LVL32:
- 728 016a 0F91      		pop r16
- 729               	.LVL33:
- 730 016c FF90      		pop r15
- 731 016e EF90      		pop r14
- 732 0170 0895      		ret
- 733               	.LFE23:
- 735               	.global	I2C_Data_Receive
- 737               	I2C_Data_Receive:
- 738               	.LFB24:
- 739               	.LM94:
- 740 0172 FF92      		push r15
- 741 0174 0F93      		push r16
- 742 0176 1F93      		push r17
- 743               	/* prologue: function */
- 744               	/* frame size = 0 */
- 745               	.LM95:
- 746 0178 81E0      		ldi r24,lo8(1)
- 747 017a 0E94 0000 		call I2C_SDA_Set_Output
- 748 017e 10E0      		ldi r17,lo8(0)
- 749               	.LVL34:
- 750 0180 00E0      		ldi r16,lo8(0)
- 751               	.LVL35:
- 752               	.LBB361:
- 753               	.LBB362:
- 754               	.LBB363:
- 755               	.LBB364:
- 756               	.LBB365:
- 757               	.LBB366:
- 758               	.LBB367:
- 759               	.LM96:
- 760 0182 68EC      		ldi r22,lo8(-56)
- 761 0184 F62E      		mov r15,r22
- 762               	.L56:
- 763               	.LBE367:
- 764               	.LBE366:
- 765               	.LBE365:
- 766               	.LBE364:
- 767               	.LBE363:
- 768               	.LBE362:
- 769               	.LM97:
- 770 0186 110F      		lsl r17
- 771               	.LBB373:
- 772               	.LBB372:
- 773               	.LBB371:
- 774               	.LBB370:
- 775               	.LBB369:
- 776               	.LBB368:
- 777               	.LM98:
- 778 0188 8F2D      		mov r24,r15
- 779               	.LVL36:
- 780               	/* #APP */
- 781               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 782 018a 8A95      		1: dec r24
- 783 018c 01F4      		brne 1b
- 784               	 ;  0 "" 2
- 785               	/* #NOAPP */
- 786               	.LBE368:
- 787               	.LBE369:
- 788               	.LBE370:
- 789               	.LBE371:
- 790               	.LBE372:
- 791               	.LBE373:
- 792               	.LM99:
- 793 018e 81E0      		ldi r24,lo8(1)
- 794               	.LVL37:
- 795 0190 0E94 0000 		call I2C_SCL_Set_Output
- 796               	.LBB374:
- 797               	.LBB375:
- 798               	.LM100:
- 799 0194 3599      		sbic 38-32,5
- 800               	.LBE375:
- 801               	.LBE374:
- 802               	.LM101:
- 803 0196 1160      		ori r17,lo8(1)
- 804               	.L55:
- 805               	.LBB376:
- 806               	.LBB377:
- 807               	.LBB378:
- 808               	.LBB379:
- 809               	.LBB380:
- 810               	.LBB381:
- 811               	.LM102:
- 812 0198 8F2D      		mov r24,r15
- 813               	.LVL38:
- 814               	/* #APP */
- 815               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 816 019a 8A95      		1: dec r24
- 817 019c 01F4      		brne 1b
- 818               	 ;  0 "" 2
- 819               	/* #NOAPP */
- 820               	.LBE381:
- 821               	.LBE380:
- 822               	.LBE379:
- 823               	.LBE378:
- 824               	.LBE377:
- 825               	.LBE376:
- 826               	.LM103:
- 827 019e 80E0      		ldi r24,lo8(0)
- 828               	.LVL39:
- 829 01a0 0E94 0000 		call I2C_SCL_Set_Output
- 830               	.LM104:
- 831 01a4 0F5F      		subi r16,lo8(-(1))
- 832 01a6 0830      		cpi r16,lo8(8)
- 833 01a8 01F4      		brne .L56
- 834               	.LBE361:
- 835               	.LBB382:
- 836               	.LBB383:
- 837               	.LBB384:
- 838               	.LBB385:
- 839               	.LBB386:
- 840               	.LBB387:
- 841               	.LM105:
- 842 01aa 88EC      		ldi r24,lo8(-56)
- 843               	.LVL40:
- 844               	/* #APP */
- 845               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 846 01ac 8A95      		1: dec r24
- 847 01ae 01F4      		brne 1b
- 848               	 ;  0 "" 2
- 849               	/* #NOAPP */
- 850               	.LBE387:
- 851               	.LBE386:
- 852               	.LBE385:
- 853               	.LBE384:
- 854               	.LBE383:
- 855               	.LBE382:
- 856               	.LM106:
- 857 01b0 81E0      		ldi r24,lo8(1)
- 858               	.LVL41:
- 859 01b2 0E94 0000 		call I2C_SCL_Set_Output
- 860               	.LM107:
- 861 01b6 812F      		mov r24,r17
- 862               	/* epilogue start */
- 863 01b8 1F91      		pop r17
- 864               	.LVL42:
- 865 01ba 0F91      		pop r16
- 866               	.LVL43:
- 867 01bc FF90      		pop r15
- 868 01be 0895      		ret
- 869               	.LFE24:
- 871               	.global	I2C_Set_Ack
- 873               	I2C_Set_Ack:
- 874               	.LFB25:
- 875               	.LM108:
- 876 01c0 1F93      		push r17
- 877               	/* prologue: function */
- 878               	/* frame size = 0 */
- 879               	.LM109:
- 880 01c2 80E0      		ldi r24,lo8(0)
- 881 01c4 0E94 0000 		call I2C_SDA_Set_Output
- 882               	.LBB388:
- 883               	.LBB389:
- 884               	.LBB390:
- 885               	.LBB391:
- 886               	.LBB392:
- 887               	.LBB393:
- 888               	.LM110:
- 889 01c8 18EC      		ldi r17,lo8(-56)
- 890 01ca 812F      		mov r24,r17
- 891               	.LVL44:
- 892               	/* #APP */
- 893               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 894 01cc 8A95      		1: dec r24
- 895 01ce 01F4      		brne 1b
- 896               	 ;  0 "" 2
- 897               	/* #NOAPP */
- 898               	.LBE393:
- 899               	.LBE392:
- 900               	.LBE391:
- 901               	.LBE390:
- 902               	.LBE389:
- 903               	.LBE388:
- 904               	.LM111:
- 905 01d0 81E0      		ldi r24,lo8(1)
- 906               	.LVL45:
- 907 01d2 0E94 0000 		call I2C_SCL_Set_Output
- 908               	.LBB394:
- 909               	.LBB395:
- 910               	.LBB396:
- 911               	.LBB397:
- 912               	.LBB398:
- 913               	.LBB399:
- 914               	.LM112:
- 915               	/* #APP */
- 916               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 917 01d6 1A95      		1: dec r17
- 918 01d8 01F4      		brne 1b
- 919               	 ;  0 "" 2
- 920               	.LVL46:
- 921               	/* #NOAPP */
- 922               	.LBE399:
- 923               	.LBE398:
- 924               	.LBE397:
- 925               	.LBE396:
- 926               	.LBE395:
- 927               	.LBE394:
- 928               	.LM113:
- 929 01da 80E0      		ldi r24,lo8(0)
- 930 01dc 0E94 0000 		call I2C_SCL_Set_Output
- 931               	/* epilogue start */
- 932               	.LM114:
- 933 01e0 1F91      		pop r17
- 934               	.LVL47:
- 935 01e2 0895      		ret
- 936               	.LFE25:
- 938               	.global	I2C_Set_Nack
- 940               	I2C_Set_Nack:
- 941               	.LFB26:
- 942               	.LM115:
- 943 01e4 1F93      		push r17
- 944               	/* prologue: function */
- 945               	/* frame size = 0 */
- 946               	.LM116:
- 947 01e6 81E0      		ldi r24,lo8(1)
- 948 01e8 0E94 0000 		call I2C_SDA_Set_Output
- 949               	.LBB400:
- 950               	.LBB401:
- 951               	.LBB402:
- 952               	.LBB403:
- 953               	.LBB404:
- 954               	.LBB405:
- 955               	.LM117:
- 956 01ec 18EC      		ldi r17,lo8(-56)
- 957 01ee 812F      		mov r24,r17
- 958               	.LVL48:
- 959               	/* #APP */
- 960               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 961 01f0 8A95      		1: dec r24
- 962 01f2 01F4      		brne 1b
- 963               	 ;  0 "" 2
- 964               	/* #NOAPP */
- 965               	.LBE405:
- 966               	.LBE404:
- 967               	.LBE403:
- 968               	.LBE402:
- 969               	.LBE401:
- 970               	.LBE400:
- 971               	.LM118:
- 972 01f4 81E0      		ldi r24,lo8(1)
- 973               	.LVL49:
- 974 01f6 0E94 0000 		call I2C_SCL_Set_Output
- 975               	.LBB406:
- 976               	.LBB407:
- 977               	.LBB408:
- 978               	.LBB409:
- 979               	.LBB410:
- 980               	.LBB411:
- 981               	.LM119:
- 982               	/* #APP */
- 983               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 984 01fa 1A95      		1: dec r17
- 985 01fc 01F4      		brne 1b
- 986               	 ;  0 "" 2
- 987               	.LVL50:
- 988               	/* #NOAPP */
- 989               	.LBE411:
- 990               	.LBE410:
- 991               	.LBE409:
- 992               	.LBE408:
- 993               	.LBE407:
- 994               	.LBE406:
- 995               	.LM120:
- 996 01fe 80E0      		ldi r24,lo8(0)
- 997 0200 0E94 0000 		call I2C_SCL_Set_Output
- 998               	/* epilogue start */
- 999               	.LM121:
- 1000 0204 1F91      		pop r17
- 1001               	.LVL51:
- 1002 0206 0895      		ret
- 1003               	.LFE26:
- 1005               	.global	I2C_Get_Ack
- 1007               	I2C_Get_Ack:
- 1008               	.LFB27:
- 1009               	.LM122:
- 1010 0208 0F93      		push r16
- 1011 020a 1F93      		push r17
- 1012               	/* prologue: function */
- 1013               	/* frame size = 0 */
- 1014               	.LM123:
- 1015 020c 81E0      		ldi r24,lo8(1)
- 1016 020e 0E94 0000 		call I2C_SDA_Set_Output
- 1017               	.LBB412:
- 1018               	.LBB413:
- 1019               	.LBB414:
- 1020               	.LBB415:
- 1021               	.LBB416:
- 1022               	.LBB417:
- 1023               	.LM124:
- 1024 0212 08EC      		ldi r16,lo8(-56)
- 1025 0214 802F      		mov r24,r16
- 1026               	.LVL52:
- 1027               	/* #APP */
- 1028               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 1029 0216 8A95      		1: dec r24
- 1030 0218 01F4      		brne 1b
- 1031               	 ;  0 "" 2
- 1032               	/* #NOAPP */
- 1033               	.LBE417:
- 1034               	.LBE416:
- 1035               	.LBE415:
- 1036               	.LBE414:
- 1037               	.LBE413:
- 1038               	.LBE412:
- 1039               	.LM125:
- 1040 021a 81E0      		ldi r24,lo8(1)
- 1041               	.LVL53:
- 1042 021c 0E94 0000 		call I2C_SCL_Set_Output
- 1043               	.LBB418:
- 1044               	.LBB419:
- 1045               	.LM126:
- 1046 0220 16B1      		in r17,38-32
- 1047               	.LBE419:
- 1048               	.LBE418:
- 1049               	.LBB420:
- 1050               	.LBB421:
- 1051               	.LBB422:
- 1052               	.LBB423:
- 1053               	.LBB424:
- 1054               	.LBB425:
- 1055               	.LM127:
- 1056               	/* #APP */
- 1057               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 1058 0222 0A95      		1: dec r16
- 1059 0224 01F4      		brne 1b
- 1060               	 ;  0 "" 2
- 1061               	.LVL54:
- 1062               	/* #NOAPP */
- 1063               	.LBE425:
- 1064               	.LBE424:
- 1065               	.LBE423:
- 1066               	.LBE422:
- 1067               	.LBE421:
- 1068               	.LBE420:
- 1069               	.LM128:
- 1070 0226 80E0      		ldi r24,lo8(0)
- 1071 0228 0E94 0000 		call I2C_SCL_Set_Output
- 1072 022c 1295      		swap r17
- 1073 022e 1695      		lsr r17
- 1074 0230 1770      		andi r17,lo8(7)
- 1075 0232 1095      		com r17
- 1076               	.LM129:
- 1077 0234 812F      		mov r24,r17
- 1078 0236 8170      		andi r24,lo8(1)
- 1079               	/* epilogue start */
- 1080 0238 1F91      		pop r17
- 1081 023a 0F91      		pop r16
- 1082               	.LVL55:
- 1083 023c 0895      		ret
- 1084               	.LFE27:
- 1086               	.global	I2C_Send_Device_Address
- 1088               	I2C_Send_Device_Address:
- 1089               	.LFB28:
- 1090               	.LM130:
- 1091               	.LVL56:
- 1092 023e 1F93      		push r17
- 1093               	/* prologue: function */
- 1094               	/* frame size = 0 */
- 1095 0240 182F      		mov r17,r24
- 1096               	.LM131:
- 1097 0242 0E94 0000 		call I2C_Start
- 1098               	.LVL57:
- 1099               	.LM132:
- 1100 0246 812F      		mov r24,r17
- 1101 0248 0E94 0000 		call I2C_Data_Send
- 1102               	.LM133:
- 1103 024c 0E94 0000 		call I2C_Get_Ack
- 1104 0250 182F      		mov r17,r24
- 1105               	.LVL58:
- 1106               	.LM134:
- 1107 0252 0E94 0000 		call I2C_Stop
- 1108               	.LM135:
- 1109 0256 812F      		mov r24,r17
- 1110               	/* epilogue start */
- 1111 0258 1F91      		pop r17
- 1112               	.LVL59:
- 1113 025a 0895      		ret
- 1114               	.LFE28:
- 1116               	.global	I2C_Get_Device_Address
- 1118               	I2C_Get_Device_Address:
- 1119               	.LFB29:
- 1120               	.LM136:
- 1121 025c 1F93      		push r17
- 1122               	/* prologue: function */
- 1123               	/* frame size = 0 */
- 1124               	.LM137:
- 1125 025e 10E0      		ldi r17,lo8(0)
- 1126               	.LVL60:
- 1127               	.L70:
- 1128               	.LBB426:
- 1129               	.LM138:
- 1130 0260 812F      		mov r24,r17
- 1131               	.LVL61:
- 1132 0262 0E94 0000 		call I2C_Send_Device_Address
- 1133               	.LM139:
- 1134 0266 8130      		cpi r24,lo8(1)
- 1135               	.LVL62:
- 1136 0268 01F4      		brne .L68
- 1137 026a 812F      		mov r24,r17
- 1138 026c 00C0      		rjmp .L69
- 1139               	.L68:
- 1140               	.LM140:
- 1141 026e 1F5F      		subi r17,lo8(-(1))
- 1142 0270 1F3F      		cpi r17,lo8(-1)
- 1143 0272 01F4      		brne .L70
- 1144               	.L69:
- 1145               	.LVL63:
- 1146               	/* epilogue start */
- 1147               	.LBE426:
- 1148               	.LM141:
- 1149 0274 1F91      		pop r17
- 1150               	.LVL64:
- 1151 0276 0895      		ret
- 1152               	.LFE29:
- 1154               	.global	I2C_Read_Register
- 1156               	I2C_Read_Register:
- 1157               	.LFB30:
- 1158               	.LM142:
- 1159               	.LVL65:
- 1160 0278 DF92      		push r13
- 1161 027a EF92      		push r14
- 1162 027c FF92      		push r15
- 1163 027e 0F93      		push r16
- 1164 0280 1F93      		push r17
- 1165               	/* prologue: function */
- 1166               	/* frame size = 0 */
- 1167 0282 182F      		mov r17,r24
- 1168               	.LM143:
- 1169 0284 0E94 0000 		call I2C_Start
- 1170               	.LVL66:
- 1171               	.LM144:
- 1172 0288 8091 0000 		lds r24,I2C
- 1173 028c 0E94 0000 		call I2C_Data_Send
- 1174               	.LM145:
- 1175 0290 0E94 0000 		call I2C_Get_Ack
- 1176 0294 E82E      		mov r14,r24
- 1177               	.LM146:
- 1178 0296 812F      		mov r24,r17
- 1179 0298 0E94 0000 		call I2C_Data_Send
- 1180               	.LM147:
- 1181 029c 0E94 0000 		call I2C_Get_Ack
- 1182 02a0 F82E      		mov r15,r24
- 1183               	.LM148:
- 1184 02a2 0E94 0000 		call I2C_Stop
- 1185               	.LM149:
- 1186 02a6 0E94 0000 		call I2C_Start
- 1187               	.LM150:
- 1188 02aa 8091 0000 		lds r24,I2C+1
- 1189 02ae 0E94 0000 		call I2C_Data_Send
- 1190               	.LM151:
- 1191 02b2 0E94 0000 		call I2C_Get_Ack
- 1192 02b6 182F      		mov r17,r24
- 1193               	.LVL67:
- 1194               	.LM152:
- 1195 02b8 0E94 0000 		call I2C_Data_Receive
- 1196 02bc D82E      		mov r13,r24
- 1197               	.LVL68:
- 1198               	.LM153:
- 1199 02be 0E94 0000 		call I2C_Get_Ack
- 1200 02c2 082F      		mov r16,r24
- 1201               	.LM154:
- 1202 02c4 0E94 0000 		call I2C_Stop
- 1203               	.LM155:
- 1204 02c8 FF0C      		lsl r15
- 1205 02ca 110F      		lsl r17
- 1206 02cc 110F      		lsl r17
- 1207 02ce 1F29      		or r17,r15
- 1208 02d0 1E29      		or r17,r14
- 1209 02d2 000F      		lsl r16
- 1210 02d4 000F      		lsl r16
- 1211 02d6 000F      		lsl r16
- 1212 02d8 012B      		or r16,r17
- 1213 02da 0730      		cpi r16,lo8(7)
- 1214 02dc 01F0      		breq .L74
- 1215 02de 8FEF      		ldi r24,lo8(-1)
- 1216               	.LVL69:
- 1217 02e0 00C0      		rjmp .L75
- 1218               	.LVL70:
- 1219               	.L74:
- 1220 02e2 8D2D      		mov r24,r13
- 1221               	.LVL71:
- 1222               	.L75:
- 1223               	.LVL72:
- 1224               	/* epilogue start */
- 1225               	.LM156:
- 1226 02e4 1F91      		pop r17
- 1227 02e6 0F91      		pop r16
- 1228 02e8 FF90      		pop r15
- 1229 02ea EF90      		pop r14
- 1230 02ec DF90      		pop r13
- 1231               	.LVL73:
- 1232 02ee 0895      		ret
- 1233               	.LFE30:
- 1235               	.global	I2C_Init
- 1237               	I2C_Init:
- 1238               	.LFB31:
- 1239               	.LM157:
- 1240               	/* prologue: function */
- 1241               	/* frame size = 0 */
- 1242               	.LBB427:
- 1243               	.LBB428:
- 1244               	.LM158:
- 1245 02f0 1092 0000 		sts I2C,__zero_reg__
- 1246               	.LM159:
- 1247 02f4 1092 0000 		sts I2C+1,__zero_reg__
- 1248               	.LBE428:
- 1249               	.LBE427:
- 1250               	.LM160:
- 1251 02f8 0E94 0000 		call I2C_GPIO_Init
- 1252               	.LM161:
- 1253 02fc 0E94 0000 		call I2C_Get_Device_Address
- 1254 0300 8093 0000 		sts I2C,r24
- 1255               	.LM162:
- 1256 0304 8F5F      		subi r24,lo8(-(1))
- 1257 0306 8093 0000 		sts I2C+1,r24
- 1258               	/* epilogue start */
- 1259               	.LM163:
- 1260 030a 0895      		ret
- 1261               	.LFE31:
- 1263               		.comm I2C,2,1
- 1488               	.Letext0:
+  68               	.LBB270:
+  69               	.LBB271:
+  70               	.LBB272:
+  71               	.LBB273:
+  72               	.LM9:
+  73 0012 80EA      		ldi r24,lo8(-96)
+  74               	.LVL1:
+  75               	/* #APP */
+  76               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  77 0014 8A95      		1: dec r24
+  78 0016 01F4      		brne 1b
+  79               	 ;  0 "" 2
+  80               	/* epilogue start */
+  81               	/* #NOAPP */
+  82               	.LBE273:
+  83               	.LBE272:
+  84               	.LBE271:
+  85               	.LBE270:
+  86               	.LM10:
+  87 0018 0895      		ret
+  88               	.LFE8:
+  90               	.global	I2C_Guard_Delay
+  92               	I2C_Guard_Delay:
+  93               	.LFB9:
+  94               	.LM11:
+  95               	/* prologue: function */
+  96               	/* frame size = 0 */
+  97               	.LBB274:
+  98               	.LBB275:
+  99               	.LBB276:
+ 100               	.LBB277:
+ 101               	.LM12:
+ 102 001a 88E0      		ldi r24,lo8(8)
+ 103               	.LVL2:
+ 104               	/* #APP */
+ 105               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 106 001c 8A95      		1: dec r24
+ 107 001e 01F4      		brne 1b
+ 108               	 ;  0 "" 2
+ 109               	/* epilogue start */
+ 110               	/* #NOAPP */
+ 111               	.LBE277:
+ 112               	.LBE276:
+ 113               	.LBE275:
+ 114               	.LBE274:
+ 115               	.LM13:
+ 116 0020 0895      		ret
+ 117               	.LFE9:
+ 119               	.global	I2C_SCL_Set_DD
+ 121               	I2C_SCL_Set_DD:
+ 122               	.LFB10:
+ 123               	.LM14:
+ 124               	.LVL3:
+ 125               	/* prologue: function */
+ 126               	/* frame size = 0 */
+ 127               	.LM15:
+ 128 0022 8130      		cpi r24,lo8(1)
+ 129 0024 01F4      		brne .L10
+ 130               	.LM16:
+ 131 0026 3C9A      		sbi 39-32,4
+ 132 0028 0895      		ret
+ 133               	.L10:
+ 134               	.LM17:
+ 135 002a 3C98      		cbi 39-32,4
+ 136 002c 0895      		ret
+ 137               	.LFE10:
+ 139               	.global	I2C_SCL_Set_Output_LL
+ 141               	I2C_SCL_Set_Output_LL:
+ 142               	.LFB11:
+ 143               	.LM18:
+ 144               	.LVL4:
+ 145               	/* prologue: function */
+ 146               	/* frame size = 0 */
+ 147               	.LM19:
+ 148 002e 8130      		cpi r24,lo8(1)
+ 149 0030 01F4      		brne .L14
+ 150               	.LM20:
+ 151 0032 449A      		sbi 40-32,4
+ 152 0034 0895      		ret
+ 153               	.L14:
+ 154               	.LM21:
+ 155 0036 4498      		cbi 40-32,4
+ 156 0038 0895      		ret
+ 157               	.LFE11:
+ 159               	.global	I2C_SCL_Set_Output
+ 161               	I2C_SCL_Set_Output:
+ 162               	.LFB12:
+ 163               	.LM22:
+ 164               	.LVL5:
+ 165               	/* prologue: function */
+ 166               	/* frame size = 0 */
+ 167               	.LM23:
+ 168 003a 8130      		cpi r24,lo8(1)
+ 169 003c 01F4      		brne .L18
+ 170               	.LBB278:
+ 171               	.LBB279:
+ 172               	.LM24:
+ 173 003e 449A      		sbi 40-32,4
+ 174               	.LBE279:
+ 175               	.LBE278:
+ 176               	.LBB280:
+ 177               	.LBB281:
+ 178               	.LM25:
+ 179 0040 3C98      		cbi 39-32,4
+ 180 0042 0895      		ret
+ 181               	.L18:
+ 182               	.LBE281:
+ 183               	.LBE280:
+ 184               	.LBB282:
+ 185               	.LBB283:
+ 186               	.LM26:
+ 187 0044 4498      		cbi 40-32,4
+ 188               	.LBE283:
+ 189               	.LBE282:
+ 190               	.LBB284:
+ 191               	.LBB285:
+ 192               	.LM27:
+ 193 0046 3C9A      		sbi 39-32,4
+ 194 0048 0895      		ret
+ 195               	.LBE285:
+ 196               	.LBE284:
+ 197               	.LFE12:
+ 199               	.global	I2C_SCL_Get_State
+ 201               	I2C_SCL_Get_State:
+ 202               	.LFB13:
+ 203               	.LM28:
+ 204               	/* prologue: function */
+ 205               	/* frame size = 0 */
+ 206               	.LM29:
+ 207 004a 86B1      		in r24,38-32
+ 208 004c 90E0      		ldi r25,lo8(0)
+ 209 004e 24E0      		ldi r18,4
+ 210 0050 9695      	1:	lsr r25
+ 211 0052 8795      		ror r24
+ 212 0054 2A95      		dec r18
+ 213 0056 01F4      		brne 1b
+ 214               	.LM30:
+ 215 0058 8170      		andi r24,lo8(1)
+ 216               	/* epilogue start */
+ 217 005a 0895      		ret
+ 218               	.LFE13:
+ 220               	.global	I2C_SDA_Set_DD
+ 222               	I2C_SDA_Set_DD:
+ 223               	.LFB14:
+ 224               	.LM31:
+ 225               	.LVL6:
+ 226               	/* prologue: function */
+ 227               	/* frame size = 0 */
+ 228               	.LM32:
+ 229 005c 8130      		cpi r24,lo8(1)
+ 230 005e 01F4      		brne .L24
+ 231               	.LM33:
+ 232 0060 3D9A      		sbi 39-32,5
+ 233 0062 0895      		ret
+ 234               	.L24:
+ 235               	.LM34:
+ 236 0064 3D98      		cbi 39-32,5
+ 237 0066 0895      		ret
+ 238               	.LFE14:
+ 240               	.global	I2C_SDA_Set_Output_LL
+ 242               	I2C_SDA_Set_Output_LL:
+ 243               	.LFB15:
+ 244               	.LM35:
+ 245               	.LVL7:
+ 246               	/* prologue: function */
+ 247               	/* frame size = 0 */
+ 248               	.LM36:
+ 249 0068 8130      		cpi r24,lo8(1)
+ 250 006a 01F4      		brne .L28
+ 251               	.LM37:
+ 252 006c 459A      		sbi 40-32,5
+ 253 006e 0895      		ret
+ 254               	.L28:
+ 255               	.LM38:
+ 256 0070 4598      		cbi 40-32,5
+ 257 0072 0895      		ret
+ 258               	.LFE15:
+ 260               	.global	I2C_SDA_Set_Output
+ 262               	I2C_SDA_Set_Output:
+ 263               	.LFB16:
+ 264               	.LM39:
+ 265               	.LVL8:
+ 266               	/* prologue: function */
+ 267               	/* frame size = 0 */
+ 268               	.LM40:
+ 269 0074 8130      		cpi r24,lo8(1)
+ 270 0076 01F4      		brne .L32
+ 271               	.LBB286:
+ 272               	.LBB287:
+ 273               	.LM41:
+ 274 0078 459A      		sbi 40-32,5
+ 275               	.LBE287:
+ 276               	.LBE286:
+ 277               	.LBB288:
+ 278               	.LBB289:
+ 279               	.LM42:
+ 280 007a 3D98      		cbi 39-32,5
+ 281 007c 0895      		ret
+ 282               	.L32:
+ 283               	.LBE289:
+ 284               	.LBE288:
+ 285               	.LBB290:
+ 286               	.LBB291:
+ 287               	.LM43:
+ 288 007e 4598      		cbi 40-32,5
+ 289               	.LBE291:
+ 290               	.LBE290:
+ 291               	.LBB292:
+ 292               	.LBB293:
+ 293               	.LM44:
+ 294 0080 3D9A      		sbi 39-32,5
+ 295 0082 0895      		ret
+ 296               	.LBE293:
+ 297               	.LBE292:
+ 298               	.LFE16:
+ 300               	.global	I2C_SDA_Get_State
+ 302               	I2C_SDA_Get_State:
+ 303               	.LFB17:
+ 304               	.LM45:
+ 305               	/* prologue: function */
+ 306               	/* frame size = 0 */
+ 307               	.LM46:
+ 308 0084 86B1      		in r24,38-32
+ 309 0086 90E0      		ldi r25,lo8(0)
+ 310 0088 35E0      		ldi r19,5
+ 311 008a 9695      	1:	lsr r25
+ 312 008c 8795      		ror r24
+ 313 008e 3A95      		dec r19
+ 314 0090 01F4      		brne 1b
+ 315               	.LM47:
+ 316 0092 8170      		andi r24,lo8(1)
+ 317               	/* epilogue start */
+ 318 0094 0895      		ret
+ 319               	.LFE17:
+ 321               	.global	I2C_SCL_Reset_State
+ 323               	I2C_SCL_Reset_State:
+ 324               	.LFB18:
+ 325               	.LM48:
+ 326               	/* prologue: function */
+ 327               	/* frame size = 0 */
+ 328               	.LBB294:
+ 329               	.LBB295:
+ 330               	.LM49:
+ 331 0096 3C98      		cbi 39-32,4
+ 332               	.LBE295:
+ 333               	.LBE294:
+ 334               	.LM50:
+ 335 0098 80E0      		ldi r24,lo8(0)
+ 336 009a 0E94 0000 		call I2C_SCL_Set_Output
+ 337               	/* epilogue start */
+ 338               	.LM51:
+ 339 009e 0895      		ret
+ 340               	.LFE18:
+ 342               	.global	I2C_SDA_Reset_State
+ 344               	I2C_SDA_Reset_State:
+ 345               	.LFB19:
+ 346               	.LM52:
+ 347               	/* prologue: function */
+ 348               	/* frame size = 0 */
+ 349               	.LBB296:
+ 350               	.LBB297:
+ 351               	.LM53:
+ 352 00a0 3D98      		cbi 39-32,5
+ 353               	.LBE297:
+ 354               	.LBE296:
+ 355               	.LM54:
+ 356 00a2 80E0      		ldi r24,lo8(0)
+ 357 00a4 0E94 0000 		call I2C_SDA_Set_Output
+ 358               	/* epilogue start */
+ 359               	.LM55:
+ 360 00a8 0895      		ret
+ 361               	.LFE19:
+ 363               	.global	I2C_GPIO_Init
+ 365               	I2C_GPIO_Init:
+ 366               	.LFB20:
+ 367               	.LM56:
+ 368               	/* prologue: function */
+ 369               	/* frame size = 0 */
+ 370               	.LBB298:
+ 371               	.LBB299:
+ 372               	.LM57:
+ 373 00aa 3C9A      		sbi 39-32,4
+ 374               	.LBE299:
+ 375               	.LBE298:
+ 376               	.LBB300:
+ 377               	.LBB301:
+ 378               	.LM58:
+ 379 00ac 3D98      		cbi 39-32,5
+ 380               	.LBE301:
+ 381               	.LBE300:
+ 382               	.LM59:
+ 383 00ae 81E0      		ldi r24,lo8(1)
+ 384 00b0 0E94 0000 		call I2C_SCL_Set_Output
+ 385               	.LM60:
+ 386 00b4 81E0      		ldi r24,lo8(1)
+ 387 00b6 0E94 0000 		call I2C_SDA_Set_Output
+ 388               	/* epilogue start */
+ 389               	.LM61:
+ 390 00ba 0895      		ret
+ 391               	.LFE20:
+ 393               	.global	I2C_Start
+ 395               	I2C_Start:
+ 396               	.LFB21:
+ 397               	.LM62:
+ 398 00bc 1F93      		push r17
+ 399               	/* prologue: function */
+ 400               	/* frame size = 0 */
+ 401               	.LM63:
+ 402 00be 81E0      		ldi r24,lo8(1)
+ 403 00c0 0E94 0000 		call I2C_SCL_Set_Output
+ 404               	.LM64:
+ 405 00c4 81E0      		ldi r24,lo8(1)
+ 406 00c6 0E94 0000 		call I2C_SDA_Set_Output
+ 407               	.LBB302:
+ 408               	.LBB303:
+ 409               	.LBB304:
+ 410               	.LBB305:
+ 411               	.LBB306:
+ 412               	.LBB307:
+ 413               	.LM65:
+ 414 00ca 10E5      		ldi r17,lo8(80)
+ 415 00cc 812F      		mov r24,r17
+ 416               	.LVL9:
+ 417               	/* #APP */
+ 418               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 419 00ce 8A95      		1: dec r24
+ 420 00d0 01F4      		brne 1b
+ 421               	 ;  0 "" 2
+ 422               	/* #NOAPP */
+ 423               	.LBE307:
+ 424               	.LBE306:
+ 425               	.LBE305:
+ 426               	.LBE304:
+ 427               	.LBE303:
+ 428               	.LBE302:
+ 429               	.LM66:
+ 430 00d2 80E0      		ldi r24,lo8(0)
+ 431               	.LVL10:
+ 432 00d4 0E94 0000 		call I2C_SDA_Set_Output
+ 433               	.LBB308:
+ 434               	.LBB309:
+ 435               	.LBB310:
+ 436               	.LBB311:
+ 437               	.LBB312:
+ 438               	.LBB313:
+ 439               	.LM67:
+ 440 00d8 812F      		mov r24,r17
+ 441               	.LVL11:
+ 442               	/* #APP */
+ 443               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 444 00da 8A95      		1: dec r24
+ 445 00dc 01F4      		brne 1b
+ 446               	 ;  0 "" 2
+ 447               	/* #NOAPP */
+ 448               	.LBE313:
+ 449               	.LBE312:
+ 450               	.LBE311:
+ 451               	.LBE310:
+ 452               	.LBE309:
+ 453               	.LBE308:
+ 454               	.LM68:
+ 455 00de 80E0      		ldi r24,lo8(0)
+ 456               	.LVL12:
+ 457 00e0 0E94 0000 		call I2C_SCL_Set_Output
+ 458               	.LBB314:
+ 459               	.LBB315:
+ 460               	.LBB316:
+ 461               	.LBB317:
+ 462               	.LBB318:
+ 463               	.LBB319:
+ 464               	.LM69:
+ 465               	/* #APP */
+ 466               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 467 00e4 1A95      		1: dec r17
+ 468 00e6 01F4      		brne 1b
+ 469               	 ;  0 "" 2
+ 470               	.LVL13:
+ 471               	/* epilogue start */
+ 472               	/* #NOAPP */
+ 473               	.LBE319:
+ 474               	.LBE318:
+ 475               	.LBE317:
+ 476               	.LBE316:
+ 477               	.LBE315:
+ 478               	.LBE314:
+ 479               	.LM70:
+ 480 00e8 1F91      		pop r17
+ 481               	.LVL14:
+ 482 00ea 0895      		ret
+ 483               	.LFE21:
+ 485               	.global	I2C_Stop
+ 487               	I2C_Stop:
+ 488               	.LFB22:
+ 489               	.LM71:
+ 490 00ec 1F93      		push r17
+ 491               	/* prologue: function */
+ 492               	/* frame size = 0 */
+ 493               	.LM72:
+ 494 00ee 80E0      		ldi r24,lo8(0)
+ 495 00f0 0E94 0000 		call I2C_SCL_Set_Output
+ 496               	.LM73:
+ 497 00f4 80E0      		ldi r24,lo8(0)
+ 498 00f6 0E94 0000 		call I2C_SDA_Set_Output
+ 499               	.LBB320:
+ 500               	.LBB321:
+ 501               	.LBB322:
+ 502               	.LBB323:
+ 503               	.LBB324:
+ 504               	.LBB325:
+ 505               	.LM74:
+ 506 00fa 10E5      		ldi r17,lo8(80)
+ 507 00fc 812F      		mov r24,r17
+ 508               	.LVL15:
+ 509               	/* #APP */
+ 510               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 511 00fe 8A95      		1: dec r24
+ 512 0100 01F4      		brne 1b
+ 513               	 ;  0 "" 2
+ 514               	/* #NOAPP */
+ 515               	.LBE325:
+ 516               	.LBE324:
+ 517               	.LBE323:
+ 518               	.LBE322:
+ 519               	.LBE321:
+ 520               	.LBE320:
+ 521               	.LM75:
+ 522 0102 81E0      		ldi r24,lo8(1)
+ 523               	.LVL16:
+ 524 0104 0E94 0000 		call I2C_SCL_Set_Output
+ 525               	.LBB326:
+ 526               	.LBB327:
+ 527               	.LBB328:
+ 528               	.LBB329:
+ 529               	.LBB330:
+ 530               	.LBB331:
+ 531               	.LM76:
+ 532 0108 812F      		mov r24,r17
+ 533               	.LVL17:
+ 534               	/* #APP */
+ 535               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 536 010a 8A95      		1: dec r24
+ 537 010c 01F4      		brne 1b
+ 538               	 ;  0 "" 2
+ 539               	/* #NOAPP */
+ 540               	.LBE331:
+ 541               	.LBE330:
+ 542               	.LBE329:
+ 543               	.LBE328:
+ 544               	.LBE327:
+ 545               	.LBE326:
+ 546               	.LM77:
+ 547 010e 81E0      		ldi r24,lo8(1)
+ 548               	.LVL18:
+ 549 0110 0E94 0000 		call I2C_SDA_Set_Output
+ 550               	.LBB332:
+ 551               	.LBB333:
+ 552               	.LBB334:
+ 553               	.LBB335:
+ 554               	.LBB336:
+ 555               	.LBB337:
+ 556               	.LM78:
+ 557               	/* #APP */
+ 558               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 559 0114 1A95      		1: dec r17
+ 560 0116 01F4      		brne 1b
+ 561               	 ;  0 "" 2
+ 562               	.LVL19:
+ 563               	/* epilogue start */
+ 564               	/* #NOAPP */
+ 565               	.LBE337:
+ 566               	.LBE336:
+ 567               	.LBE335:
+ 568               	.LBE334:
+ 569               	.LBE333:
+ 570               	.LBE332:
+ 571               	.LM79:
+ 572 0118 1F91      		pop r17
+ 573               	.LVL20:
+ 574 011a 0895      		ret
+ 575               	.LFE22:
+ 577               	.global	I2C_Data_Send
+ 579               	I2C_Data_Send:
+ 580               	.LFB23:
+ 581               	.LM80:
+ 582               	.LVL21:
+ 583 011c EF92      		push r14
+ 584 011e FF92      		push r15
+ 585 0120 0F93      		push r16
+ 586 0122 1F93      		push r17
+ 587               	/* prologue: function */
+ 588               	/* frame size = 0 */
+ 589 0124 082F      		mov r16,r24
+ 590               	.LM81:
+ 591 0126 10E0      		ldi r17,lo8(0)
+ 592               	.LVL22:
+ 593               	.LBB338:
+ 594               	.LBB339:
+ 595               	.LBB340:
+ 596               	.LBB341:
+ 597               	.LBB342:
+ 598               	.LBB343:
+ 599               	.LBB344:
+ 600               	.LM82:
+ 601 0128 50E5      		ldi r21,lo8(80)
+ 602 012a F52E      		mov r15,r21
+ 603               	.LBE344:
+ 604               	.LBE343:
+ 605               	.LBE342:
+ 606               	.LBE341:
+ 607               	.LBE340:
+ 608               	.LBE339:
+ 609               	.LBB350:
+ 610               	.LBB351:
+ 611               	.LBB352:
+ 612               	.LBB353:
+ 613               	.LBB354:
+ 614               	.LBB355:
+ 615 012c 48E0      		ldi r20,lo8(8)
+ 616 012e E42E      		mov r14,r20
+ 617               	.LVL23:
+ 618               	.L51:
+ 619               	.LBE355:
+ 620               	.LBE354:
+ 621               	.LBE353:
+ 622               	.LBE352:
+ 623               	.LBE351:
+ 624               	.LBE350:
+ 625               	.LM83:
+ 626 0130 07FF      		sbrs r16,7
+ 627 0132 00C0      		rjmp .L48
+ 628               	.LM84:
+ 629 0134 81E0      		ldi r24,lo8(1)
+ 630               	.LVL24:
+ 631 0136 00C0      		rjmp .L53
+ 632               	.LVL25:
+ 633               	.L48:
+ 634               	.LM85:
+ 635 0138 80E0      		ldi r24,lo8(0)
+ 636               	.LVL26:
+ 637               	.L53:
+ 638 013a 0E94 0000 		call I2C_SDA_Set_Output
+ 639               	.LBB361:
+ 640               	.LBB349:
+ 641               	.LBB348:
+ 642               	.LBB347:
+ 643               	.LBB346:
+ 644               	.LBB345:
+ 645               	.LM86:
+ 646 013e 8F2D      		mov r24,r15
+ 647               	.LVL27:
+ 648               	/* #APP */
+ 649               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 650 0140 8A95      		1: dec r24
+ 651 0142 01F4      		brne 1b
+ 652               	 ;  0 "" 2
+ 653               	/* #NOAPP */
+ 654               	.LBE345:
+ 655               	.LBE346:
+ 656               	.LBE347:
+ 657               	.LBE348:
+ 658               	.LBE349:
+ 659               	.LBE361:
+ 660               	.LM87:
+ 661 0144 81E0      		ldi r24,lo8(1)
+ 662               	.LVL28:
+ 663 0146 0E94 0000 		call I2C_SCL_Set_Output
+ 664               	.LBB362:
+ 665               	.LBB363:
+ 666               	.LBB364:
+ 667               	.LBB365:
+ 668               	.LBB366:
+ 669               	.LBB367:
+ 670               	.LM88:
+ 671 014a 8F2D      		mov r24,r15
+ 672               	.LVL29:
+ 673               	/* #APP */
+ 674               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 675 014c 8A95      		1: dec r24
+ 676 014e 01F4      		brne 1b
+ 677               	 ;  0 "" 2
+ 678               	/* #NOAPP */
+ 679               	.LBE367:
+ 680               	.LBE366:
+ 681               	.LBE365:
+ 682               	.LBE364:
+ 683               	.LBE363:
+ 684               	.LBE362:
+ 685               	.LM89:
+ 686 0150 80E0      		ldi r24,lo8(0)
+ 687               	.LVL30:
+ 688 0152 0E94 0000 		call I2C_SCL_Set_Output
+ 689               	.LBB368:
+ 690               	.LBB360:
+ 691               	.LBB359:
+ 692               	.LBB358:
+ 693               	.LBB357:
+ 694               	.LBB356:
+ 695               	.LM90:
+ 696 0156 8E2D      		mov r24,r14
+ 697               	.LVL31:
+ 698               	/* #APP */
+ 699               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 700 0158 8A95      		1: dec r24
+ 701 015a 01F4      		brne 1b
+ 702               	 ;  0 "" 2
+ 703               	/* #NOAPP */
+ 704               	.LBE356:
+ 705               	.LBE357:
+ 706               	.LBE358:
+ 707               	.LBE359:
+ 708               	.LBE360:
+ 709               	.LBE368:
+ 710               	.LM91:
+ 711 015c 1F5F      		subi r17,lo8(-(1))
+ 712 015e 1830      		cpi r17,lo8(8)
+ 713 0160 01F0      		breq .L52
+ 714               	.LM92:
+ 715 0162 000F      		lsl r16
+ 716 0164 00C0      		rjmp .L51
+ 717               	.L52:
+ 718               	/* epilogue start */
+ 719               	.LBE338:
+ 720               	.LM93:
+ 721 0166 1F91      		pop r17
+ 722               	.LVL32:
+ 723 0168 0F91      		pop r16
+ 724               	.LVL33:
+ 725 016a FF90      		pop r15
+ 726 016c EF90      		pop r14
+ 727 016e 0895      		ret
+ 728               	.LFE23:
+ 730               	.global	I2C_Data_Receive
+ 732               	I2C_Data_Receive:
+ 733               	.LFB24:
+ 734               	.LM94:
+ 735 0170 FF92      		push r15
+ 736 0172 0F93      		push r16
+ 737 0174 1F93      		push r17
+ 738               	/* prologue: function */
+ 739               	/* frame size = 0 */
+ 740               	.LM95:
+ 741 0176 81E0      		ldi r24,lo8(1)
+ 742 0178 0E94 0000 		call I2C_SDA_Set_Output
+ 743 017c 10E0      		ldi r17,lo8(0)
+ 744               	.LVL34:
+ 745 017e 00E0      		ldi r16,lo8(0)
+ 746               	.LVL35:
+ 747               	.LBB369:
+ 748               	.LBB370:
+ 749               	.LBB371:
+ 750               	.LBB372:
+ 751               	.LBB373:
+ 752               	.LBB374:
+ 753               	.LBB375:
+ 754               	.LM96:
+ 755 0180 60E5      		ldi r22,lo8(80)
+ 756 0182 F62E      		mov r15,r22
+ 757               	.L56:
+ 758               	.LBE375:
+ 759               	.LBE374:
+ 760               	.LBE373:
+ 761               	.LBE372:
+ 762               	.LBE371:
+ 763               	.LBE370:
+ 764               	.LM97:
+ 765 0184 110F      		lsl r17
+ 766               	.LBB381:
+ 767               	.LBB380:
+ 768               	.LBB379:
+ 769               	.LBB378:
+ 770               	.LBB377:
+ 771               	.LBB376:
+ 772               	.LM98:
+ 773 0186 8F2D      		mov r24,r15
+ 774               	.LVL36:
+ 775               	/* #APP */
+ 776               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 777 0188 8A95      		1: dec r24
+ 778 018a 01F4      		brne 1b
+ 779               	 ;  0 "" 2
+ 780               	/* #NOAPP */
+ 781               	.LBE376:
+ 782               	.LBE377:
+ 783               	.LBE378:
+ 784               	.LBE379:
+ 785               	.LBE380:
+ 786               	.LBE381:
+ 787               	.LM99:
+ 788 018c 81E0      		ldi r24,lo8(1)
+ 789               	.LVL37:
+ 790 018e 0E94 0000 		call I2C_SCL_Set_Output
+ 791               	.LBB382:
+ 792               	.LBB383:
+ 793               	.LM100:
+ 794 0192 3599      		sbic 38-32,5
+ 795               	.LBE383:
+ 796               	.LBE382:
+ 797               	.LM101:
+ 798 0194 1160      		ori r17,lo8(1)
+ 799               	.L55:
+ 800               	.LBB384:
+ 801               	.LBB385:
+ 802               	.LBB386:
+ 803               	.LBB387:
+ 804               	.LBB388:
+ 805               	.LBB389:
+ 806               	.LM102:
+ 807 0196 8F2D      		mov r24,r15
+ 808               	.LVL38:
+ 809               	/* #APP */
+ 810               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 811 0198 8A95      		1: dec r24
+ 812 019a 01F4      		brne 1b
+ 813               	 ;  0 "" 2
+ 814               	/* #NOAPP */
+ 815               	.LBE389:
+ 816               	.LBE388:
+ 817               	.LBE387:
+ 818               	.LBE386:
+ 819               	.LBE385:
+ 820               	.LBE384:
+ 821               	.LM103:
+ 822 019c 80E0      		ldi r24,lo8(0)
+ 823               	.LVL39:
+ 824 019e 0E94 0000 		call I2C_SCL_Set_Output
+ 825               	.LM104:
+ 826 01a2 0F5F      		subi r16,lo8(-(1))
+ 827 01a4 0830      		cpi r16,lo8(8)
+ 828 01a6 01F4      		brne .L56
+ 829               	.LBE369:
+ 830               	.LBB390:
+ 831               	.LBB391:
+ 832               	.LBB392:
+ 833               	.LBB393:
+ 834               	.LBB394:
+ 835               	.LBB395:
+ 836               	.LM105:
+ 837 01a8 80E5      		ldi r24,lo8(80)
+ 838               	.LVL40:
+ 839               	/* #APP */
+ 840               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 841 01aa 8A95      		1: dec r24
+ 842 01ac 01F4      		brne 1b
+ 843               	 ;  0 "" 2
+ 844               	/* #NOAPP */
+ 845               	.LBE395:
+ 846               	.LBE394:
+ 847               	.LBE393:
+ 848               	.LBE392:
+ 849               	.LBE391:
+ 850               	.LBE390:
+ 851               	.LM106:
+ 852 01ae 81E0      		ldi r24,lo8(1)
+ 853               	.LVL41:
+ 854 01b0 0E94 0000 		call I2C_SCL_Set_Output
+ 855               	.LM107:
+ 856 01b4 812F      		mov r24,r17
+ 857               	/* epilogue start */
+ 858 01b6 1F91      		pop r17
+ 859               	.LVL42:
+ 860 01b8 0F91      		pop r16
+ 861               	.LVL43:
+ 862 01ba FF90      		pop r15
+ 863 01bc 0895      		ret
+ 864               	.LFE24:
+ 866               	.global	I2C_Set_Ack
+ 868               	I2C_Set_Ack:
+ 869               	.LFB25:
+ 870               	.LM108:
+ 871 01be 1F93      		push r17
+ 872               	/* prologue: function */
+ 873               	/* frame size = 0 */
+ 874               	.LM109:
+ 875 01c0 80E0      		ldi r24,lo8(0)
+ 876 01c2 0E94 0000 		call I2C_SDA_Set_Output
+ 877               	.LBB396:
+ 878               	.LBB397:
+ 879               	.LBB398:
+ 880               	.LBB399:
+ 881               	.LBB400:
+ 882               	.LBB401:
+ 883               	.LM110:
+ 884 01c6 10E5      		ldi r17,lo8(80)
+ 885 01c8 812F      		mov r24,r17
+ 886               	.LVL44:
+ 887               	/* #APP */
+ 888               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 889 01ca 8A95      		1: dec r24
+ 890 01cc 01F4      		brne 1b
+ 891               	 ;  0 "" 2
+ 892               	/* #NOAPP */
+ 893               	.LBE401:
+ 894               	.LBE400:
+ 895               	.LBE399:
+ 896               	.LBE398:
+ 897               	.LBE397:
+ 898               	.LBE396:
+ 899               	.LM111:
+ 900 01ce 81E0      		ldi r24,lo8(1)
+ 901               	.LVL45:
+ 902 01d0 0E94 0000 		call I2C_SCL_Set_Output
+ 903               	.LBB402:
+ 904               	.LBB403:
+ 905               	.LBB404:
+ 906               	.LBB405:
+ 907               	.LBB406:
+ 908               	.LBB407:
+ 909               	.LM112:
+ 910               	/* #APP */
+ 911               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 912 01d4 1A95      		1: dec r17
+ 913 01d6 01F4      		brne 1b
+ 914               	 ;  0 "" 2
+ 915               	.LVL46:
+ 916               	/* #NOAPP */
+ 917               	.LBE407:
+ 918               	.LBE406:
+ 919               	.LBE405:
+ 920               	.LBE404:
+ 921               	.LBE403:
+ 922               	.LBE402:
+ 923               	.LM113:
+ 924 01d8 80E0      		ldi r24,lo8(0)
+ 925 01da 0E94 0000 		call I2C_SCL_Set_Output
+ 926               	/* epilogue start */
+ 927               	.LM114:
+ 928 01de 1F91      		pop r17
+ 929               	.LVL47:
+ 930 01e0 0895      		ret
+ 931               	.LFE25:
+ 933               	.global	I2C_Set_Nack
+ 935               	I2C_Set_Nack:
+ 936               	.LFB26:
+ 937               	.LM115:
+ 938 01e2 1F93      		push r17
+ 939               	/* prologue: function */
+ 940               	/* frame size = 0 */
+ 941               	.LM116:
+ 942 01e4 81E0      		ldi r24,lo8(1)
+ 943 01e6 0E94 0000 		call I2C_SDA_Set_Output
+ 944               	.LBB408:
+ 945               	.LBB409:
+ 946               	.LBB410:
+ 947               	.LBB411:
+ 948               	.LBB412:
+ 949               	.LBB413:
+ 950               	.LM117:
+ 951 01ea 10E5      		ldi r17,lo8(80)
+ 952 01ec 812F      		mov r24,r17
+ 953               	.LVL48:
+ 954               	/* #APP */
+ 955               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 956 01ee 8A95      		1: dec r24
+ 957 01f0 01F4      		brne 1b
+ 958               	 ;  0 "" 2
+ 959               	/* #NOAPP */
+ 960               	.LBE413:
+ 961               	.LBE412:
+ 962               	.LBE411:
+ 963               	.LBE410:
+ 964               	.LBE409:
+ 965               	.LBE408:
+ 966               	.LM118:
+ 967 01f2 81E0      		ldi r24,lo8(1)
+ 968               	.LVL49:
+ 969 01f4 0E94 0000 		call I2C_SCL_Set_Output
+ 970               	.LBB414:
+ 971               	.LBB415:
+ 972               	.LBB416:
+ 973               	.LBB417:
+ 974               	.LBB418:
+ 975               	.LBB419:
+ 976               	.LM119:
+ 977               	/* #APP */
+ 978               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 979 01f8 1A95      		1: dec r17
+ 980 01fa 01F4      		brne 1b
+ 981               	 ;  0 "" 2
+ 982               	.LVL50:
+ 983               	/* #NOAPP */
+ 984               	.LBE419:
+ 985               	.LBE418:
+ 986               	.LBE417:
+ 987               	.LBE416:
+ 988               	.LBE415:
+ 989               	.LBE414:
+ 990               	.LM120:
+ 991 01fc 80E0      		ldi r24,lo8(0)
+ 992 01fe 0E94 0000 		call I2C_SCL_Set_Output
+ 993               	/* epilogue start */
+ 994               	.LM121:
+ 995 0202 1F91      		pop r17
+ 996               	.LVL51:
+ 997 0204 0895      		ret
+ 998               	.LFE26:
+ 1000               	.global	I2C_Get_Ack
+ 1002               	I2C_Get_Ack:
+ 1003               	.LFB27:
+ 1004               	.LM122:
+ 1005 0206 0F93      		push r16
+ 1006 0208 1F93      		push r17
+ 1007               	/* prologue: function */
+ 1008               	/* frame size = 0 */
+ 1009               	.LM123:
+ 1010 020a 81E0      		ldi r24,lo8(1)
+ 1011 020c 0E94 0000 		call I2C_SDA_Set_Output
+ 1012               	.LBB420:
+ 1013               	.LBB421:
+ 1014               	.LBB422:
+ 1015               	.LBB423:
+ 1016               	.LBB424:
+ 1017               	.LBB425:
+ 1018               	.LM124:
+ 1019 0210 00E5      		ldi r16,lo8(80)
+ 1020 0212 802F      		mov r24,r16
+ 1021               	.LVL52:
+ 1022               	/* #APP */
+ 1023               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 1024 0214 8A95      		1: dec r24
+ 1025 0216 01F4      		brne 1b
+ 1026               	 ;  0 "" 2
+ 1027               	/* #NOAPP */
+ 1028               	.LBE425:
+ 1029               	.LBE424:
+ 1030               	.LBE423:
+ 1031               	.LBE422:
+ 1032               	.LBE421:
+ 1033               	.LBE420:
+ 1034               	.LM125:
+ 1035 0218 81E0      		ldi r24,lo8(1)
+ 1036               	.LVL53:
+ 1037 021a 0E94 0000 		call I2C_SCL_Set_Output
+ 1038               	.LBB426:
+ 1039               	.LBB427:
+ 1040               	.LM126:
+ 1041 021e 16B1      		in r17,38-32
+ 1042               	.LBE427:
+ 1043               	.LBE426:
+ 1044               	.LBB428:
+ 1045               	.LBB429:
+ 1046               	.LBB430:
+ 1047               	.LBB431:
+ 1048               	.LBB432:
+ 1049               	.LBB433:
+ 1050               	.LM127:
+ 1051               	/* #APP */
+ 1052               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 1053 0220 0A95      		1: dec r16
+ 1054 0222 01F4      		brne 1b
+ 1055               	 ;  0 "" 2
+ 1056               	.LVL54:
+ 1057               	/* #NOAPP */
+ 1058               	.LBE433:
+ 1059               	.LBE432:
+ 1060               	.LBE431:
+ 1061               	.LBE430:
+ 1062               	.LBE429:
+ 1063               	.LBE428:
+ 1064               	.LM128:
+ 1065 0224 80E0      		ldi r24,lo8(0)
+ 1066 0226 0E94 0000 		call I2C_SCL_Set_Output
+ 1067               	.LBB434:
+ 1068               	.LBB435:
+ 1069               	.LBB436:
+ 1070               	.LBB437:
+ 1071               	.LBB438:
+ 1072               	.LBB439:
+ 1073               	.LM129:
+ 1074 022a 88E0      		ldi r24,lo8(8)
+ 1075               	.LVL55:
+ 1076               	/* #APP */
+ 1077               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 1078 022c 8A95      		1: dec r24
+ 1079 022e 01F4      		brne 1b
+ 1080               	 ;  0 "" 2
+ 1081               	/* #NOAPP */
+ 1082 0230 1295      		swap r17
+ 1083 0232 1695      		lsr r17
+ 1084 0234 1770      		andi r17,lo8(7)
+ 1085 0236 1095      		com r17
+ 1086               	.LBE439:
+ 1087               	.LBE438:
+ 1088               	.LBE437:
+ 1089               	.LBE436:
+ 1090               	.LBE435:
+ 1091               	.LBE434:
+ 1092               	.LM130:
+ 1093 0238 812F      		mov r24,r17
+ 1094               	.LVL56:
+ 1095 023a 8170      		andi r24,lo8(1)
+ 1096               	/* epilogue start */
+ 1097 023c 1F91      		pop r17
+ 1098 023e 0F91      		pop r16
+ 1099               	.LVL57:
+ 1100 0240 0895      		ret
+ 1101               	.LFE27:
+ 1103               	.global	I2C_Send_Device_Address
+ 1105               	I2C_Send_Device_Address:
+ 1106               	.LFB28:
+ 1107               	.LM131:
+ 1108               	.LVL58:
+ 1109 0242 1F93      		push r17
+ 1110               	/* prologue: function */
+ 1111               	/* frame size = 0 */
+ 1112 0244 182F      		mov r17,r24
+ 1113               	.LM132:
+ 1114 0246 0E94 0000 		call I2C_Start
+ 1115               	.LVL59:
+ 1116               	.LM133:
+ 1117 024a 812F      		mov r24,r17
+ 1118 024c 0E94 0000 		call I2C_Data_Send
+ 1119               	.LM134:
+ 1120 0250 0E94 0000 		call I2C_Get_Ack
+ 1121 0254 182F      		mov r17,r24
+ 1122               	.LVL60:
+ 1123               	.LM135:
+ 1124 0256 0E94 0000 		call I2C_Stop
+ 1125               	.LM136:
+ 1126 025a 812F      		mov r24,r17
+ 1127               	/* epilogue start */
+ 1128 025c 1F91      		pop r17
+ 1129               	.LVL61:
+ 1130 025e 0895      		ret
+ 1131               	.LFE28:
+ 1133               	.global	I2C_Get_Device_Address
+ 1135               	I2C_Get_Device_Address:
+ 1136               	.LFB29:
+ 1137               	.LM137:
+ 1138 0260 1F93      		push r17
+ 1139               	/* prologue: function */
+ 1140               	/* frame size = 0 */
+ 1141               	.LM138:
+ 1142 0262 10E0      		ldi r17,lo8(0)
+ 1143               	.LVL62:
+ 1144               	.L70:
+ 1145               	.LBB440:
+ 1146               	.LM139:
+ 1147 0264 812F      		mov r24,r17
+ 1148               	.LVL63:
+ 1149 0266 0E94 0000 		call I2C_Send_Device_Address
+ 1150               	.LM140:
+ 1151 026a 8130      		cpi r24,lo8(1)
+ 1152               	.LVL64:
+ 1153 026c 01F4      		brne .L68
+ 1154 026e 812F      		mov r24,r17
+ 1155 0270 00C0      		rjmp .L69
+ 1156               	.L68:
+ 1157               	.LM141:
+ 1158 0272 1F5F      		subi r17,lo8(-(1))
+ 1159 0274 1F3F      		cpi r17,lo8(-1)
+ 1160 0276 01F4      		brne .L70
+ 1161               	.L69:
+ 1162               	.LVL65:
+ 1163               	/* epilogue start */
+ 1164               	.LBE440:
+ 1165               	.LM142:
+ 1166 0278 1F91      		pop r17
+ 1167               	.LVL66:
+ 1168 027a 0895      		ret
+ 1169               	.LFE29:
+ 1171               	.global	I2C_Read_Register
+ 1173               	I2C_Read_Register:
+ 1174               	.LFB30:
+ 1175               	.LM143:
+ 1176               	.LVL67:
+ 1177 027c DF92      		push r13
+ 1178 027e EF92      		push r14
+ 1179 0280 FF92      		push r15
+ 1180 0282 0F93      		push r16
+ 1181 0284 1F93      		push r17
+ 1182               	/* prologue: function */
+ 1183               	/* frame size = 0 */
+ 1184 0286 182F      		mov r17,r24
+ 1185               	.LM144:
+ 1186 0288 0E94 0000 		call I2C_Start
+ 1187               	.LVL68:
+ 1188               	.LM145:
+ 1189 028c 8091 0000 		lds r24,I2C
+ 1190 0290 0E94 0000 		call I2C_Data_Send
+ 1191               	.LM146:
+ 1192 0294 0E94 0000 		call I2C_Get_Ack
+ 1193 0298 E82E      		mov r14,r24
+ 1194               	.LM147:
+ 1195 029a 812F      		mov r24,r17
+ 1196 029c 0E94 0000 		call I2C_Data_Send
+ 1197               	.LM148:
+ 1198 02a0 0E94 0000 		call I2C_Get_Ack
+ 1199 02a4 F82E      		mov r15,r24
+ 1200               	.LM149:
+ 1201 02a6 0E94 0000 		call I2C_Stop
+ 1202               	.LM150:
+ 1203 02aa 0E94 0000 		call I2C_Start
+ 1204               	.LM151:
+ 1205 02ae 8091 0000 		lds r24,I2C+1
+ 1206 02b2 0E94 0000 		call I2C_Data_Send
+ 1207               	.LM152:
+ 1208 02b6 0E94 0000 		call I2C_Get_Ack
+ 1209 02ba 182F      		mov r17,r24
+ 1210               	.LVL69:
+ 1211               	.LM153:
+ 1212 02bc 0E94 0000 		call I2C_Data_Receive
+ 1213 02c0 D82E      		mov r13,r24
+ 1214               	.LVL70:
+ 1215               	.LM154:
+ 1216 02c2 0E94 0000 		call I2C_Get_Ack
+ 1217 02c6 082F      		mov r16,r24
+ 1218               	.LM155:
+ 1219 02c8 0E94 0000 		call I2C_Stop
+ 1220               	.LM156:
+ 1221 02cc FF0C      		lsl r15
+ 1222 02ce 110F      		lsl r17
+ 1223 02d0 110F      		lsl r17
+ 1224 02d2 1F29      		or r17,r15
+ 1225 02d4 1E29      		or r17,r14
+ 1226 02d6 000F      		lsl r16
+ 1227 02d8 000F      		lsl r16
+ 1228 02da 000F      		lsl r16
+ 1229 02dc 012B      		or r16,r17
+ 1230 02de 0730      		cpi r16,lo8(7)
+ 1231 02e0 01F0      		breq .L74
+ 1232 02e2 8FEF      		ldi r24,lo8(-1)
+ 1233               	.LVL71:
+ 1234 02e4 00C0      		rjmp .L75
+ 1235               	.LVL72:
+ 1236               	.L74:
+ 1237 02e6 8D2D      		mov r24,r13
+ 1238               	.LVL73:
+ 1239               	.L75:
+ 1240               	.LVL74:
+ 1241               	/* epilogue start */
+ 1242               	.LM157:
+ 1243 02e8 1F91      		pop r17
+ 1244 02ea 0F91      		pop r16
+ 1245 02ec FF90      		pop r15
+ 1246 02ee EF90      		pop r14
+ 1247 02f0 DF90      		pop r13
+ 1248               	.LVL75:
+ 1249 02f2 0895      		ret
+ 1250               	.LFE30:
+ 1252               	.global	I2C_Write_Register
+ 1254               	I2C_Write_Register:
+ 1255               	.LFB31:
+ 1256               	.LM158:
+ 1257               	.LVL76:
+ 1258 02f4 0F93      		push r16
+ 1259 02f6 1F93      		push r17
+ 1260               	/* prologue: function */
+ 1261               	/* frame size = 0 */
+ 1262 02f8 182F      		mov r17,r24
+ 1263 02fa 062F      		mov r16,r22
+ 1264               	.LM159:
+ 1265 02fc 0E94 0000 		call I2C_Start
+ 1266               	.LVL77:
+ 1267               	.LM160:
+ 1268 0300 8091 0000 		lds r24,I2C
+ 1269 0304 0E94 0000 		call I2C_Data_Send
+ 1270               	.LM161:
+ 1271 0308 0E94 0000 		call I2C_Get_Ack
+ 1272               	.LM162:
+ 1273 030c 812F      		mov r24,r17
+ 1274 030e 0E94 0000 		call I2C_Data_Send
+ 1275               	.LM163:
+ 1276 0312 0E94 0000 		call I2C_Get_Ack
+ 1277               	.LM164:
+ 1278 0316 802F      		mov r24,r16
+ 1279 0318 0E94 0000 		call I2C_Data_Send
+ 1280               	.LM165:
+ 1281 031c 0E94 0000 		call I2C_Get_Ack
+ 1282               	.LM166:
+ 1283 0320 0E94 0000 		call I2C_Stop
+ 1284               	/* epilogue start */
+ 1285               	.LM167:
+ 1286 0324 1F91      		pop r17
+ 1287               	.LVL78:
+ 1288 0326 0F91      		pop r16
+ 1289               	.LVL79:
+ 1290 0328 0895      		ret
+ 1291               	.LFE31:
+ 1293               	.global	I2C_Set_Mode_Sleep
+ 1295               	I2C_Set_Mode_Sleep:
+ 1296               	.LFB33:
+ 1297               	.LM168:
+ 1298               	/* prologue: function */
+ 1299               	/* frame size = 0 */
+ 1300               	.LM169:
+ 1301 032a 8BE6      		ldi r24,lo8(107)
+ 1302 032c 60E4      		ldi r22,lo8(64)
+ 1303 032e 0E94 0000 		call I2C_Write_Register
+ 1304               	/* epilogue start */
+ 1305               	.LM170:
+ 1306 0332 0895      		ret
+ 1307               	.LFE33:
+ 1309               	.global	I2C_Set_Mode_Active
+ 1311               	I2C_Set_Mode_Active:
+ 1312               	.LFB34:
+ 1313               	.LM171:
+ 1314               	/* prologue: function */
+ 1315               	/* frame size = 0 */
+ 1316               	.LM172:
+ 1317 0334 8BE6      		ldi r24,lo8(107)
+ 1318 0336 60E0      		ldi r22,lo8(0)
+ 1319 0338 0E94 0000 		call I2C_Write_Register
+ 1320               	/* epilogue start */
+ 1321               	.LM173:
+ 1322 033c 0895      		ret
+ 1323               	.LFE34:
+ 1325               	.global	I2C_Read_Temp
+ 1327               	I2C_Read_Temp:
+ 1328               	.LFB41:
+ 1329               	.LM174:
+ 1330 033e 0F93      		push r16
+ 1331 0340 1F93      		push r17
+ 1332               	/* prologue: function */
+ 1333               	/* frame size = 0 */
+ 1334               	.LM175:
+ 1335 0342 81E4      		ldi r24,lo8(65)
+ 1336 0344 0E94 0000 		call I2C_Read_Register
+ 1337               	.LM176:
+ 1338 0348 182F      		mov r17,r24
+ 1339               	.LVL80:
+ 1340 034a 00E0      		ldi r16,lo8(0)
+ 1341               	.LVL81:
+ 1342               	.LM177:
+ 1343 034c 82E4      		ldi r24,lo8(66)
+ 1344 034e 0E94 0000 		call I2C_Read_Register
+ 1345 0352 90E0      		ldi r25,lo8(0)
+ 1346               	.LM178:
+ 1347 0354 802B      		or r24,r16
+ 1348 0356 912B      		or r25,r17
+ 1349 0358 64E5      		ldi r22,lo8(340)
+ 1350 035a 71E0      		ldi r23,hi8(340)
+ 1351 035c 0E94 0000 		call __divmodhi4
+ 1352 0360 9B01      		movw r18,r22
+ 1353 0362 2C5D      		subi r18,lo8(-(36))
+ 1354 0364 3F4F      		sbci r19,hi8(-(36))
+ 1355               	.LM179:
+ 1356 0366 C901      		movw r24,r18
+ 1357               	/* epilogue start */
+ 1358 0368 1F91      		pop r17
+ 1359               	.LVL82:
+ 1360 036a 0F91      		pop r16
+ 1361               	.LVL83:
+ 1362 036c 0895      		ret
+ 1363               	.LFE41:
+ 1365               	.global	I2C_Read_Gyro_Z
+ 1367               	I2C_Read_Gyro_Z:
+ 1368               	.LFB40:
+ 1369               	.LM180:
+ 1370 036e EF92      		push r14
+ 1371 0370 FF92      		push r15
+ 1372 0372 0F93      		push r16
+ 1373 0374 1F93      		push r17
+ 1374               	/* prologue: function */
+ 1375               	/* frame size = 0 */
+ 1376               	.LM181:
+ 1377 0376 87E4      		ldi r24,lo8(71)
+ 1378 0378 0E94 0000 		call I2C_Read_Register
+ 1379               	.LM182:
+ 1380 037c F82E      		mov r15,r24
+ 1381               	.LVL84:
+ 1382 037e EE24      		clr r14
+ 1383               	.LVL85:
+ 1384               	.LM183:
+ 1385 0380 88E4      		ldi r24,lo8(72)
+ 1386 0382 0E94 0000 		call I2C_Read_Register
+ 1387               	.LM184:
+ 1388 0386 90E0      		ldi r25,lo8(0)
+ 1389 0388 E82A      		or r14,r24
+ 1390 038a F92A      		or r15,r25
+ 1391               	.LVL86:
+ 1392 038c 0027      		clr r16
+ 1393 038e F7FC      		sbrc r15,7
+ 1394 0390 0095      		com r16
+ 1395 0392 102F      		mov r17,r16
+ 1396               	.LVL87:
+ 1397 0394 85E0      		ldi r24,lo8(5)
+ 1398 0396 B801      		movw r22,r16
+ 1399 0398 A701      		movw r20,r14
+ 1400 039a 0E94 0000 		call LPF_Get_Filtered_Value
+ 1401               	.LM185:
+ 1402 039e CB01      		movw r24,r22
+ 1403               	/* epilogue start */
+ 1404 03a0 1F91      		pop r17
+ 1405 03a2 0F91      		pop r16
+ 1406 03a4 FF90      		pop r15
+ 1407               	.LVL88:
+ 1408 03a6 EF90      		pop r14
+ 1409 03a8 0895      		ret
+ 1410               	.LFE40:
+ 1412               	.global	I2C_Read_Gyro_Y
+ 1414               	I2C_Read_Gyro_Y:
+ 1415               	.LFB39:
+ 1416               	.LM186:
+ 1417 03aa EF92      		push r14
+ 1418 03ac FF92      		push r15
+ 1419 03ae 0F93      		push r16
+ 1420 03b0 1F93      		push r17
+ 1421               	/* prologue: function */
+ 1422               	/* frame size = 0 */
+ 1423               	.LM187:
+ 1424 03b2 85E4      		ldi r24,lo8(69)
+ 1425 03b4 0E94 0000 		call I2C_Read_Register
+ 1426               	.LM188:
+ 1427 03b8 F82E      		mov r15,r24
+ 1428               	.LVL89:
+ 1429 03ba EE24      		clr r14
+ 1430               	.LVL90:
+ 1431               	.LM189:
+ 1432 03bc 86E4      		ldi r24,lo8(70)
+ 1433 03be 0E94 0000 		call I2C_Read_Register
+ 1434               	.LM190:
+ 1435 03c2 90E0      		ldi r25,lo8(0)
+ 1436 03c4 E82A      		or r14,r24
+ 1437 03c6 F92A      		or r15,r25
+ 1438               	.LVL91:
+ 1439 03c8 0027      		clr r16
+ 1440 03ca F7FC      		sbrc r15,7
+ 1441 03cc 0095      		com r16
+ 1442 03ce 102F      		mov r17,r16
+ 1443               	.LVL92:
+ 1444 03d0 84E0      		ldi r24,lo8(4)
+ 1445 03d2 B801      		movw r22,r16
+ 1446 03d4 A701      		movw r20,r14
+ 1447 03d6 0E94 0000 		call LPF_Get_Filtered_Value
+ 1448               	.LM191:
+ 1449 03da CB01      		movw r24,r22
+ 1450               	/* epilogue start */
+ 1451 03dc 1F91      		pop r17
+ 1452 03de 0F91      		pop r16
+ 1453 03e0 FF90      		pop r15
+ 1454               	.LVL93:
+ 1455 03e2 EF90      		pop r14
+ 1456 03e4 0895      		ret
+ 1457               	.LFE39:
+ 1459               	.global	I2C_Read_Gyro_X
+ 1461               	I2C_Read_Gyro_X:
+ 1462               	.LFB38:
+ 1463               	.LM192:
+ 1464 03e6 EF92      		push r14
+ 1465 03e8 FF92      		push r15
+ 1466 03ea 0F93      		push r16
+ 1467 03ec 1F93      		push r17
+ 1468               	/* prologue: function */
+ 1469               	/* frame size = 0 */
+ 1470               	.LM193:
+ 1471 03ee 83E4      		ldi r24,lo8(67)
+ 1472 03f0 0E94 0000 		call I2C_Read_Register
+ 1473               	.LM194:
+ 1474 03f4 F82E      		mov r15,r24
+ 1475               	.LVL94:
+ 1476 03f6 EE24      		clr r14
+ 1477               	.LVL95:
+ 1478               	.LM195:
+ 1479 03f8 84E4      		ldi r24,lo8(68)
+ 1480 03fa 0E94 0000 		call I2C_Read_Register
+ 1481               	.LM196:
+ 1482 03fe 90E0      		ldi r25,lo8(0)
+ 1483 0400 E82A      		or r14,r24
+ 1484 0402 F92A      		or r15,r25
+ 1485               	.LVL96:
+ 1486 0404 0027      		clr r16
+ 1487 0406 F7FC      		sbrc r15,7
+ 1488 0408 0095      		com r16
+ 1489 040a 102F      		mov r17,r16
+ 1490               	.LVL97:
+ 1491 040c 83E0      		ldi r24,lo8(3)
+ 1492 040e B801      		movw r22,r16
+ 1493 0410 A701      		movw r20,r14
+ 1494 0412 0E94 0000 		call LPF_Get_Filtered_Value
+ 1495               	.LM197:
+ 1496 0416 CB01      		movw r24,r22
+ 1497               	/* epilogue start */
+ 1498 0418 1F91      		pop r17
+ 1499 041a 0F91      		pop r16
+ 1500 041c FF90      		pop r15
+ 1501               	.LVL98:
+ 1502 041e EF90      		pop r14
+ 1503 0420 0895      		ret
+ 1504               	.LFE38:
+ 1506               	.global	I2C_Read_Acc_Z
+ 1508               	I2C_Read_Acc_Z:
+ 1509               	.LFB37:
+ 1510               	.LM198:
+ 1511 0422 EF92      		push r14
+ 1512 0424 FF92      		push r15
+ 1513 0426 0F93      		push r16
+ 1514 0428 1F93      		push r17
+ 1515               	/* prologue: function */
+ 1516               	/* frame size = 0 */
+ 1517               	.LM199:
+ 1518 042a 8FE3      		ldi r24,lo8(63)
+ 1519 042c 0E94 0000 		call I2C_Read_Register
+ 1520               	.LM200:
+ 1521 0430 F82E      		mov r15,r24
+ 1522               	.LVL99:
+ 1523 0432 EE24      		clr r14
+ 1524               	.LVL100:
+ 1525               	.LM201:
+ 1526 0434 80E4      		ldi r24,lo8(64)
+ 1527 0436 0E94 0000 		call I2C_Read_Register
+ 1528               	.LM202:
+ 1529 043a 90E0      		ldi r25,lo8(0)
+ 1530 043c E82A      		or r14,r24
+ 1531 043e F92A      		or r15,r25
+ 1532               	.LVL101:
+ 1533 0440 0027      		clr r16
+ 1534 0442 F7FC      		sbrc r15,7
+ 1535 0444 0095      		com r16
+ 1536 0446 102F      		mov r17,r16
+ 1537               	.LVL102:
+ 1538 0448 82E0      		ldi r24,lo8(2)
+ 1539 044a B801      		movw r22,r16
+ 1540 044c A701      		movw r20,r14
+ 1541 044e 0E94 0000 		call LPF_Get_Filtered_Value
+ 1542               	.LM203:
+ 1543 0452 CB01      		movw r24,r22
+ 1544               	/* epilogue start */
+ 1545 0454 1F91      		pop r17
+ 1546 0456 0F91      		pop r16
+ 1547 0458 FF90      		pop r15
+ 1548               	.LVL103:
+ 1549 045a EF90      		pop r14
+ 1550 045c 0895      		ret
+ 1551               	.LFE37:
+ 1553               	.global	I2C_Read_Acc_Y
+ 1555               	I2C_Read_Acc_Y:
+ 1556               	.LFB36:
+ 1557               	.LM204:
+ 1558 045e EF92      		push r14
+ 1559 0460 FF92      		push r15
+ 1560 0462 0F93      		push r16
+ 1561 0464 1F93      		push r17
+ 1562               	/* prologue: function */
+ 1563               	/* frame size = 0 */
+ 1564               	.LM205:
+ 1565 0466 8DE3      		ldi r24,lo8(61)
+ 1566 0468 0E94 0000 		call I2C_Read_Register
+ 1567               	.LM206:
+ 1568 046c F82E      		mov r15,r24
+ 1569               	.LVL104:
+ 1570 046e EE24      		clr r14
+ 1571               	.LVL105:
+ 1572               	.LM207:
+ 1573 0470 8EE3      		ldi r24,lo8(62)
+ 1574 0472 0E94 0000 		call I2C_Read_Register
+ 1575               	.LM208:
+ 1576 0476 90E0      		ldi r25,lo8(0)
+ 1577 0478 E82A      		or r14,r24
+ 1578 047a F92A      		or r15,r25
+ 1579               	.LVL106:
+ 1580 047c 0027      		clr r16
+ 1581 047e F7FC      		sbrc r15,7
+ 1582 0480 0095      		com r16
+ 1583 0482 102F      		mov r17,r16
+ 1584               	.LVL107:
+ 1585 0484 81E0      		ldi r24,lo8(1)
+ 1586 0486 B801      		movw r22,r16
+ 1587 0488 A701      		movw r20,r14
+ 1588 048a 0E94 0000 		call LPF_Get_Filtered_Value
+ 1589               	.LM209:
+ 1590 048e CB01      		movw r24,r22
+ 1591               	/* epilogue start */
+ 1592 0490 1F91      		pop r17
+ 1593 0492 0F91      		pop r16
+ 1594 0494 FF90      		pop r15
+ 1595               	.LVL108:
+ 1596 0496 EF90      		pop r14
+ 1597 0498 0895      		ret
+ 1598               	.LFE36:
+ 1600               	.global	I2C_Read_Acc_X
+ 1602               	I2C_Read_Acc_X:
+ 1603               	.LFB35:
+ 1604               	.LM210:
+ 1605 049a EF92      		push r14
+ 1606 049c FF92      		push r15
+ 1607 049e 0F93      		push r16
+ 1608 04a0 1F93      		push r17
+ 1609               	/* prologue: function */
+ 1610               	/* frame size = 0 */
+ 1611               	.LM211:
+ 1612 04a2 8BE3      		ldi r24,lo8(59)
+ 1613 04a4 0E94 0000 		call I2C_Read_Register
+ 1614               	.LM212:
+ 1615 04a8 F82E      		mov r15,r24
+ 1616               	.LVL109:
+ 1617 04aa EE24      		clr r14
+ 1618               	.LVL110:
+ 1619               	.LM213:
+ 1620 04ac 8CE3      		ldi r24,lo8(60)
+ 1621 04ae 0E94 0000 		call I2C_Read_Register
+ 1622               	.LM214:
+ 1623 04b2 90E0      		ldi r25,lo8(0)
+ 1624 04b4 E82A      		or r14,r24
+ 1625 04b6 F92A      		or r15,r25
+ 1626               	.LVL111:
+ 1627 04b8 0027      		clr r16
+ 1628 04ba F7FC      		sbrc r15,7
+ 1629 04bc 0095      		com r16
+ 1630 04be 102F      		mov r17,r16
+ 1631               	.LVL112:
+ 1632 04c0 80E0      		ldi r24,lo8(0)
+ 1633 04c2 B801      		movw r22,r16
+ 1634 04c4 A701      		movw r20,r14
+ 1635 04c6 0E94 0000 		call LPF_Get_Filtered_Value
+ 1636               	.LM215:
+ 1637 04ca CB01      		movw r24,r22
+ 1638               	/* epilogue start */
+ 1639 04cc 1F91      		pop r17
+ 1640 04ce 0F91      		pop r16
+ 1641 04d0 FF90      		pop r15
+ 1642               	.LVL113:
+ 1643 04d2 EF90      		pop r14
+ 1644 04d4 0895      		ret
+ 1645               	.LFE35:
+ 1647               	.global	I2C_Init
+ 1649               	I2C_Init:
+ 1650               	.LFB32:
+ 1651               	.LM216:
+ 1652               	/* prologue: function */
+ 1653               	/* frame size = 0 */
+ 1654               	.LBB441:
+ 1655               	.LBB442:
+ 1656               	.LM217:
+ 1657 04d6 1092 0000 		sts I2C,__zero_reg__
+ 1658               	.LM218:
+ 1659 04da 1092 0000 		sts I2C+1,__zero_reg__
+ 1660               	.LBE442:
+ 1661               	.LBE441:
+ 1662               	.LM219:
+ 1663 04de 0E94 0000 		call I2C_GPIO_Init
+ 1664               	.LM220:
+ 1665 04e2 0E94 0000 		call I2C_Get_Device_Address
+ 1666 04e6 8093 0000 		sts I2C,r24
+ 1667               	.LM221:
+ 1668 04ea 8F5F      		subi r24,lo8(-(1))
+ 1669 04ec 8093 0000 		sts I2C+1,r24
+ 1670               	.LM222:
+ 1671 04f0 0E94 0000 		call LPF_Init
+ 1672               	.LM223:
+ 1673 04f4 80E0      		ldi r24,lo8(0)
+ 1674 04f6 6AE0      		ldi r22,lo8(10)
+ 1675 04f8 0E94 0000 		call LPF_Set_Alpha
+ 1676               	.LM224:
+ 1677 04fc 81E0      		ldi r24,lo8(1)
+ 1678 04fe 6AE0      		ldi r22,lo8(10)
+ 1679 0500 0E94 0000 		call LPF_Set_Alpha
+ 1680               	.LM225:
+ 1681 0504 82E0      		ldi r24,lo8(2)
+ 1682 0506 6AE0      		ldi r22,lo8(10)
+ 1683 0508 0E94 0000 		call LPF_Set_Alpha
+ 1684               	.LM226:
+ 1685 050c 83E0      		ldi r24,lo8(3)
+ 1686 050e 6AE0      		ldi r22,lo8(10)
+ 1687 0510 0E94 0000 		call LPF_Set_Alpha
+ 1688               	.LM227:
+ 1689 0514 84E0      		ldi r24,lo8(4)
+ 1690 0516 6AE0      		ldi r22,lo8(10)
+ 1691 0518 0E94 0000 		call LPF_Set_Alpha
+ 1692               	.LM228:
+ 1693 051c 85E0      		ldi r24,lo8(5)
+ 1694 051e 6AE0      		ldi r22,lo8(10)
+ 1695 0520 0E94 0000 		call LPF_Set_Alpha
+ 1696               	/* epilogue start */
+ 1697               	.LM229:
+ 1698 0524 0895      		ret
+ 1699               	.LFE32:
+ 1701               		.comm I2C,2,1
+ 2006               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 i2c.c
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:2      *ABS*:0000003f __SREG__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:3      *ABS*:0000003e __SP_H__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:4      *ABS*:0000003d __SP_L__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:5      *ABS*:00000034 __CCP__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:18     .text:00000000 I2C_Struct_Init
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:18     .text:00000000 I2C_Struct_Init
                             *COM*:00000002 I2C
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:34     .text:0000000a I2C_Half_Bit_Delay
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:63     .text:00000012 I2C_Bit_Delay
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:97     .text:0000001c I2C_Guard_Delay
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:126    .text:00000024 I2C_SCL_Set_DD
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:146    .text:00000030 I2C_SCL_Set_Output_LL
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:166    .text:0000003c I2C_SCL_Set_Output
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:206    .text:0000004c I2C_SCL_Get_State
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:227    .text:0000005e I2C_SDA_Set_DD
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:247    .text:0000006a I2C_SDA_Set_Output_LL
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:267    .text:00000076 I2C_SDA_Set_Output
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:307    .text:00000086 I2C_SDA_Get_State
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:328    .text:00000098 I2C_SCL_Reset_State
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:349    .text:000000a2 I2C_SDA_Reset_State
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:370    .text:000000ac I2C_GPIO_Init
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:400    .text:000000be I2C_Start
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:492    .text:000000ee I2C_Stop
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:584    .text:0000011e I2C_Data_Send
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:737    .text:00000172 I2C_Data_Receive
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:873    .text:000001c0 I2C_Set_Ack
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:940    .text:000001e4 I2C_Set_Nack
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:1007   .text:00000208 I2C_Get_Ack
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:1088   .text:0000023e I2C_Send_Device_Address
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:1118   .text:0000025c I2C_Get_Device_Address
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:1156   .text:00000278 I2C_Read_Register
-C:\Users\FARIDU~1\AppData\Local\Temp/ccag4LPj.s:1237   .text:000002f0 I2C_Init
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:34     .text:0000000a I2C_Half_Bit_Delay
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:63     .text:00000012 I2C_Bit_Delay
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:92     .text:0000001a I2C_Guard_Delay
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:121    .text:00000022 I2C_SCL_Set_DD
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:141    .text:0000002e I2C_SCL_Set_Output_LL
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:161    .text:0000003a I2C_SCL_Set_Output
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:201    .text:0000004a I2C_SCL_Get_State
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:222    .text:0000005c I2C_SDA_Set_DD
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:242    .text:00000068 I2C_SDA_Set_Output_LL
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:262    .text:00000074 I2C_SDA_Set_Output
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:302    .text:00000084 I2C_SDA_Get_State
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:323    .text:00000096 I2C_SCL_Reset_State
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:344    .text:000000a0 I2C_SDA_Reset_State
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:365    .text:000000aa I2C_GPIO_Init
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:395    .text:000000bc I2C_Start
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:487    .text:000000ec I2C_Stop
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:579    .text:0000011c I2C_Data_Send
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:732    .text:00000170 I2C_Data_Receive
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:868    .text:000001be I2C_Set_Ack
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:935    .text:000001e2 I2C_Set_Nack
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:1002   .text:00000206 I2C_Get_Ack
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:1105   .text:00000242 I2C_Send_Device_Address
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:1135   .text:00000260 I2C_Get_Device_Address
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:1173   .text:0000027c I2C_Read_Register
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:1254   .text:000002f4 I2C_Write_Register
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:1295   .text:0000032a I2C_Set_Mode_Sleep
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:1311   .text:00000334 I2C_Set_Mode_Active
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:1327   .text:0000033e I2C_Read_Temp
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:1367   .text:0000036e I2C_Read_Gyro_Z
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:1414   .text:000003aa I2C_Read_Gyro_Y
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:1461   .text:000003e6 I2C_Read_Gyro_X
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:1508   .text:00000422 I2C_Read_Acc_Z
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:1555   .text:0000045e I2C_Read_Acc_Y
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:1602   .text:0000049a I2C_Read_Acc_X
+C:\Users\FARIDU~1\AppData\Local\Temp/cc3Vhpth.s:1649   .text:000004d6 I2C_Init
 
 UNDEFINED SYMBOLS
+__divmodhi4
+LPF_Get_Filtered_Value
+LPF_Init
+LPF_Set_Alpha
 __do_clear_bss

@@ -40,7 +40,18 @@ uint8_t  I2C_Get_Ack(void);
 uint8_t  I2C_Send_Device_Address(uint8_t address);
 uint8_t  I2C_Get_Device_Address(void);
 
-
-void     I2C_Init(void);
 uint8_t  I2C_Read_Register(uint8_t reg);
+void     I2C_Write_Register(uint8_t reg, uint8_t val);
+void     I2C_Init(void);
 
+void     I2C_Set_Mode_Sleep(void);
+void     I2C_Set_Mode_Active(void);
+
+int16_t  I2C_Read_Acc_X(void);
+int16_t  I2C_Read_Acc_Y(void);
+int16_t  I2C_Read_Acc_Z(void);
+int16_t  I2C_Read_Gyro_X(void);
+int16_t  I2C_Read_Gyro_Y(void);
+int16_t  I2C_Read_Gyro_Z(void);
+
+int16_t  I2C_Read_Temp(void);

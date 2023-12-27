@@ -2,6 +2,7 @@
 #include <util/delay.h>
 #include "debug.h"
 #include "i2c.h"
+#include "lpf.h"
 
 int main(void){
 
@@ -11,12 +12,18 @@ int main(void){
   I2C_Init();
   debug_init();
   debug_tx_text_nl("Debug Started");
-  
+  I2C_Set_Mode_Active();
+
   
   while(1){
-    uint8_t val = I2C_Read_Register(0x6B);
-	debug_tx_parameter_hex_nl("RegVal:", val);
-	//I2C_Send_Device_Address(0x64);
-	_delay_ms(500);
+	debug_tx_number_cm(I2C_Read_Acc_X());
+	debug_tx_number_cm(I2C_Read_Acc_Y());
+	debug_tx_number_cm(I2C_Read_Acc_Z());
+	debug_tx_number_cm(I2C_Read_Gyro_X());
+	debug_tx_number_cm(I2C_Read_Gyro_Y());
+	debug_tx_number_nl(I2C_Read_Gyro_Z());
+	//debug_tx_number_nl(I2C_Read_Temp());
+	
+	_delay_ms(2);
   }
 }
