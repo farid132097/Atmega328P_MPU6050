@@ -13,6 +13,7 @@
 void     I2C_Struct_Init(void);
 void     I2C_Half_Bit_Delay(void);
 void     I2C_Bit_Delay(void);
+void     I2C_Guard_Delay(void);
 
 void     I2C_SCL_Set_DD(uint8_t state);
 void     I2C_SCL_Set_Output_LL(uint8_t state);

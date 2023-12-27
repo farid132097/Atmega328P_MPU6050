@@ -24,6 +24,10 @@ void I2C_Bit_Delay(void){
   _delay_us(100);
 }
 
+void I2C_Guard_Delay(void){
+  _delay_us(1);
+}
+
 void I2C_SCL_Set_DD(uint8_t state){
   if(state==1){
     I2C_SCL_DDR |=  (1<<I2C_SCL_bp);
@@ -144,6 +148,7 @@ void I2C_Data_Send(uint8_t data){
 	I2C_SCL_Set_Output(1);
 	I2C_Half_Bit_Delay();
 	I2C_SCL_Set_Output(0);
+	I2C_Guard_Delay();
 	data<<=1;
   }
 }
@@ -152,11 +157,11 @@ uint8_t I2C_Data_Receive(void){
   uint8_t data=0;
   I2C_SDA_Set_Output(1);
   for(uint8_t i=0;i<8;i++){
-    data>>=1;
+    data<<=1;
 	I2C_Half_Bit_Delay();
 	I2C_SCL_Set_Output(1);
 	if(I2C_SDA_Get_State()){
-	  data|=0x80;
+	  data|=0x01;
 	}
 	I2C_Half_Bit_Delay();
 	I2C_SCL_Set_Output(0);
@@ -222,26 +227,18 @@ uint8_t I2C_Read_Register(uint8_t reg){
   uint8_t sts=0,data=0;
   I2C_Start();
   I2C_Data_Send(I2C.WriteAddr);
-  sts = I2C_Get_Ack();
+  sts |= I2C_Get_Ack()<<0;
   I2C_Data_Send(reg);
-  sts = I2C_Get_Ack();
+  sts |= I2C_Get_Ack()<<1;
   I2C_Stop();
-  if(sts){
-    I2C_Start();
-    I2C_Data_Send(I2C.ReadAddr);
-	sts = I2C_Get_Ack();
-	data = I2C_Data_Receive();
-	if(sts){
-	  sts = I2C_Get_Ack();
-	  if(sts == 0){
-	    sts = data;
-	  }else{
-	    sts = 0xFF;
-	  }
-	}else{
-	  sts = 0xFF;
-	}
-	I2C_Stop();
+  I2C_Start();
+  I2C_Data_Send(I2C.ReadAddr);
+  sts |= I2C_Get_Ack()<<2;
+  data = I2C_Data_Receive();
+  sts |= I2C_Get_Ack()<<3;
+  I2C_Stop();
+  if(sts == 0x07){
+    sts = data;
   }else{
     sts = 0xFF;
   }

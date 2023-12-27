@@ -14,7 +14,8 @@ int main(void){
   
   
   while(1){
-    I2C_Read_Register(0x6B);
+    uint8_t val = I2C_Read_Register(0x6B);
+	debug_tx_parameter_hex_nl("RegVal:", val);
 	//I2C_Send_Device_Address(0x64);
 	_delay_ms(500);
   }
