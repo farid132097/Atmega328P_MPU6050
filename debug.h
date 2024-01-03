@@ -3,7 +3,7 @@
 #define  DEBUG_TX_DDR     DDRD
 #define  DEBUG_TX_PORT    PORTD
 #define  DEBUG_TX_PIN     PIND
-#define  DEBUG_TX_bp      0U
+#define  DEBUG_TX_bp      5U
 
 
 /*Must edit DEBUG_RX_XXXX definition*/
@@ -11,7 +11,7 @@
 #define  DEBUG_RX_DDR     DDRC
 #define  DEBUG_RX_PORT    PORTC
 #define  DEBUG_RX_PIN     PINC
-#define  DEBUG_RX_bp      3U
+#define  DEBUG_RX_bp      6U
 
 
 /*Only for debugging purpose*/

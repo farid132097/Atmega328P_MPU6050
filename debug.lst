@@ -79,7 +79,7 @@
   89 004e ECE6      		ldi r30,lo8(108)
   90 0050 F0E0      		ldi r31,hi8(108)
   91 0052 8081      		ld r24,Z
-  92 0054 8860      		ori r24,lo8(8)
+  92 0054 8064      		ori r24,lo8(64)
   93 0056 8083      		st Z,r24
   94               	.LM19:
   95 0058 D99A      		sbi 59-32,1
@@ -144,13 +144,13 @@
  160               	/* prologue: function */
  161               	/* frame size = 0 */
  162               	.LM36:
- 163 0082 509A      		sbi 42-32,0
+ 163 0082 559A      		sbi 42-32,5
  164               	.LM37:
- 165 0084 589A      		sbi 43-32,0
+ 165 0084 5D9A      		sbi 43-32,5
  166               	.LM38:
- 167 0086 3B98      		cbi 39-32,3
+ 167 0086 3E98      		cbi 39-32,6
  168               	.LM39:
- 169 0088 439A      		sbi 40-32,3
+ 169 0088 469A      		sbi 40-32,6
  170               	/* epilogue start */
  171               	.LM40:
  172 008a 0895      		ret
@@ -162,7 +162,7 @@
  180               	/* prologue: function */
  181               	/* frame size = 0 */
  182               	.LM42:
- 183 008c 589A      		sbi 43-32,0
+ 183 008c 5D9A      		sbi 43-32,5
  184               	/* epilogue start */
  185               	.LM43:
  186 008e 0895      		ret
@@ -174,7 +174,7 @@
  194               	/* prologue: function */
  195               	/* frame size = 0 */
  196               	.LM45:
- 197 0090 5898      		cbi 43-32,0
+ 197 0090 5D98      		cbi 43-32,5
  198               	/* epilogue start */
  199               	.LM46:
  200 0092 0895      		ret
@@ -192,7 +192,7 @@
  214               	.LBB34:
  215               	.LBB35:
  216               	.LM49:
- 217 0098 589A      		sbi 43-32,0
+ 217 0098 5D9A      		sbi 43-32,5
  218 009a 0895      		ret
  219               	.L20:
  220               	.LBE35:
@@ -200,7 +200,7 @@
  222               	.LBB36:
  223               	.LBB37:
  224               	.LM50:
- 225 009c 5898      		cbi 43-32,0
+ 225 009c 5D98      		cbi 43-32,5
  226 009e 0895      		ret
  227               	.LBE37:
  228               	.LBE36:
@@ -214,7 +214,7 @@
  238               	.LM52:
  239 00a0 86B1      		in r24,38-32
  240 00a2 90E0      		ldi r25,lo8(0)
- 241 00a4 23E0      		ldi r18,3
+ 241 00a4 26E0      		ldi r18,6
  242 00a6 9695      	1:	lsr r25
  243 00a8 8795      		ror r24
  244 00aa 2A95      		dec r18
@@ -400,7 +400,7 @@
  434               	.LBB42:
  435               	.LBB43:
  436               	.LM83:
- 437 0178 589A      		sbi 43-32,0
+ 437 0178 5D9A      		sbi 43-32,5
  438 017a 00C0      		rjmp .L42
  439               	.L41:
  440               	.LBE43:
@@ -408,7 +408,7 @@
  442               	.LBB44:
  443               	.LBB45:
  444               	.LM84:
- 445 017c 5898      		cbi 43-32,0
+ 445 017c 5D98      		cbi 43-32,5
  446               	.L42:
  447               	.LBE45:
  448               	.LBE44:
@@ -456,7 +456,7 @@
  492               	.LBB46:
  493               	.LBB47:
  494               	.LM90:
- 495 01b0 339B      		sbis 38-32,3
+ 495 01b0 369B      		sbis 38-32,6
  496 01b2 00C0      		rjmp .L48
  497               	.LBE47:
  498               	.LBE46:
@@ -472,7 +472,7 @@
  508               	.LBB52:
  509               	.LBB53:
  510               	.LM93:
- 511 01bc 3399      		sbic 38-32,3
+ 511 01bc 3699      		sbic 38-32,6
  512               	.LBE53:
  513               	.LBE52:
  514               	.LM94:
@@ -498,9 +498,9 @@
  534               	.LBE50:
  535               	.LBE49:
  536               	.LM100:
- 537 01d2 F3FC      		sbrc r15,3
+ 537 01d2 F6FC      		sbrc r15,6
  538 01d4 00C0      		rjmp .L53
- 539 01d6 83FF      		sbrs r24,3
+ 539 01d6 86FF      		sbrs r24,6
  540 01d8 00C0      		rjmp .L53
  541               	.LM101:
  542 01da 0093 0000 		sts debug+1,r16
@@ -1696,67 +1696,67 @@
  2235               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 debug.c
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:2      *ABS*:0000003f __SREG__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:3      *ABS*:0000003e __SP_H__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:4      *ABS*:0000003d __SP_L__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:5      *ABS*:00000034 __CCP__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:18     .text:00000000 debug_struct_init
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:18     .text:00000000 debug_struct_init
                             *COM*:0000002d debug
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:68     .text:00000038 debug_timings_init
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:109    .text:0000005e debug_timer_start
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:139    .text:00000078 debug_timer_stop
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:157    .text:00000082 debug_gpio_init
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:177    .text:0000008c debug_tx_high
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:191    .text:00000090 debug_tx_low
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:205    .text:00000094 debug_tx_set
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:233    .text:000000a0 debug_rx_get
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:254    .text:000000b2 debug_delay
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:290    .text:000000d0 debug_delay_index_0
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1806   .data:0000000e TIM0_BAUD_38400
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:306    .text:000000de debug_delay_index_1
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:322    .text:000000ec debug_delay_index_2
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:338    .text:000000fa debug_tx_byte
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:484    .text:000001aa debug_rx_byte
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:583    .text:00000202 debug_rx_byte_get
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:597    .text:00000208 debug_rx_byte_clear
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:611    .text:0000020e debug_rx_byte_set
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:626    .text:00000214 debug_tx_hex
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:767    .text:000002c8 debug_tx_bin
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:888    .text:00000374 debug_tx_nl
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:906    .text:00000382 debug_tx_sp
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:921    .text:0000038a debug_tx_cm
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:936    .text:00000392 debug_tx_text
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:977    .text:000003b8 debug_tx_text_nl
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:995    .text:000003c2 debug_tx_text_sp
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1013   .text:000003cc debug_tx_text_cm
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1031   .text:000003d6 debug_determine_digit_numbers
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1121   .text:00000454 debug_tx_number_digits
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1164   .text:00000476 debug_tx_number
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1212   .text:000004b2 debug_tx_number_nl
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1230   .text:000004bc debug_tx_number_sp
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1252   .text:000004c6 debug_tx_number_cm
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1272   .text:000004d4 debug_tx_number_hex_nl
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1290   .text:000004de debug_tx_number_hex_sp
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1308   .text:000004e8 debug_tx_number_hex_cm
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1328   .text:000004f6 debug_tx_parameter_nl
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1361   .text:0000051c debug_tx_parameter_sp
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1394   .text:00000542 debug_tx_parameter_cm
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1427   .text:00000568 debug_tx_parameter_hex_nl
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1460   .text:0000058e debug_tx_parameter_hex_sp
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1493   .text:000005b4 Debug_tx_parameter_hex_cm
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1526   .text:000005da debug_buf_get
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1546   .text:000005e6 debug_buf_index_get
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1560   .text:000005ec debug_flush_buf
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1590   .text:00000606 debug_databsy_get
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1604   .text:0000060c debug_data_available_rx_buf
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1643   .text:0000062c debug_available_bytes_rx_buf
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1661   .text:00000632 debug_init
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1679   .text:00000640 __vector_4
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1757   .text:000006be __vector_16
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1792   .data:00000002 TIM0_BAUD_9600
-C:\Users\FARIDU~1\AppData\Local\Temp/ccI867BH.s:1799   .data:00000008 TIM0_BAUD_19200
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:68     .text:00000038 debug_timings_init
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:109    .text:0000005e debug_timer_start
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:139    .text:00000078 debug_timer_stop
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:157    .text:00000082 debug_gpio_init
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:177    .text:0000008c debug_tx_high
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:191    .text:00000090 debug_tx_low
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:205    .text:00000094 debug_tx_set
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:233    .text:000000a0 debug_rx_get
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:254    .text:000000b2 debug_delay
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:290    .text:000000d0 debug_delay_index_0
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1806   .data:0000000e TIM0_BAUD_38400
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:306    .text:000000de debug_delay_index_1
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:322    .text:000000ec debug_delay_index_2
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:338    .text:000000fa debug_tx_byte
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:484    .text:000001aa debug_rx_byte
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:583    .text:00000202 debug_rx_byte_get
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:597    .text:00000208 debug_rx_byte_clear
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:611    .text:0000020e debug_rx_byte_set
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:626    .text:00000214 debug_tx_hex
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:767    .text:000002c8 debug_tx_bin
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:888    .text:00000374 debug_tx_nl
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:906    .text:00000382 debug_tx_sp
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:921    .text:0000038a debug_tx_cm
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:936    .text:00000392 debug_tx_text
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:977    .text:000003b8 debug_tx_text_nl
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:995    .text:000003c2 debug_tx_text_sp
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1013   .text:000003cc debug_tx_text_cm
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1031   .text:000003d6 debug_determine_digit_numbers
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1121   .text:00000454 debug_tx_number_digits
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1164   .text:00000476 debug_tx_number
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1212   .text:000004b2 debug_tx_number_nl
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1230   .text:000004bc debug_tx_number_sp
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1252   .text:000004c6 debug_tx_number_cm
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1272   .text:000004d4 debug_tx_number_hex_nl
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1290   .text:000004de debug_tx_number_hex_sp
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1308   .text:000004e8 debug_tx_number_hex_cm
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1328   .text:000004f6 debug_tx_parameter_nl
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1361   .text:0000051c debug_tx_parameter_sp
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1394   .text:00000542 debug_tx_parameter_cm
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1427   .text:00000568 debug_tx_parameter_hex_nl
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1460   .text:0000058e debug_tx_parameter_hex_sp
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1493   .text:000005b4 Debug_tx_parameter_hex_cm
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1526   .text:000005da debug_buf_get
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1546   .text:000005e6 debug_buf_index_get
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1560   .text:000005ec debug_flush_buf
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1590   .text:00000606 debug_databsy_get
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1604   .text:0000060c debug_data_available_rx_buf
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1643   .text:0000062c debug_available_bytes_rx_buf
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1661   .text:00000632 debug_init
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1679   .text:00000640 __vector_4
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1757   .text:000006be __vector_16
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1792   .data:00000002 TIM0_BAUD_9600
+C:\Users\FARIDU~1\AppData\Local\Temp/cckWX5YL.s:1799   .data:00000008 TIM0_BAUD_19200
 
 UNDEFINED SYMBOLS
 __udivmodsi4
