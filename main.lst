@@ -30,80 +30,172 @@
   35               	.LM5:
   36 000c 0E94 0000 		call debug_init
   37               	.LM6:
-  38 0010 80E0      		ldi r24,lo8(.LC0)
-  39 0012 90E0      		ldi r25,hi8(.LC0)
-  40 0014 0E94 0000 		call debug_tx_text_nl
-  41               	.LM7:
-  42 0018 0E94 0000 		call I2C_Set_Mode_Active
-  43               	.LBB12:
-  44               	.LBB13:
-  45               	.LBB14:
-  46               	.LBB15:
+  38 0010 62E3      		ldi r22,lo8(50)
+  39 0012 70E0      		ldi r23,hi8(50)
+  40 0014 80E0      		ldi r24,hlo8(50)
+  41 0016 90E0      		ldi r25,hhi8(50)
+  42 0018 0E94 0000 		call Servo_Init
+  43               	.LM7:
+  44 001c 80E0      		ldi r24,lo8(.LC0)
+  45 001e 90E0      		ldi r25,hi8(.LC0)
+  46 0020 0E94 0000 		call debug_tx_text_nl
   47               	.LM8:
-  48 001c C0E7      		ldi r28,lo8(6000)
-  49 001e D7E1      		ldi r29,hi8(6000)
-  50               	.L2:
-  51               	.LBE15:
-  52               	.LBE14:
-  53               	.LBE13:
-  54               	.LBE12:
-  55               	.LM9:
-  56 0020 0E94 0000 		call I2C_Read_Pitch_Angle
-  57 0024 AA27      		clr r26
-  58 0026 97FD      		sbrc r25,7
-  59 0028 A095      		com r26
-  60 002a BA2F      		mov r27,r26
-  61 002c BC01      		movw r22,r24
-  62 002e CD01      		movw r24,r26
-  63 0030 0E94 0000 		call debug_tx_number_cm
-  64               	.LM10:
-  65 0034 0E94 0000 		call I2C_Read_Roll_Angle
-  66 0038 AA27      		clr r26
-  67 003a 97FD      		sbrc r25,7
-  68 003c A095      		com r26
-  69 003e BA2F      		mov r27,r26
-  70 0040 BC01      		movw r22,r24
-  71 0042 CD01      		movw r24,r26
-  72 0044 0E94 0000 		call debug_tx_number_cm
-  73               	.LM11:
-  74 0048 0E94 0000 		call debug_tx_nl
-  75               	.LBB19:
-  76               	.LBB18:
-  77               	.LBB17:
-  78               	.LBB16:
-  79               	.LM12:
-  80 004c CE01      		movw r24,r28
-  81               	.LVL0:
-  82               	/* #APP */
-  83               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
-  84 004e 0197      		1: sbiw r24,1
-  85 0050 01F4      		brne 1b
-  86               	 ;  0 "" 2
-  87               	/* #NOAPP */
-  88 0052 00C0      		rjmp .L2
-  89               	.LBE16:
-  90               	.LBE17:
-  91               	.LBE18:
-  92               	.LBE19:
-  93               	.LFE8:
- 119               	.Letext0:
+  48 0024 0E94 0000 		call I2C_Set_Mode_Active
+  49               	.LBB30:
+  50               	.LBB31:
+  51               	.LBB32:
+  52               	.LBB33:
+  53               	.LM9:
+  54 0028 CCE2      		ldi r28,lo8(300)
+  55 002a D1E0      		ldi r29,hi8(300)
+  56               	.LVL0:
+  57               	.L6:
+  58               	.LBE33:
+  59               	.LBE32:
+  60               	.LBE31:
+  61               	.LBE30:
+  62               	.LM10:
+  63 002c 8DE2      		ldi r24,lo8(45)
+  64 002e 90E0      		ldi r25,hi8(45)
+  65               	.LVL1:
+  66 0030 0E94 0000 		call Servo_Set_Angle
+  67               	.LVL2:
+  68 0034 80E2      		ldi r24,lo8(20000)
+  69 0036 9EE4      		ldi r25,hi8(20000)
+  70               	.LVL3:
+  71               	.L2:
+  72               	.LBB37:
+  73               	.LBB36:
+  74               	.LBB35:
+  75               	.LBB34:
+  76               	.LM11:
+  77 0038 FE01      		movw r30,r28
+  78               	.LVL4:
+  79               	/* #APP */
+  80               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  81 003a 3197      		1: sbiw r30,1
+  82 003c 01F4      		brne 1b
+  83               	 ;  0 "" 2
+  84               	/* #NOAPP */
+  85               	.LBE34:
+  86               	.LBE35:
+  87               	.LM12:
+  88 003e 0197      		sbiw r24,1
+  89               	.LM13:
+  90 0040 01F4      		brne .L2
+  91               	.LBE36:
+  92               	.LBE37:
+  93               	.LM14:
+  94 0042 8AE5      		ldi r24,lo8(90)
+  95 0044 90E0      		ldi r25,hi8(90)
+  96               	.LVL5:
+  97 0046 0E94 0000 		call Servo_Set_Angle
+  98               	.LVL6:
+  99 004a 80E2      		ldi r24,lo8(20000)
+ 100 004c 9EE4      		ldi r25,hi8(20000)
+ 101               	.LVL7:
+ 102               	.L3:
+ 103               	.LBB38:
+ 104               	.LBB39:
+ 105               	.LBB40:
+ 106               	.LBB41:
+ 107               	.LM15:
+ 108 004e FE01      		movw r30,r28
+ 109               	.LVL8:
+ 110               	/* #APP */
+ 111               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 112 0050 3197      		1: sbiw r30,1
+ 113 0052 01F4      		brne 1b
+ 114               	 ;  0 "" 2
+ 115               	/* #NOAPP */
+ 116               	.LBE41:
+ 117               	.LBE40:
+ 118               	.LM16:
+ 119 0054 0197      		sbiw r24,1
+ 120               	.LM17:
+ 121 0056 01F4      		brne .L3
+ 122               	.LBE39:
+ 123               	.LBE38:
+ 124               	.LM18:
+ 125 0058 87E8      		ldi r24,lo8(135)
+ 126 005a 90E0      		ldi r25,hi8(135)
+ 127               	.LVL9:
+ 128 005c 0E94 0000 		call Servo_Set_Angle
+ 129               	.LVL10:
+ 130 0060 80E2      		ldi r24,lo8(20000)
+ 131 0062 9EE4      		ldi r25,hi8(20000)
+ 132               	.LVL11:
+ 133               	.L4:
+ 134               	.LBB42:
+ 135               	.LBB43:
+ 136               	.LBB44:
+ 137               	.LBB45:
+ 138               	.LM19:
+ 139 0064 FE01      		movw r30,r28
+ 140               	.LVL12:
+ 141               	/* #APP */
+ 142               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 143 0066 3197      		1: sbiw r30,1
+ 144 0068 01F4      		brne 1b
+ 145               	 ;  0 "" 2
+ 146               	/* #NOAPP */
+ 147               	.LBE45:
+ 148               	.LBE44:
+ 149               	.LM20:
+ 150 006a 0197      		sbiw r24,1
+ 151               	.LM21:
+ 152 006c 01F4      		brne .L4
+ 153               	.LBE43:
+ 154               	.LBE42:
+ 155               	.LM22:
+ 156 006e 84EB      		ldi r24,lo8(180)
+ 157 0070 90E0      		ldi r25,hi8(180)
+ 158               	.LVL13:
+ 159 0072 0E94 0000 		call Servo_Set_Angle
+ 160               	.LVL14:
+ 161 0076 80E2      		ldi r24,lo8(20000)
+ 162 0078 9EE4      		ldi r25,hi8(20000)
+ 163               	.LVL15:
+ 164               	.L5:
+ 165               	.LBB46:
+ 166               	.LBB47:
+ 167               	.LBB48:
+ 168               	.LBB49:
+ 169               	.LM23:
+ 170 007a FE01      		movw r30,r28
+ 171               	.LVL16:
+ 172               	/* #APP */
+ 173               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 174 007c 3197      		1: sbiw r30,1
+ 175 007e 01F4      		brne 1b
+ 176               	 ;  0 "" 2
+ 177               	/* #NOAPP */
+ 178               	.LBE49:
+ 179               	.LBE48:
+ 180               	.LM24:
+ 181 0080 0197      		sbiw r24,1
+ 182               	.LM25:
+ 183 0082 01F4      		brne .L5
+ 184 0084 00C0      		rjmp .L6
+ 185               	.LBE47:
+ 186               	.LBE46:
+ 187               	.LFE8:
+ 213               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\FARIDU~1\AppData\Local\Temp/ccGDNdVQ.s:2      *ABS*:0000003f __SREG__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccGDNdVQ.s:3      *ABS*:0000003e __SP_H__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccGDNdVQ.s:4      *ABS*:0000003d __SP_L__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccGDNdVQ.s:5      *ABS*:00000034 __CCP__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccGDNdVQ.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccGDNdVQ.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccGDNdVQ.s:22     .text:00000000 main
+C:\Users\FARIDU~1\AppData\Local\Temp/ccOIzZIQ.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccOIzZIQ.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccOIzZIQ.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccOIzZIQ.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccOIzZIQ.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccOIzZIQ.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccOIzZIQ.s:22     .text:00000000 main
 
 UNDEFINED SYMBOLS
 I2C_Init
 debug_init
+Servo_Init
 debug_tx_text_nl
 I2C_Set_Mode_Active
-I2C_Read_Pitch_Angle
-debug_tx_number_cm
-I2C_Read_Roll_Angle
-debug_tx_nl
+Servo_Set_Angle
 __do_copy_data
