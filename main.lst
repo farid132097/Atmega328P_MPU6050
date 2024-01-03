@@ -17,176 +17,93 @@
   22               	main:
   23               	.LFB8:
   24               	.LM1:
-  25 0000 2F92      		push r2
-  26 0002 3F92      		push r3
-  27 0004 4F92      		push r4
-  28 0006 5F92      		push r5
-  29 0008 6F92      		push r6
-  30 000a 7F92      		push r7
-  31 000c 8F92      		push r8
-  32 000e 9F92      		push r9
-  33 0010 AF92      		push r10
-  34 0012 BF92      		push r11
-  35 0014 CF92      		push r12
-  36 0016 DF92      		push r13
-  37 0018 EF92      		push r14
-  38 001a FF92      		push r15
-  39 001c 0F93      		push r16
-  40 001e 1F93      		push r17
-  41 0020 CF93      		push r28
-  42 0022 DF93      		push r29
-  43               	/* prologue: function */
-  44               	/* frame size = 0 */
-  45               	.LM2:
-  46 0024 549A      		sbi 42-32,4
-  47               	.LM3:
-  48 0026 5C98      		cbi 43-32,4
-  49               	.LM4:
-  50 0028 0E94 0000 		call I2C_Init
-  51               	.LM5:
-  52 002c 0E94 0000 		call debug_init
-  53               	.LM6:
-  54 0030 80E0      		ldi r24,lo8(.LC0)
-  55 0032 90E0      		ldi r25,hi8(.LC0)
-  56 0034 0E94 0000 		call debug_tx_text_nl
-  57               	.LM7:
-  58 0038 0E94 0000 		call I2C_Set_Mode_Active
-  59               	.LBB13:
-  60               	.LBB14:
-  61               	.LBB15:
-  62               	.LBB16:
-  63               	.LBB17:
-  64               	.LM8:
-  65 003c C0E7      		ldi r28,lo8(6000)
-  66 003e D7E1      		ldi r29,hi8(6000)
-  67               	.L2:
-  68               	.LBE17:
-  69               	.LBE16:
-  70               	.LBE15:
-  71               	.LBE14:
-  72               	.LM9:
-  73 0040 0E94 0000 		call I2C_Read_Acc_X
-  74 0044 7C01      		movw r14,r24
-  75               	.LM10:
-  76 0046 0E94 0000 		call I2C_Read_Acc_Y
-  77 004a 5C01      		movw r10,r24
-  78               	.LM11:
-  79 004c 0E94 0000 		call I2C_Read_Acc_Z
-  80 0050 AA27      		clr r26
-  81 0052 97FD      		sbrc r25,7
-  82 0054 A095      		com r26
-  83 0056 BA2F      		mov r27,r26
-  84 0058 BC01      		movw r22,r24
-  85 005a CD01      		movw r24,r26
-  86 005c 0E94 0000 		call __floatsisf
-  87 0060 3B01      		movw r6,r22
-  88 0062 4C01      		movw r8,r24
-  89               	.LM12:
-  90 0064 0027      		clr r16
-  91 0066 F7FC      		sbrc r15,7
-  92 0068 0095      		com r16
-  93 006a 102F      		mov r17,r16
-  94 006c C801      		movw r24,r16
-  95 006e B701      		movw r22,r14
-  96 0070 0E94 0000 		call __floatsisf
-  97 0074 A401      		movw r20,r8
-  98 0076 9301      		movw r18,r6
-  99 0078 0E94 0000 		call __divsf3
- 100 007c 0E94 0000 		call atan
- 101               	.LM13:
- 102 0080 20E0      		ldi r18,lo8(0x42c80000)
- 103 0082 30E0      		ldi r19,hi8(0x42c80000)
- 104 0084 48EC      		ldi r20,hlo8(0x42c80000)
- 105 0086 52E4      		ldi r21,hhi8(0x42c80000)
- 106 0088 0E94 0000 		call __mulsf3
- 107 008c 1B01      		movw r2,r22
- 108 008e 2C01      		movw r4,r24
- 109               	.LM14:
- 110 0090 CC24      		clr r12
- 111 0092 B7FC      		sbrc r11,7
- 112 0094 C094      		com r12
- 113 0096 DC2C      		mov r13,r12
- 114 0098 C601      		movw r24,r12
- 115 009a B501      		movw r22,r10
- 116 009c 0E94 0000 		call __floatsisf
- 117 00a0 A401      		movw r20,r8
- 118 00a2 9301      		movw r18,r6
- 119 00a4 0E94 0000 		call __divsf3
- 120 00a8 0E94 0000 		call atan
- 121               	.LM15:
- 122 00ac 20E0      		ldi r18,lo8(0x42c80000)
- 123 00ae 30E0      		ldi r19,hi8(0x42c80000)
- 124 00b0 48EC      		ldi r20,hlo8(0x42c80000)
- 125 00b2 52E4      		ldi r21,hhi8(0x42c80000)
- 126 00b4 0E94 0000 		call __mulsf3
- 127 00b8 7B01      		movw r14,r22
- 128 00ba 8C01      		movw r16,r24
- 129               	.LM16:
- 130 00bc C201      		movw r24,r4
- 131 00be B101      		movw r22,r2
- 132 00c0 23E3      		ldi r18,lo8(0x42653333)
- 133 00c2 33E3      		ldi r19,hi8(0x42653333)
- 134 00c4 45E6      		ldi r20,hlo8(0x42653333)
- 135 00c6 52E4      		ldi r21,hhi8(0x42653333)
- 136 00c8 0E94 0000 		call __mulsf3
- 137 00cc 0E94 0000 		call __fixsfsi
- 138 00d0 0E94 0000 		call debug_tx_number_cm
- 139               	.LM17:
- 140 00d4 C801      		movw r24,r16
- 141 00d6 B701      		movw r22,r14
- 142 00d8 23E3      		ldi r18,lo8(0x42653333)
- 143 00da 33E3      		ldi r19,hi8(0x42653333)
- 144 00dc 45E6      		ldi r20,hlo8(0x42653333)
- 145 00de 52E4      		ldi r21,hhi8(0x42653333)
- 146 00e0 0E94 0000 		call __mulsf3
- 147 00e4 0E94 0000 		call __fixsfsi
- 148 00e8 0E94 0000 		call debug_tx_number_cm
- 149               	.LM18:
- 150 00ec 0E94 0000 		call debug_tx_nl
- 151               	.LBB21:
- 152               	.LBB20:
- 153               	.LBB19:
- 154               	.LBB18:
- 155               	.LM19:
- 156 00f0 CE01      		movw r24,r28
- 157               	.LVL0:
- 158               	/* #APP */
- 159               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 160 00f2 0197      		1: sbiw r24,1
- 161 00f4 01F4      		brne 1b
- 162               	 ;  0 "" 2
- 163               	/* #NOAPP */
- 164 00f6 00C0      		rjmp .L2
- 165               	.LBE18:
- 166               	.LBE19:
- 167               	.LBE20:
- 168               	.LBE21:
- 169               	.LBE13:
- 170               	.LFE8:
- 196               	.Letext0:
+  25 0000 CF93      		push r28
+  26 0002 DF93      		push r29
+  27               	/* prologue: function */
+  28               	/* frame size = 0 */
+  29               	.LM2:
+  30 0004 549A      		sbi 42-32,4
+  31               	.LM3:
+  32 0006 5C98      		cbi 43-32,4
+  33               	.LM4:
+  34 0008 0E94 0000 		call I2C_Init
+  35               	.LM5:
+  36 000c 0E94 0000 		call debug_init
+  37               	.LM6:
+  38 0010 80E0      		ldi r24,lo8(.LC0)
+  39 0012 90E0      		ldi r25,hi8(.LC0)
+  40 0014 0E94 0000 		call debug_tx_text_nl
+  41               	.LM7:
+  42 0018 0E94 0000 		call I2C_Set_Mode_Active
+  43               	.LBB12:
+  44               	.LBB13:
+  45               	.LBB14:
+  46               	.LBB15:
+  47               	.LM8:
+  48 001c C0E7      		ldi r28,lo8(6000)
+  49 001e D7E1      		ldi r29,hi8(6000)
+  50               	.L2:
+  51               	.LBE15:
+  52               	.LBE14:
+  53               	.LBE13:
+  54               	.LBE12:
+  55               	.LM9:
+  56 0020 0E94 0000 		call I2C_Read_Pitch_Angle
+  57 0024 AA27      		clr r26
+  58 0026 97FD      		sbrc r25,7
+  59 0028 A095      		com r26
+  60 002a BA2F      		mov r27,r26
+  61 002c BC01      		movw r22,r24
+  62 002e CD01      		movw r24,r26
+  63 0030 0E94 0000 		call debug_tx_number_cm
+  64               	.LM10:
+  65 0034 0E94 0000 		call I2C_Read_Roll_Angle
+  66 0038 AA27      		clr r26
+  67 003a 97FD      		sbrc r25,7
+  68 003c A095      		com r26
+  69 003e BA2F      		mov r27,r26
+  70 0040 BC01      		movw r22,r24
+  71 0042 CD01      		movw r24,r26
+  72 0044 0E94 0000 		call debug_tx_number_cm
+  73               	.LM11:
+  74 0048 0E94 0000 		call debug_tx_nl
+  75               	.LBB19:
+  76               	.LBB18:
+  77               	.LBB17:
+  78               	.LBB16:
+  79               	.LM12:
+  80 004c CE01      		movw r24,r28
+  81               	.LVL0:
+  82               	/* #APP */
+  83               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  84 004e 0197      		1: sbiw r24,1
+  85 0050 01F4      		brne 1b
+  86               	 ;  0 "" 2
+  87               	/* #NOAPP */
+  88 0052 00C0      		rjmp .L2
+  89               	.LBE16:
+  90               	.LBE17:
+  91               	.LBE18:
+  92               	.LBE19:
+  93               	.LFE8:
+ 119               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\FARIDU~1\AppData\Local\Temp/ccDD9BcO.s:2      *ABS*:0000003f __SREG__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccDD9BcO.s:3      *ABS*:0000003e __SP_H__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccDD9BcO.s:4      *ABS*:0000003d __SP_L__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccDD9BcO.s:5      *ABS*:00000034 __CCP__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccDD9BcO.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccDD9BcO.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccDD9BcO.s:22     .text:00000000 main
+C:\Users\FARIDU~1\AppData\Local\Temp/ccGDNdVQ.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccGDNdVQ.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccGDNdVQ.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccGDNdVQ.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccGDNdVQ.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccGDNdVQ.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccGDNdVQ.s:22     .text:00000000 main
 
 UNDEFINED SYMBOLS
 I2C_Init
 debug_init
 debug_tx_text_nl
 I2C_Set_Mode_Active
-I2C_Read_Acc_X
-I2C_Read_Acc_Y
-I2C_Read_Acc_Z
-__floatsisf
-__divsf3
-atan
-__mulsf3
-__fixsfsi
+I2C_Read_Pitch_Angle
 debug_tx_number_cm
+I2C_Read_Roll_Angle
 debug_tx_nl
 __do_copy_data

@@ -55,3 +55,6 @@ int16_t  I2C_Read_Gyro_Y(void);
 int16_t  I2C_Read_Gyro_Z(void);
 
 int16_t  I2C_Read_Temp(void);
+
+int      I2C_Read_Pitch_Angle(void);
+int      I2C_Read_Roll_Angle(void);

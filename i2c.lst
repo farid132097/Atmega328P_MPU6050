@@ -8,7 +8,7 @@
   15               	.Ltext0:
   16               	.global	I2C_Struct_Init
   18               	I2C_Struct_Init:
-  19               	.LFB6:
+  19               	.LFB8:
   20               	.LM1:
   21               	/* prologue: function */
   22               	/* frame size = 0 */
@@ -19,10 +19,10 @@
   27               	/* epilogue start */
   28               	.LM4:
   29 0008 0895      		ret
-  30               	.LFE6:
+  30               	.LFE8:
   32               	.global	I2C_Half_Bit_Delay
   34               	I2C_Half_Bit_Delay:
-  35               	.LFB7:
+  35               	.LFB9:
   36               	.LM5:
   37               	/* prologue: function */
   38               	/* frame size = 0 */
@@ -46,10 +46,10 @@
   56               	.LBE266:
   57               	.LM7:
   58 0010 0895      		ret
-  59               	.LFE7:
+  59               	.LFE9:
   61               	.global	I2C_Bit_Delay
   63               	I2C_Bit_Delay:
-  64               	.LFB8:
+  64               	.LFB10:
   65               	.LM8:
   66               	/* prologue: function */
   67               	/* frame size = 0 */
@@ -73,10 +73,10 @@
   85               	.LBE270:
   86               	.LM10:
   87 0018 0895      		ret
-  88               	.LFE8:
+  88               	.LFE10:
   90               	.global	I2C_Guard_Delay
   92               	I2C_Guard_Delay:
-  93               	.LFB9:
+  93               	.LFB11:
   94               	.LM11:
   95               	/* prologue: function */
   96               	/* frame size = 0 */
@@ -100,10 +100,10 @@
  114               	.LBE274:
  115               	.LM13:
  116 0020 0895      		ret
- 117               	.LFE9:
+ 117               	.LFE11:
  119               	.global	I2C_SCL_Set_DD
  121               	I2C_SCL_Set_DD:
- 122               	.LFB10:
+ 122               	.LFB12:
  123               	.LM14:
  124               	.LVL3:
  125               	/* prologue: function */
@@ -118,10 +118,10 @@
  134               	.LM17:
  135 002a 3C98      		cbi 39-32,4
  136 002c 0895      		ret
- 137               	.LFE10:
+ 137               	.LFE12:
  139               	.global	I2C_SCL_Set_Output_LL
  141               	I2C_SCL_Set_Output_LL:
- 142               	.LFB11:
+ 142               	.LFB13:
  143               	.LM18:
  144               	.LVL4:
  145               	/* prologue: function */
@@ -136,10 +136,10 @@
  154               	.LM21:
  155 0036 4498      		cbi 40-32,4
  156 0038 0895      		ret
- 157               	.LFE11:
+ 157               	.LFE13:
  159               	.global	I2C_SCL_Set_Output
  161               	I2C_SCL_Set_Output:
- 162               	.LFB12:
+ 162               	.LFB14:
  163               	.LM22:
  164               	.LVL5:
  165               	/* prologue: function */
@@ -174,10 +174,10 @@
  194 0048 0895      		ret
  195               	.LBE285:
  196               	.LBE284:
- 197               	.LFE12:
+ 197               	.LFE14:
  199               	.global	I2C_SCL_Get_State
  201               	I2C_SCL_Get_State:
- 202               	.LFB13:
+ 202               	.LFB15:
  203               	.LM28:
  204               	/* prologue: function */
  205               	/* frame size = 0 */
@@ -193,10 +193,10 @@
  215 0058 8170      		andi r24,lo8(1)
  216               	/* epilogue start */
  217 005a 0895      		ret
- 218               	.LFE13:
+ 218               	.LFE15:
  220               	.global	I2C_SDA_Set_DD
  222               	I2C_SDA_Set_DD:
- 223               	.LFB14:
+ 223               	.LFB16:
  224               	.LM31:
  225               	.LVL6:
  226               	/* prologue: function */
@@ -211,10 +211,10 @@
  235               	.LM34:
  236 0064 3D98      		cbi 39-32,5
  237 0066 0895      		ret
- 238               	.LFE14:
+ 238               	.LFE16:
  240               	.global	I2C_SDA_Set_Output_LL
  242               	I2C_SDA_Set_Output_LL:
- 243               	.LFB15:
+ 243               	.LFB17:
  244               	.LM35:
  245               	.LVL7:
  246               	/* prologue: function */
@@ -229,10 +229,10 @@
  255               	.LM38:
  256 0070 4598      		cbi 40-32,5
  257 0072 0895      		ret
- 258               	.LFE15:
+ 258               	.LFE17:
  260               	.global	I2C_SDA_Set_Output
  262               	I2C_SDA_Set_Output:
- 263               	.LFB16:
+ 263               	.LFB18:
  264               	.LM39:
  265               	.LVL8:
  266               	/* prologue: function */
@@ -267,10 +267,10 @@
  295 0082 0895      		ret
  296               	.LBE293:
  297               	.LBE292:
- 298               	.LFE16:
+ 298               	.LFE18:
  300               	.global	I2C_SDA_Get_State
  302               	I2C_SDA_Get_State:
- 303               	.LFB17:
+ 303               	.LFB19:
  304               	.LM45:
  305               	/* prologue: function */
  306               	/* frame size = 0 */
@@ -286,10 +286,10 @@
  316 0092 8170      		andi r24,lo8(1)
  317               	/* epilogue start */
  318 0094 0895      		ret
- 319               	.LFE17:
+ 319               	.LFE19:
  321               	.global	I2C_SCL_Reset_State
  323               	I2C_SCL_Reset_State:
- 324               	.LFB18:
+ 324               	.LFB20:
  325               	.LM48:
  326               	/* prologue: function */
  327               	/* frame size = 0 */
@@ -305,10 +305,10 @@
  337               	/* epilogue start */
  338               	.LM51:
  339 009e 0895      		ret
- 340               	.LFE18:
+ 340               	.LFE20:
  342               	.global	I2C_SDA_Reset_State
  344               	I2C_SDA_Reset_State:
- 345               	.LFB19:
+ 345               	.LFB21:
  346               	.LM52:
  347               	/* prologue: function */
  348               	/* frame size = 0 */
@@ -324,10 +324,10 @@
  358               	/* epilogue start */
  359               	.LM55:
  360 00a8 0895      		ret
- 361               	.LFE19:
+ 361               	.LFE21:
  363               	.global	I2C_GPIO_Init
  365               	I2C_GPIO_Init:
- 366               	.LFB20:
+ 366               	.LFB22:
  367               	.LM56:
  368               	/* prologue: function */
  369               	/* frame size = 0 */
@@ -352,10 +352,10 @@
  388               	/* epilogue start */
  389               	.LM61:
  390 00ba 0895      		ret
- 391               	.LFE20:
+ 391               	.LFE22:
  393               	.global	I2C_Start
  395               	I2C_Start:
- 396               	.LFB21:
+ 396               	.LFB23:
  397               	.LM62:
  398 00bc 1F93      		push r17
  399               	/* prologue: function */
@@ -442,10 +442,10 @@
  480 00e8 1F91      		pop r17
  481               	.LVL14:
  482 00ea 0895      		ret
- 483               	.LFE21:
+ 483               	.LFE23:
  485               	.global	I2C_Stop
  487               	I2C_Stop:
- 488               	.LFB22:
+ 488               	.LFB24:
  489               	.LM71:
  490 00ec 1F93      		push r17
  491               	/* prologue: function */
@@ -532,10 +532,10 @@
  572 0118 1F91      		pop r17
  573               	.LVL20:
  574 011a 0895      		ret
- 575               	.LFE22:
+ 575               	.LFE24:
  577               	.global	I2C_Data_Send
  579               	I2C_Data_Send:
- 580               	.LFB23:
+ 580               	.LFB25:
  581               	.LM80:
  582               	.LVL21:
  583 011c EF92      		push r14
@@ -683,10 +683,10 @@
  725 016a FF90      		pop r15
  726 016c EF90      		pop r14
  727 016e 0895      		ret
- 728               	.LFE23:
+ 728               	.LFE25:
  730               	.global	I2C_Data_Receive
  732               	I2C_Data_Receive:
- 733               	.LFB24:
+ 733               	.LFB26:
  734               	.LM94:
  735 0170 FF92      		push r15
  736 0172 0F93      		push r16
@@ -817,10 +817,10 @@
  861               	.LVL43:
  862 01ba FF90      		pop r15
  863 01bc 0895      		ret
- 864               	.LFE24:
+ 864               	.LFE26:
  866               	.global	I2C_Set_Ack
  868               	I2C_Set_Ack:
- 869               	.LFB25:
+ 869               	.LFB27:
  870               	.LM108:
  871 01be 1F93      		push r17
  872               	/* prologue: function */
@@ -882,10 +882,10 @@
  928 01de 1F91      		pop r17
  929               	.LVL47:
  930 01e0 0895      		ret
- 931               	.LFE25:
+ 931               	.LFE27:
  933               	.global	I2C_Set_Nack
  935               	I2C_Set_Nack:
- 936               	.LFB26:
+ 936               	.LFB28:
  937               	.LM115:
  938 01e2 1F93      		push r17
  939               	/* prologue: function */
@@ -947,10 +947,10 @@
  995 0202 1F91      		pop r17
  996               	.LVL51:
  997 0204 0895      		ret
- 998               	.LFE26:
+ 998               	.LFE28:
  1000               	.global	I2C_Get_Ack
  1002               	I2C_Get_Ack:
- 1003               	.LFB27:
+ 1003               	.LFB29:
  1004               	.LM122:
  1005 0206 0F93      		push r16
  1006 0208 1F93      		push r17
@@ -1048,10 +1048,10 @@
  1098 023e 0F91      		pop r16
  1099               	.LVL57:
  1100 0240 0895      		ret
- 1101               	.LFE27:
+ 1101               	.LFE29:
  1103               	.global	I2C_Send_Device_Address
  1105               	I2C_Send_Device_Address:
- 1106               	.LFB28:
+ 1106               	.LFB30:
  1107               	.LM131:
  1108               	.LVL58:
  1109 0242 1F93      		push r17
@@ -1076,10 +1076,10 @@
  1128 025c 1F91      		pop r17
  1129               	.LVL61:
  1130 025e 0895      		ret
- 1131               	.LFE28:
+ 1131               	.LFE30:
  1133               	.global	I2C_Get_Device_Address
  1135               	I2C_Get_Device_Address:
- 1136               	.LFB29:
+ 1136               	.LFB31:
  1137               	.LM137:
  1138 0260 1F93      		push r17
  1139               	/* prologue: function */
@@ -1112,10 +1112,10 @@
  1166 0278 1F91      		pop r17
  1167               	.LVL66:
  1168 027a 0895      		ret
- 1169               	.LFE29:
+ 1169               	.LFE31:
  1171               	.global	I2C_Read_Register
  1173               	I2C_Read_Register:
- 1174               	.LFB30:
+ 1174               	.LFB32:
  1175               	.LM143:
  1176               	.LVL67:
  1177 027c DF92      		push r13
@@ -1191,10 +1191,10 @@
  1247 02f0 DF90      		pop r13
  1248               	.LVL75:
  1249 02f2 0895      		ret
- 1250               	.LFE30:
+ 1250               	.LFE32:
  1252               	.global	I2C_Write_Register
  1254               	I2C_Write_Register:
- 1255               	.LFB31:
+ 1255               	.LFB33:
  1256               	.LM158:
  1257               	.LVL76:
  1258 02f4 0F93      		push r16
@@ -1230,10 +1230,10 @@
  1288 0326 0F91      		pop r16
  1289               	.LVL79:
  1290 0328 0895      		ret
- 1291               	.LFE31:
+ 1291               	.LFE33:
  1293               	.global	I2C_Set_Mode_Sleep
  1295               	I2C_Set_Mode_Sleep:
- 1296               	.LFB33:
+ 1296               	.LFB35:
  1297               	.LM168:
  1298               	/* prologue: function */
  1299               	/* frame size = 0 */
@@ -1244,10 +1244,10 @@
  1304               	/* epilogue start */
  1305               	.LM170:
  1306 0332 0895      		ret
- 1307               	.LFE33:
+ 1307               	.LFE35:
  1309               	.global	I2C_Set_Mode_Active
  1311               	I2C_Set_Mode_Active:
- 1312               	.LFB34:
+ 1312               	.LFB36:
  1313               	.LM171:
  1314               	/* prologue: function */
  1315               	/* frame size = 0 */
@@ -1258,10 +1258,10 @@
  1320               	/* epilogue start */
  1321               	.LM173:
  1322 033c 0895      		ret
- 1323               	.LFE34:
+ 1323               	.LFE36:
  1325               	.global	I2C_Read_Temp
  1327               	I2C_Read_Temp:
- 1328               	.LFB41:
+ 1328               	.LFB43:
  1329               	.LM174:
  1330 033e 0F93      		push r16
  1331 0340 1F93      		push r17
@@ -1296,10 +1296,10 @@
  1360 036a 0F91      		pop r16
  1361               	.LVL83:
  1362 036c 0895      		ret
- 1363               	.LFE41:
+ 1363               	.LFE43:
  1365               	.global	I2C_Read_Gyro_Z
  1367               	I2C_Read_Gyro_Z:
- 1368               	.LFB40:
+ 1368               	.LFB42:
  1369               	.LM180:
  1370 036e EF92      		push r14
  1371 0370 FF92      		push r15
@@ -1341,10 +1341,10 @@
  1407               	.LVL88:
  1408 03a6 EF90      		pop r14
  1409 03a8 0895      		ret
- 1410               	.LFE40:
+ 1410               	.LFE42:
  1412               	.global	I2C_Read_Gyro_Y
  1414               	I2C_Read_Gyro_Y:
- 1415               	.LFB39:
+ 1415               	.LFB41:
  1416               	.LM186:
  1417 03aa EF92      		push r14
  1418 03ac FF92      		push r15
@@ -1386,10 +1386,10 @@
  1454               	.LVL93:
  1455 03e2 EF90      		pop r14
  1456 03e4 0895      		ret
- 1457               	.LFE39:
+ 1457               	.LFE41:
  1459               	.global	I2C_Read_Gyro_X
  1461               	I2C_Read_Gyro_X:
- 1462               	.LFB38:
+ 1462               	.LFB40:
  1463               	.LM192:
  1464 03e6 EF92      		push r14
  1465 03e8 FF92      		push r15
@@ -1431,10 +1431,10 @@
  1501               	.LVL98:
  1502 041e EF90      		pop r14
  1503 0420 0895      		ret
- 1504               	.LFE38:
+ 1504               	.LFE40:
  1506               	.global	I2C_Read_Acc_Z
  1508               	I2C_Read_Acc_Z:
- 1509               	.LFB37:
+ 1509               	.LFB39:
  1510               	.LM198:
  1511 0422 EF92      		push r14
  1512 0424 FF92      		push r15
@@ -1476,10 +1476,10 @@
  1548               	.LVL103:
  1549 045a EF90      		pop r14
  1550 045c 0895      		ret
- 1551               	.LFE37:
+ 1551               	.LFE39:
  1553               	.global	I2C_Read_Acc_Y
  1555               	I2C_Read_Acc_Y:
- 1556               	.LFB36:
+ 1556               	.LFB38:
  1557               	.LM204:
  1558 045e EF92      		push r14
  1559 0460 FF92      		push r15
@@ -1521,155 +1521,298 @@
  1595               	.LVL108:
  1596 0496 EF90      		pop r14
  1597 0498 0895      		ret
- 1598               	.LFE36:
- 1600               	.global	I2C_Read_Acc_X
- 1602               	I2C_Read_Acc_X:
- 1603               	.LFB35:
+ 1598               	.LFE38:
+ 1600               	.global	I2C_Read_Roll_Angle
+ 1602               	I2C_Read_Roll_Angle:
+ 1603               	.LFB45:
  1604               	.LM210:
- 1605 049a EF92      		push r14
- 1606 049c FF92      		push r15
- 1607 049e 0F93      		push r16
- 1608 04a0 1F93      		push r17
- 1609               	/* prologue: function */
- 1610               	/* frame size = 0 */
- 1611               	.LM211:
- 1612 04a2 8BE3      		ldi r24,lo8(59)
- 1613 04a4 0E94 0000 		call I2C_Read_Register
- 1614               	.LM212:
- 1615 04a8 F82E      		mov r15,r24
- 1616               	.LVL109:
- 1617 04aa EE24      		clr r14
- 1618               	.LVL110:
- 1619               	.LM213:
- 1620 04ac 8CE3      		ldi r24,lo8(60)
- 1621 04ae 0E94 0000 		call I2C_Read_Register
- 1622               	.LM214:
- 1623 04b2 90E0      		ldi r25,lo8(0)
- 1624 04b4 E82A      		or r14,r24
- 1625 04b6 F92A      		or r15,r25
- 1626               	.LVL111:
- 1627 04b8 0027      		clr r16
- 1628 04ba F7FC      		sbrc r15,7
- 1629 04bc 0095      		com r16
- 1630 04be 102F      		mov r17,r16
- 1631               	.LVL112:
- 1632 04c0 80E0      		ldi r24,lo8(0)
- 1633 04c2 B801      		movw r22,r16
- 1634 04c4 A701      		movw r20,r14
- 1635 04c6 0E94 0000 		call LPF_Get_Filtered_Value
- 1636               	.LM215:
- 1637 04ca CB01      		movw r24,r22
- 1638               	/* epilogue start */
- 1639 04cc 1F91      		pop r17
- 1640 04ce 0F91      		pop r16
- 1641 04d0 FF90      		pop r15
- 1642               	.LVL113:
- 1643 04d2 EF90      		pop r14
- 1644 04d4 0895      		ret
- 1645               	.LFE35:
- 1647               	.global	I2C_Init
- 1649               	I2C_Init:
- 1650               	.LFB32:
- 1651               	.LM216:
- 1652               	/* prologue: function */
- 1653               	/* frame size = 0 */
- 1654               	.LBB441:
- 1655               	.LBB442:
- 1656               	.LM217:
- 1657 04d6 1092 0000 		sts I2C,__zero_reg__
- 1658               	.LM218:
- 1659 04da 1092 0000 		sts I2C+1,__zero_reg__
- 1660               	.LBE442:
- 1661               	.LBE441:
- 1662               	.LM219:
- 1663 04de 0E94 0000 		call I2C_GPIO_Init
- 1664               	.LM220:
- 1665 04e2 0E94 0000 		call I2C_Get_Device_Address
- 1666 04e6 8093 0000 		sts I2C,r24
- 1667               	.LM221:
- 1668 04ea 8F5F      		subi r24,lo8(-(1))
- 1669 04ec 8093 0000 		sts I2C+1,r24
- 1670               	.LM222:
- 1671 04f0 0E94 0000 		call LPF_Init
- 1672               	.LM223:
- 1673 04f4 80E0      		ldi r24,lo8(0)
- 1674 04f6 6AE0      		ldi r22,lo8(10)
- 1675 04f8 0E94 0000 		call LPF_Set_Alpha
- 1676               	.LM224:
- 1677 04fc 81E0      		ldi r24,lo8(1)
- 1678 04fe 6AE0      		ldi r22,lo8(10)
- 1679 0500 0E94 0000 		call LPF_Set_Alpha
- 1680               	.LM225:
- 1681 0504 82E0      		ldi r24,lo8(2)
- 1682 0506 6AE0      		ldi r22,lo8(10)
- 1683 0508 0E94 0000 		call LPF_Set_Alpha
- 1684               	.LM226:
- 1685 050c 83E0      		ldi r24,lo8(3)
- 1686 050e 6AE0      		ldi r22,lo8(10)
- 1687 0510 0E94 0000 		call LPF_Set_Alpha
- 1688               	.LM227:
- 1689 0514 84E0      		ldi r24,lo8(4)
- 1690 0516 6AE0      		ldi r22,lo8(10)
- 1691 0518 0E94 0000 		call LPF_Set_Alpha
- 1692               	.LM228:
- 1693 051c 85E0      		ldi r24,lo8(5)
- 1694 051e 6AE0      		ldi r22,lo8(10)
- 1695 0520 0E94 0000 		call LPF_Set_Alpha
- 1696               	/* epilogue start */
- 1697               	.LM229:
- 1698 0524 0895      		ret
- 1699               	.LFE32:
- 1701               		.comm I2C,2,1
- 2006               	.Letext0:
+ 1605 049a AF92      		push r10
+ 1606 049c BF92      		push r11
+ 1607 049e CF92      		push r12
+ 1608 04a0 DF92      		push r13
+ 1609 04a2 EF92      		push r14
+ 1610 04a4 FF92      		push r15
+ 1611 04a6 0F93      		push r16
+ 1612 04a8 1F93      		push r17
+ 1613               	/* prologue: function */
+ 1614               	/* frame size = 0 */
+ 1615               	.LM211:
+ 1616 04aa 0E94 0000 		call I2C_Read_Acc_Y
+ 1617 04ae 7C01      		movw r14,r24
+ 1618               	.LM212:
+ 1619 04b0 0E94 0000 		call I2C_Read_Acc_Z
+ 1620 04b4 5C01      		movw r10,r24
+ 1621               	.LM213:
+ 1622 04b6 0027      		clr r16
+ 1623 04b8 F7FC      		sbrc r15,7
+ 1624 04ba 0095      		com r16
+ 1625 04bc 102F      		mov r17,r16
+ 1626 04be C801      		movw r24,r16
+ 1627 04c0 B701      		movw r22,r14
+ 1628 04c2 0E94 0000 		call __floatsisf
+ 1629 04c6 7B01      		movw r14,r22
+ 1630 04c8 8C01      		movw r16,r24
+ 1631 04ca CC24      		clr r12
+ 1632 04cc B7FC      		sbrc r11,7
+ 1633 04ce C094      		com r12
+ 1634 04d0 DC2C      		mov r13,r12
+ 1635 04d2 C601      		movw r24,r12
+ 1636 04d4 B501      		movw r22,r10
+ 1637 04d6 0E94 0000 		call __floatsisf
+ 1638 04da 9B01      		movw r18,r22
+ 1639 04dc AC01      		movw r20,r24
+ 1640 04de C801      		movw r24,r16
+ 1641 04e0 B701      		movw r22,r14
+ 1642 04e2 0E94 0000 		call __divsf3
+ 1643 04e6 0E94 0000 		call atan
+ 1644               	.LM214:
+ 1645 04ea 20E0      		ldi r18,lo8(0x41200000)
+ 1646 04ec 30E0      		ldi r19,hi8(0x41200000)
+ 1647 04ee 40E2      		ldi r20,hlo8(0x41200000)
+ 1648 04f0 51E4      		ldi r21,hhi8(0x41200000)
+ 1649 04f2 0E94 0000 		call __mulsf3
+ 1650 04f6 23E3      		ldi r18,lo8(0x42653333)
+ 1651 04f8 33E3      		ldi r19,hi8(0x42653333)
+ 1652 04fa 45E6      		ldi r20,hlo8(0x42653333)
+ 1653 04fc 52E4      		ldi r21,hhi8(0x42653333)
+ 1654 04fe 0E94 0000 		call __mulsf3
+ 1655 0502 0E94 0000 		call __fixsfsi
+ 1656               	.LM215:
+ 1657 0506 CB01      		movw r24,r22
+ 1658               	/* epilogue start */
+ 1659 0508 1F91      		pop r17
+ 1660 050a 0F91      		pop r16
+ 1661 050c FF90      		pop r15
+ 1662 050e EF90      		pop r14
+ 1663 0510 DF90      		pop r13
+ 1664 0512 CF90      		pop r12
+ 1665 0514 BF90      		pop r11
+ 1666 0516 AF90      		pop r10
+ 1667 0518 0895      		ret
+ 1668               	.LFE45:
+ 1670               	.global	I2C_Read_Acc_X
+ 1672               	I2C_Read_Acc_X:
+ 1673               	.LFB37:
+ 1674               	.LM216:
+ 1675 051a EF92      		push r14
+ 1676 051c FF92      		push r15
+ 1677 051e 0F93      		push r16
+ 1678 0520 1F93      		push r17
+ 1679               	/* prologue: function */
+ 1680               	/* frame size = 0 */
+ 1681               	.LM217:
+ 1682 0522 8BE3      		ldi r24,lo8(59)
+ 1683 0524 0E94 0000 		call I2C_Read_Register
+ 1684               	.LM218:
+ 1685 0528 F82E      		mov r15,r24
+ 1686               	.LVL109:
+ 1687 052a EE24      		clr r14
+ 1688               	.LVL110:
+ 1689               	.LM219:
+ 1690 052c 8CE3      		ldi r24,lo8(60)
+ 1691 052e 0E94 0000 		call I2C_Read_Register
+ 1692               	.LM220:
+ 1693 0532 90E0      		ldi r25,lo8(0)
+ 1694 0534 E82A      		or r14,r24
+ 1695 0536 F92A      		or r15,r25
+ 1696               	.LVL111:
+ 1697 0538 0027      		clr r16
+ 1698 053a F7FC      		sbrc r15,7
+ 1699 053c 0095      		com r16
+ 1700 053e 102F      		mov r17,r16
+ 1701               	.LVL112:
+ 1702 0540 80E0      		ldi r24,lo8(0)
+ 1703 0542 B801      		movw r22,r16
+ 1704 0544 A701      		movw r20,r14
+ 1705 0546 0E94 0000 		call LPF_Get_Filtered_Value
+ 1706               	.LM221:
+ 1707 054a CB01      		movw r24,r22
+ 1708               	/* epilogue start */
+ 1709 054c 1F91      		pop r17
+ 1710 054e 0F91      		pop r16
+ 1711 0550 FF90      		pop r15
+ 1712               	.LVL113:
+ 1713 0552 EF90      		pop r14
+ 1714 0554 0895      		ret
+ 1715               	.LFE37:
+ 1717               	.global	I2C_Read_Pitch_Angle
+ 1719               	I2C_Read_Pitch_Angle:
+ 1720               	.LFB44:
+ 1721               	.LM222:
+ 1722 0556 AF92      		push r10
+ 1723 0558 BF92      		push r11
+ 1724 055a CF92      		push r12
+ 1725 055c DF92      		push r13
+ 1726 055e EF92      		push r14
+ 1727 0560 FF92      		push r15
+ 1728 0562 0F93      		push r16
+ 1729 0564 1F93      		push r17
+ 1730               	/* prologue: function */
+ 1731               	/* frame size = 0 */
+ 1732               	.LM223:
+ 1733 0566 0E94 0000 		call I2C_Read_Acc_X
+ 1734 056a 7C01      		movw r14,r24
+ 1735               	.LM224:
+ 1736 056c 0E94 0000 		call I2C_Read_Acc_Z
+ 1737 0570 5C01      		movw r10,r24
+ 1738               	.LM225:
+ 1739 0572 0027      		clr r16
+ 1740 0574 F7FC      		sbrc r15,7
+ 1741 0576 0095      		com r16
+ 1742 0578 102F      		mov r17,r16
+ 1743 057a C801      		movw r24,r16
+ 1744 057c B701      		movw r22,r14
+ 1745 057e 0E94 0000 		call __floatsisf
+ 1746 0582 7B01      		movw r14,r22
+ 1747 0584 8C01      		movw r16,r24
+ 1748 0586 CC24      		clr r12
+ 1749 0588 B7FC      		sbrc r11,7
+ 1750 058a C094      		com r12
+ 1751 058c DC2C      		mov r13,r12
+ 1752 058e C601      		movw r24,r12
+ 1753 0590 B501      		movw r22,r10
+ 1754 0592 0E94 0000 		call __floatsisf
+ 1755 0596 9B01      		movw r18,r22
+ 1756 0598 AC01      		movw r20,r24
+ 1757 059a C801      		movw r24,r16
+ 1758 059c B701      		movw r22,r14
+ 1759 059e 0E94 0000 		call __divsf3
+ 1760 05a2 0E94 0000 		call atan
+ 1761               	.LM226:
+ 1762 05a6 20E0      		ldi r18,lo8(0x41200000)
+ 1763 05a8 30E0      		ldi r19,hi8(0x41200000)
+ 1764 05aa 40E2      		ldi r20,hlo8(0x41200000)
+ 1765 05ac 51E4      		ldi r21,hhi8(0x41200000)
+ 1766 05ae 0E94 0000 		call __mulsf3
+ 1767 05b2 23E3      		ldi r18,lo8(0x42653333)
+ 1768 05b4 33E3      		ldi r19,hi8(0x42653333)
+ 1769 05b6 45E6      		ldi r20,hlo8(0x42653333)
+ 1770 05b8 52E4      		ldi r21,hhi8(0x42653333)
+ 1771 05ba 0E94 0000 		call __mulsf3
+ 1772 05be 0E94 0000 		call __fixsfsi
+ 1773               	.LM227:
+ 1774 05c2 CB01      		movw r24,r22
+ 1775               	/* epilogue start */
+ 1776 05c4 1F91      		pop r17
+ 1777 05c6 0F91      		pop r16
+ 1778 05c8 FF90      		pop r15
+ 1779 05ca EF90      		pop r14
+ 1780 05cc DF90      		pop r13
+ 1781 05ce CF90      		pop r12
+ 1782 05d0 BF90      		pop r11
+ 1783 05d2 AF90      		pop r10
+ 1784 05d4 0895      		ret
+ 1785               	.LFE44:
+ 1787               	.global	I2C_Init
+ 1789               	I2C_Init:
+ 1790               	.LFB34:
+ 1791               	.LM228:
+ 1792               	/* prologue: function */
+ 1793               	/* frame size = 0 */
+ 1794               	.LBB441:
+ 1795               	.LBB442:
+ 1796               	.LM229:
+ 1797 05d6 1092 0000 		sts I2C,__zero_reg__
+ 1798               	.LM230:
+ 1799 05da 1092 0000 		sts I2C+1,__zero_reg__
+ 1800               	.LBE442:
+ 1801               	.LBE441:
+ 1802               	.LM231:
+ 1803 05de 0E94 0000 		call I2C_GPIO_Init
+ 1804               	.LM232:
+ 1805 05e2 0E94 0000 		call I2C_Get_Device_Address
+ 1806 05e6 8093 0000 		sts I2C,r24
+ 1807               	.LM233:
+ 1808 05ea 8F5F      		subi r24,lo8(-(1))
+ 1809 05ec 8093 0000 		sts I2C+1,r24
+ 1810               	.LM234:
+ 1811 05f0 0E94 0000 		call LPF_Init
+ 1812               	.LM235:
+ 1813 05f4 80E0      		ldi r24,lo8(0)
+ 1814 05f6 6AE0      		ldi r22,lo8(10)
+ 1815 05f8 0E94 0000 		call LPF_Set_Alpha
+ 1816               	.LM236:
+ 1817 05fc 81E0      		ldi r24,lo8(1)
+ 1818 05fe 6AE0      		ldi r22,lo8(10)
+ 1819 0600 0E94 0000 		call LPF_Set_Alpha
+ 1820               	.LM237:
+ 1821 0604 82E0      		ldi r24,lo8(2)
+ 1822 0606 6AE0      		ldi r22,lo8(10)
+ 1823 0608 0E94 0000 		call LPF_Set_Alpha
+ 1824               	.LM238:
+ 1825 060c 83E0      		ldi r24,lo8(3)
+ 1826 060e 6AE0      		ldi r22,lo8(10)
+ 1827 0610 0E94 0000 		call LPF_Set_Alpha
+ 1828               	.LM239:
+ 1829 0614 84E0      		ldi r24,lo8(4)
+ 1830 0616 6AE0      		ldi r22,lo8(10)
+ 1831 0618 0E94 0000 		call LPF_Set_Alpha
+ 1832               	.LM240:
+ 1833 061c 85E0      		ldi r24,lo8(5)
+ 1834 061e 6AE0      		ldi r22,lo8(10)
+ 1835 0620 0E94 0000 		call LPF_Set_Alpha
+ 1836               	/* epilogue start */
+ 1837               	.LM241:
+ 1838 0624 0895      		ret
+ 1839               	.LFE34:
+ 1841               		.comm I2C,2,1
+ 2162               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 i2c.c
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:2      *ABS*:0000003f __SREG__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:3      *ABS*:0000003e __SP_H__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:4      *ABS*:0000003d __SP_L__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:5      *ABS*:00000034 __CCP__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:18     .text:00000000 I2C_Struct_Init
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:18     .text:00000000 I2C_Struct_Init
                             *COM*:00000002 I2C
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:34     .text:0000000a I2C_Half_Bit_Delay
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:63     .text:00000012 I2C_Bit_Delay
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:92     .text:0000001a I2C_Guard_Delay
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:121    .text:00000022 I2C_SCL_Set_DD
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:141    .text:0000002e I2C_SCL_Set_Output_LL
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:161    .text:0000003a I2C_SCL_Set_Output
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:201    .text:0000004a I2C_SCL_Get_State
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:222    .text:0000005c I2C_SDA_Set_DD
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:242    .text:00000068 I2C_SDA_Set_Output_LL
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:262    .text:00000074 I2C_SDA_Set_Output
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:302    .text:00000084 I2C_SDA_Get_State
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:323    .text:00000096 I2C_SCL_Reset_State
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:344    .text:000000a0 I2C_SDA_Reset_State
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:365    .text:000000aa I2C_GPIO_Init
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:395    .text:000000bc I2C_Start
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:487    .text:000000ec I2C_Stop
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:579    .text:0000011c I2C_Data_Send
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:732    .text:00000170 I2C_Data_Receive
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:868    .text:000001be I2C_Set_Ack
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:935    .text:000001e2 I2C_Set_Nack
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:1002   .text:00000206 I2C_Get_Ack
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:1105   .text:00000242 I2C_Send_Device_Address
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:1135   .text:00000260 I2C_Get_Device_Address
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:1173   .text:0000027c I2C_Read_Register
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:1254   .text:000002f4 I2C_Write_Register
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:1295   .text:0000032a I2C_Set_Mode_Sleep
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:1311   .text:00000334 I2C_Set_Mode_Active
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:1327   .text:0000033e I2C_Read_Temp
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:1367   .text:0000036e I2C_Read_Gyro_Z
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:1414   .text:000003aa I2C_Read_Gyro_Y
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:1461   .text:000003e6 I2C_Read_Gyro_X
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:1508   .text:00000422 I2C_Read_Acc_Z
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:1555   .text:0000045e I2C_Read_Acc_Y
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:1602   .text:0000049a I2C_Read_Acc_X
-C:\Users\FARIDU~1\AppData\Local\Temp/ccIWcOrC.s:1649   .text:000004d6 I2C_Init
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:34     .text:0000000a I2C_Half_Bit_Delay
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:63     .text:00000012 I2C_Bit_Delay
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:92     .text:0000001a I2C_Guard_Delay
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:121    .text:00000022 I2C_SCL_Set_DD
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:141    .text:0000002e I2C_SCL_Set_Output_LL
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:161    .text:0000003a I2C_SCL_Set_Output
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:201    .text:0000004a I2C_SCL_Get_State
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:222    .text:0000005c I2C_SDA_Set_DD
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:242    .text:00000068 I2C_SDA_Set_Output_LL
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:262    .text:00000074 I2C_SDA_Set_Output
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:302    .text:00000084 I2C_SDA_Get_State
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:323    .text:00000096 I2C_SCL_Reset_State
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:344    .text:000000a0 I2C_SDA_Reset_State
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:365    .text:000000aa I2C_GPIO_Init
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:395    .text:000000bc I2C_Start
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:487    .text:000000ec I2C_Stop
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:579    .text:0000011c I2C_Data_Send
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:732    .text:00000170 I2C_Data_Receive
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:868    .text:000001be I2C_Set_Ack
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:935    .text:000001e2 I2C_Set_Nack
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:1002   .text:00000206 I2C_Get_Ack
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:1105   .text:00000242 I2C_Send_Device_Address
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:1135   .text:00000260 I2C_Get_Device_Address
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:1173   .text:0000027c I2C_Read_Register
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:1254   .text:000002f4 I2C_Write_Register
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:1295   .text:0000032a I2C_Set_Mode_Sleep
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:1311   .text:00000334 I2C_Set_Mode_Active
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:1327   .text:0000033e I2C_Read_Temp
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:1367   .text:0000036e I2C_Read_Gyro_Z
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:1414   .text:000003aa I2C_Read_Gyro_Y
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:1461   .text:000003e6 I2C_Read_Gyro_X
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:1508   .text:00000422 I2C_Read_Acc_Z
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:1555   .text:0000045e I2C_Read_Acc_Y
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:1602   .text:0000049a I2C_Read_Roll_Angle
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:1672   .text:0000051a I2C_Read_Acc_X
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:1719   .text:00000556 I2C_Read_Pitch_Angle
+C:\Users\FARIDU~1\AppData\Local\Temp/ccNjQX9e.s:1789   .text:000005d6 I2C_Init
 
 UNDEFINED SYMBOLS
 __divmodhi4
 LPF_Get_Filtered_Value
+__floatsisf
+__divsf3
+atan
+__mulsf3
+__fixsfsi
 LPF_Init
 LPF_Set_Alpha
 __do_clear_bss

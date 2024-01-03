@@ -1,6 +1,7 @@
 
 #include <avr/io.h>
 #include <util/delay.h>
+#include <math.h>
 #include "lpf.h"
 #include "i2c.h"
 
@@ -364,5 +365,25 @@ int16_t I2C_Read_Temp(void){
   data /=340;
   data +=36;
   return data;
+}
+
+int I2C_Read_Pitch_Angle(void){
+  float ax=I2C_Read_Acc_X();
+  float az=I2C_Read_Acc_Z();
+  float divx=ax/az;
+  float pitch = atan(divx);
+  pitch*=10.0;
+  pitch*=57.3;
+  return (int)pitch;
+}
+
+int I2C_Read_Roll_Angle(void){
+  float ay=I2C_Read_Acc_Y();
+  float az=I2C_Read_Acc_Z();
+  float divy=ay/az;
+  float roll = atan(divy);
+  roll*=10.0;
+  roll*=57.3;
+  return (int)roll;
 }
 
