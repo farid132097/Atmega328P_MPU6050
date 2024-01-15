@@ -190,6 +190,12 @@ uint8_t debug_rx_get(void){
   }
 }
 
+
+
+
+
+////////////////////delay related functions//////////////////
+
 void debug_delay(uint16_t val){
   #ifdef DEBUG_USE_DELAY
   _delay_us(val);
@@ -362,6 +368,10 @@ void debug_delay_index_2(void){
 }
 
 
+
+
+
+//////////////////tx-rx functions//////////////////
 void debug_tx_byte(uint8_t val){
   uint8_t buf[10]={0,0,0,0,0,0,0,0,0,1};
   for(uint8_t i=0;i<8;i++){
@@ -440,6 +450,10 @@ void debug_rx_byte_set(uint8_t val){
   debug.datareg=val;
 }
 
+
+
+///////////////////////hex and bin data tx///////////////////////
+
 void debug_tx_hex(uint32_t val){
   uint16_t hex_digit, index=0, loop_counter=0;
   if(val <= 0xFF){
@@ -487,6 +501,10 @@ void debug_tx_bin(uint32_t val){
   }
 }
 
+
+
+/////////////////end char functions//////////////////////
+
 void debug_tx_nl(void){
   debug_tx_byte('\r');
   debug_tx_byte('\n');
@@ -499,6 +517,10 @@ void debug_tx_sp(void){
 void debug_tx_cm(void){
   debug_tx_byte(',');
 }
+
+
+
+/////////////////tx text functions//////////////////////
 
 void debug_tx_text(char *str){
     uint8_t i=0;
@@ -522,6 +544,10 @@ void debug_tx_text_cm(char *str){
   debug_tx_text(str);
   debug_tx_cm();
 }
+
+
+
+//////////////////number tx functions///////////////////
 
 void debug_determine_digit_numbers(uint32_t num){
   uint8_t i=0;
@@ -557,6 +583,10 @@ void debug_tx_number(int32_t num){
   debug_tx_number_digits();
 }
 
+
+
+
+/////////////////////number with end functions/////////////
 void debug_tx_number_nl(int32_t num){
   debug_tx_number(num);
   debug_tx_nl();
@@ -572,6 +602,11 @@ void debug_tx_number_cm(int32_t num){
   debug_tx_text(",");
 }
 
+
+
+
+///////////////hex number with end functions/////////////
+
 void debug_tx_number_hex_nl(int32_t num){
   debug_tx_hex(num);
   debug_tx_nl();
@@ -586,6 +621,29 @@ void debug_tx_number_hex_cm(int32_t num){
   debug_tx_hex(num);
   debug_tx_text(",");
 }
+
+
+
+///////////////bin number with end functions/////////////
+
+void debug_tx_number_bin_nl(int32_t num){
+  debug_tx_bin(num);
+  debug_tx_nl();
+}
+
+void debug_tx_number_bin_sp(int32_t num){
+  debug_tx_bin(num);
+  debug_tx_sp();
+}
+
+void debug_tx_number_bin_cm(int32_t num){
+  debug_tx_bin(num);
+  debug_tx_text(",");
+}
+
+
+
+///////////////parameter & number with end functions/////////////
 
 void debug_tx_parameter_nl(char *name, int32_t num){
   debug_tx_text(name);
@@ -605,6 +663,9 @@ void debug_tx_parameter_cm(char *name, int32_t num){
   debug_tx_number_cm(num);
 }
 
+
+///////////parameter & hex number with end functions///////////
+
 void debug_tx_parameter_hex_nl(char *name, int32_t num){
   debug_tx_text(name);
   debug_tx_sp();
@@ -621,6 +682,27 @@ void Debug_tx_parameter_hex_cm(char *name, int32_t num){
   debug_tx_text(name);
   debug_tx_sp();
   debug_tx_number_hex_cm(num);
+}
+
+
+///////////parameter & bin number with end functions///////////
+
+void debug_tx_parameter_bin_nl(char *name, int32_t num){
+  debug_tx_text(name);
+  debug_tx_sp();
+  debug_tx_number_bin_nl(num);
+}
+
+void debug_tx_parameter_bin_sp(char *name, int32_t num){
+  debug_tx_text(name);
+  debug_tx_sp();
+  debug_tx_number_bin_sp(num);
+}
+
+void Debug_tx_parameter_bin_cm(char *name, int32_t num){
+  debug_tx_text(name);
+  debug_tx_sp();
+  debug_tx_number_bin_cm(num);
 }
 
 

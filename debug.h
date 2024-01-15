@@ -78,6 +78,10 @@ void     debug_tx_number_hex_nl(int32_t num);
 void     debug_tx_number_hex_sp(int32_t num);
 void     debug_tx_number_hex_cm(int32_t num);
 
+void     debug_tx_number_bin_nl(int32_t num);
+void     debug_tx_number_bin_sp(int32_t num);
+void     debug_tx_number_bin_cm(int32_t num);
+
 void     debug_tx_parameter_nl(char *name, int32_t num);
 void     debug_tx_parameter_sp(char *name, int32_t num);
 void     debug_tx_parameter_cm(char *name, int32_t num);
@@ -85,6 +89,10 @@ void     debug_tx_parameter_cm(char *name, int32_t num);
 void     debug_tx_parameter_hex_nl(char *name, int32_t num);
 void     debug_tx_parameter_hex_sp(char *name, int32_t num);
 void     debug_tx_parameter_hex_cm(char *name, int32_t num);
+
+void     debug_tx_parameter_bin_nl(char *name, int32_t num);
+void     debug_tx_parameter_bin_sp(char *name, int32_t num);
+void     debug_tx_parameter_bin_cm(char *name, int32_t num);
 
 uint8_t  debug_buf_get(uint8_t index);
 uint8_t  debug_buf_index_get(void);
