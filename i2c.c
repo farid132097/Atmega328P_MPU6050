@@ -452,8 +452,13 @@ void MPU6050_Init(void){
 }
 
 void MPU6050_Restart(void){
+  I2C_Struct_Init();
+  I2C_GPIO_Init();
+  _delay_ms(10);
+  I2C_Stop();
+  _delay_ms(10);
   I2C_Set_Mode_Active();
-  _delay_ms(2);
+  _delay_ms(10);
   I2C_Read_Acc_X();
   I2C_Read_Acc_Y();
   I2C_Read_Acc_Z();

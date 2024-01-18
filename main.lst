@@ -53,61 +53,72 @@
   58               	.LBE13:
   59               	.LBE12:
   60               	.LM9:
-  61 0028 0E94 0000 		call MPU6050_Read_Roll_Angle_Safely
+  61 0028 8BE6      		ldi r24,lo8(107)
   62               	.LVL1:
-  63 002c AA27      		clr r26
-  64 002e 97FD      		sbrc r25,7
-  65 0030 A095      		com r26
-  66 0032 BA2F      		mov r27,r26
-  67 0034 BC01      		movw r22,r24
-  68 0036 CD01      		movw r24,r26
-  69 0038 0E94 0000 		call debug_tx_number_cm
-  70               	.LM10:
-  71 003c 0E94 0000 		call debug_tx_nl
-  72 0040 88EE      		ldi r24,lo8(1000)
-  73 0042 93E0      		ldi r25,hi8(1000)
-  74               	.LVL2:
-  75               	.L2:
-  76               	.LBB19:
-  77               	.LBB18:
-  78               	.LBB17:
-  79               	.LBB16:
+  63 002a 0E94 0000 		call I2C_Read_Register
+  64               	.LVL2:
+  65 002e 90E0      		ldi r25,lo8(0)
+  66 0030 A0E0      		ldi r26,lo8(0)
+  67 0032 B0E0      		ldi r27,hi8(0)
+  68 0034 BC01      		movw r22,r24
+  69 0036 CD01      		movw r24,r26
+  70 0038 0E94 0000 		call debug_tx_number_cm
+  71               	.LM10:
+  72 003c 0E94 0000 		call MPU6050_Read_Roll_Angle_Safely
+  73 0040 AA27      		clr r26
+  74 0042 97FD      		sbrc r25,7
+  75 0044 A095      		com r26
+  76 0046 BA2F      		mov r27,r26
+  77 0048 BC01      		movw r22,r24
+  78 004a CD01      		movw r24,r26
+  79 004c 0E94 0000 		call debug_tx_number_cm
   80               	.LM11:
-  81 0044 FE01      		movw r30,r28
-  82               	.LVL3:
-  83               	/* #APP */
-  84               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
-  85 0046 3197      		1: sbiw r30,1
-  86 0048 01F4      		brne 1b
-  87               	 ;  0 "" 2
-  88               	/* #NOAPP */
-  89               	.LBE16:
-  90               	.LBE17:
-  91               	.LM12:
-  92 004a 0197      		sbiw r24,1
-  93               	.LM13:
-  94 004c 01F4      		brne .L2
-  95 004e 00C0      		rjmp .L3
-  96               	.LBE18:
-  97               	.LBE19:
-  98               	.LFE8:
- 124               	.Letext0:
+  81 0050 0E94 0000 		call debug_tx_nl
+  82 0054 88EE      		ldi r24,lo8(1000)
+  83 0056 93E0      		ldi r25,hi8(1000)
+  84               	.LVL3:
+  85               	.L2:
+  86               	.LBB19:
+  87               	.LBB18:
+  88               	.LBB17:
+  89               	.LBB16:
+  90               	.LM12:
+  91 0058 FE01      		movw r30,r28
+  92               	.LVL4:
+  93               	/* #APP */
+  94               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  95 005a 3197      		1: sbiw r30,1
+  96 005c 01F4      		brne 1b
+  97               	 ;  0 "" 2
+  98               	/* #NOAPP */
+  99               	.LBE16:
+ 100               	.LBE17:
+ 101               	.LM13:
+ 102 005e 0197      		sbiw r24,1
+ 103               	.LM14:
+ 104 0060 01F4      		brne .L2
+ 105 0062 00C0      		rjmp .L3
+ 106               	.LBE18:
+ 107               	.LBE19:
+ 108               	.LFE8:
+ 134               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\FARIDU~1\AppData\Local\Temp/cc3YkRba.s:2      *ABS*:0000003f __SREG__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc3YkRba.s:3      *ABS*:0000003e __SP_H__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc3YkRba.s:4      *ABS*:0000003d __SP_L__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc3YkRba.s:5      *ABS*:00000034 __CCP__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc3YkRba.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc3YkRba.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc3YkRba.s:22     .text:00000000 main
+C:\Users\FARIDU~1\AppData\Local\Temp/ccxBh7Cf.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccxBh7Cf.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccxBh7Cf.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccxBh7Cf.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccxBh7Cf.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccxBh7Cf.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccxBh7Cf.s:22     .text:00000000 main
 
 UNDEFINED SYMBOLS
 MPU6050_Init
 debug_init
 Servo_Init
 debug_tx_text_nl
-MPU6050_Read_Roll_Angle_Safely
+I2C_Read_Register
 debug_tx_number_cm
+MPU6050_Read_Roll_Angle_Safely
 debug_tx_nl
 __do_copy_data

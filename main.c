@@ -29,7 +29,7 @@ int main(void){
 	debug_tx_number_cm(I2C_Get_Error());
 	debug_tx_number_cm(I2C_Get_ErrorAccu());*/
 	
-	//debug_tx_number_cm(MPU6050_Read_Pitch_Angle_Safely());
+	debug_tx_number_cm(I2C_Read_Register(0x6B));
 	debug_tx_number_cm(MPU6050_Read_Roll_Angle_Safely());
 	
 	debug_tx_nl();
