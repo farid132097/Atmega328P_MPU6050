@@ -3,12 +3,12 @@
 #define  I2C_SCL_DDR  DDRC
 #define  I2C_SCL_PORT PORTC
 #define  I2C_SCL_PIN  PINC
-#define  I2C_SCL_bp   4
+#define  I2C_SCL_bp   5
 
 #define  I2C_SDA_DDR  DDRC
 #define  I2C_SDA_PORT PORTC
 #define  I2C_SDA_PIN  PINC
-#define  I2C_SDA_bp   5
+#define  I2C_SDA_bp   4
 
 void     I2C_Struct_Init(void);
 void     I2C_Half_Bit_Delay(void);
@@ -42,6 +42,8 @@ uint8_t  I2C_Get_Device_Address(void);
 
 uint8_t  I2C_Read_Register(uint8_t reg);
 void     I2C_Write_Register(uint8_t reg, uint8_t val);
+uint8_t  I2C_Get_Error(void);
+uint16_t I2C_Get_ErrorAccu(void);
 void     I2C_Init(void);
 
 void     I2C_Set_Mode_Sleep(void);
@@ -58,3 +60,8 @@ int16_t  I2C_Read_Temp(void);
 
 int      I2C_Read_Pitch_Angle(void);
 int      I2C_Read_Roll_Angle(void);
+
+void     MPU6050_Init(void);
+void     MPU6050_Restart(void);
+int      MPU6050_Read_Pitch_Angle_Safely(void);
+int      MPU6050_Read_Roll_Angle_Safely(void);
