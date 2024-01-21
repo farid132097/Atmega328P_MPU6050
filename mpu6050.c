@@ -3,10 +3,13 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <math.h>
+#include "mpu6050.h"
+#include "time.h"
 #include "lpf.h"
 #include "i2c.h"
 
-#define  LPF_EN 10
+
+#define  LPF_EN 50
 
 typedef struct mpu6050_t{
   int   AccX;
@@ -15,6 +18,9 @@ typedef struct mpu6050_t{
   int   GyroX;
   int   GyroY;
   int   GyroZ;
+  int   GyroXCal;
+  int   GyroYCal;
+  int   GyroZCal;
   int   Pitch;
   int   Roll;
   int   Yaw;
@@ -31,6 +37,9 @@ void MPU6050_Struct_Init(void){
   MPU6050.GyroX=0;
   MPU6050.GyroY=0;
   MPU6050.GyroZ=0;
+  MPU6050.GyroXCal=0;
+  MPU6050.GyroYCal=0;
+  MPU6050.GyroZCal=0;
   MPU6050.Pitch=0;
   MPU6050.Roll=0;
   MPU6050.Yaw=0;
@@ -60,6 +69,30 @@ int MPU6050_Get_GyroY(void){
 
 int MPU6050_Get_GyroZ(void){
   return MPU6050.GyroZ;
+}
+
+int MPU6050_Get_GyroXCal(void){
+  return MPU6050.GyroXCal;
+}
+
+int MPU6050_Get_GyroYCal(void){
+  return MPU6050.GyroYCal;
+}
+
+int MPU6050_Get_GyroZCal(void){
+  return MPU6050.GyroZCal;
+}
+
+int MPU6050_Get_Pitch(void){
+  return MPU6050.Pitch;
+}
+
+int MPU6050_Get_Roll(void){
+  return MPU6050.Roll;
+}
+
+int MPU6050_Get_Yaw(void){
+  return MPU6050.Yaw;
 }
 
 int MPU6050_Get_Temp(void){
@@ -154,10 +187,13 @@ int MPU6050_Read_GyroX(void){
   #ifdef LPF_EN
     data = LPF_Get_Filtered_Value(3, data);
   #endif
+  data-=MPU6050.GyroXCal;
   if( (error1!=0) || (error2!=0) ){
     data=0;
 	MPU6050.Error=0x11;
   }
+  // 131 LSB/Degree/Second
+  data/=131;
   MPU6050.GyroX=data;
   return data;
 }
@@ -172,10 +208,13 @@ int MPU6050_Read_GyroY(void){
   #ifdef LPF_EN
     data = LPF_Get_Filtered_Value(4, data);
   #endif
+  data-=MPU6050.GyroYCal;
   if( (error1!=0) || (error2!=0) ){
     data=0;
 	MPU6050.Error=0x12;
   }
+  // 131 LSB/Degree/Second
+  data/=131;
   MPU6050.GyroY=data;
   return data;
 }
@@ -190,10 +229,13 @@ int MPU6050_Read_GyroZ(void){
   #ifdef LPF_EN
     data = LPF_Get_Filtered_Value(5, data);
   #endif
+  data-=MPU6050.GyroZCal;
   if( (error1!=0) || (error2!=0) ){
     data=0;
 	MPU6050.Error=0x13;
   }
+  // 131 LSB/Degree/Second
+  data/=131;
   MPU6050.GyroZ=data;
   return (int16_t)data;
 }
@@ -281,8 +323,6 @@ void MPU6050_Init(void){
   _delay_ms(10);
   MPU6050_Struct_Init();
   MPU6050_Set_Mode_Active();
-  _delay_ms(10);
-  MPU6050_Read_Acc_Gyro();
   #ifdef LPF_EN
 	LPF_Init();
 	LPF_Set_Alpha(0,LPF_EN);
@@ -292,6 +332,14 @@ void MPU6050_Init(void){
 	LPF_Set_Alpha(4,LPF_EN);
 	LPF_Set_Alpha(5,LPF_EN);
   #endif
+  _delay_ms(100);
+  for(uint8_t i=0;i<32;i++){
+    MPU6050_Read_Acc_Gyro();
+  }
+  MPU6050.GyroXCal=MPU6050_Get_GyroX();
+  MPU6050.GyroYCal=MPU6050_Get_GyroY();
+  MPU6050.GyroZCal=MPU6050_Get_GyroZ();
+  
 }
 
 void MPU6050_Restart(void){
