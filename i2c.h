@@ -11,6 +11,13 @@
 #define  I2C_SDA_bp   4
 
 void     I2C_Struct_Init(void);
+void     I2C_Error_Clear(void);
+void     I2C_Error_Accu_Clear(void);
+void     I2C_Error_Clear_All(void);
+
+uint8_t  I2C_Get_Error(void);
+uint16_t I2C_Get_ErrorAccu(void);
+
 void     I2C_Half_Bit_Delay(void);
 void     I2C_Bit_Delay(void);
 void     I2C_Guard_Delay(void);
@@ -42,26 +49,6 @@ uint8_t  I2C_Get_Device_Address(void);
 
 uint8_t  I2C_Read_Register(uint8_t reg);
 void     I2C_Write_Register(uint8_t reg, uint8_t val);
-uint8_t  I2C_Get_Error(void);
-uint16_t I2C_Get_ErrorAccu(void);
+
 void     I2C_Init(void);
 
-void     I2C_Set_Mode_Sleep(void);
-void     I2C_Set_Mode_Active(void);
-
-int16_t  I2C_Read_Acc_X(void);
-int16_t  I2C_Read_Acc_Y(void);
-int16_t  I2C_Read_Acc_Z(void);
-int16_t  I2C_Read_Gyro_X(void);
-int16_t  I2C_Read_Gyro_Y(void);
-int16_t  I2C_Read_Gyro_Z(void);
-
-int16_t  I2C_Read_Temp(void);
-
-int      I2C_Read_Pitch_Angle(void);
-int      I2C_Read_Roll_Angle(void);
-
-void     MPU6050_Init(void);
-void     MPU6050_Restart(void);
-int      MPU6050_Read_Pitch_Angle_Safely(void);
-int      MPU6050_Read_Roll_Angle_Safely(void);

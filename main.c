@@ -1,6 +1,7 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <math.h>
+#include "mpu6050.h"
 #include "servo.h"
 #include "debug.h"
 #include "i2c.h"
@@ -19,30 +20,18 @@ int main(void){
   
   while(1){
 	
-    /*debug_tx_number_cm(I2C_Read_Acc_X());
-	debug_tx_number_cm(I2C_Read_Acc_Y());
-	debug_tx_number_cm(I2C_Read_Acc_Z());
+	MPU6050_Read_Acc();
 	
-    debug_tx_number_cm(I2C_Read_Pitch_Angle());
-	debug_tx_number_cm(I2C_Read_Roll_Angle());
+	if(MPU6050_Get_Error()==0){
+	  debug_tx_number_cm(MPU6050_Read_Pitch());
+	  debug_tx_number_cm(MPU6050_Read_Roll());
+	  debug_tx_nl();
+	}else{
+	  MPU6050_Restart();
+	}
 	
-	debug_tx_number_cm(I2C_Get_Error());
-	debug_tx_number_cm(I2C_Get_ErrorAccu());*/
+	_delay_ms(10);
 	
-	debug_tx_number_cm(I2C_Read_Register(0x6B));
-	debug_tx_number_cm(MPU6050_Read_Roll_Angle_Safely());
-	
-	debug_tx_nl();
-	_delay_ms(100);
-	
-	/*Servo_Set_Angle(45);
-	_delay_ms(2000);
-	Servo_Set_Angle(90);
-	_delay_ms(2000);
-	Servo_Set_Angle(135);
-	_delay_ms(2000);
-	Servo_Set_Angle(180);
-	_delay_ms(2000);*/
 	
 	
   }
