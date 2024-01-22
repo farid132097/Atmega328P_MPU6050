@@ -17,116 +17,209 @@
   22               	main:
   23               	.LFB8:
   24               	.LM1:
-  25 0000 CF93      		push r28
-  26 0002 DF93      		push r29
-  27               	/* prologue: function */
-  28               	/* frame size = 0 */
-  29               	.LM2:
-  30 0004 549A      		sbi 42-32,4
-  31               	.LM3:
-  32 0006 5C98      		cbi 43-32,4
-  33               	.LM4:
-  34 0008 0E94 0000 		call debug_init
-  35               	.LM5:
-  36 000c 80E0      		ldi r24,lo8(.LC0)
-  37 000e 90E0      		ldi r25,hi8(.LC0)
-  38 0010 0E94 0000 		call debug_tx_text_nl
-  39               	.LM6:
-  40 0014 0E94 0000 		call MPU6050_Init
-  41               	.LBB12:
-  42               	.LBB13:
-  43               	.LBB14:
-  44               	.LBB15:
-  45               	.LM7:
-  46 0018 C8E9      		ldi r28,lo8(15000)
-  47 001a DAE3      		ldi r29,hi8(15000)
-  48               	.LVL0:
-  49               	.L4:
-  50               	.LBE15:
-  51               	.LBE14:
-  52               	.LBE13:
-  53               	.LBE12:
-  54               	.LM8:
-  55 001c 0E94 0000 		call MPU6050_Read_Acc_Gyro
-  56               	.LVL1:
-  57               	.LM9:
-  58 0020 0E94 0000 		call MPU6050_Get_Error
-  59 0024 892B      		or r24,r25
-  60 0026 01F4      		brne .L2
-  61               	.LM10:
-  62 0028 0E94 0000 		call MPU6050_Get_GyroX
-  63 002c AA27      		clr r26
-  64 002e 97FD      		sbrc r25,7
-  65 0030 A095      		com r26
-  66 0032 BA2F      		mov r27,r26
-  67 0034 BC01      		movw r22,r24
-  68 0036 CD01      		movw r24,r26
-  69 0038 0E94 0000 		call debug_tx_number_cm
-  70               	.LM11:
-  71 003c 0E94 0000 		call MPU6050_Get_GyroY
-  72 0040 AA27      		clr r26
-  73 0042 97FD      		sbrc r25,7
-  74 0044 A095      		com r26
-  75 0046 BA2F      		mov r27,r26
-  76 0048 BC01      		movw r22,r24
-  77 004a CD01      		movw r24,r26
-  78 004c 0E94 0000 		call debug_tx_number_cm
-  79               	.LM12:
-  80 0050 0E94 0000 		call MPU6050_Get_GyroZ
-  81 0054 AA27      		clr r26
-  82 0056 97FD      		sbrc r25,7
-  83 0058 A095      		com r26
-  84 005a BA2F      		mov r27,r26
-  85 005c BC01      		movw r22,r24
-  86 005e CD01      		movw r24,r26
-  87 0060 0E94 0000 		call debug_tx_number_cm
-  88               	.LM13:
-  89 0064 0E94 0000 		call debug_tx_nl
-  90 0068 00C0      		rjmp .L3
-  91               	.L2:
-  92               	.LM14:
-  93 006a 0E94 0000 		call MPU6050_Restart
-  94               	.L3:
-  95               	.LBB19:
-  96               	.LBB18:
-  97               	.LBB17:
-  98               	.LBB16:
-  99               	.LM15:
- 100 006e CE01      		movw r24,r28
- 101               	.LVL2:
- 102               	/* #APP */
- 103               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 104 0070 0197      		1: sbiw r24,1
- 105 0072 01F4      		brne 1b
- 106               	 ;  0 "" 2
- 107               	/* #NOAPP */
- 108 0074 00C0      		rjmp .L4
- 109               	.LBE16:
- 110               	.LBE17:
- 111               	.LBE18:
- 112               	.LBE19:
- 113               	.LFE8:
- 139               	.Letext0:
+  25 0000 6F92      		push r6
+  26 0002 7F92      		push r7
+  27 0004 8F92      		push r8
+  28 0006 9F92      		push r9
+  29 0008 AF92      		push r10
+  30 000a BF92      		push r11
+  31 000c CF92      		push r12
+  32 000e DF92      		push r13
+  33 0010 EF92      		push r14
+  34 0012 FF92      		push r15
+  35 0014 0F93      		push r16
+  36 0016 1F93      		push r17
+  37 0018 CF93      		push r28
+  38 001a DF93      		push r29
+  39               	/* prologue: function */
+  40               	/* frame size = 0 */
+  41               	.LM2:
+  42 001c 549A      		sbi 42-32,4
+  43               	.LM3:
+  44 001e 5C98      		cbi 43-32,4
+  45               	.LM4:
+  46 0020 0E94 0000 		call Timer_Init
+  47               	.LM5:
+  48 0024 0E94 0000 		call debug_init
+  49               	.LM6:
+  50 0028 80E0      		ldi r24,lo8(.LC0)
+  51 002a 90E0      		ldi r25,hi8(.LC0)
+  52 002c 0E94 0000 		call debug_tx_text_nl
+  53               	.LM7:
+  54 0030 0E94 0000 		call MPU6050_Init
+  55 0034 AA24      		clr r10
+  56 0036 BB24      		clr r11
+  57 0038 6501      		movw r12,r10
+  58               	.LVL0:
+  59 003a EE24      		clr r14
+  60 003c FF24      		clr r15
+  61 003e 8701      		movw r16,r14
+  62               	.LVL1:
+  63               	.LBB13:
+  64               	.LBB14:
+  65               	.LBB15:
+  66               	.LBB16:
+  67               	.LBB17:
+  68               	.LM8:
+  69 0040 C8E9      		ldi r28,lo8(15000)
+  70 0042 DAE3      		ldi r29,hi8(15000)
+  71               	.LVL2:
+  72               	.L4:
+  73               	.LBE17:
+  74               	.LBE16:
+  75               	.LBE15:
+  76               	.LBE14:
+  77               	.LM9:
+  78 0044 0E94 0000 		call MPU6050_Read_Acc_Gyro
+  79               	.LVL3:
+  80               	.LM10:
+  81 0048 0E94 0000 		call Timer_Get_Time
+  82 004c 962E      		mov r9,r22
+  83 004e 872E      		mov r8,r23
+  84 0050 782E      		mov r7,r24
+  85 0052 692E      		mov r6,r25
+  86               	.LM11:
+  87 0054 0E94 0000 		call Timer_Start
+  88               	.LM12:
+  89 0058 0E94 0000 		call MPU6050_Get_Error
+  90 005c 892B      		or r24,r25
+  91 005e 01F0      		breq .+2
+  92 0060 00C0      		rjmp .L2
+  93               	.LM13:
+  94 0062 0E94 0000 		call MPU6050_Get_GyroX
+  95 0066 AA27      		clr r26
+  96 0068 97FD      		sbrc r25,7
+  97 006a A095      		com r26
+  98 006c BA2F      		mov r27,r26
+  99               	.LVL4:
+ 100               	.LM14:
+ 101 006e BC01      		movw r22,r24
+ 102 0070 CD01      		movw r24,r26
+ 103 0072 292D      		mov r18,r9
+ 104 0074 382D      		mov r19,r8
+ 105 0076 472D      		mov r20,r7
+ 106 0078 562D      		mov r21,r6
+ 107 007a 0E94 0000 		call __mulsi3
+ 108               	.LM15:
+ 109 007e 20EA      		ldi r18,lo8(100000)
+ 110 0080 36E8      		ldi r19,hi8(100000)
+ 111 0082 41E0      		ldi r20,hlo8(100000)
+ 112 0084 50E0      		ldi r21,hhi8(100000)
+ 113 0086 0E94 0000 		call __divmodsi4
+ 114 008a A20E      		add r10,r18
+ 115 008c B31E      		adc r11,r19
+ 116 008e C41E      		adc r12,r20
+ 117 0090 D51E      		adc r13,r21
+ 118               	.LM16:
+ 119 0092 0E94 0000 		call MPU6050_Get_GyroY
+ 120               	.LVL5:
+ 121 0096 AA27      		clr r26
+ 122 0098 97FD      		sbrc r25,7
+ 123 009a A095      		com r26
+ 124 009c BA2F      		mov r27,r26
+ 125               	.LVL6:
+ 126               	.LM17:
+ 127 009e BC01      		movw r22,r24
+ 128 00a0 CD01      		movw r24,r26
+ 129 00a2 292D      		mov r18,r9
+ 130 00a4 382D      		mov r19,r8
+ 131 00a6 472D      		mov r20,r7
+ 132 00a8 562D      		mov r21,r6
+ 133 00aa 0E94 0000 		call __mulsi3
+ 134               	.LM18:
+ 135 00ae 20EA      		ldi r18,lo8(100000)
+ 136 00b0 36E8      		ldi r19,hi8(100000)
+ 137 00b2 41E0      		ldi r20,hlo8(100000)
+ 138 00b4 50E0      		ldi r21,hhi8(100000)
+ 139 00b6 0E94 0000 		call __divmodsi4
+ 140 00ba E20E      		add r14,r18
+ 141 00bc F31E      		adc r15,r19
+ 142 00be 041F      		adc r16,r20
+ 143 00c0 151F      		adc r17,r21
+ 144               	.LM19:
+ 145 00c2 0E94 0000 		call MPU6050_Get_GyroZ
+ 146               	.LVL7:
+ 147               	.LM20:
+ 148 00c6 0E94 0000 		call MPU6050_Read_Pitch
+ 149 00ca AA27      		clr r26
+ 150 00cc 97FD      		sbrc r25,7
+ 151 00ce A095      		com r26
+ 152 00d0 BA2F      		mov r27,r26
+ 153 00d2 BC01      		movw r22,r24
+ 154 00d4 CD01      		movw r24,r26
+ 155 00d6 0E94 0000 		call debug_tx_number_cm
+ 156               	.LM21:
+ 157 00da 0E94 0000 		call MPU6050_Read_Roll
+ 158 00de AA27      		clr r26
+ 159 00e0 97FD      		sbrc r25,7
+ 160 00e2 A095      		com r26
+ 161 00e4 BA2F      		mov r27,r26
+ 162 00e6 BC01      		movw r22,r24
+ 163 00e8 CD01      		movw r24,r26
+ 164 00ea 0E94 0000 		call debug_tx_number_cm
+ 165               	.LM22:
+ 166 00ee C601      		movw r24,r12
+ 167 00f0 B501      		movw r22,r10
+ 168 00f2 0E94 0000 		call debug_tx_number_cm
+ 169               	.LM23:
+ 170 00f6 C801      		movw r24,r16
+ 171 00f8 B701      		movw r22,r14
+ 172 00fa 0E94 0000 		call debug_tx_number_cm
+ 173               	.LM24:
+ 174 00fe 0E94 0000 		call debug_tx_nl
+ 175 0102 00C0      		rjmp .L3
+ 176               	.L2:
+ 177               	.LM25:
+ 178 0104 0E94 0000 		call MPU6050_Restart
+ 179               	.L3:
+ 180               	.LBB21:
+ 181               	.LBB20:
+ 182               	.LBB19:
+ 183               	.LBB18:
+ 184               	.LM26:
+ 185 0108 CE01      		movw r24,r28
+ 186               	.LVL8:
+ 187               	/* #APP */
+ 188               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 189 010a 0197      		1: sbiw r24,1
+ 190 010c 01F4      		brne 1b
+ 191               	 ;  0 "" 2
+ 192               	/* #NOAPP */
+ 193 010e 00C0      		rjmp .L4
+ 194               	.LBE18:
+ 195               	.LBE19:
+ 196               	.LBE20:
+ 197               	.LBE21:
+ 198               	.LBE13:
+ 199               	.LFE8:
+ 225               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\FARIDU~1\AppData\Local\Temp/cc2ize9x.s:2      *ABS*:0000003f __SREG__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc2ize9x.s:3      *ABS*:0000003e __SP_H__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc2ize9x.s:4      *ABS*:0000003d __SP_L__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc2ize9x.s:5      *ABS*:00000034 __CCP__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc2ize9x.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc2ize9x.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc2ize9x.s:22     .text:00000000 main
+C:\Users\FARIDU~1\AppData\Local\Temp/ccoeaLKh.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccoeaLKh.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccoeaLKh.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccoeaLKh.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccoeaLKh.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccoeaLKh.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccoeaLKh.s:22     .text:00000000 main
 
 UNDEFINED SYMBOLS
+Timer_Init
 debug_init
 debug_tx_text_nl
 MPU6050_Init
 MPU6050_Read_Acc_Gyro
+Timer_Get_Time
+Timer_Start
 MPU6050_Get_Error
 MPU6050_Get_GyroX
-debug_tx_number_cm
+__mulsi3
+__divmodsi4
 MPU6050_Get_GyroY
 MPU6050_Get_GyroZ
+MPU6050_Read_Pitch
+debug_tx_number_cm
+MPU6050_Read_Roll
 debug_tx_nl
 MPU6050_Restart
 __do_copy_data

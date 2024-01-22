@@ -1,0 +1,124 @@
+   1               		.file	"time.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	Timer_Struct_Init
+  18               	Timer_Struct_Init:
+  19               	.LFB8:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	/* epilogue start */
+  24               	.LM2:
+  25 0000 0895      		ret
+  26               	.LFE8:
+  28               	.global	Timer_Config_Reg
+  30               	Timer_Config_Reg:
+  31               	.LFB9:
+  32               	.LM3:
+  33               	/* prologue: function */
+  34               	/* frame size = 0 */
+  35               	.LM4:
+  36 0002 1092 8000 		sts 128,__zero_reg__
+  37               	.LM5:
+  38 0006 A1E8      		ldi r26,lo8(129)
+  39 0008 B0E0      		ldi r27,hi8(129)
+  40 000a 1C92      		st X,__zero_reg__
+  41               	.LM6:
+  42 000c 1092 8200 		sts 130,__zero_reg__
+  43               	.LM7:
+  44 0010 E4E8      		ldi r30,lo8(132)
+  45 0012 F0E0      		ldi r31,hi8(132)
+  46 0014 1182      		std Z+1,__zero_reg__
+  47 0016 1082      		st Z,__zero_reg__
+  48               	.LM8:
+  49 0018 1092 6F00 		sts 111,__zero_reg__
+  50               	.LM9:
+  51 001c 16BA      		out 54-32,__zero_reg__
+  52               	.LM10:
+  53 001e 83E0      		ldi r24,lo8(3)
+  54 0020 8C93      		st X,r24
+  55               	.LM11:
+  56 0022 1182      		std Z+1,__zero_reg__
+  57 0024 1082      		st Z,__zero_reg__
+  58               	/* epilogue start */
+  59               	.LM12:
+  60 0026 0895      		ret
+  61               	.LFE9:
+  63               	.global	Timer_Init
+  65               	Timer_Init:
+  66               	.LFB10:
+  67               	.LM13:
+  68               	/* prologue: function */
+  69               	/* frame size = 0 */
+  70               	.LM14:
+  71 0028 0E94 0000 		call Timer_Config_Reg
+  72               	/* epilogue start */
+  73               	.LM15:
+  74 002c 0895      		ret
+  75               	.LFE10:
+  77               	.global	Timer_Start
+  79               	Timer_Start:
+  80               	.LFB11:
+  81               	.LM16:
+  82               	/* prologue: function */
+  83               	/* frame size = 0 */
+  84               	.LM17:
+  85 002e 1092 8500 		sts (132)+1,__zero_reg__
+  86 0032 1092 8400 		sts 132,__zero_reg__
+  87               	/* epilogue start */
+  88               	.LM18:
+  89 0036 0895      		ret
+  90               	.LFE11:
+  92               	.global	Timer_Get_Time
+  94               	Timer_Get_Time:
+  95               	.LFB12:
+  96               	.LM19:
+  97               	/* prologue: function */
+  98               	/* frame size = 0 */
+  99               	.LM20:
+ 100 0038 6091 8400 		lds r22,132
+ 101 003c 7091 8500 		lds r23,(132)+1
+ 102 0040 80E0      		ldi r24,lo8(0)
+ 103 0042 90E0      		ldi r25,hi8(0)
+ 104               	.LVL0:
+ 105               	.LM21:
+ 106 0044 25E1      		ldi r18,lo8(533)
+ 107 0046 32E0      		ldi r19,hi8(533)
+ 108 0048 40E0      		ldi r20,hlo8(533)
+ 109 004a 50E0      		ldi r21,hhi8(533)
+ 110 004c 0E94 0000 		call __mulsi3
+ 111 0050 24E6      		ldi r18,lo8(100)
+ 112 0052 30E0      		ldi r19,hi8(100)
+ 113 0054 40E0      		ldi r20,hlo8(100)
+ 114 0056 50E0      		ldi r21,hhi8(100)
+ 115 0058 0E94 0000 		call __udivmodsi4
+ 116 005c CA01      		movw r24,r20
+ 117               	.LVL1:
+ 118               	.LM22:
+ 119 005e B901      		movw r22,r18
+ 120               	/* epilogue start */
+ 121 0060 0895      		ret
+ 122               	.LFE12:
+ 180               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 time.c
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFS6SE2.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFS6SE2.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFS6SE2.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFS6SE2.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFS6SE2.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFS6SE2.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFS6SE2.s:18     .text:00000000 Timer_Struct_Init
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFS6SE2.s:30     .text:00000002 Timer_Config_Reg
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFS6SE2.s:65     .text:00000028 Timer_Init
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFS6SE2.s:79     .text:0000002e Timer_Start
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFS6SE2.s:94     .text:00000038 Timer_Get_Time
+
+UNDEFINED SYMBOLS
+__mulsi3
+__udivmodsi4

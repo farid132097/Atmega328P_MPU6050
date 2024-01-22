@@ -1342,46 +1342,46 @@
  1695               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 mpu6050.c
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:2      *ABS*:0000003f __SREG__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:3      *ABS*:0000003e __SP_H__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:4      *ABS*:0000003d __SP_L__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:5      *ABS*:00000034 __CCP__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:18     .text:00000000 MPU6050_Struct_Init
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:18     .text:00000000 MPU6050_Struct_Init
                             *COM*:0000001c MPU6050
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:72     .text:00000072 MPU6050_Get_AccX
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:86     .text:0000007c MPU6050_Get_AccY
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:100    .text:00000086 MPU6050_Get_AccZ
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:114    .text:00000090 MPU6050_Get_GyroX
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:128    .text:0000009a MPU6050_Get_GyroY
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:142    .text:000000a4 MPU6050_Get_GyroZ
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:156    .text:000000ae MPU6050_Get_GyroXCal
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:170    .text:000000b8 MPU6050_Get_GyroYCal
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:184    .text:000000c2 MPU6050_Get_GyroZCal
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:198    .text:000000cc MPU6050_Get_Pitch
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:212    .text:000000d6 MPU6050_Get_Roll
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:226    .text:000000e0 MPU6050_Get_Yaw
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:240    .text:000000ea MPU6050_Get_Temp
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:254    .text:000000f4 MPU6050_Get_Error
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:268    .text:000000fe MPU6050_Error_Clear
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:283    .text:00000108 MPU6050_Read_Roll
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:358    .text:00000198 MPU6050_Read_Pitch
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:433    .text:00000228 MPU6050_Get_Mode
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:448    .text:00000230 MPU6050_Read_Temp
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:522    .text:00000296 MPU6050_Read_GyroZ
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:619    .text:0000032a MPU6050_Read_GyroY
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:716    .text:000003be MPU6050_Read_GyroX
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:813    .text:00000452 MPU6050_Read_Gyro
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:847    .text:00000484 MPU6050_Read_AccZ
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:929    .text:00000500 MPU6050_Read_AccY
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:1011   .text:0000057c MPU6050_Read_AccX
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:1093   .text:000005f8 MPU6050_Read_Acc
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:1127   .text:0000062a MPU6050_Read_Acc_Gyro
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:1143   .text:00000634 MPU6050_Set_Mode_Active
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:1166   .text:00000648 MPU6050_Restart
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:1273   .text:0000069a MPU6050_Init
-C:\Users\FARIDU~1\AppData\Local\Temp/ccci7g2Z.s:1393   .text:00000736 MPU6050_Set_Mode_Sleep
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:72     .text:00000072 MPU6050_Get_AccX
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:86     .text:0000007c MPU6050_Get_AccY
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:100    .text:00000086 MPU6050_Get_AccZ
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:114    .text:00000090 MPU6050_Get_GyroX
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:128    .text:0000009a MPU6050_Get_GyroY
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:142    .text:000000a4 MPU6050_Get_GyroZ
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:156    .text:000000ae MPU6050_Get_GyroXCal
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:170    .text:000000b8 MPU6050_Get_GyroYCal
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:184    .text:000000c2 MPU6050_Get_GyroZCal
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:198    .text:000000cc MPU6050_Get_Pitch
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:212    .text:000000d6 MPU6050_Get_Roll
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:226    .text:000000e0 MPU6050_Get_Yaw
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:240    .text:000000ea MPU6050_Get_Temp
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:254    .text:000000f4 MPU6050_Get_Error
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:268    .text:000000fe MPU6050_Error_Clear
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:283    .text:00000108 MPU6050_Read_Roll
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:358    .text:00000198 MPU6050_Read_Pitch
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:433    .text:00000228 MPU6050_Get_Mode
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:448    .text:00000230 MPU6050_Read_Temp
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:522    .text:00000296 MPU6050_Read_GyroZ
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:619    .text:0000032a MPU6050_Read_GyroY
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:716    .text:000003be MPU6050_Read_GyroX
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:813    .text:00000452 MPU6050_Read_Gyro
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:847    .text:00000484 MPU6050_Read_AccZ
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:929    .text:00000500 MPU6050_Read_AccY
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:1011   .text:0000057c MPU6050_Read_AccX
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:1093   .text:000005f8 MPU6050_Read_Acc
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:1127   .text:0000062a MPU6050_Read_Acc_Gyro
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:1143   .text:00000634 MPU6050_Set_Mode_Active
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:1166   .text:00000648 MPU6050_Restart
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:1273   .text:0000069a MPU6050_Init
+C:\Users\FARIDU~1\AppData\Local\Temp/ccnxud6W.s:1393   .text:00000736 MPU6050_Set_Mode_Sleep
 
 UNDEFINED SYMBOLS
 __floatsisf
