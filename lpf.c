@@ -9,7 +9,7 @@
 
 #include <avr/io.h>
 
-#define NUMBER_OF_LPF 6
+#define NUMBER_OF_LPF 3
 
 typedef struct lpf_t{
   uint8_t  Alpha ;

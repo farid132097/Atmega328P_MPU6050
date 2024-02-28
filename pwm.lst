@@ -1,0 +1,169 @@
+   1               		.file	"pwm.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	Iron_Heater_On
+  18               	Iron_Heater_On:
+  19               	.LFB2:
+  20               	.LM1:
+  21               	.LVL0:
+  22               	/* prologue: function */
+  23               	/* frame size = 0 */
+  24 0000 9C01      		movw r18,r24
+  25               	.LM2:
+  26 0002 E091 0000 		lds r30,HEATER
+  27 0006 F091 0000 		lds r31,(HEATER)+1
+  28 000a 8081      		ld r24,Z
+  29               	.LVL1:
+  30 000c 8823      		tst r24
+  31 000e 01F4      		brne .L4
+  32 0010 2115      		cp r18,__zero_reg__
+  33 0012 3105      		cpc r19,__zero_reg__
+  34 0014 01F0      		breq .L4
+  35               	.LM3:
+  36 0016 219A      		sbi 36-32,1
+  37               	.LM4:
+  38 0018 2998      		cbi 37-32,1
+  39 001a 82E0      		ldi r24,hi8(600)
+  40 001c 2835      		cpi r18,lo8(600)
+  41 001e 3807      		cpc r19,r24
+  42 0020 00F0      		brlo .L3
+  43 0022 27E5      		ldi r18,lo8(599)
+  44 0024 32E0      		ldi r19,hi8(599)
+  45               	.LVL2:
+  46               	.L3:
+  47               	.LM5:
+  48 0026 3093 8900 		sts (136)+1,r19
+  49 002a 2093 8800 		sts 136,r18
+  50               	.LM6:
+  51 002e 8091 8000 		lds r24,128
+  52 0032 8068      		ori r24,lo8(-128)
+  53 0034 8093 8000 		sts 128,r24
+  54               	.LM7:
+  55 0038 3483      		std Z+4,r19
+  56 003a 2383      		std Z+3,r18
+  57               	.LM8:
+  58 003c 81E0      		ldi r24,lo8(1)
+  59 003e 8083      		st Z,r24
+  60               	.L4:
+  61 0040 0895      		ret
+  62               	.LFE2:
+  64               	.global	Iron_Heater_Off
+  66               	Iron_Heater_Off:
+  67               	.LFB3:
+  68               	.LM9:
+  69               	/* prologue: function */
+  70               	/* frame size = 0 */
+  71               	.LM10:
+  72 0042 E091 0000 		lds r30,HEATER
+  73 0046 F091 0000 		lds r31,(HEATER)+1
+  74 004a 8081      		ld r24,Z
+  75 004c 8130      		cpi r24,lo8(1)
+  76 004e 01F4      		brne .L7
+  77               	.LM11:
+  78 0050 8091 8000 		lds r24,128
+  79 0054 8F77      		andi r24,lo8(127)
+  80 0056 8093 8000 		sts 128,r24
+  81               	.LM12:
+  82 005a 1092 8900 		sts (136)+1,__zero_reg__
+  83 005e 1092 8800 		sts 136,__zero_reg__
+  84               	.LM13:
+  85 0062 2198      		cbi 36-32,1
+  86               	.LM14:
+  87 0064 2998      		cbi 37-32,1
+  88               	.LM15:
+  89 0066 1482      		std Z+4,__zero_reg__
+  90 0068 1382      		std Z+3,__zero_reg__
+  91               	.LM16:
+  92 006a 1082      		st Z,__zero_reg__
+  93               	.L7:
+  94 006c 0895      		ret
+  95               	.LFE3:
+  97               	.global	Iron_Get_PWM
+  99               	Iron_Get_PWM:
+ 100               	.LFB4:
+ 101               	.LM17:
+ 102               	/* prologue: function */
+ 103               	/* frame size = 0 */
+ 104               	.LM18:
+ 105 006e E091 0000 		lds r30,HEATER
+ 106 0072 F091 0000 		lds r31,(HEATER)+1
+ 107               	.LM19:
+ 108 0076 8381      		ldd r24,Z+3
+ 109 0078 9481      		ldd r25,Z+4
+ 110               	/* epilogue start */
+ 111 007a 0895      		ret
+ 112               	.LFE4:
+ 114               	.global	PWM_Init
+ 116               	PWM_Init:
+ 117               	.LFB5:
+ 118               	.LM20:
+ 119               	/* prologue: function */
+ 120               	/* frame size = 0 */
+ 121               	.LM21:
+ 122 007c 80E0      		ldi r24,lo8(HEATER_type)
+ 123 007e 90E0      		ldi r25,hi8(HEATER_type)
+ 124 0080 9093 0000 		sts (HEATER)+1,r25
+ 125 0084 8093 0000 		sts HEATER,r24
+ 126               	.LM22:
+ 127 0088 219A      		sbi 36-32,1
+ 128               	.LM23:
+ 129 008a 2998      		cbi 37-32,1
+ 130               	.LM24:
+ 131 008c E0E8      		ldi r30,lo8(128)
+ 132 008e F0E0      		ldi r31,hi8(128)
+ 133 0090 82E8      		ldi r24,lo8(-126)
+ 134 0092 8083      		st Z,r24
+ 135               	.LM25:
+ 136 0094 89E1      		ldi r24,lo8(25)
+ 137 0096 8093 8100 		sts 129,r24
+ 138               	.LM26:
+ 139 009a 28E5      		ldi r18,lo8(600)
+ 140 009c 32E0      		ldi r19,hi8(600)
+ 141 009e 3093 8700 		sts (134)+1,r19
+ 142 00a2 2093 8600 		sts 134,r18
+ 143               	.LM27:
+ 144 00a6 1092 8900 		sts (136)+1,__zero_reg__
+ 145 00aa 1092 8800 		sts 136,__zero_reg__
+ 146               	.LM28:
+ 147 00ae 8081      		ld r24,Z
+ 148 00b0 8F77      		andi r24,lo8(127)
+ 149 00b2 8083      		st Z,r24
+ 150               	.LM29:
+ 151 00b4 3093 0000 		sts (HEATER_type+1)+1,r19
+ 152 00b8 2093 0000 		sts HEATER_type+1,r18
+ 153               	.LM30:
+ 154 00bc 1092 0000 		sts (HEATER_type+3)+1,__zero_reg__
+ 155 00c0 1092 0000 		sts HEATER_type+3,__zero_reg__
+ 156               	.LM31:
+ 157 00c4 1092 0000 		sts HEATER_type,__zero_reg__
+ 158               	.LM32:
+ 159 00c8 0E94 0000 		call Iron_Heater_Off
+ 160               	/* epilogue start */
+ 161               	.LM33:
+ 162 00cc 0895      		ret
+ 163               	.LFE5:
+ 165               		.comm HEATER_type,5,1
+ 166               		.comm HEATER,2,1
+ 215               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 pwm.c
+C:\Users\FARIDU~1\AppData\Local\Temp/cczQeIjU.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/cczQeIjU.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/cczQeIjU.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/cczQeIjU.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/cczQeIjU.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/cczQeIjU.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/cczQeIjU.s:18     .text:00000000 Iron_Heater_On
+                            *COM*:00000002 HEATER
+C:\Users\FARIDU~1\AppData\Local\Temp/cczQeIjU.s:66     .text:00000042 Iron_Heater_Off
+C:\Users\FARIDU~1\AppData\Local\Temp/cczQeIjU.s:99     .text:0000006e Iron_Get_PWM
+C:\Users\FARIDU~1\AppData\Local\Temp/cczQeIjU.s:116    .text:0000007c PWM_Init
+                            *COM*:00000005 HEATER_type
+
+UNDEFINED SYMBOLS
+__do_clear_bss

@@ -3,15 +3,15 @@
 #define  DEBUG_TX_DDR     DDRD
 #define  DEBUG_TX_PORT    PORTD
 #define  DEBUG_TX_PIN     PIND
-#define  DEBUG_TX_bp      5U
+#define  DEBUG_TX_bp      1U
 
 
 /*Must edit DEBUG_RX_XXXX definition*/
-#define  DEBUG_RX_DDRC
-#define  DEBUG_RX_DDR     DDRC
-#define  DEBUG_RX_PORT    PORTC
-#define  DEBUG_RX_PIN     PINC
-#define  DEBUG_RX_bp      6U
+#define  DEBUG_RX_DDRD
+#define  DEBUG_RX_DDR     DDRD
+#define  DEBUG_RX_PORT    PORTD
+#define  DEBUG_RX_PIN     PIND
+#define  DEBUG_RX_bp      0U
 
 
 /*Only for debugging purpose*/
@@ -19,16 +19,16 @@
 #define  DEBUG_TEST_DDR   DDRD
 #define  DEBUG_TEST_PORT  PORTD
 #define  DEBUG_TEST_PIN   PIND
-#define  DEBUG_TEST_bp    1U
+#define  DEBUG_TEST_bp    0U
 
 
 #define  DEBUG_BAUD_RATE_38400
 
 
 //#define  DEBUG_USE_DELAY
-#define  DEBUG_USE_TIMER0
+//#define  DEBUG_USE_TIMER0
 //#define  DEBUG_USE_TIMER1
-//#define  DEBUG_USE_TIMER2
+#define  DEBUG_USE_TIMER2
 
 #define  DEBUG_RX_BUF_SIZE 32
 

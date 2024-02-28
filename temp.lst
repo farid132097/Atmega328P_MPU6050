@@ -1,0 +1,263 @@
+   1               		.file	"temp.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	Temp_Struct_Init
+  18               	Temp_Struct_Init:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 1092 0000 		sts (Temperature)+1,__zero_reg__
+  25 0004 1092 0000 		sts Temperature,__zero_reg__
+  26               	.LM3:
+  27 0008 1092 0000 		sts (Temperature+2)+1,__zero_reg__
+  28 000c 1092 0000 		sts Temperature+2,__zero_reg__
+  29               	/* epilogue start */
+  30               	.LM4:
+  31 0010 0895      		ret
+  32               	.LFE6:
+  34               	.global	Temp_ADC_Init
+  36               	Temp_ADC_Init:
+  37               	.LFB7:
+  38               	.LM5:
+  39               	/* prologue: function */
+  40               	/* frame size = 0 */
+  41               	.LM6:
+  42 0012 80EC      		ldi r24,lo8(-64)
+  43 0014 8093 7C00 		sts 124,r24
+  44               	.LM7:
+  45 0018 EAE7      		ldi r30,lo8(122)
+  46 001a F0E0      		ldi r31,hi8(122)
+  47 001c 87E0      		ldi r24,lo8(7)
+  48 001e 8083      		st Z,r24
+  49               	.LM8:
+  50 0020 8081      		ld r24,Z
+  51 0022 806C      		ori r24,lo8(-64)
+  52 0024 8083      		st Z,r24
+  53               	/* epilogue start */
+  54               	.LM9:
+  55 0026 0895      		ret
+  56               	.LFE7:
+  58               	.global	Temp_Read_ADC
+  60               	Temp_Read_ADC:
+  61               	.LFB8:
+  62               	.LM10:
+  63               	.LVL0:
+  64               	/* prologue: function */
+  65               	/* frame size = 0 */
+  66               	.LM11:
+  67 0028 9091 7C00 		lds r25,124
+  68               	.LVL1:
+  69               	.LM12:
+  70 002c 907F      		andi r25,lo8(-16)
+  71               	.LM13:
+  72 002e 982B      		or r25,r24
+  73               	.LM14:
+  74 0030 9093 7C00 		sts 124,r25
+  75               	.LM15:
+  76 0034 8091 7A00 		lds r24,122
+  77               	.LVL2:
+  78 0038 8064      		ori r24,lo8(64)
+  79 003a 8093 7A00 		sts 122,r24
+  80               	.L6:
+  81               	.LM16:
+  82 003e 8091 7A00 		lds r24,122
+  83 0042 84FF      		sbrs r24,4
+  84 0044 00C0      		rjmp .L6
+  85               	.LM17:
+  86 0046 2091 7800 		lds r18,120
+  87 004a 3091 7900 		lds r19,(120)+1
+  88               	.LM18:
+  89 004e C901      		movw r24,r18
+  90               	/* epilogue start */
+  91 0050 0895      		ret
+  92               	.LFE8:
+  94               	.global	Temp_Read_ADC_Avg
+  96               	Temp_Read_ADC_Avg:
+  97               	.LFB9:
+  98               	.LM19:
+  99               	.LVL3:
+ 100 0052 CF92      		push r12
+ 101 0054 DF92      		push r13
+ 102 0056 EF92      		push r14
+ 103 0058 FF92      		push r15
+ 104 005a 1F93      		push r17
+ 105               	/* prologue: function */
+ 106               	/* frame size = 0 */
+ 107 005c 182F      		mov r17,r24
+ 108               	.LM20:
+ 109 005e 0E94 0000 		call Temp_Read_ADC
+ 110               	.LVL4:
+ 111               	.LBB28:
+ 112               	.LM21:
+ 113 0062 812F      		mov r24,r17
+ 114 0064 0E94 0000 		call Temp_Read_ADC
+ 115 0068 6C01      		movw r12,r24
+ 116 006a 812F      		mov r24,r17
+ 117 006c 0E94 0000 		call Temp_Read_ADC
+ 118 0070 7C01      		movw r14,r24
+ 119 0072 812F      		mov r24,r17
+ 120 0074 0E94 0000 		call Temp_Read_ADC
+ 121 0078 E80E      		add r14,r24
+ 122 007a F91E      		adc r15,r25
+ 123 007c EC0C      		add r14,r12
+ 124 007e FD1C      		adc r15,r13
+ 125 0080 812F      		mov r24,r17
+ 126 0082 0E94 0000 		call Temp_Read_ADC
+ 127 0086 E80E      		add r14,r24
+ 128 0088 F91E      		adc r15,r25
+ 129 008a F694      		lsr r15
+ 130 008c E794      		ror r14
+ 131 008e F694      		lsr r15
+ 132 0090 E794      		ror r14
+ 133               	.LBE28:
+ 134               	.LM22:
+ 135 0092 C701      		movw r24,r14
+ 136               	/* epilogue start */
+ 137 0094 1F91      		pop r17
+ 138               	.LVL5:
+ 139 0096 FF90      		pop r15
+ 140 0098 EF90      		pop r14
+ 141 009a DF90      		pop r13
+ 142 009c CF90      		pop r12
+ 143 009e 0895      		ret
+ 144               	.LFE9:
+ 146               	.global	Temp_Get_Raw_Val
+ 148               	Temp_Get_Raw_Val:
+ 149               	.LFB11:
+ 150               	.LM23:
+ 151               	/* prologue: function */
+ 152               	/* frame size = 0 */
+ 153               	.LM24:
+ 154 00a0 8091 0000 		lds r24,Temperature
+ 155 00a4 9091 0000 		lds r25,Temperature+1
+ 156               	/* epilogue start */
+ 157 00a8 0895      		ret
+ 158               	.LFE11:
+ 160               	.global	Temp_Get_Filtered_Val
+ 162               	Temp_Get_Filtered_Val:
+ 163               	.LFB12:
+ 164               	.LM25:
+ 165               	/* prologue: function */
+ 166               	/* frame size = 0 */
+ 167               	.LM26:
+ 168 00aa 8091 0000 		lds r24,Temperature+2
+ 169 00ae 9091 0000 		lds r25,Temperature+3
+ 170               	/* epilogue start */
+ 171 00b2 0895      		ret
+ 172               	.LFE12:
+ 174               	.global	Temp_Init
+ 176               	Temp_Init:
+ 177               	.LFB13:
+ 178               	.LM27:
+ 179               	/* prologue: function */
+ 180               	/* frame size = 0 */
+ 181               	.LBB29:
+ 182               	.LBB30:
+ 183               	.LM28:
+ 184 00b4 1092 0000 		sts (Temperature)+1,__zero_reg__
+ 185 00b8 1092 0000 		sts Temperature,__zero_reg__
+ 186               	.LM29:
+ 187 00bc 1092 0000 		sts (Temperature+2)+1,__zero_reg__
+ 188 00c0 1092 0000 		sts Temperature+2,__zero_reg__
+ 189               	.LBE30:
+ 190               	.LBE29:
+ 191               	.LBB31:
+ 192               	.LBB32:
+ 193               	.LM30:
+ 194 00c4 80EC      		ldi r24,lo8(-64)
+ 195 00c6 8093 7C00 		sts 124,r24
+ 196               	.LM31:
+ 197 00ca EAE7      		ldi r30,lo8(122)
+ 198 00cc F0E0      		ldi r31,hi8(122)
+ 199 00ce 87E0      		ldi r24,lo8(7)
+ 200 00d0 8083      		st Z,r24
+ 201               	.LM32:
+ 202 00d2 8081      		ld r24,Z
+ 203 00d4 806C      		ori r24,lo8(-64)
+ 204 00d6 8083      		st Z,r24
+ 205               	/* epilogue start */
+ 206               	.LBE32:
+ 207               	.LBE31:
+ 208               	.LM33:
+ 209 00d8 0895      		ret
+ 210               	.LFE13:
+ 212               	.global	Temp_Read_Avg
+ 214               	Temp_Read_Avg:
+ 215               	.LFB10:
+ 216               	.LM34:
+ 217               	/* prologue: function */
+ 218               	/* frame size = 0 */
+ 219               	.LM35:
+ 220 00da 0E94 0000 		call Iron_Heater_Off
+ 221               	.LBB33:
+ 222               	.LBB34:
+ 223               	.LBB35:
+ 224               	.LBB36:
+ 225               	.LM36:
+ 226 00de 88EC      		ldi r24,lo8(-56)
+ 227               	.LVL6:
+ 228               	/* #APP */
+ 229               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 230 00e0 8A95      		1: dec r24
+ 231 00e2 01F4      		brne 1b
+ 232               	 ;  0 "" 2
+ 233               	/* #NOAPP */
+ 234               	.LBE36:
+ 235               	.LBE35:
+ 236               	.LBE34:
+ 237               	.LBE33:
+ 238               	.LM37:
+ 239 00e4 80E0      		ldi r24,lo8(0)
+ 240               	.LVL7:
+ 241 00e6 0E94 0000 		call Temp_Read_ADC_Avg
+ 242 00ea AC01      		movw r20,r24
+ 243               	.LVL8:
+ 244               	.LM38:
+ 245 00ec 9093 0000 		sts (Temperature)+1,r25
+ 246 00f0 8093 0000 		sts Temperature,r24
+ 247               	.LM39:
+ 248 00f4 60E0      		ldi r22,lo8(0)
+ 249 00f6 70E0      		ldi r23,hi8(0)
+ 250               	.LVL9:
+ 251 00f8 80E0      		ldi r24,lo8(0)
+ 252 00fa 0E94 0000 		call LPF_Get_Filtered_Value
+ 253               	.LVL10:
+ 254               	.LM40:
+ 255 00fe 6093 0000 		sts Temperature+2,r22
+ 256 0102 7093 0000 		sts Temperature+3,r23
+ 257               	.LM41:
+ 258 0106 CB01      		movw r24,r22
+ 259               	/* epilogue start */
+ 260 0108 0895      		ret
+ 261               	.LFE10:
+ 263               		.comm Temperature,4,1
+ 344               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 temp.c
+C:\Users\FARIDU~1\AppData\Local\Temp/cciZBJze.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/cciZBJze.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/cciZBJze.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/cciZBJze.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/cciZBJze.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/cciZBJze.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/cciZBJze.s:18     .text:00000000 Temp_Struct_Init
+                            *COM*:00000004 Temperature
+C:\Users\FARIDU~1\AppData\Local\Temp/cciZBJze.s:36     .text:00000012 Temp_ADC_Init
+C:\Users\FARIDU~1\AppData\Local\Temp/cciZBJze.s:60     .text:00000028 Temp_Read_ADC
+C:\Users\FARIDU~1\AppData\Local\Temp/cciZBJze.s:96     .text:00000052 Temp_Read_ADC_Avg
+C:\Users\FARIDU~1\AppData\Local\Temp/cciZBJze.s:148    .text:000000a0 Temp_Get_Raw_Val
+C:\Users\FARIDU~1\AppData\Local\Temp/cciZBJze.s:162    .text:000000aa Temp_Get_Filtered_Val
+C:\Users\FARIDU~1\AppData\Local\Temp/cciZBJze.s:176    .text:000000b4 Temp_Init
+C:\Users\FARIDU~1\AppData\Local\Temp/cciZBJze.s:214    .text:000000da Temp_Read_Avg
+
+UNDEFINED SYMBOLS
+Iron_Heater_Off
+LPF_Get_Filtered_Value
+__do_clear_bss
