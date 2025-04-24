@@ -1,13 +1,13 @@
-main.o: main.c timebase.h debug.h temp.h lpf.h pwm.h pid.h
+main.o: main.c time.h mpu6050.h servo.h debug.h i2c.h lpf.h
 
-timebase.h:
+time.h:
+
+mpu6050.h:
+
+servo.h:
 
 debug.h:
 
-temp.h:
+i2c.h:
 
 lpf.h:
-
-pwm.h:
-
-pid.h:

@@ -1,0 +1,1402 @@
+   1               		.file	"mpu6050.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	MPU6050_Struct_Init
+  18               	MPU6050_Struct_Init:
+  19               	.LFB8:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 1092 0000 		sts (MPU6050)+1,__zero_reg__
+  25 0004 1092 0000 		sts MPU6050,__zero_reg__
+  26               	.LM3:
+  27 0008 1092 0000 		sts (MPU6050+2)+1,__zero_reg__
+  28 000c 1092 0000 		sts MPU6050+2,__zero_reg__
+  29               	.LM4:
+  30 0010 1092 0000 		sts (MPU6050+4)+1,__zero_reg__
+  31 0014 1092 0000 		sts MPU6050+4,__zero_reg__
+  32               	.LM5:
+  33 0018 1092 0000 		sts (MPU6050+6)+1,__zero_reg__
+  34 001c 1092 0000 		sts MPU6050+6,__zero_reg__
+  35               	.LM6:
+  36 0020 1092 0000 		sts (MPU6050+8)+1,__zero_reg__
+  37 0024 1092 0000 		sts MPU6050+8,__zero_reg__
+  38               	.LM7:
+  39 0028 1092 0000 		sts (MPU6050+10)+1,__zero_reg__
+  40 002c 1092 0000 		sts MPU6050+10,__zero_reg__
+  41               	.LM8:
+  42 0030 1092 0000 		sts (MPU6050+12)+1,__zero_reg__
+  43 0034 1092 0000 		sts MPU6050+12,__zero_reg__
+  44               	.LM9:
+  45 0038 1092 0000 		sts (MPU6050+14)+1,__zero_reg__
+  46 003c 1092 0000 		sts MPU6050+14,__zero_reg__
+  47               	.LM10:
+  48 0040 1092 0000 		sts (MPU6050+16)+1,__zero_reg__
+  49 0044 1092 0000 		sts MPU6050+16,__zero_reg__
+  50               	.LM11:
+  51 0048 1092 0000 		sts (MPU6050+18)+1,__zero_reg__
+  52 004c 1092 0000 		sts MPU6050+18,__zero_reg__
+  53               	.LM12:
+  54 0050 1092 0000 		sts (MPU6050+20)+1,__zero_reg__
+  55 0054 1092 0000 		sts MPU6050+20,__zero_reg__
+  56               	.LM13:
+  57 0058 1092 0000 		sts (MPU6050+22)+1,__zero_reg__
+  58 005c 1092 0000 		sts MPU6050+22,__zero_reg__
+  59               	.LM14:
+  60 0060 1092 0000 		sts (MPU6050+24)+1,__zero_reg__
+  61 0064 1092 0000 		sts MPU6050+24,__zero_reg__
+  62               	.LM15:
+  63 0068 1092 0000 		sts (MPU6050+26)+1,__zero_reg__
+  64 006c 1092 0000 		sts MPU6050+26,__zero_reg__
+  65               	/* epilogue start */
+  66               	.LM16:
+  67 0070 0895      		ret
+  68               	.LFE8:
+  70               	.global	MPU6050_Get_AccX
+  72               	MPU6050_Get_AccX:
+  73               	.LFB9:
+  74               	.LM17:
+  75               	/* prologue: function */
+  76               	/* frame size = 0 */
+  77               	.LM18:
+  78 0072 8091 0000 		lds r24,MPU6050
+  79 0076 9091 0000 		lds r25,MPU6050+1
+  80               	/* epilogue start */
+  81 007a 0895      		ret
+  82               	.LFE9:
+  84               	.global	MPU6050_Get_AccY
+  86               	MPU6050_Get_AccY:
+  87               	.LFB10:
+  88               	.LM19:
+  89               	/* prologue: function */
+  90               	/* frame size = 0 */
+  91               	.LM20:
+  92 007c 8091 0000 		lds r24,MPU6050+2
+  93 0080 9091 0000 		lds r25,MPU6050+3
+  94               	/* epilogue start */
+  95 0084 0895      		ret
+  96               	.LFE10:
+  98               	.global	MPU6050_Get_AccZ
+ 100               	MPU6050_Get_AccZ:
+ 101               	.LFB11:
+ 102               	.LM21:
+ 103               	/* prologue: function */
+ 104               	/* frame size = 0 */
+ 105               	.LM22:
+ 106 0086 8091 0000 		lds r24,MPU6050+4
+ 107 008a 9091 0000 		lds r25,MPU6050+5
+ 108               	/* epilogue start */
+ 109 008e 0895      		ret
+ 110               	.LFE11:
+ 112               	.global	MPU6050_Get_GyroX
+ 114               	MPU6050_Get_GyroX:
+ 115               	.LFB12:
+ 116               	.LM23:
+ 117               	/* prologue: function */
+ 118               	/* frame size = 0 */
+ 119               	.LM24:
+ 120 0090 8091 0000 		lds r24,MPU6050+6
+ 121 0094 9091 0000 		lds r25,MPU6050+7
+ 122               	/* epilogue start */
+ 123 0098 0895      		ret
+ 124               	.LFE12:
+ 126               	.global	MPU6050_Get_GyroY
+ 128               	MPU6050_Get_GyroY:
+ 129               	.LFB13:
+ 130               	.LM25:
+ 131               	/* prologue: function */
+ 132               	/* frame size = 0 */
+ 133               	.LM26:
+ 134 009a 8091 0000 		lds r24,MPU6050+8
+ 135 009e 9091 0000 		lds r25,MPU6050+9
+ 136               	/* epilogue start */
+ 137 00a2 0895      		ret
+ 138               	.LFE13:
+ 140               	.global	MPU6050_Get_GyroZ
+ 142               	MPU6050_Get_GyroZ:
+ 143               	.LFB14:
+ 144               	.LM27:
+ 145               	/* prologue: function */
+ 146               	/* frame size = 0 */
+ 147               	.LM28:
+ 148 00a4 8091 0000 		lds r24,MPU6050+10
+ 149 00a8 9091 0000 		lds r25,MPU6050+11
+ 150               	/* epilogue start */
+ 151 00ac 0895      		ret
+ 152               	.LFE14:
+ 154               	.global	MPU6050_Get_GyroXCal
+ 156               	MPU6050_Get_GyroXCal:
+ 157               	.LFB15:
+ 158               	.LM29:
+ 159               	/* prologue: function */
+ 160               	/* frame size = 0 */
+ 161               	.LM30:
+ 162 00ae 8091 0000 		lds r24,MPU6050+12
+ 163 00b2 9091 0000 		lds r25,MPU6050+13
+ 164               	/* epilogue start */
+ 165 00b6 0895      		ret
+ 166               	.LFE15:
+ 168               	.global	MPU6050_Get_GyroYCal
+ 170               	MPU6050_Get_GyroYCal:
+ 171               	.LFB16:
+ 172               	.LM31:
+ 173               	/* prologue: function */
+ 174               	/* frame size = 0 */
+ 175               	.LM32:
+ 176 00b8 8091 0000 		lds r24,MPU6050+14
+ 177 00bc 9091 0000 		lds r25,MPU6050+15
+ 178               	/* epilogue start */
+ 179 00c0 0895      		ret
+ 180               	.LFE16:
+ 182               	.global	MPU6050_Get_GyroZCal
+ 184               	MPU6050_Get_GyroZCal:
+ 185               	.LFB17:
+ 186               	.LM33:
+ 187               	/* prologue: function */
+ 188               	/* frame size = 0 */
+ 189               	.LM34:
+ 190 00c2 8091 0000 		lds r24,MPU6050+16
+ 191 00c6 9091 0000 		lds r25,MPU6050+17
+ 192               	/* epilogue start */
+ 193 00ca 0895      		ret
+ 194               	.LFE17:
+ 196               	.global	MPU6050_Get_Pitch
+ 198               	MPU6050_Get_Pitch:
+ 199               	.LFB18:
+ 200               	.LM35:
+ 201               	/* prologue: function */
+ 202               	/* frame size = 0 */
+ 203               	.LM36:
+ 204 00cc 8091 0000 		lds r24,MPU6050+18
+ 205 00d0 9091 0000 		lds r25,MPU6050+19
+ 206               	/* epilogue start */
+ 207 00d4 0895      		ret
+ 208               	.LFE18:
+ 210               	.global	MPU6050_Get_Roll
+ 212               	MPU6050_Get_Roll:
+ 213               	.LFB19:
+ 214               	.LM37:
+ 215               	/* prologue: function */
+ 216               	/* frame size = 0 */
+ 217               	.LM38:
+ 218 00d6 8091 0000 		lds r24,MPU6050+20
+ 219 00da 9091 0000 		lds r25,MPU6050+21
+ 220               	/* epilogue start */
+ 221 00de 0895      		ret
+ 222               	.LFE19:
+ 224               	.global	MPU6050_Get_Yaw
+ 226               	MPU6050_Get_Yaw:
+ 227               	.LFB20:
+ 228               	.LM39:
+ 229               	/* prologue: function */
+ 230               	/* frame size = 0 */
+ 231               	.LM40:
+ 232 00e0 8091 0000 		lds r24,MPU6050+22
+ 233 00e4 9091 0000 		lds r25,MPU6050+23
+ 234               	/* epilogue start */
+ 235 00e8 0895      		ret
+ 236               	.LFE20:
+ 238               	.global	MPU6050_Get_Temp
+ 240               	MPU6050_Get_Temp:
+ 241               	.LFB21:
+ 242               	.LM41:
+ 243               	/* prologue: function */
+ 244               	/* frame size = 0 */
+ 245               	.LM42:
+ 246 00ea 8091 0000 		lds r24,MPU6050+24
+ 247 00ee 9091 0000 		lds r25,MPU6050+25
+ 248               	/* epilogue start */
+ 249 00f2 0895      		ret
+ 250               	.LFE21:
+ 252               	.global	MPU6050_Get_Error
+ 254               	MPU6050_Get_Error:
+ 255               	.LFB22:
+ 256               	.LM43:
+ 257               	/* prologue: function */
+ 258               	/* frame size = 0 */
+ 259               	.LM44:
+ 260 00f4 8091 0000 		lds r24,MPU6050+26
+ 261 00f8 9091 0000 		lds r25,MPU6050+27
+ 262               	/* epilogue start */
+ 263 00fc 0895      		ret
+ 264               	.LFE22:
+ 266               	.global	MPU6050_Error_Clear
+ 268               	MPU6050_Error_Clear:
+ 269               	.LFB23:
+ 270               	.LM45:
+ 271               	/* prologue: function */
+ 272               	/* frame size = 0 */
+ 273               	.LM46:
+ 274 00fe 1092 0000 		sts (MPU6050+26)+1,__zero_reg__
+ 275 0102 1092 0000 		sts MPU6050+26,__zero_reg__
+ 276               	/* epilogue start */
+ 277               	.LM47:
+ 278 0106 0895      		ret
+ 279               	.LFE23:
+ 281               	.global	MPU6050_Read_Roll
+ 283               	MPU6050_Read_Roll:
+ 284               	.LFB38:
+ 285               	.LM48:
+ 286 0108 EF92      		push r14
+ 287 010a FF92      		push r15
+ 288 010c 0F93      		push r16
+ 289 010e 1F93      		push r17
+ 290               	/* prologue: function */
+ 291               	/* frame size = 0 */
+ 292               	.LM49:
+ 293 0110 8091 0000 		lds r24,MPU6050+26
+ 294 0114 9091 0000 		lds r25,(MPU6050+26)+1
+ 295 0118 892B      		or r24,r25
+ 296 011a 01F4      		brne .L34
+ 297               	.LBB63:
+ 298               	.LM50:
+ 299 011c 6091 0000 		lds r22,MPU6050+2
+ 300 0120 7091 0000 		lds r23,(MPU6050+2)+1
+ 301 0124 8827      		clr r24
+ 302 0126 77FD      		sbrc r23,7
+ 303 0128 8095      		com r24
+ 304 012a 982F      		mov r25,r24
+ 305 012c 0E94 0000 		call __floatsisf
+ 306 0130 7B01      		movw r14,r22
+ 307 0132 8C01      		movw r16,r24
+ 308 0134 6091 0000 		lds r22,MPU6050+4
+ 309 0138 7091 0000 		lds r23,(MPU6050+4)+1
+ 310 013c 8827      		clr r24
+ 311 013e 77FD      		sbrc r23,7
+ 312 0140 8095      		com r24
+ 313 0142 982F      		mov r25,r24
+ 314 0144 0E94 0000 		call __floatsisf
+ 315 0148 9B01      		movw r18,r22
+ 316 014a AC01      		movw r20,r24
+ 317 014c C801      		movw r24,r16
+ 318 014e B701      		movw r22,r14
+ 319 0150 0E94 0000 		call __divsf3
+ 320 0154 0E94 0000 		call atan
+ 321               	.LM51:
+ 322 0158 20E0      		ldi r18,lo8(0x41200000)
+ 323 015a 30E0      		ldi r19,hi8(0x41200000)
+ 324 015c 40E2      		ldi r20,hlo8(0x41200000)
+ 325 015e 51E4      		ldi r21,hhi8(0x41200000)
+ 326 0160 0E94 0000 		call __mulsf3
+ 327               	.LM52:
+ 328 0164 23E3      		ldi r18,lo8(0x42653333)
+ 329 0166 33E3      		ldi r19,hi8(0x42653333)
+ 330 0168 45E6      		ldi r20,hlo8(0x42653333)
+ 331 016a 52E4      		ldi r21,hhi8(0x42653333)
+ 332 016c 0E94 0000 		call __mulsf3
+ 333 0170 0E94 0000 		call __fixsfsi
+ 334 0174 9B01      		movw r18,r22
+ 335 0176 7093 0000 		sts (MPU6050+20)+1,r23
+ 336 017a 6093 0000 		sts MPU6050+20,r22
+ 337 017e 00C0      		rjmp .L35
+ 338               	.L34:
+ 339               	.LBE63:
+ 340               	.LM53:
+ 341 0180 1092 0000 		sts (MPU6050+20)+1,__zero_reg__
+ 342 0184 1092 0000 		sts MPU6050+20,__zero_reg__
+ 343 0188 20E0      		ldi r18,lo8(0)
+ 344 018a 30E0      		ldi r19,hi8(0)
+ 345               	.L35:
+ 346               	.LM54:
+ 347 018c C901      		movw r24,r18
+ 348               	/* epilogue start */
+ 349 018e 1F91      		pop r17
+ 350 0190 0F91      		pop r16
+ 351 0192 FF90      		pop r15
+ 352 0194 EF90      		pop r14
+ 353 0196 0895      		ret
+ 354               	.LFE38:
+ 356               	.global	MPU6050_Read_Pitch
+ 358               	MPU6050_Read_Pitch:
+ 359               	.LFB37:
+ 360               	.LM55:
+ 361 0198 EF92      		push r14
+ 362 019a FF92      		push r15
+ 363 019c 0F93      		push r16
+ 364 019e 1F93      		push r17
+ 365               	/* prologue: function */
+ 366               	/* frame size = 0 */
+ 367               	.LM56:
+ 368 01a0 8091 0000 		lds r24,MPU6050+26
+ 369 01a4 9091 0000 		lds r25,(MPU6050+26)+1
+ 370 01a8 892B      		or r24,r25
+ 371 01aa 01F4      		brne .L38
+ 372               	.LBB64:
+ 373               	.LM57:
+ 374 01ac 6091 0000 		lds r22,MPU6050
+ 375 01b0 7091 0000 		lds r23,(MPU6050)+1
+ 376 01b4 8827      		clr r24
+ 377 01b6 77FD      		sbrc r23,7
+ 378 01b8 8095      		com r24
+ 379 01ba 982F      		mov r25,r24
+ 380 01bc 0E94 0000 		call __floatsisf
+ 381 01c0 7B01      		movw r14,r22
+ 382 01c2 8C01      		movw r16,r24
+ 383 01c4 6091 0000 		lds r22,MPU6050+4
+ 384 01c8 7091 0000 		lds r23,(MPU6050+4)+1
+ 385 01cc 8827      		clr r24
+ 386 01ce 77FD      		sbrc r23,7
+ 387 01d0 8095      		com r24
+ 388 01d2 982F      		mov r25,r24
+ 389 01d4 0E94 0000 		call __floatsisf
+ 390 01d8 9B01      		movw r18,r22
+ 391 01da AC01      		movw r20,r24
+ 392 01dc C801      		movw r24,r16
+ 393 01de B701      		movw r22,r14
+ 394 01e0 0E94 0000 		call __divsf3
+ 395 01e4 0E94 0000 		call atan
+ 396               	.LM58:
+ 397 01e8 20E0      		ldi r18,lo8(0x41200000)
+ 398 01ea 30E0      		ldi r19,hi8(0x41200000)
+ 399 01ec 40E2      		ldi r20,hlo8(0x41200000)
+ 400 01ee 51E4      		ldi r21,hhi8(0x41200000)
+ 401 01f0 0E94 0000 		call __mulsf3
+ 402               	.LM59:
+ 403 01f4 23E3      		ldi r18,lo8(0x42653333)
+ 404 01f6 33E3      		ldi r19,hi8(0x42653333)
+ 405 01f8 45E6      		ldi r20,hlo8(0x42653333)
+ 406 01fa 52E4      		ldi r21,hhi8(0x42653333)
+ 407 01fc 0E94 0000 		call __mulsf3
+ 408 0200 0E94 0000 		call __fixsfsi
+ 409 0204 9B01      		movw r18,r22
+ 410 0206 7093 0000 		sts (MPU6050+18)+1,r23
+ 411 020a 6093 0000 		sts MPU6050+18,r22
+ 412 020e 00C0      		rjmp .L39
+ 413               	.L38:
+ 414               	.LBE64:
+ 415               	.LM60:
+ 416 0210 1092 0000 		sts (MPU6050+18)+1,__zero_reg__
+ 417 0214 1092 0000 		sts MPU6050+18,__zero_reg__
+ 418 0218 20E0      		ldi r18,lo8(0)
+ 419 021a 30E0      		ldi r19,hi8(0)
+ 420               	.L39:
+ 421               	.LM61:
+ 422 021c C901      		movw r24,r18
+ 423               	/* epilogue start */
+ 424 021e 1F91      		pop r17
+ 425 0220 0F91      		pop r16
+ 426 0222 FF90      		pop r15
+ 427 0224 EF90      		pop r14
+ 428 0226 0895      		ret
+ 429               	.LFE37:
+ 431               	.global	MPU6050_Get_Mode
+ 433               	MPU6050_Get_Mode:
+ 434               	.LFB24:
+ 435               	.LM62:
+ 436               	/* prologue: function */
+ 437               	/* frame size = 0 */
+ 438               	.LM63:
+ 439 0228 8BE6      		ldi r24,lo8(107)
+ 440 022a 0E94 0000 		call I2C_Read_Register
+ 441               	/* epilogue start */
+ 442               	.LM64:
+ 443 022e 0895      		ret
+ 444               	.LFE24:
+ 446               	.global	MPU6050_Read_Temp
+ 448               	MPU6050_Read_Temp:
+ 449               	.LFB33:
+ 450               	.LM65:
+ 451 0230 FF92      		push r15
+ 452 0232 0F93      		push r16
+ 453 0234 1F93      		push r17
+ 454               	/* prologue: function */
+ 455               	/* frame size = 0 */
+ 456               	.LM66:
+ 457 0236 81E4      		ldi r24,lo8(65)
+ 458 0238 0E94 0000 		call I2C_Read_Register
+ 459 023c F82E      		mov r15,r24
+ 460               	.LM67:
+ 461 023e 0E94 0000 		call I2C_Get_Error
+ 462 0242 182F      		mov r17,r24
+ 463               	.LM68:
+ 464 0244 82E4      		ldi r24,lo8(66)
+ 465 0246 0E94 0000 		call I2C_Read_Register
+ 466 024a 082F      		mov r16,r24
+ 467               	.LM69:
+ 468 024c 0E94 0000 		call I2C_Get_Error
+ 469               	.LM70:
+ 470 0250 1123      		tst r17
+ 471 0252 01F4      		brne .L44
+ 472 0254 8823      		tst r24
+ 473 0256 01F4      		brne .L44
+ 474               	.LM71:
+ 475 0258 9F2D      		mov r25,r15
+ 476               	.LVL0:
+ 477 025a 80E0      		ldi r24,lo8(0)
+ 478               	.LVL1:
+ 479               	.LM72:
+ 480 025c 202F      		mov r18,r16
+ 481 025e 30E0      		ldi r19,lo8(0)
+ 482               	.LM73:
+ 483 0260 822B      		or r24,r18
+ 484 0262 932B      		or r25,r19
+ 485               	.LVL2:
+ 486 0264 64E5      		ldi r22,lo8(340)
+ 487 0266 71E0      		ldi r23,hi8(340)
+ 488 0268 0E94 0000 		call __divmodhi4
+ 489               	.LM74:
+ 490 026c 9B01      		movw r18,r22
+ 491               	.LVL3:
+ 492 026e 2C5D      		subi r18,lo8(-(36))
+ 493 0270 3F4F      		sbci r19,hi8(-(36))
+ 494               	.LVL4:
+ 495 0272 00C0      		rjmp .L45
+ 496               	.LVL5:
+ 497               	.L44:
+ 498               	.LM75:
+ 499 0274 81E2      		ldi r24,lo8(33)
+ 500 0276 90E0      		ldi r25,hi8(33)
+ 501 0278 9093 0000 		sts (MPU6050+26)+1,r25
+ 502 027c 8093 0000 		sts MPU6050+26,r24
+ 503 0280 20E0      		ldi r18,lo8(0)
+ 504 0282 30E0      		ldi r19,hi8(0)
+ 505               	.LVL6:
+ 506               	.L45:
+ 507               	.LM76:
+ 508 0284 3093 0000 		sts (MPU6050+24)+1,r19
+ 509 0288 2093 0000 		sts MPU6050+24,r18
+ 510               	.LM77:
+ 511 028c C901      		movw r24,r18
+ 512               	.LVL7:
+ 513               	/* epilogue start */
+ 514 028e 1F91      		pop r17
+ 515 0290 0F91      		pop r16
+ 516 0292 FF90      		pop r15
+ 517 0294 0895      		ret
+ 518               	.LFE33:
+ 520               	.global	MPU6050_Read_GyroZ
+ 522               	MPU6050_Read_GyroZ:
+ 523               	.LFB32:
+ 524               	.LM78:
+ 525 0296 AF92      		push r10
+ 526 0298 BF92      		push r11
+ 527 029a CF92      		push r12
+ 528 029c DF92      		push r13
+ 529 029e EF92      		push r14
+ 530 02a0 FF92      		push r15
+ 531 02a2 0F93      		push r16
+ 532 02a4 1F93      		push r17
+ 533               	/* prologue: function */
+ 534               	/* frame size = 0 */
+ 535               	.LM79:
+ 536 02a6 87E4      		ldi r24,lo8(71)
+ 537 02a8 0E94 0000 		call I2C_Read_Register
+ 538 02ac D82E      		mov r13,r24
+ 539               	.LM80:
+ 540 02ae 0E94 0000 		call I2C_Get_Error
+ 541 02b2 B82E      		mov r11,r24
+ 542               	.LM81:
+ 543 02b4 FD2C      		mov r15,r13
+ 544               	.LVL8:
+ 545 02b6 EE24      		clr r14
+ 546               	.LVL9:
+ 547               	.LM82:
+ 548 02b8 88E4      		ldi r24,lo8(72)
+ 549 02ba 0E94 0000 		call I2C_Read_Register
+ 550 02be C82E      		mov r12,r24
+ 551               	.LM83:
+ 552 02c0 0E94 0000 		call I2C_Get_Error
+ 553 02c4 A82E      		mov r10,r24
+ 554               	.LM84:
+ 555 02c6 DD24      		clr r13
+ 556 02c8 EC28      		or r14,r12
+ 557 02ca FD28      		or r15,r13
+ 558               	.LVL10:
+ 559 02cc 0027      		clr r16
+ 560 02ce F7FC      		sbrc r15,7
+ 561 02d0 0095      		com r16
+ 562 02d2 102F      		mov r17,r16
+ 563               	.LVL11:
+ 564 02d4 85E0      		ldi r24,lo8(5)
+ 565 02d6 B801      		movw r22,r16
+ 566 02d8 A701      		movw r20,r14
+ 567 02da 0E94 0000 		call LPF_Get_Filtered_Value
+ 568               	.LM85:
+ 569 02de 2091 0000 		lds r18,MPU6050+16
+ 570 02e2 3091 0000 		lds r19,(MPU6050+16)+1
+ 571               	.LM86:
+ 572 02e6 BB20      		tst r11
+ 573 02e8 01F4      		brne .L48
+ 574 02ea AA20      		tst r10
+ 575 02ec 01F4      		brne .L48
+ 576               	.LM87:
+ 577 02ee CB01      		movw r24,r22
+ 578               	.LVL12:
+ 579               	.LM88:
+ 580 02f0 821B      		sub r24,r18
+ 581 02f2 930B      		sbc r25,r19
+ 582 02f4 00C0      		rjmp .L49
+ 583               	.LVL13:
+ 584               	.L48:
+ 585               	.LM89:
+ 586 02f6 83E1      		ldi r24,lo8(19)
+ 587 02f8 90E0      		ldi r25,hi8(19)
+ 588 02fa 9093 0000 		sts (MPU6050+26)+1,r25
+ 589 02fe 8093 0000 		sts MPU6050+26,r24
+ 590 0302 80E0      		ldi r24,lo8(0)
+ 591 0304 90E0      		ldi r25,hi8(0)
+ 592               	.LVL14:
+ 593               	.L49:
+ 594               	.LM90:
+ 595 0306 63E8      		ldi r22,lo8(131)
+ 596 0308 70E0      		ldi r23,hi8(131)
+ 597 030a 0E94 0000 		call __divmodhi4
+ 598               	.LVL15:
+ 599 030e CB01      		movw r24,r22
+ 600               	.LM91:
+ 601 0310 6093 0000 		sts MPU6050+10,r22
+ 602 0314 9093 0000 		sts MPU6050+11,r25
+ 603               	/* epilogue start */
+ 604               	.LM92:
+ 605 0318 1F91      		pop r17
+ 606 031a 0F91      		pop r16
+ 607 031c FF90      		pop r15
+ 608               	.LVL16:
+ 609 031e EF90      		pop r14
+ 610 0320 DF90      		pop r13
+ 611 0322 CF90      		pop r12
+ 612 0324 BF90      		pop r11
+ 613 0326 AF90      		pop r10
+ 614 0328 0895      		ret
+ 615               	.LFE32:
+ 617               	.global	MPU6050_Read_GyroY
+ 619               	MPU6050_Read_GyroY:
+ 620               	.LFB31:
+ 621               	.LM93:
+ 622 032a AF92      		push r10
+ 623 032c BF92      		push r11
+ 624 032e CF92      		push r12
+ 625 0330 DF92      		push r13
+ 626 0332 EF92      		push r14
+ 627 0334 FF92      		push r15
+ 628 0336 0F93      		push r16
+ 629 0338 1F93      		push r17
+ 630               	/* prologue: function */
+ 631               	/* frame size = 0 */
+ 632               	.LM94:
+ 633 033a 85E4      		ldi r24,lo8(69)
+ 634 033c 0E94 0000 		call I2C_Read_Register
+ 635 0340 D82E      		mov r13,r24
+ 636               	.LM95:
+ 637 0342 0E94 0000 		call I2C_Get_Error
+ 638 0346 B82E      		mov r11,r24
+ 639               	.LM96:
+ 640 0348 FD2C      		mov r15,r13
+ 641               	.LVL17:
+ 642 034a EE24      		clr r14
+ 643               	.LVL18:
+ 644               	.LM97:
+ 645 034c 86E4      		ldi r24,lo8(70)
+ 646 034e 0E94 0000 		call I2C_Read_Register
+ 647 0352 C82E      		mov r12,r24
+ 648               	.LM98:
+ 649 0354 0E94 0000 		call I2C_Get_Error
+ 650 0358 A82E      		mov r10,r24
+ 651               	.LM99:
+ 652 035a DD24      		clr r13
+ 653 035c EC28      		or r14,r12
+ 654 035e FD28      		or r15,r13
+ 655               	.LVL19:
+ 656 0360 0027      		clr r16
+ 657 0362 F7FC      		sbrc r15,7
+ 658 0364 0095      		com r16
+ 659 0366 102F      		mov r17,r16
+ 660               	.LVL20:
+ 661 0368 84E0      		ldi r24,lo8(4)
+ 662 036a B801      		movw r22,r16
+ 663 036c A701      		movw r20,r14
+ 664 036e 0E94 0000 		call LPF_Get_Filtered_Value
+ 665               	.LM100:
+ 666 0372 2091 0000 		lds r18,MPU6050+14
+ 667 0376 3091 0000 		lds r19,(MPU6050+14)+1
+ 668               	.LM101:
+ 669 037a BB20      		tst r11
+ 670 037c 01F4      		brne .L52
+ 671 037e AA20      		tst r10
+ 672 0380 01F4      		brne .L52
+ 673               	.LM102:
+ 674 0382 CB01      		movw r24,r22
+ 675               	.LVL21:
+ 676               	.LM103:
+ 677 0384 821B      		sub r24,r18
+ 678 0386 930B      		sbc r25,r19
+ 679 0388 00C0      		rjmp .L53
+ 680               	.LVL22:
+ 681               	.L52:
+ 682               	.LM104:
+ 683 038a 82E1      		ldi r24,lo8(18)
+ 684 038c 90E0      		ldi r25,hi8(18)
+ 685 038e 9093 0000 		sts (MPU6050+26)+1,r25
+ 686 0392 8093 0000 		sts MPU6050+26,r24
+ 687 0396 80E0      		ldi r24,lo8(0)
+ 688 0398 90E0      		ldi r25,hi8(0)
+ 689               	.LVL23:
+ 690               	.L53:
+ 691               	.LM105:
+ 692 039a 63E8      		ldi r22,lo8(131)
+ 693 039c 70E0      		ldi r23,hi8(131)
+ 694 039e 0E94 0000 		call __divmodhi4
+ 695               	.LVL24:
+ 696 03a2 CB01      		movw r24,r22
+ 697               	.LM106:
+ 698 03a4 6093 0000 		sts MPU6050+8,r22
+ 699 03a8 9093 0000 		sts MPU6050+9,r25
+ 700               	/* epilogue start */
+ 701               	.LM107:
+ 702 03ac 1F91      		pop r17
+ 703 03ae 0F91      		pop r16
+ 704 03b0 FF90      		pop r15
+ 705               	.LVL25:
+ 706 03b2 EF90      		pop r14
+ 707 03b4 DF90      		pop r13
+ 708 03b6 CF90      		pop r12
+ 709 03b8 BF90      		pop r11
+ 710 03ba AF90      		pop r10
+ 711 03bc 0895      		ret
+ 712               	.LFE31:
+ 714               	.global	MPU6050_Read_GyroX
+ 716               	MPU6050_Read_GyroX:
+ 717               	.LFB30:
+ 718               	.LM108:
+ 719 03be AF92      		push r10
+ 720 03c0 BF92      		push r11
+ 721 03c2 CF92      		push r12
+ 722 03c4 DF92      		push r13
+ 723 03c6 EF92      		push r14
+ 724 03c8 FF92      		push r15
+ 725 03ca 0F93      		push r16
+ 726 03cc 1F93      		push r17
+ 727               	/* prologue: function */
+ 728               	/* frame size = 0 */
+ 729               	.LM109:
+ 730 03ce 83E4      		ldi r24,lo8(67)
+ 731 03d0 0E94 0000 		call I2C_Read_Register
+ 732 03d4 D82E      		mov r13,r24
+ 733               	.LM110:
+ 734 03d6 0E94 0000 		call I2C_Get_Error
+ 735 03da B82E      		mov r11,r24
+ 736               	.LM111:
+ 737 03dc FD2C      		mov r15,r13
+ 738               	.LVL26:
+ 739 03de EE24      		clr r14
+ 740               	.LVL27:
+ 741               	.LM112:
+ 742 03e0 84E4      		ldi r24,lo8(68)
+ 743 03e2 0E94 0000 		call I2C_Read_Register
+ 744 03e6 C82E      		mov r12,r24
+ 745               	.LM113:
+ 746 03e8 0E94 0000 		call I2C_Get_Error
+ 747 03ec A82E      		mov r10,r24
+ 748               	.LM114:
+ 749 03ee DD24      		clr r13
+ 750 03f0 EC28      		or r14,r12
+ 751 03f2 FD28      		or r15,r13
+ 752               	.LVL28:
+ 753 03f4 0027      		clr r16
+ 754 03f6 F7FC      		sbrc r15,7
+ 755 03f8 0095      		com r16
+ 756 03fa 102F      		mov r17,r16
+ 757               	.LVL29:
+ 758 03fc 83E0      		ldi r24,lo8(3)
+ 759 03fe B801      		movw r22,r16
+ 760 0400 A701      		movw r20,r14
+ 761 0402 0E94 0000 		call LPF_Get_Filtered_Value
+ 762               	.LM115:
+ 763 0406 2091 0000 		lds r18,MPU6050+12
+ 764 040a 3091 0000 		lds r19,(MPU6050+12)+1
+ 765               	.LM116:
+ 766 040e BB20      		tst r11
+ 767 0410 01F4      		brne .L56
+ 768 0412 AA20      		tst r10
+ 769 0414 01F4      		brne .L56
+ 770               	.LM117:
+ 771 0416 CB01      		movw r24,r22
+ 772               	.LVL30:
+ 773               	.LM118:
+ 774 0418 821B      		sub r24,r18
+ 775 041a 930B      		sbc r25,r19
+ 776 041c 00C0      		rjmp .L57
+ 777               	.LVL31:
+ 778               	.L56:
+ 779               	.LM119:
+ 780 041e 81E1      		ldi r24,lo8(17)
+ 781 0420 90E0      		ldi r25,hi8(17)
+ 782 0422 9093 0000 		sts (MPU6050+26)+1,r25
+ 783 0426 8093 0000 		sts MPU6050+26,r24
+ 784 042a 80E0      		ldi r24,lo8(0)
+ 785 042c 90E0      		ldi r25,hi8(0)
+ 786               	.LVL32:
+ 787               	.L57:
+ 788               	.LM120:
+ 789 042e 63E8      		ldi r22,lo8(131)
+ 790 0430 70E0      		ldi r23,hi8(131)
+ 791 0432 0E94 0000 		call __divmodhi4
+ 792               	.LVL33:
+ 793 0436 CB01      		movw r24,r22
+ 794               	.LM121:
+ 795 0438 6093 0000 		sts MPU6050+6,r22
+ 796 043c 9093 0000 		sts MPU6050+7,r25
+ 797               	/* epilogue start */
+ 798               	.LM122:
+ 799 0440 1F91      		pop r17
+ 800 0442 0F91      		pop r16
+ 801 0444 FF90      		pop r15
+ 802               	.LVL34:
+ 803 0446 EF90      		pop r14
+ 804 0448 DF90      		pop r13
+ 805 044a CF90      		pop r12
+ 806 044c BF90      		pop r11
+ 807 044e AF90      		pop r10
+ 808 0450 0895      		ret
+ 809               	.LFE30:
+ 811               	.global	MPU6050_Read_Gyro
+ 813               	MPU6050_Read_Gyro:
+ 814               	.LFB35:
+ 815               	.LM123:
+ 816               	/* prologue: function */
+ 817               	/* frame size = 0 */
+ 818               	.LM124:
+ 819 0452 8091 0000 		lds r24,MPU6050+26
+ 820 0456 9091 0000 		lds r25,(MPU6050+26)+1
+ 821 045a 892B      		or r24,r25
+ 822 045c 01F4      		brne .L60
+ 823               	.LM125:
+ 824 045e 0E94 0000 		call MPU6050_Read_GyroX
+ 825               	.L60:
+ 826               	.LM126:
+ 827 0462 8091 0000 		lds r24,MPU6050+26
+ 828 0466 9091 0000 		lds r25,(MPU6050+26)+1
+ 829 046a 892B      		or r24,r25
+ 830 046c 01F4      		brne .L61
+ 831               	.LM127:
+ 832 046e 0E94 0000 		call MPU6050_Read_GyroY
+ 833               	.L61:
+ 834               	.LM128:
+ 835 0472 8091 0000 		lds r24,MPU6050+26
+ 836 0476 9091 0000 		lds r25,(MPU6050+26)+1
+ 837 047a 892B      		or r24,r25
+ 838 047c 01F4      		brne .L63
+ 839               	.LM129:
+ 840 047e 0E94 0000 		call MPU6050_Read_GyroZ
+ 841               	.L63:
+ 842 0482 0895      		ret
+ 843               	.LFE35:
+ 845               	.global	MPU6050_Read_AccZ
+ 847               	MPU6050_Read_AccZ:
+ 848               	.LFB29:
+ 849               	.LM130:
+ 850 0484 AF92      		push r10
+ 851 0486 BF92      		push r11
+ 852 0488 CF92      		push r12
+ 853 048a DF92      		push r13
+ 854 048c EF92      		push r14
+ 855 048e FF92      		push r15
+ 856 0490 0F93      		push r16
+ 857 0492 1F93      		push r17
+ 858               	/* prologue: function */
+ 859               	/* frame size = 0 */
+ 860               	.LM131:
+ 861 0494 8FE3      		ldi r24,lo8(63)
+ 862 0496 0E94 0000 		call I2C_Read_Register
+ 863 049a D82E      		mov r13,r24
+ 864               	.LM132:
+ 865 049c 0E94 0000 		call I2C_Get_Error
+ 866 04a0 B82E      		mov r11,r24
+ 867               	.LM133:
+ 868 04a2 FD2C      		mov r15,r13
+ 869               	.LVL35:
+ 870 04a4 EE24      		clr r14
+ 871               	.LVL36:
+ 872               	.LM134:
+ 873 04a6 80E4      		ldi r24,lo8(64)
+ 874 04a8 0E94 0000 		call I2C_Read_Register
+ 875 04ac C82E      		mov r12,r24
+ 876               	.LM135:
+ 877 04ae 0E94 0000 		call I2C_Get_Error
+ 878 04b2 A82E      		mov r10,r24
+ 879               	.LM136:
+ 880 04b4 DD24      		clr r13
+ 881 04b6 EC28      		or r14,r12
+ 882 04b8 FD28      		or r15,r13
+ 883               	.LVL37:
+ 884 04ba 0027      		clr r16
+ 885 04bc F7FC      		sbrc r15,7
+ 886 04be 0095      		com r16
+ 887 04c0 102F      		mov r17,r16
+ 888               	.LVL38:
+ 889 04c2 82E0      		ldi r24,lo8(2)
+ 890 04c4 B801      		movw r22,r16
+ 891 04c6 A701      		movw r20,r14
+ 892 04c8 0E94 0000 		call LPF_Get_Filtered_Value
+ 893               	.LM137:
+ 894 04cc BB20      		tst r11
+ 895 04ce 01F4      		brne .L65
+ 896 04d0 AA20      		tst r10
+ 897 04d2 01F0      		breq .L66
+ 898               	.L65:
+ 899               	.LM138:
+ 900 04d4 83E0      		ldi r24,lo8(3)
+ 901 04d6 90E0      		ldi r25,hi8(3)
+ 902 04d8 9093 0000 		sts (MPU6050+26)+1,r25
+ 903 04dc 8093 0000 		sts MPU6050+26,r24
+ 904 04e0 60E0      		ldi r22,lo8(0)
+ 905 04e2 70E0      		ldi r23,hi8(0)
+ 906               	.LVL39:
+ 907               	.L66:
+ 908               	.LM139:
+ 909 04e4 7093 0000 		sts (MPU6050+4)+1,r23
+ 910 04e8 6093 0000 		sts MPU6050+4,r22
+ 911               	.LM140:
+ 912 04ec CB01      		movw r24,r22
+ 913               	.LVL40:
+ 914               	/* epilogue start */
+ 915 04ee 1F91      		pop r17
+ 916 04f0 0F91      		pop r16
+ 917 04f2 FF90      		pop r15
+ 918               	.LVL41:
+ 919 04f4 EF90      		pop r14
+ 920 04f6 DF90      		pop r13
+ 921 04f8 CF90      		pop r12
+ 922 04fa BF90      		pop r11
+ 923 04fc AF90      		pop r10
+ 924 04fe 0895      		ret
+ 925               	.LFE29:
+ 927               	.global	MPU6050_Read_AccY
+ 929               	MPU6050_Read_AccY:
+ 930               	.LFB28:
+ 931               	.LM141:
+ 932 0500 AF92      		push r10
+ 933 0502 BF92      		push r11
+ 934 0504 CF92      		push r12
+ 935 0506 DF92      		push r13
+ 936 0508 EF92      		push r14
+ 937 050a FF92      		push r15
+ 938 050c 0F93      		push r16
+ 939 050e 1F93      		push r17
+ 940               	/* prologue: function */
+ 941               	/* frame size = 0 */
+ 942               	.LM142:
+ 943 0510 8DE3      		ldi r24,lo8(61)
+ 944 0512 0E94 0000 		call I2C_Read_Register
+ 945 0516 D82E      		mov r13,r24
+ 946               	.LM143:
+ 947 0518 0E94 0000 		call I2C_Get_Error
+ 948 051c B82E      		mov r11,r24
+ 949               	.LM144:
+ 950 051e FD2C      		mov r15,r13
+ 951               	.LVL42:
+ 952 0520 EE24      		clr r14
+ 953               	.LVL43:
+ 954               	.LM145:
+ 955 0522 8EE3      		ldi r24,lo8(62)
+ 956 0524 0E94 0000 		call I2C_Read_Register
+ 957 0528 C82E      		mov r12,r24
+ 958               	.LM146:
+ 959 052a 0E94 0000 		call I2C_Get_Error
+ 960 052e A82E      		mov r10,r24
+ 961               	.LM147:
+ 962 0530 DD24      		clr r13
+ 963 0532 EC28      		or r14,r12
+ 964 0534 FD28      		or r15,r13
+ 965               	.LVL44:
+ 966 0536 0027      		clr r16
+ 967 0538 F7FC      		sbrc r15,7
+ 968 053a 0095      		com r16
+ 969 053c 102F      		mov r17,r16
+ 970               	.LVL45:
+ 971 053e 81E0      		ldi r24,lo8(1)
+ 972 0540 B801      		movw r22,r16
+ 973 0542 A701      		movw r20,r14
+ 974 0544 0E94 0000 		call LPF_Get_Filtered_Value
+ 975               	.LM148:
+ 976 0548 BB20      		tst r11
+ 977 054a 01F4      		brne .L69
+ 978 054c AA20      		tst r10
+ 979 054e 01F0      		breq .L70
+ 980               	.L69:
+ 981               	.LM149:
+ 982 0550 82E0      		ldi r24,lo8(2)
+ 983 0552 90E0      		ldi r25,hi8(2)
+ 984 0554 9093 0000 		sts (MPU6050+26)+1,r25
+ 985 0558 8093 0000 		sts MPU6050+26,r24
+ 986 055c 60E0      		ldi r22,lo8(0)
+ 987 055e 70E0      		ldi r23,hi8(0)
+ 988               	.LVL46:
+ 989               	.L70:
+ 990               	.LM150:
+ 991 0560 7093 0000 		sts (MPU6050+2)+1,r23
+ 992 0564 6093 0000 		sts MPU6050+2,r22
+ 993               	.LM151:
+ 994 0568 CB01      		movw r24,r22
+ 995               	.LVL47:
+ 996               	/* epilogue start */
+ 997 056a 1F91      		pop r17
+ 998 056c 0F91      		pop r16
+ 999 056e FF90      		pop r15
+ 1000               	.LVL48:
+ 1001 0570 EF90      		pop r14
+ 1002 0572 DF90      		pop r13
+ 1003 0574 CF90      		pop r12
+ 1004 0576 BF90      		pop r11
+ 1005 0578 AF90      		pop r10
+ 1006 057a 0895      		ret
+ 1007               	.LFE28:
+ 1009               	.global	MPU6050_Read_AccX
+ 1011               	MPU6050_Read_AccX:
+ 1012               	.LFB27:
+ 1013               	.LM152:
+ 1014 057c AF92      		push r10
+ 1015 057e BF92      		push r11
+ 1016 0580 CF92      		push r12
+ 1017 0582 DF92      		push r13
+ 1018 0584 EF92      		push r14
+ 1019 0586 FF92      		push r15
+ 1020 0588 0F93      		push r16
+ 1021 058a 1F93      		push r17
+ 1022               	/* prologue: function */
+ 1023               	/* frame size = 0 */
+ 1024               	.LM153:
+ 1025 058c 8BE3      		ldi r24,lo8(59)
+ 1026 058e 0E94 0000 		call I2C_Read_Register
+ 1027 0592 D82E      		mov r13,r24
+ 1028               	.LM154:
+ 1029 0594 0E94 0000 		call I2C_Get_Error
+ 1030 0598 B82E      		mov r11,r24
+ 1031               	.LM155:
+ 1032 059a FD2C      		mov r15,r13
+ 1033               	.LVL49:
+ 1034 059c EE24      		clr r14
+ 1035               	.LVL50:
+ 1036               	.LM156:
+ 1037 059e 8CE3      		ldi r24,lo8(60)
+ 1038 05a0 0E94 0000 		call I2C_Read_Register
+ 1039 05a4 C82E      		mov r12,r24
+ 1040               	.LM157:
+ 1041 05a6 0E94 0000 		call I2C_Get_Error
+ 1042 05aa A82E      		mov r10,r24
+ 1043               	.LM158:
+ 1044 05ac DD24      		clr r13
+ 1045 05ae EC28      		or r14,r12
+ 1046 05b0 FD28      		or r15,r13
+ 1047               	.LVL51:
+ 1048 05b2 0027      		clr r16
+ 1049 05b4 F7FC      		sbrc r15,7
+ 1050 05b6 0095      		com r16
+ 1051 05b8 102F      		mov r17,r16
+ 1052               	.LVL52:
+ 1053 05ba 80E0      		ldi r24,lo8(0)
+ 1054 05bc B801      		movw r22,r16
+ 1055 05be A701      		movw r20,r14
+ 1056 05c0 0E94 0000 		call LPF_Get_Filtered_Value
+ 1057               	.LM159:
+ 1058 05c4 BB20      		tst r11
+ 1059 05c6 01F4      		brne .L73
+ 1060 05c8 AA20      		tst r10
+ 1061 05ca 01F0      		breq .L74
+ 1062               	.L73:
+ 1063               	.LM160:
+ 1064 05cc 81E0      		ldi r24,lo8(1)
+ 1065 05ce 90E0      		ldi r25,hi8(1)
+ 1066 05d0 9093 0000 		sts (MPU6050+26)+1,r25
+ 1067 05d4 8093 0000 		sts MPU6050+26,r24
+ 1068 05d8 60E0      		ldi r22,lo8(0)
+ 1069 05da 70E0      		ldi r23,hi8(0)
+ 1070               	.LVL53:
+ 1071               	.L74:
+ 1072               	.LM161:
+ 1073 05dc 7093 0000 		sts (MPU6050)+1,r23
+ 1074 05e0 6093 0000 		sts MPU6050,r22
+ 1075               	.LM162:
+ 1076 05e4 CB01      		movw r24,r22
+ 1077               	.LVL54:
+ 1078               	/* epilogue start */
+ 1079 05e6 1F91      		pop r17
+ 1080 05e8 0F91      		pop r16
+ 1081 05ea FF90      		pop r15
+ 1082               	.LVL55:
+ 1083 05ec EF90      		pop r14
+ 1084 05ee DF90      		pop r13
+ 1085 05f0 CF90      		pop r12
+ 1086 05f2 BF90      		pop r11
+ 1087 05f4 AF90      		pop r10
+ 1088 05f6 0895      		ret
+ 1089               	.LFE27:
+ 1091               	.global	MPU6050_Read_Acc
+ 1093               	MPU6050_Read_Acc:
+ 1094               	.LFB34:
+ 1095               	.LM163:
+ 1096               	/* prologue: function */
+ 1097               	/* frame size = 0 */
+ 1098               	.LM164:
+ 1099 05f8 8091 0000 		lds r24,MPU6050+26
+ 1100 05fc 9091 0000 		lds r25,(MPU6050+26)+1
+ 1101 0600 892B      		or r24,r25
+ 1102 0602 01F4      		brne .L77
+ 1103               	.LM165:
+ 1104 0604 0E94 0000 		call MPU6050_Read_AccX
+ 1105               	.L77:
+ 1106               	.LM166:
+ 1107 0608 8091 0000 		lds r24,MPU6050+26
+ 1108 060c 9091 0000 		lds r25,(MPU6050+26)+1
+ 1109 0610 892B      		or r24,r25
+ 1110 0612 01F4      		brne .L78
+ 1111               	.LM167:
+ 1112 0614 0E94 0000 		call MPU6050_Read_AccY
+ 1113               	.L78:
+ 1114               	.LM168:
+ 1115 0618 8091 0000 		lds r24,MPU6050+26
+ 1116 061c 9091 0000 		lds r25,(MPU6050+26)+1
+ 1117 0620 892B      		or r24,r25
+ 1118 0622 01F4      		brne .L80
+ 1119               	.LM169:
+ 1120 0624 0E94 0000 		call MPU6050_Read_AccZ
+ 1121               	.L80:
+ 1122 0628 0895      		ret
+ 1123               	.LFE34:
+ 1125               	.global	MPU6050_Read_Acc_Gyro
+ 1127               	MPU6050_Read_Acc_Gyro:
+ 1128               	.LFB36:
+ 1129               	.LM170:
+ 1130               	/* prologue: function */
+ 1131               	/* frame size = 0 */
+ 1132               	.LM171:
+ 1133 062a 0E94 0000 		call MPU6050_Read_Acc
+ 1134               	.LM172:
+ 1135 062e 0E94 0000 		call MPU6050_Read_Gyro
+ 1136               	/* epilogue start */
+ 1137               	.LM173:
+ 1138 0632 0895      		ret
+ 1139               	.LFE36:
+ 1141               	.global	MPU6050_Set_Mode_Active
+ 1143               	MPU6050_Set_Mode_Active:
+ 1144               	.LFB26:
+ 1145               	.LM174:
+ 1146               	/* prologue: function */
+ 1147               	/* frame size = 0 */
+ 1148               	.LBB65:
+ 1149               	.LM175:
+ 1150 0634 8BE6      		ldi r24,lo8(107)
+ 1151 0636 0E94 0000 		call I2C_Read_Register
+ 1152               	.LBE65:
+ 1153               	.LM176:
+ 1154 063a 86FF      		sbrs r24,6
+ 1155 063c 00C0      		rjmp .L85
+ 1156               	.LM177:
+ 1157 063e 8BE6      		ldi r24,lo8(107)
+ 1158 0640 60E0      		ldi r22,lo8(0)
+ 1159 0642 0E94 0000 		call I2C_Write_Register
+ 1160               	.L85:
+ 1161 0646 0895      		ret
+ 1162               	.LFE26:
+ 1164               	.global	MPU6050_Restart
+ 1166               	MPU6050_Restart:
+ 1167               	.LFB40:
+ 1168               	.LM178:
+ 1169 0648 FF92      		push r15
+ 1170 064a 0F93      		push r16
+ 1171 064c 1F93      		push r17
+ 1172               	/* prologue: function */
+ 1173               	/* frame size = 0 */
+ 1174               	.LM179:
+ 1175 064e 0E94 0000 		call I2C_Error_Clear_All
+ 1176               	.LBB66:
+ 1177               	.LBB67:
+ 1178               	.LM180:
+ 1179 0652 F090 0000 		lds r15,MPU6050+26
+ 1180               	.LBE67:
+ 1181               	.LBE66:
+ 1182               	.LBB68:
+ 1183               	.LBB69:
+ 1184               	.LM181:
+ 1185 0656 1092 0000 		sts (MPU6050+26)+1,__zero_reg__
+ 1186 065a 1092 0000 		sts MPU6050+26,__zero_reg__
+ 1187               	.LBE69:
+ 1188               	.LBE68:
+ 1189               	.LBB70:
+ 1190               	.LBB71:
+ 1191               	.LBB72:
+ 1192               	.LBB73:
+ 1193               	.LM182:
+ 1194 065e 00E7      		ldi r16,lo8(6000)
+ 1195 0660 17E1      		ldi r17,hi8(6000)
+ 1196 0662 C801      		movw r24,r16
+ 1197               	.LVL56:
+ 1198               	/* #APP */
+ 1199               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 1200 0664 0197      		1: sbiw r24,1
+ 1201 0666 01F4      		brne 1b
+ 1202               	 ;  0 "" 2
+ 1203               	/* #NOAPP */
+ 1204               	.LBE73:
+ 1205               	.LBE72:
+ 1206               	.LBE71:
+ 1207               	.LBE70:
+ 1208               	.LM183:
+ 1209 0668 0E94 0000 		call I2C_Stop
+ 1210               	.LVL57:
+ 1211               	.LBB74:
+ 1212               	.LBB75:
+ 1213               	.LBB76:
+ 1214               	.LBB77:
+ 1215               	.LM184:
+ 1216 066c C801      		movw r24,r16
+ 1217               	.LVL58:
+ 1218               	/* #APP */
+ 1219               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 1220 066e 0197      		1: sbiw r24,1
+ 1221 0670 01F4      		brne 1b
+ 1222               	 ;  0 "" 2
+ 1223               	/* #NOAPP */
+ 1224               	.LBE77:
+ 1225               	.LBE76:
+ 1226               	.LBE75:
+ 1227               	.LBE74:
+ 1228               	.LM185:
+ 1229 0672 0E94 0000 		call MPU6050_Set_Mode_Active
+ 1230               	.LVL59:
+ 1231               	.LBB78:
+ 1232               	.LBB79:
+ 1233               	.LBB80:
+ 1234               	.LBB81:
+ 1235               	.LM186:
+ 1236 0676 C801      		movw r24,r16
+ 1237               	.LVL60:
+ 1238               	/* #APP */
+ 1239               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 1240 0678 0197      		1: sbiw r24,1
+ 1241 067a 01F4      		brne 1b
+ 1242               	 ;  0 "" 2
+ 1243               	/* #NOAPP */
+ 1244               	.LBE81:
+ 1245               	.LBE80:
+ 1246               	.LBE79:
+ 1247               	.LBE78:
+ 1248               	.LM187:
+ 1249 067c 0E94 0000 		call MPU6050_Read_Acc_Gyro
+ 1250               	.LVL61:
+ 1251               	.LBB82:
+ 1252               	.LM188:
+ 1253 0680 8BE6      		ldi r24,lo8(107)
+ 1254 0682 0E94 0000 		call I2C_Read_Register
+ 1255               	.LBE82:
+ 1256               	.LM189:
+ 1257 0686 8823      		tst r24
+ 1258 0688 01F0      		breq .L88
+ 1259               	.LM190:
+ 1260 068a F092 0000 		sts MPU6050+26,r15
+ 1261 068e 1092 0000 		sts MPU6050+27,__zero_reg__
+ 1262               	.L88:
+ 1263               	/* epilogue start */
+ 1264               	.LM191:
+ 1265 0692 1F91      		pop r17
+ 1266 0694 0F91      		pop r16
+ 1267 0696 FF90      		pop r15
+ 1268 0698 0895      		ret
+ 1269               	.LFE40:
+ 1271               	.global	MPU6050_Init
+ 1273               	MPU6050_Init:
+ 1274               	.LFB39:
+ 1275               	.LM192:
+ 1276 069a 1F93      		push r17
+ 1277               	/* prologue: function */
+ 1278               	/* frame size = 0 */
+ 1279               	.LM193:
+ 1280 069c 0E94 0000 		call I2C_Init
+ 1281               	.LBB83:
+ 1282               	.LBB84:
+ 1283               	.LBB85:
+ 1284               	.LBB86:
+ 1285               	.LM194:
+ 1286 06a0 80E3      		ldi r24,lo8(30000)
+ 1287 06a2 95E7      		ldi r25,hi8(30000)
+ 1288               	.LVL62:
+ 1289               	/* #APP */
+ 1290               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 1291 06a4 0197      		1: sbiw r24,1
+ 1292 06a6 01F4      		brne 1b
+ 1293               	 ;  0 "" 2
+ 1294               	/* #NOAPP */
+ 1295               	.LBE86:
+ 1296               	.LBE85:
+ 1297               	.LBE84:
+ 1298               	.LBE83:
+ 1299               	.LM195:
+ 1300 06a8 0E94 0000 		call MPU6050_Struct_Init
+ 1301               	.LVL63:
+ 1302               	.LM196:
+ 1303 06ac 0E94 0000 		call MPU6050_Set_Mode_Active
+ 1304               	.LM197:
+ 1305 06b0 0E94 0000 		call LPF_Init
+ 1306               	.LM198:
+ 1307 06b4 80E0      		ldi r24,lo8(0)
+ 1308 06b6 62E3      		ldi r22,lo8(50)
+ 1309 06b8 0E94 0000 		call LPF_Set_Alpha
+ 1310               	.LM199:
+ 1311 06bc 81E0      		ldi r24,lo8(1)
+ 1312 06be 62E3      		ldi r22,lo8(50)
+ 1313 06c0 0E94 0000 		call LPF_Set_Alpha
+ 1314               	.LM200:
+ 1315 06c4 82E0      		ldi r24,lo8(2)
+ 1316 06c6 62E3      		ldi r22,lo8(50)
+ 1317 06c8 0E94 0000 		call LPF_Set_Alpha
+ 1318               	.LM201:
+ 1319 06cc 83E0      		ldi r24,lo8(3)
+ 1320 06ce 62E3      		ldi r22,lo8(50)
+ 1321 06d0 0E94 0000 		call LPF_Set_Alpha
+ 1322               	.LM202:
+ 1323 06d4 84E0      		ldi r24,lo8(4)
+ 1324 06d6 62E3      		ldi r22,lo8(50)
+ 1325 06d8 0E94 0000 		call LPF_Set_Alpha
+ 1326               	.LM203:
+ 1327 06dc 85E0      		ldi r24,lo8(5)
+ 1328 06de 62E3      		ldi r22,lo8(50)
+ 1329 06e0 0E94 0000 		call LPF_Set_Alpha
+ 1330 06e4 88EE      		ldi r24,lo8(1000)
+ 1331 06e6 93E0      		ldi r25,hi8(1000)
+ 1332               	.LVL64:
+ 1333               	.LBB87:
+ 1334               	.LBB88:
+ 1335               	.LBB89:
+ 1336               	.LBB90:
+ 1337               	.LM204:
+ 1338 06e8 2CE2      		ldi r18,lo8(300)
+ 1339 06ea 31E0      		ldi r19,hi8(300)
+ 1340               	.L90:
+ 1341 06ec F901      		movw r30,r18
+ 1342               	.LVL65:
+ 1343               	/* #APP */
+ 1344               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 1345 06ee 3197      		1: sbiw r30,1
+ 1346 06f0 01F4      		brne 1b
+ 1347               	 ;  0 "" 2
+ 1348               	/* #NOAPP */
+ 1349               	.LBE90:
+ 1350               	.LBE89:
+ 1351               	.LM205:
+ 1352 06f2 0197      		sbiw r24,1
+ 1353               	.LM206:
+ 1354 06f4 01F4      		brne .L90
+ 1355 06f6 10E0      		ldi r17,lo8(0)
+ 1356               	.LVL66:
+ 1357               	.L91:
+ 1358               	.LBE88:
+ 1359               	.LBE87:
+ 1360               	.LBB91:
+ 1361               	.LM207:
+ 1362 06f8 0E94 0000 		call MPU6050_Read_Acc_Gyro
+ 1363               	.LVL67:
+ 1364               	.LM208:
+ 1365 06fc 1F5F      		subi r17,lo8(-(1))
+ 1366 06fe 1032      		cpi r17,lo8(32)
+ 1367 0700 01F4      		brne .L91
+ 1368               	.LBE91:
+ 1369               	.LM209:
+ 1370 0702 8091 0000 		lds r24,MPU6050+6
+ 1371 0706 9091 0000 		lds r25,(MPU6050+6)+1
+ 1372 070a 9093 0000 		sts (MPU6050+12)+1,r25
+ 1373 070e 8093 0000 		sts MPU6050+12,r24
+ 1374               	.LM210:
+ 1375 0712 8091 0000 		lds r24,MPU6050+8
+ 1376 0716 9091 0000 		lds r25,(MPU6050+8)+1
+ 1377 071a 9093 0000 		sts (MPU6050+14)+1,r25
+ 1378 071e 8093 0000 		sts MPU6050+14,r24
+ 1379               	.LM211:
+ 1380 0722 8091 0000 		lds r24,MPU6050+10
+ 1381 0726 9091 0000 		lds r25,(MPU6050+10)+1
+ 1382 072a 9093 0000 		sts (MPU6050+16)+1,r25
+ 1383 072e 8093 0000 		sts MPU6050+16,r24
+ 1384               	/* epilogue start */
+ 1385               	.LM212:
+ 1386 0732 1F91      		pop r17
+ 1387               	.LVL68:
+ 1388 0734 0895      		ret
+ 1389               	.LFE39:
+ 1391               	.global	MPU6050_Set_Mode_Sleep
+ 1393               	MPU6050_Set_Mode_Sleep:
+ 1394               	.LFB25:
+ 1395               	.LM213:
+ 1396               	/* prologue: function */
+ 1397               	/* frame size = 0 */
+ 1398               	.LBB92:
+ 1399               	.LM214:
+ 1400 0736 8BE6      		ldi r24,lo8(107)
+ 1401 0738 0E94 0000 		call I2C_Read_Register
+ 1402               	.LBE92:
+ 1403               	.LM215:
+ 1404 073c 86FD      		sbrc r24,6
+ 1405 073e 00C0      		rjmp .L97
+ 1406               	.LM216:
+ 1407 0740 8BE6      		ldi r24,lo8(107)
+ 1408 0742 60E4      		ldi r22,lo8(64)
+ 1409 0744 0E94 0000 		call I2C_Write_Register
+ 1410               	.L97:
+ 1411 0748 0895      		ret
+ 1412               	.LFE25:
+ 1414               		.comm MPU6050,28,1
+ 1695               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 mpu6050.c
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:2      *ABS*:0000003f __SREG__
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:3      *ABS*:0000003e __SP_H__
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:4      *ABS*:0000003d __SP_L__
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:5      *ABS*:00000034 __CCP__
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:18     .text:00000000 MPU6050_Struct_Init
+                            *COM*:0000001c MPU6050
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:72     .text:00000072 MPU6050_Get_AccX
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:86     .text:0000007c MPU6050_Get_AccY
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:100    .text:00000086 MPU6050_Get_AccZ
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:114    .text:00000090 MPU6050_Get_GyroX
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:128    .text:0000009a MPU6050_Get_GyroY
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:142    .text:000000a4 MPU6050_Get_GyroZ
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:156    .text:000000ae MPU6050_Get_GyroXCal
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:170    .text:000000b8 MPU6050_Get_GyroYCal
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:184    .text:000000c2 MPU6050_Get_GyroZCal
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:198    .text:000000cc MPU6050_Get_Pitch
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:212    .text:000000d6 MPU6050_Get_Roll
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:226    .text:000000e0 MPU6050_Get_Yaw
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:240    .text:000000ea MPU6050_Get_Temp
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:254    .text:000000f4 MPU6050_Get_Error
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:268    .text:000000fe MPU6050_Error_Clear
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:283    .text:00000108 MPU6050_Read_Roll
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:358    .text:00000198 MPU6050_Read_Pitch
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:433    .text:00000228 MPU6050_Get_Mode
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:448    .text:00000230 MPU6050_Read_Temp
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:522    .text:00000296 MPU6050_Read_GyroZ
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:619    .text:0000032a MPU6050_Read_GyroY
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:716    .text:000003be MPU6050_Read_GyroX
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:813    .text:00000452 MPU6050_Read_Gyro
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:847    .text:00000484 MPU6050_Read_AccZ
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:929    .text:00000500 MPU6050_Read_AccY
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:1011   .text:0000057c MPU6050_Read_AccX
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:1093   .text:000005f8 MPU6050_Read_Acc
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:1127   .text:0000062a MPU6050_Read_Acc_Gyro
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:1143   .text:00000634 MPU6050_Set_Mode_Active
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:1166   .text:00000648 MPU6050_Restart
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:1273   .text:0000069a MPU6050_Init
+C:\Users\WALTON\AppData\Local\Temp/ccYSUfcU.s:1393   .text:00000736 MPU6050_Set_Mode_Sleep
+
+UNDEFINED SYMBOLS
+__floatsisf
+__divsf3
+atan
+__mulsf3
+__fixsfsi
+I2C_Read_Register
+I2C_Get_Error
+__divmodhi4
+LPF_Get_Filtered_Value
+I2C_Write_Register
+I2C_Error_Clear_All
+I2C_Stop
+I2C_Init
+LPF_Init
+LPF_Set_Alpha
+__do_clear_bss

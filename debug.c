@@ -22,7 +22,7 @@ uint16_t TIM1_BAUD_38400[3]= { 280,  280,  70};
 #ifdef  DEBUG_USE_TIMER2
 uint16_t TIM2_BAUD_9600[3] = {1230, 1180, 590};
 uint16_t TIM2_BAUD_19200[3]= { 590,  570, 230};
-uint16_t TIM2_BAUD_38400[3]= { 200,  210,  20};
+uint16_t TIM2_BAUD_38400[3]= { 280,  270,  70};
 #endif
 
 
@@ -228,17 +228,7 @@ void debug_delay(uint16_t val){
   
   #ifdef DEBUG_USE_TIMER2
   TCNT2=0;
-    #ifdef DEBUG_BAUD_RATE_9600
-	#endif
-	
-	#ifdef DEBUG_BAUD_RATE_19200
-	#endif
-	
-	#ifdef DEBUG_BAUD_RATE_38400
-	TCCR2B=(1<<CS20);
-	while(TCNT2<50){}
-    TCNT2=0;
-	#endif
+  TCCR2B=(1<<CS20);
   while(TCNT2<val){}
   TCCR2B=0;
   #endif
@@ -395,6 +385,7 @@ void debug_tx_byte(uint8_t val){
   cli();
   for(uint8_t i=0;i<10;i++){
     debug_tx_set(buf[i]);
+	
 	debug_delay_index_0();    //tx one bit
   }
   SREG=sreg;

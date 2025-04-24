@@ -6,355 +6,220 @@
    6               	__tmp_reg__ = 0
    7               	__zero_reg__ = 1
   15               	.Ltext0:
-  16               	.global	main
-  18               	main:
-  19               	.LFB8:
-  20               	.LM1:
-  21 0000 4F92      		push r4
-  22 0002 5F92      		push r5
-  23 0004 6F92      		push r6
-  24 0006 7F92      		push r7
-  25 0008 8F92      		push r8
-  26 000a 9F92      		push r9
-  27 000c AF92      		push r10
-  28 000e BF92      		push r11
-  29 0010 CF92      		push r12
-  30 0012 DF92      		push r13
-  31 0014 EF92      		push r14
-  32 0016 FF92      		push r15
-  33 0018 0F93      		push r16
-  34 001a 1F93      		push r17
-  35 001c CF93      		push r28
-  36 001e DF93      		push r29
-  37               	/* prologue: function */
-  38               	/* frame size = 0 */
-  39               	.LM2:
-  40 0020 0E94 0000 		call debug_init
-  41               	.LM3:
-  42 0024 0E94 0000 		call PWM_Init
-  43               	.LM4:
-  44 0028 0E94 0000 		call PID_Init
-  45               	.LM5:
-  46 002c 0E94 0000 		call Temp_Init
-  47               	.LM6:
-  48 0030 80E2      		ldi r24,lo8(800)
-  49 0032 93E0      		ldi r25,hi8(800)
-  50 0034 60E0      		ldi r22,lo8(0)
-  51 0036 70E0      		ldi r23,hi8(0)
-  52 0038 40E0      		ldi r20,lo8(0)
-  53 003a 50E0      		ldi r21,hi8(0)
-  54 003c 0E94 0000 		call PID_Update_Constants
-  55               	.LM7:
-  56 0040 0E94 0000 		call LPF_Init
-  57               	.LM8:
-  58 0044 80E0      		ldi r24,lo8(0)
-  59 0046 6EE1      		ldi r22,lo8(30)
-  60 0048 0E94 0000 		call LPF_Set_Alpha
-  61               	.LM9:
-  62 004c 81E0      		ldi r24,lo8(1)
-  63 004e 6EE1      		ldi r22,lo8(30)
-  64 0050 0E94 0000 		call LPF_Set_Alpha
-  65               	.LM10:
-  66 0054 82E0      		ldi r24,lo8(2)
-  67 0056 62E3      		ldi r22,lo8(50)
-  68 0058 0E94 0000 		call LPF_Set_Alpha
-  69               	.LM11:
-  70 005c 549A      		sbi 42-32,4
-  71               	.LM12:
-  72 005e 5C98      		cbi 43-32,4
-  73               	.LM13:
-  74 0060 519A      		sbi 42-32,1
-  75               	.LM14:
-  76 0062 5998      		cbi 43-32,1
-  77               	.LM15:
-  78 0064 5098      		cbi 42-32,0
-  79               	.LM16:
-  80 0066 589A      		sbi 43-32,0
-  81               	.LM17:
-  82 0068 5498      		cbi 42-32,4
-  83               	.LM18:
-  84 006a 5C9A      		sbi 43-32,4
-  85               	.LM19:
-  86 006c 2098      		cbi 36-32,0
-  87               	.LM20:
-  88 006e 289A      		sbi 37-32,0
-  89 0070 CEEE      		ldi r28,lo8(750)
-  90 0072 D2E0      		ldi r29,hi8(750)
-  91               	.LVL0:
-  92 0074 AA24      		clr r10
-  93 0076 BB24      		clr r11
-  94               	.LVL1:
-  95 0078 64E1      		ldi r22,lo8(20)
-  96 007a C62E      		mov r12,r22
-  97 007c D12C      		mov r13,__zero_reg__
-  98               	.LVL2:
-  99               	.LBB31:
- 100               	.LBB32:
- 101               	.LBB33:
- 102               	.LBB34:
- 103               	.LBB35:
- 104               	.LM21:
- 105 007e 58E9      		ldi r21,lo8(15000)
- 106 0080 452E      		mov r4,r21
- 107 0082 5AE3      		ldi r21,hi8(15000)
- 108 0084 552E      		mov r5,r21
- 109               	.LBE35:
- 110               	.LBE34:
- 111               	.LBE33:
- 112               	.LBE32:
- 113               	.LBB39:
- 114               	.LBB40:
- 115               	.LBB41:
- 116               	.LBB42:
- 117 0086 4CE2      		ldi r20,lo8(300)
- 118 0088 642E      		mov r6,r20
- 119 008a 41E0      		ldi r20,hi8(300)
- 120 008c 742E      		mov r7,r20
- 121               	.LBE42:
- 122               	.LBE41:
- 123               	.LBE40:
- 124               	.LBE39:
- 125               	.LBB46:
- 126               	.LBB47:
- 127               	.LBB48:
- 128               	.LBB49:
- 129 008e 30E6      		ldi r19,lo8(-5536)
- 130 0090 832E      		mov r8,r19
- 131 0092 3AEE      		ldi r19,hi8(-5536)
- 132 0094 932E      		mov r9,r19
- 133               	.LVL3:
- 134               	.L13:
- 135               	.LBE49:
- 136               	.LBE48:
- 137               	.LBE47:
- 138               	.LBE46:
- 139               	.LM22:
- 140 0096 0E94 0000 		call Temp_Read_Avg
- 141               	.LVL4:
- 142               	.LM23:
- 143 009a 0E94 0000 		call Temp_Get_Raw_Val
- 144 009e BC01      		movw r22,r24
- 145 00a0 C501      		movw r24,r10
- 146 00a2 0E94 0000 		call PID_Execute_Routine
- 147               	.LM24:
- 148 00a6 0E94 0000 		call PID_Get_Output
- 149 00aa 0E94 0000 		call Iron_Heater_On
- 150               	.LBB53:
- 151               	.LBB38:
- 152               	.LBB37:
- 153               	.LBB36:
- 154               	.LM25:
- 155 00ae C201      		movw r24,r4
- 156               	.LVL5:
- 157               	/* #APP */
- 158               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 159 00b0 0197      		1: sbiw r24,1
- 160 00b2 01F4      		brne 1b
- 161               	 ;  0 "" 2
- 162               	/* #NOAPP */
- 163               	.LBE36:
- 164               	.LBE37:
- 165               	.LBE38:
- 166               	.LBE53:
- 167               	.LM26:
- 168 00b4 81E0      		ldi r24,lo8(1)
- 169               	.LVL6:
- 170 00b6 0E94 0000 		call Temp_Read_ADC_Avg
- 171               	.LM27:
- 172 00ba A0E0      		ldi r26,lo8(0)
- 173 00bc B0E0      		ldi r27,hi8(0)
- 174 00be BC01      		movw r22,r24
- 175 00c0 CD01      		movw r24,r26
- 176 00c2 20EE      		ldi r18,lo8(1100000)
- 177 00c4 38EC      		ldi r19,hi8(1100000)
- 178 00c6 40E1      		ldi r20,hlo8(1100000)
- 179 00c8 50E0      		ldi r21,hhi8(1100000)
- 180 00ca 0E94 0000 		call __mulsi3
- 181               	.LM28:
- 182 00ce 2AE0      		ldi r18,10
- 183 00d0 9695      	1:	lsr r25
- 184 00d2 8795      		ror r24
- 185 00d4 7795      		ror r23
- 186 00d6 6795      		ror r22
- 187 00d8 2A95      		dec r18
- 188 00da 01F4      		brne 1b
- 189               	.LVL7:
- 190               	.LM29:
- 191 00dc 22E3      		ldi r18,lo8(50)
- 192 00de 30E0      		ldi r19,hi8(50)
- 193 00e0 40E0      		ldi r20,hlo8(50)
- 194 00e2 50E0      		ldi r21,hhi8(50)
- 195 00e4 0E94 0000 		call __udivmodsi4
- 196               	.LVL8:
- 197 00e8 CA01      		movw r24,r20
- 198               	.LM30:
- 199 00ea B901      		movw r22,r18
- 200 00ec 2AE0      		ldi r18,lo8(10)
- 201 00ee 30E0      		ldi r19,hi8(10)
- 202 00f0 40E0      		ldi r20,hlo8(10)
- 203 00f2 50E0      		ldi r21,hhi8(10)
- 204 00f4 0E94 0000 		call __udivmodsi4
- 205 00f8 81E0      		ldi r24,lo8(1)
- 206 00fa BA01      		movw r22,r20
- 207 00fc A901      		movw r20,r18
- 208 00fe 0E94 0000 		call LPF_Get_Filtered_Value
- 209 0102 7B01      		movw r14,r22
- 210 0104 8C01      		movw r16,r24
- 211               	.LM31:
- 212 0106 BE01      		movw r22,r28
- 213 0108 8827      		clr r24
- 214 010a 77FD      		sbrc r23,7
- 215 010c 8095      		com r24
- 216 010e 982F      		mov r25,r24
- 217               	.LVL9:
- 218 0110 0E94 0000 		call debug_tx_number_cm
- 219               	.LVL10:
- 220               	.LM32:
- 221 0114 B501      		movw r22,r10
- 222 0116 8827      		clr r24
- 223 0118 77FD      		sbrc r23,7
- 224 011a 8095      		com r24
- 225 011c 982F      		mov r25,r24
- 226               	.LVL11:
- 227 011e 0E94 0000 		call debug_tx_number_cm
- 228               	.LVL12:
- 229               	.LM33:
- 230 0122 0E94 0000 		call Temp_Get_Filtered_Val
- 231 0126 A0E0      		ldi r26,lo8(0)
- 232 0128 B0E0      		ldi r27,hi8(0)
- 233 012a BC01      		movw r22,r24
- 234 012c CD01      		movw r24,r26
- 235 012e 0E94 0000 		call debug_tx_number_cm
- 236               	.LM34:
- 237 0132 C801      		movw r24,r16
- 238 0134 B701      		movw r22,r14
- 239 0136 0E94 0000 		call debug_tx_number_cm
- 240               	.LM35:
- 241 013a 0E94 0000 		call Iron_Get_PWM
- 242 013e A0E0      		ldi r26,lo8(0)
- 243 0140 B0E0      		ldi r27,hi8(0)
- 244 0142 BC01      		movw r22,r24
- 245 0144 CD01      		movw r24,r26
- 246 0146 0E94 0000 		call debug_tx_number_nl
- 247 014a 84EF      		ldi r24,lo8(500)
- 248 014c 91E0      		ldi r25,hi8(500)
- 249               	.LVL13:
- 250               	.L2:
- 251               	.LBB54:
- 252               	.LBB45:
- 253               	.LBB44:
- 254               	.LBB43:
- 255               	.LM36:
- 256 014e F301      		movw r30,r6
- 257               	.LVL14:
- 258               	/* #APP */
- 259               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 260 0150 3197      		1: sbiw r30,1
- 261 0152 01F4      		brne 1b
- 262               	 ;  0 "" 2
- 263               	/* #NOAPP */
- 264               	.LBE43:
- 265               	.LBE44:
- 266               	.LM37:
- 267 0154 0197      		sbiw r24,1
- 268               	.LM38:
- 269 0156 01F4      		brne .L2
- 270               	.LBE45:
- 271               	.LBE54:
- 272               	.LM39:
- 273 0158 1C14      		cp __zero_reg__,r12
- 274 015a 1D04      		cpc __zero_reg__,r13
- 275 015c 04F4      		brge .L3
- 276               	.LM40:
- 277 015e 0894      		sec
- 278 0160 C108      		sbc r12,__zero_reg__
- 279 0162 D108      		sbc r13,__zero_reg__
- 280               	.L3:
- 281               	.LM41:
- 282 0164 C114      		cp r12,__zero_reg__
- 283 0166 D104      		cpc r13,__zero_reg__
- 284 0168 01F4      		brne .L4
- 285 016a 5E01      		movw r10,r28
- 286               	.LVL15:
- 287               	.L4:
- 288               	.LM42:
- 289 016c 4C99      		sbic 41-32,4
- 290 016e 00C0      		rjmp .L5
- 291               	.LM43:
- 292 0170 2196      		adiw r28,1
- 293 0172 83E0      		ldi r24,hi8(801)
- 294 0174 C132      		cpi r28,lo8(801)
- 295 0176 D807      		cpc r29,r24
- 296               	.LVL16:
- 297 0178 04F0      		brlt .L8
- 298 017a C0E2      		ldi r28,lo8(800)
- 299 017c D3E0      		ldi r29,hi8(800)
- 300 017e 00C0      		rjmp .L8
- 301               	.LVL17:
- 302               	.L5:
- 303               	.LM44:
- 304 0180 1899      		sbic 35-32,0
- 305 0182 00C0      		rjmp .L13
- 306               	.LM45:
- 307 0184 2197      		sbiw r28,1
- 308 0186 D7FF      		sbrs r29,7
- 309 0188 00C0      		rjmp .L8
- 310 018a C0E0      		ldi r28,lo8(0)
- 311 018c D0E0      		ldi r29,hi8(0)
- 312               	.L8:
- 313               	.LBB55:
- 314               	.LBB52:
- 315               	.LBB51:
- 316               	.LBB50:
- 317               	.LM46:
- 318 018e C401      		movw r24,r8
- 319               	.LVL18:
- 320               	/* #APP */
- 321               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 322 0190 0197      		1: sbiw r24,1
- 323 0192 01F4      		brne 1b
- 324               	 ;  0 "" 2
- 325               	/* #NOAPP */
- 326 0194 84E1      		ldi r24,lo8(20)
- 327 0196 C82E      		mov r12,r24
- 328 0198 D12C      		mov r13,__zero_reg__
- 329               	.LVL19:
- 330 019a 00C0      		rjmp .L13
- 331               	.LBE50:
- 332               	.LBE51:
- 333               	.LBE52:
- 334               	.LBE55:
- 335               	.LBE31:
- 336               	.LFE8:
- 362               	.Letext0:
+  16               		.data
+  17               	.LC0:
+  18 0000 4465 6275 		.string	"Debug Started"
+  18      6720 5374 
+  18      6172 7465 
+  18      6400 
+  19               		.text
+  20               	.global	main
+  22               	main:
+  23               	.LFB8:
+  24               	.LM1:
+  25 0000 6F92      		push r6
+  26 0002 7F92      		push r7
+  27 0004 8F92      		push r8
+  28 0006 9F92      		push r9
+  29 0008 AF92      		push r10
+  30 000a BF92      		push r11
+  31 000c CF92      		push r12
+  32 000e DF92      		push r13
+  33 0010 EF92      		push r14
+  34 0012 FF92      		push r15
+  35 0014 0F93      		push r16
+  36 0016 1F93      		push r17
+  37 0018 CF93      		push r28
+  38 001a DF93      		push r29
+  39               	/* prologue: function */
+  40               	/* frame size = 0 */
+  41               	.LM2:
+  42 001c 549A      		sbi 42-32,4
+  43               	.LM3:
+  44 001e 5C98      		cbi 43-32,4
+  45               	.LM4:
+  46 0020 0E94 0000 		call Timer_Init
+  47               	.LM5:
+  48 0024 0E94 0000 		call debug_init
+  49               	.LM6:
+  50 0028 80E0      		ldi r24,lo8(.LC0)
+  51 002a 90E0      		ldi r25,hi8(.LC0)
+  52 002c 0E94 0000 		call debug_tx_text_nl
+  53               	.LM7:
+  54 0030 0E94 0000 		call MPU6050_Init
+  55 0034 AA24      		clr r10
+  56 0036 BB24      		clr r11
+  57 0038 6501      		movw r12,r10
+  58               	.LVL0:
+  59 003a EE24      		clr r14
+  60 003c FF24      		clr r15
+  61 003e 8701      		movw r16,r14
+  62               	.LVL1:
+  63               	.LBB13:
+  64               	.LBB14:
+  65               	.LBB15:
+  66               	.LBB16:
+  67               	.LBB17:
+  68               	.LM8:
+  69 0040 C0E3      		ldi r28,lo8(30000)
+  70 0042 D5E7      		ldi r29,hi8(30000)
+  71               	.LVL2:
+  72               	.L4:
+  73               	.LBE17:
+  74               	.LBE16:
+  75               	.LBE15:
+  76               	.LBE14:
+  77               	.LM9:
+  78 0044 0E94 0000 		call MPU6050_Read_Acc_Gyro
+  79               	.LVL3:
+  80               	.LM10:
+  81 0048 0E94 0000 		call Timer_Get_Time
+  82 004c 962E      		mov r9,r22
+  83 004e 872E      		mov r8,r23
+  84 0050 782E      		mov r7,r24
+  85 0052 692E      		mov r6,r25
+  86               	.LM11:
+  87 0054 0E94 0000 		call Timer_Start
+  88               	.LM12:
+  89 0058 0E94 0000 		call MPU6050_Get_Error
+  90 005c 892B      		or r24,r25
+  91 005e 01F0      		breq .+2
+  92 0060 00C0      		rjmp .L2
+  93               	.LM13:
+  94 0062 0E94 0000 		call MPU6050_Get_GyroX
+  95 0066 AA27      		clr r26
+  96 0068 97FD      		sbrc r25,7
+  97 006a A095      		com r26
+  98 006c BA2F      		mov r27,r26
+  99               	.LVL4:
+ 100               	.LM14:
+ 101 006e BC01      		movw r22,r24
+ 102 0070 CD01      		movw r24,r26
+ 103 0072 292D      		mov r18,r9
+ 104 0074 382D      		mov r19,r8
+ 105 0076 472D      		mov r20,r7
+ 106 0078 562D      		mov r21,r6
+ 107 007a 0E94 0000 		call __mulsi3
+ 108               	.LM15:
+ 109 007e 20EA      		ldi r18,lo8(100000)
+ 110 0080 36E8      		ldi r19,hi8(100000)
+ 111 0082 41E0      		ldi r20,hlo8(100000)
+ 112 0084 50E0      		ldi r21,hhi8(100000)
+ 113 0086 0E94 0000 		call __divmodsi4
+ 114 008a A20E      		add r10,r18
+ 115 008c B31E      		adc r11,r19
+ 116 008e C41E      		adc r12,r20
+ 117 0090 D51E      		adc r13,r21
+ 118               	.LM16:
+ 119 0092 0E94 0000 		call MPU6050_Get_GyroY
+ 120               	.LVL5:
+ 121 0096 AA27      		clr r26
+ 122 0098 97FD      		sbrc r25,7
+ 123 009a A095      		com r26
+ 124 009c BA2F      		mov r27,r26
+ 125               	.LVL6:
+ 126               	.LM17:
+ 127 009e BC01      		movw r22,r24
+ 128 00a0 CD01      		movw r24,r26
+ 129 00a2 292D      		mov r18,r9
+ 130 00a4 382D      		mov r19,r8
+ 131 00a6 472D      		mov r20,r7
+ 132 00a8 562D      		mov r21,r6
+ 133 00aa 0E94 0000 		call __mulsi3
+ 134               	.LM18:
+ 135 00ae 20EA      		ldi r18,lo8(100000)
+ 136 00b0 36E8      		ldi r19,hi8(100000)
+ 137 00b2 41E0      		ldi r20,hlo8(100000)
+ 138 00b4 50E0      		ldi r21,hhi8(100000)
+ 139 00b6 0E94 0000 		call __divmodsi4
+ 140 00ba E20E      		add r14,r18
+ 141 00bc F31E      		adc r15,r19
+ 142 00be 041F      		adc r16,r20
+ 143 00c0 151F      		adc r17,r21
+ 144               	.LM19:
+ 145 00c2 0E94 0000 		call MPU6050_Get_GyroZ
+ 146               	.LVL7:
+ 147               	.LM20:
+ 148 00c6 0E94 0000 		call MPU6050_Read_Pitch
+ 149 00ca AA27      		clr r26
+ 150 00cc 97FD      		sbrc r25,7
+ 151 00ce A095      		com r26
+ 152 00d0 BA2F      		mov r27,r26
+ 153 00d2 BC01      		movw r22,r24
+ 154 00d4 CD01      		movw r24,r26
+ 155 00d6 0E94 0000 		call debug_tx_number_cm
+ 156               	.LM21:
+ 157 00da 0E94 0000 		call MPU6050_Read_Roll
+ 158 00de AA27      		clr r26
+ 159 00e0 97FD      		sbrc r25,7
+ 160 00e2 A095      		com r26
+ 161 00e4 BA2F      		mov r27,r26
+ 162 00e6 BC01      		movw r22,r24
+ 163 00e8 CD01      		movw r24,r26
+ 164 00ea 0E94 0000 		call debug_tx_number_cm
+ 165               	.LM22:
+ 166 00ee C601      		movw r24,r12
+ 167 00f0 B501      		movw r22,r10
+ 168 00f2 0E94 0000 		call debug_tx_number_cm
+ 169               	.LM23:
+ 170 00f6 C801      		movw r24,r16
+ 171 00f8 B701      		movw r22,r14
+ 172 00fa 0E94 0000 		call debug_tx_number_cm
+ 173               	.LM24:
+ 174 00fe 0E94 0000 		call debug_tx_nl
+ 175 0102 00C0      		rjmp .L3
+ 176               	.L2:
+ 177               	.LM25:
+ 178 0104 0E94 0000 		call MPU6050_Restart
+ 179               	.L3:
+ 180               	.LBB21:
+ 181               	.LBB20:
+ 182               	.LBB19:
+ 183               	.LBB18:
+ 184               	.LM26:
+ 185 0108 CE01      		movw r24,r28
+ 186               	.LVL8:
+ 187               	/* #APP */
+ 188               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 189 010a 0197      		1: sbiw r24,1
+ 190 010c 01F4      		brne 1b
+ 191               	 ;  0 "" 2
+ 192               	/* #NOAPP */
+ 193 010e 00C0      		rjmp .L4
+ 194               	.LBE18:
+ 195               	.LBE19:
+ 196               	.LBE20:
+ 197               	.LBE21:
+ 198               	.LBE13:
+ 199               	.LFE8:
+ 225               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\FARIDU~1\AppData\Local\Temp/ccKeR8Cl.s:2      *ABS*:0000003f __SREG__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccKeR8Cl.s:3      *ABS*:0000003e __SP_H__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccKeR8Cl.s:4      *ABS*:0000003d __SP_L__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccKeR8Cl.s:5      *ABS*:00000034 __CCP__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccKeR8Cl.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccKeR8Cl.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccKeR8Cl.s:18     .text:00000000 main
+C:\Users\WALTON\AppData\Local\Temp/ccIM7lut.s:2      *ABS*:0000003f __SREG__
+C:\Users\WALTON\AppData\Local\Temp/ccIM7lut.s:3      *ABS*:0000003e __SP_H__
+C:\Users\WALTON\AppData\Local\Temp/ccIM7lut.s:4      *ABS*:0000003d __SP_L__
+C:\Users\WALTON\AppData\Local\Temp/ccIM7lut.s:5      *ABS*:00000034 __CCP__
+C:\Users\WALTON\AppData\Local\Temp/ccIM7lut.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\WALTON\AppData\Local\Temp/ccIM7lut.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\WALTON\AppData\Local\Temp/ccIM7lut.s:22     .text:00000000 main
 
 UNDEFINED SYMBOLS
+Timer_Init
 debug_init
-PWM_Init
-PID_Init
-Temp_Init
-PID_Update_Constants
-LPF_Init
-LPF_Set_Alpha
-Temp_Read_Avg
-Temp_Get_Raw_Val
-PID_Execute_Routine
-PID_Get_Output
-Iron_Heater_On
-Temp_Read_ADC_Avg
+debug_tx_text_nl
+MPU6050_Init
+MPU6050_Read_Acc_Gyro
+Timer_Get_Time
+Timer_Start
+MPU6050_Get_Error
+MPU6050_Get_GyroX
 __mulsi3
-__udivmodsi4
-LPF_Get_Filtered_Value
+__divmodsi4
+MPU6050_Get_GyroY
+MPU6050_Get_GyroZ
+MPU6050_Read_Pitch
 debug_tx_number_cm
-Temp_Get_Filtered_Val
-Iron_Get_PWM
-debug_tx_number_nl
+MPU6050_Read_Roll
+debug_tx_nl
+MPU6050_Restart
+__do_copy_data
